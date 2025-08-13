@@ -1,0 +1,23 @@
+À propos de l’offre d’emploi
+Missions
+Votre rôle
+Au sein d'une équipe tech à taille humaine, vous participerez activement au développement et à l'évolution d'applications web robustes et performantes, basées sur l'écosystème PHP Symfony. Vous interviendrez sur l'ensemble du cycle de développement : de la conception à la mise en production.
+Profil
+Vos missions
+  Concevoir, développer et maintenir des fonctionnalités backend en PHP Symfony
+ Participer aux choix techniques et à l'architecture des projets
+ Garantir la qualité du code via des tests et revues de code
+ Collaborer avec les équipes produit, frontend et DEVOPS
+ Être force de proposition pour améliorer les performances et la scalabilité
+Stack technique
+  PHP 8 / Symfony
+ MySQL
+Profil recherché
+  Vous maîtrisez PHP et Symfony sur le bout des doigts
+ Vous avez une bonne culture dev (tests, clean code, bonnes pratiques)
+ Vous aimez collaborer et partager vos idées
+ Vous êtes autonome, curieux(se) et passionné(e) par la tech
+Infos complémentaires
+AvantagesFull remote possible (ou présence ponctuelle à Lille si souhaitée)Mutuelle Tickets restaurant Prime de participation aux bénéficesMatériel performant fourni
+Description Entreprise
+Mon client, une entreprise de la, métropole lilloise développe depuis plusieurs années des plateformes numériques dédiées à l'univers musical et au divertissement. Sa mission : rendre la musique accessible et immersive grâce à des technologies innovantes.

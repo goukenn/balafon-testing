@@ -1,0 +1,5 @@
+<div>
+    <p *for="$raw">
+        first article .... {{ $raw->user }} is {{ $raw->name | uppercase }}
+    </p>
+</div>

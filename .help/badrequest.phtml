@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var IGK\System\Html\Dom\HtmlNode $t
+ */
+$t->clearChilds();
+$t["class"] = "fitvh"; 
+
+if (igk_server()->method("POST")){ 
+
+    if (igk_server()->isMultipartFormData())
+        igk_navto($fname);
+} 
+
+// produce bad request
+$t->add("h1")->Content=  "Testing Bad Request ";
+$form = $t->addForm()->setClass("center-box")->setStyle("max-width: 400px;");
+$form["action"] = $fname;
+$form["enctype"] = "multipart/form-data";
+$form["autocomplete"] = "off";
+
+$form->addFields([
+"pic_n"=>[],
+"picture"=>["type"=>"file"]
+])->addActions(
+    [
+        "btn.submit"=>["type"=>"submit"]
+    ]
+);
+
+ 

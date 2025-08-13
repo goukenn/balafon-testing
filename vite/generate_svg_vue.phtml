@@ -1,0 +1,22 @@
+<?php
+// @desc: convert svg to vue 2 .vue component
+// balafon --run ./.test/vite/generate_svg_vue.phtml ./src/application/Packages/Modules/ionicons/Data/assets/ /temp/output
+use IGK\System\Console\Logger;
+use IGK\System\Html\XML\XmlNode;
+$form_ = $params[0];
+$to_ = $params[1];
+$d = strlen($form_);
+foreach(igk_io_getfiles($form_,"/\.svg$/") as $f){
+    $n = substr($f,$d);
+    $_rp = dirname($n);
+    if ($_rp==".")
+    {
+        $_rp = '';
+    }
+    $path = $_rp.igk_io_basenamewithoutext($n).".vue";     
+    $dest_ = $to_."/".$path ;
+    $n = new XmlNode("template");
+    $n->setContent(file_get_contents($f));
+    igk_io_w2file($dest_, $n->render());
+}
+Logger::print("done : ".$to_);

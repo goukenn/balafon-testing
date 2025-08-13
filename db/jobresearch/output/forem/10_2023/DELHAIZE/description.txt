@@ -1,0 +1,25 @@
+Réf.: 6449_KZ852gOp
+Uw rol
+    Als System Engineer DevOps maak je tools en systemen die de ontwikkelsnelheid verhogen en die het leven vereenvoudigen voor ontwikkelaars.
+    Je bent verantwoordelijk voor de uitwerking van infrastructuurplatformen en de bijhorende diensten (logging, monitoring, alarmen).
+    Je weet problemen op te lossen met betrekking tot grootschalige omgevingen voor webontwikkeling.
+    Je begrijpt de behoeften en vereisten op het vlak van server- en database-architectuur en zorgt ervoor dat deze beantwoord worden.
+    Je neemt deel aan de implementatie van CI/CD-practices (Continuous Integration, Continuous Delivery).
+    Tot slot ontwikkel je systemen en procedures die voldoen aan normen zoals de GDPR / NIS 2 om de privacy en veiligheid van klantgegevens te waarborgen.
+ 
+Uw profiel
+    Je behaalde een master- of bachelordiploma in de informatica.
+    Je hebt reeds een eerste ervaring met DevOps en met MicroServices-architecturen (Docker, OpenShift/Kubernetes, OpenStack, ...).
+    Je bent vertrouwd met het creëren van evolutieve infrastructuurplatformen voor SaaS/PaaS/Vmaas-producten die OpenShift & OpenStack gebruiken en met het bouwen van CI/CD-pijplijnen (GitLab).
+    Expertise in Java gebaseerde Middleware en database omgevingen (Oracle en PostgrSQL) is een plus.
+    Je hebt hands-on ervaring met infrastructuur automatisatie tooling zoals Ansible en de Linux (RedHat) commando's vloeien uit je vingers.
+    Kennis van Python is een enorme plus.
+    De infrastructuur als code behandelen en een platform creëren waarop veilige, betrouwbare en krachtige gedistribueerde services kunnen worden uitgevoerd, motiveert je sterk.
+    Je neemt graag deel aan architectuurbesprekingen en wil graag betrokken zijn bij de beslissingen over de implementatiemethoden en de technologische keuzes.
+    Je hebt een passieve kennis van het Frans.
+ 
+Ons aanbod
+    Je krijgt een gevarieerde, uitdagende en maatschappelijk relevante job waarbij je bijdraagt aan IT-oplossingen die een belangrijke rol spelen in de samenleving. Onze slogan 'ICT for society' weerspiegelt dit perfect.
+    Zoek je een goede balans tussen werk en privéleven? Geniet van flexibele werkuren en maak gebruik van ons zeer uitgebreid telewerkbeleid.
+    We bieden ruime interne en externe opleidingsmogelijkheden, waardoor je je technische skills en persoonlijke vaardigheden voortdurend kunt aanscherpen.
+    We bieden je een competitief salaris, aangevuld met extralegale voordelen zoals hos

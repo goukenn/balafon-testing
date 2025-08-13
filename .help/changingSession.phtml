@@ -1,0 +1,29 @@
+<?php
+
+
+if (igk_getr("change")){
+
+    igk_wln($_SESSION);
+    $mid = session_id();
+    $ssid = igk_getr('sid');
+    $o = $app->getLibrary()->session->changeTo($ssid);
+    echo "changed ".$o;
+    // session_write_close();
+    // $_SESSION = [];
+    // session_id($ssid);
+    // session_start();
+    // igk_wln($_SESSION);
+    $capp = 'from - '.$ssid;
+    $controller->setParam("count", igk_server()->HTTP_USER_AGENT ." : 180 ".' - '.$capp.'<br />');
+
+    //restore
+    $app->getLibrary()->session->changeTo($mid);
+    // session_write_close();
+    // $_SESSION = [];
+    // session_id($mid);
+    // session_start();
+
+} else {
+    // $controller->setParam("count", igk_server()->HTTP_USER_AGENT);
+    // $controller->setParam("count", null);
+}

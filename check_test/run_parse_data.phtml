@@ -1,0 +1,17 @@
+<?php
+$v_domainname = "basic.com";
+$scr = preg_replace('/(\/\/|[^"\';:\( ]+:\/\/(www\.)?)?'.$v_domainname.'(\/)?/i', 
+"./temp/data/src/$4", 
+"background-image: url(https://basic.com/information)"
+);
+igk_dev_wln_e("data: ", $scr);
+$t = igk_create_node('div');
+$src = <<<'HTML'
+<script type='text/javascript' id='woof_front-js-before'> 
+w =1;        			
+
+
+</script>
+HTML;
+$t->load($src); 
+echo $t->render(); 

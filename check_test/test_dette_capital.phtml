@@ -1,0 +1,170 @@
+<?php
+// balafon --run /Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Projects/app_test/Views/test_dette_capital.phtml -db_server:0.0.0.0
+use App\Models\RCredits;
+use IGK\System\Html\Forms\FormHelper;
+use IGK\System\Html\Forms\FormUtils;
+use function igk_resources_gets as __; 
+/**
+ * @var HtmlNode $t 
+ */
+igk_require_module(\igk\js\Vue3::class);
+L81Controller::register_autoload();
+igk_view_handle_actions($fname, [
+'store'=>function(){
+    igk_navto_referer($this::uri('test_dette_capital'));
+}
+], $params);
+// $ad = L81Controller::ctrl()->getDataAdapter();
+// $model = RMembers::model(); 
+// $tableinfo = $model->getTableInfo() ;
+// $query = $ad->getGrammar()->createInsertQuery($model->table(), 
+// ['clrMPosition_Id'=>'RMembers.Member'], $tableinfo);
+// igk_wln_e(__FILE__.":".__LINE__, $query);
+igk_google_addfont($doc, 'Roboto');
+$t['class'] = '+google-Roboto';
+function form_sold_quot($a
+// , 
+// ($userprofile, $groups, $auths,) 
+// $roles=null
+)
+{
+    L81Controller::register_autoload();
+    $users = L81Controller::ctrl()->model('RMembers');
+    $g = FormUtils::SelectData( $v_tusers = $users::select_all(['clrMStatut'=>1]) ,
+        'clId', '{{ clrMFirstName | lowercase }} {{ clrMLastName | uppercase }}');
+    $sl_users = $g;
+    $a->h2()->Content = 'Month';
+    $sec = $a->section();
+    $ul = $sec->div()->ul();
+    $ul->li()->Content = "2022v--{{ x }}"; // $userprofile->display();
+    $a->fields([
+        "mois"=>['type'=>'select', 'data'=>FormHelper::YearMounthSelection(date('Y'))],
+        "memberid"=>['type'=>'select', 'data'=>$sl_users],
+        "avalistid"=>['type'=>'select','data'=>$sl_users],
+        // 
+        "amount"=>['type'=>'number', 
+        'id'=>'amount',
+        'maxlength'=>10,        
+        'attribs'=>[
+            // 'v-model'=>'amount'
+            ':value'=>'in_amount',
+            '@input'=>'update_amount',
+        ]],
+        "interet"=>['type'=>'number', 'id'=>'interest',
+        'maxlength'=>10,
+         'attribs'=>[
+            ':value'=>'calculationResult',
+            '@input'=>'update_interet',
+        ]],
+        "credit_recieve"=>['type'=>'text', 
+        'maxlength'=>10,
+        'attribs'=>[
+            ':value'=>'inhand',
+            '@input'=>'update_inhand',
+        ]],
+    ]);
+    $bar = $a->actionbar();
+    $group = $bar->actiongroup();
+    $group->input('', 'submit', 'ajouter');
+    $group->input('', 'button', 'export csv');
+    $group->input('', 'button', 'fermer');
+    $a->div()->Content = '{{ amount }}';
+    $a->div()->Content = 'calculation : {{ calculationResult }}';
+}
+$dv = $t->div()->setClass('pad-4');
+$v_default_percent = '0.1';
+$frm = $dv->form($ctrl::uri($fname."/store"));
+$frm->notifyhost('l81');
+$ctrl = L81Controller::ctrl();
+$ctrl->register_autoload(); 
+$frm->vue_app('dette_capital',[<<<'JS'
+
+data(){
+    let _interet = 0.0;
+    let _amount = 0.0;
+    return {
+        x:'preti wo-ma-n',
+        in_amount: 0.00, 
+        percent : _percent,
+        currency: 'EUR',
+    };
+},
+methods:{
+    // calculationResult(){
+    //     return Math.round(this.amount * (_percent)).toFixed(2);
+    // }
+    update_amount(i){
+        const g = i.target;
+        let v = parseFloat(g.value)
+        if (v){
+        if (v<=0){
+            v = 0;
+        }
+    }else 
+    v  = 0;
+        this.in_amount = v;        
+    },
+    update_inhand(i){
+        // use want to have that amount
+
+        const g = i.target;
+        let v = parseFloat(g.value)
+        if (v<=0){
+            v = 0;
+        }
+        // this.in_amount = Math.floor((v / (1 - _percent)) *100).toFixed(2);
+        // console.debug('id ....');
+        console.log("update data " ,   this.in_amount);
+    },
+    update_interet(i){
+        // use want to paid that interet 
+        const g = i.target;
+        const p = g.selectionStart;  
+        let v = parseFloat(g.value)
+        if (v<=0){
+            v = 0;
+        }else if (v == Number.NAN){
+            v = 0;
+        }        
+        this.in_amount = (Math.floor((v / _percent) *100) / 100).toFixed(2);
+        // console.debug('id ....');
+        console.log("update data " , p, this.in_amount);
+        g.selectionStart = p;
+    }
+
+},
+computed:{
+    amount(){
+        return this._in_amount;
+    },
+    calculationResult(){
+        return (Math.ceil(this.in_amount * (0.1) * 100)/ 100.0).toFixed(2);
+    },
+    inhand(){
+        return (this.in_amount - this.calculationResult).toFixed(2);
+    }
+}
+JS])
+->setDefs(sprintf('const _percent = %s; let _state = {}; ', $v_default_percent ) )
+->host(
+\form_sold_quot::class
+); 
+$t->div()->setClass("pad-4")->Content = "0.00 €";
+// , $profiles, $groups, $roles); 
+// , $frm->host(ViewHelper::Form('user_profile_details'));<<<'JS'
+{
+    data(){
+        return {
+            x: 0
+        };
+    }
+}
+JS;
+$g = RCredits::prepare()->where(
+    [
+        '>credit_amount'=>0
+    ])->columns([       
+            'Sum(credit_amount)' => 'total'
+        ]    
+)->execute();
+$t->div()->Content = sprintf("Amount : %s %s ", $g->getRows()[0]->total, 'EUR');

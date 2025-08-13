@@ -1,0 +1,17 @@
+<?php
+// @desc : generate list of components 
+// @comman: balafon --run .test/vite/list_component.phtml [dir]
+use IGK\Helper\StringUtility;
+use igk\js\Vite\Helpers\ViteHelperUtility;
+use IGK\System\Console\Logger;
+use IGK\System\IO\Path;
+use IGK\System\IO\StringBuilder;
+if (!function_exists('igk_vite_component_name')){
+    function igk_vite_component_name(string $s){
+        return StringUtility::CamelClassName($s);
+    }
+}
+$dir = igk_getv($params, 0) ?? igk_die("missing args");
+is_dir($dir) || igk_die('dir does\'t exists');
+echo ViteHelperUtility::GetAppComponentsScript2($dir);
+igk_exit();

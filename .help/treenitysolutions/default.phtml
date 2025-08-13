@@ -1,0 +1,23 @@
+<?php
+
+use IGK\Helper\ViewHelper;
+
+$bmc = igk_require_module(igk\BMC::class);
+require_once ViewHelper::Dir()."/Lib/Classes/Actions/ActionHandler.php";
+
+use \treenitySolutions\Actions\ActionHandler as Actions; 
+
+igk_view_handle_actions($fname, Actions::getInstance($ctrl), $params); 
+//binding controller view style
+$style = $dir."/Styles/default.pcss";
+$doc->Theme->resetAll();
+igk_css_reg_global_style_file($style, $doc->Theme);
+
+$bmc->initdoc($doc);
+$doc->Title = "Treenity Solutions Tools";
+$t->clearChilds(); 
+
+$t->div()->addSectionTitle(4)->Content = "Treenity Solution Tools";
+$d = $t->div(); 
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid tutorials</title>
+    <style>
+        /* grid sample tutorial  */
+        .container{
+            display:grid;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-rows: repeat(4, 100px);
+            grid-template-areas: 'sp d1 d2 d3'
+            'lp d1 d2 d3'
+            'lx d4 d2 d7';
+        }
+        .item{
+            background-color: indianred;
+            border: 1px solid red;
+        }
+        .item-3{
+            grid-area: d2;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item-1">item 1</div>
+        <div class="item item-2">item 2</div>
+        <div class="item item-3">item 3</div>
+        <div class="item item-4">item 4</div>
+    </div>
+</body>
+</html>  

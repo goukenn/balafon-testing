@@ -1,0 +1,36 @@
+{
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.local.com/*",
+                "*://*.igkdev.com/*",
+                "*://*.napoleonsports.be/*"
+            ],
+            "js": [
+                "main.js"
+            ]
+        }
+    ],
+    "description": "border les",
+    "icons": {},
+    "manifest_version": 2,
+    "name": "balafon-extension",
+    "version": "1.0",
+    "permissions": [
+        "cookies", "activeTab",
+     "http://*/*",
+        "https://*/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "addon@igkdev.com",
+            "strict_min_version": "58.0"
+        }
+    }
+}

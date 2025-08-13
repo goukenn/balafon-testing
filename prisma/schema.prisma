@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tbprisma_tablename {
+  clId                                  Int                  @id @default(autoincrement())
+  clName                                String               @unique @db.VarChar(140)
+  clParent                              Int?
+  tbprisma_tablename_tbprisma_tablename tbprisma_tablename?  @relation("RS_", fields: [clParent], references: [clId])
+  child_tbprisma_tablename              tbprisma_tablename[] @relation("RS_")
+  tbprisma_authors                      tbprisma_authors[]
+}
+
+model tbprisma_authors {
+  clId                                Int                @id @default(autoincrement())
+  clFirstName                         String             @db.VarChar(140)
+  clLastName                          String             @db.VarChar(140)
+  clContact                           String?            @db.VarChar(140)
+  clDesc                              String?
+  clParent                            Int
+  clBaseType                          EnumClBaseType     @default(CAR)
+  tbprisma_authors_tbprisma_tablename tbprisma_tablename @relation(fields: [clParent], references: [clId])
+}
+
+enum EnumClBaseType {
+  CAR @map("1")
+  BYCICLE @map("2")
+  // @@ignore
+}

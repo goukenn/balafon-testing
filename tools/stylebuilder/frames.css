@@ -1,0 +1,20 @@
+@keyframes indic{
+    from{
+        width: 0px;
+    }
+    to {
+        height: 100px;
+    }
+}
+
+
+.card{
+    display: block;
+    background-color: red;
+    width: 0px;
+    animation: indic .2s loop;
+}
+.no-card{
+    display:      block;
+    background-color: indigo;
+}

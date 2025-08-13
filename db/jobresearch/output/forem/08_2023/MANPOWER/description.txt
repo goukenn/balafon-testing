@@ -1,0 +1,45 @@
+Oniryx - Développeur .NET Senior
+En tant que consultant chez Oniryx, vous participez avec les membres de l'équipe à l'ensemble du cycle de développement. Nous recherchons un Développeur .NET Senior talentueux et passionné pour renforcer notre équipe. Vous interviendrez sur des projets d'envergure et collaborerez avec nos clients afin de concevoir et développer des solutions performantes et innovantes.
+ 
+ 
+Vos missions 
+    Concevoir et développer des applications robustes et évolutives en .NET.
+    Participer aux choix techniques et aux orientations stratégiques des projets.
+    Assurer la qualité du code et garantir les bonnes pratiques de développement.
+    Accompagner le client en le conseillant et en participant activement aux réalisations.
+    Optimiser les performances des applications et assurer leur évolutivité.
+    Assurer une veille technologique et partager vos connaissances avec l'équipe.
+ 
+Profil recherché 
+    Vous disposez d'un bachelier ou d'un master en IT, ou d'une expérience équivalente.
+    Vous justifiez d'au moins 7 ans d'expérience en tant que développeur .NET.
+    Vous maîtrisez React et les technologies front-end.
+    Vous êtes autonome, rigoureux et appréciez le travail en équipe dans un environnement Agile.
+Compétences techniques requises:
+    C# / .NET Core
+    ASP.NET, Web API
+    SQL
+    XML/JSON
+    IDE
+    Tests unitaires
+Compétences techniques appréciées:
+    Azure
+    ASP.NET MVC
+    IoC
+    REST
+    Docker / Kubernetes
+    Intégration continue
+    Design patterns
+ 
+Pourquoi nous rejoindre ?
+    Des projets ambitieux et variés qui repoussent les limites de la technologie.
+    Un management collaboratif qui valorise l'autonomie et l'initiative.
+    Un environnement propice à l'apprentissage continu, où l'innovation est encouragée.
+    Une entreprise engagée pour le bien-être au travail et l'épanouissement personnel.
+    Nous vous proposons: Un package complet, attractif et adapté à vos compétences et votre expérience, incluant:
+        Voiture de société et carte essence
+        Frais forfaitaires + chèques repas
+        Assurance hospitalisation et dentaire (DKV) + assurance groupe
+        Budget formation + 10 jours de formation/an
+        Smartphone et abonnement
+Vous vous reconnaissez dans cette opportunité ? Rejoignez l'aventure Oniryx et construisons ensemble l'avenir du numérique !

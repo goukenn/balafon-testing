@@ -1,0 +1,33 @@
+<?php
+use IGK\Helper\IO;
+use Spatie\Ssr\Renderer;
+use Spatie\Ssr\Engines\Node;
+$temp = __DIR__.'/temp';
+IO::CreateDir($temp);
+igk_io_w2file($temp."/package.json", json_encode([
+    "name"=>"temp-ssr",
+    // "type"=>"module",
+    "private"=>"true",
+    "dependencies"=>[
+        "compression"=> "^1.7.4",
+        "express"=> "^4.18.2",
+        "sirv"=> "^2.0.3",
+        "vue"=> "^3.3.4"
+    ],
+    "devDependencies"=>[
+        "@vitejs/plugin-vue"=> "^4.2.3",
+        "cross-env"=> "^7.0.3",
+        "vite"=> "^4.3.9"
+    ]
+]));
+chdir($temp);
+echo "installing .... ";
+$s = `yarn install`;
+echo $s;
+$engine = new Node('node', $temp);
+$renderer = new Renderer($engine);
+echo "output : ". $renderer->entry('/Volumes/Data/Dev/Vite/server-ssr/server.js')
+    ->debug(true)
+    ->render();
+echo "\n";
+exit;

@@ -1,0 +1,29 @@
+<?php
+
+if (!igk_is_conf_connected()){
+	igk_navto($ctrl->getAppUri());
+} 
+include_once($dir."/.header.pinc");
+
+$t->clearChilds();
+$doc->title = "who use Balafon ?";
+$doc->Metas->setDescription("View All public web site who use balafon as main engine");
+
+
+$t->div()->addSectionTitle(4)->Content = __("Who Use");
+$ctn = $t->div()->container();
+//for small device
+$r = $ctrl->Db->getWhoUse();
+if ($r){
+foreach($r->Rows as $k=>$v){
+	$ctn->addRow()->addCol()->div()->addABtn($v->clWebSite)->Content = $v->clWebSite; 
+}
+}
+//$t->addDbResult($r);
+
+
+// $t->div()->Content = "Resulting ".$r;
+// $t->div()->Content = $ctrl->Configs->clDataAdapterName;
+
+$t->div()->addIGKCopyright();
+$t->addCookieWarning(); 

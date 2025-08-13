@@ -1,0 +1,13 @@
+<?php
+// test load balafon configuration 
+$f = IGK_APP_DIR."/../../balafon.config.xml"; 
+$g = igk_conf_load_content(<<<MSG_EOF
+<balafon><div>sample</div></balafon>
+MSG_EOF, "balafon");
+
+if ($g){
+    igk_wln ($g == (object)[
+        "div"=>"sample"
+    ]); 
+}
+igk_exit();

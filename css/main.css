@@ -1,0 +1,16 @@
+/* dummy main css file - to use with parse css tyle command */
+.body{
+    background-color:red;
+}
+p + h {
+    color:black;
+}
+
+@media( (min-width:256) and (max-with: 264) ){
+    .card{
+        width: 100px;
+    }
+    body.igk-body{
+        height: 200px;
+    }
+}

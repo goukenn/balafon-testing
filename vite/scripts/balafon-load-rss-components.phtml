@@ -1,0 +1,16 @@
+<?php
+// @author: C.A.D. BONDJE DOUE
+// @filename: balafon-load-rss-components.phtml
+// @date: 20230906 16:36:22
+// @desc: help build balafon application components list 
+use IGK\Helper\StringUtility;
+use igk\js\Vite\Helpers\ViteHelperUtility;
+use IGK\System\IO\StringBuilder;
+use IGK\System\Console\Logger;
+/**
+ * virtual:balafon-component
+ */
+igk_require_module(igk\js\Vite::class);
+$app_dir = '/Volumes/Data/Dev/npm';
+echo ViteHelperUtility::GetAppComponentsScript($app_dir, null);
+igk_exit();

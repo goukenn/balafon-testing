@@ -1,0 +1,29 @@
+
+Bruxelles Hybride Freelance
+Requis > 5 ans d'expérience
+Anglais
+As a Senior Full Stack Developer, you will design and develop new applications-often from scratch-for a client in the public sector in Brussels. You will also enhance existing systems and ensure clear communication with users and stakeholders at all levels.
+ 
+Key responsibilities
+    Collaborate with business stakeholders to define application requirements
+    Design and develop applications in line with established standards
+    Propose and implement improvements to existing applications
+    Plan development and change management activities
+    Define and execute test procedures across environments
+    Draft technical and user documentation
+    Oversee deployment of new and updated applications
+    Ensure compliance with information security and privacy regulations
+ 
+Your profile
+    Proficient in Laravel for both front-end and back-end development
+    Experience with Vue.js or React
+    Skilled in at least one of the following: Python
+    Strong knowledge of APIs and related standards
+    Familiar with NoSQL databases (e.g., document, graph, vector databases)
+    Excellent SQL skills
+    Experience with case management systems
+    Understanding of the DevOps lifecycle and test integration
+    Knowledge of legal compliance requirements (e.g., logging, tracing)
+    Strong grasp of information security and privacy principles
+Description société
+Huxley delivers a world-class recruitment service that adapts to your changing needs. Our teams specialise in IT jobs across a wide range of industries. In Belgium we cover consultancy, 

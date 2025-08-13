@@ -1,0 +1,109 @@
+<?php
+// balafon --run /Volumes/Data/wwwroot/core/Projects/app_test/Views/parse_data.phtml
+use IGK\System\Console\Logger;
+use IGK\System\Html\Css\CssParser;
+use IGK\System\IO\StringBuilder;
+$preview = igk_create_node("div");
+class Data{
+    var $name;
+    var $stock;
+    var $price;
+    var $cat;
+    var $code;
+    var $colorType;
+    // var $modeles=[];
+    var $compatible;
+    var $qtePage;
+    var $ref;
+    var $trademark;
+}
+// SAVE MS-DOS separated comma value
+$data = file_get_contents('/Users/charlesbondjedoue/Desktop/data.csv'); 
+$header = null;
+$table = $preview->table();
+$tab = IGKCSVDataAdapter::LoadString($data, false, (object)[
+    'separator'=>';'
+]);
+$skip = 3;
+while($skip>0){
+    array_shift($tab);
+    $skip--;
+}
+\IGK\System\Html\Dom\Factory::tr("loaddata", function($n){
+    $t = igk_html_parent_node();
+    foreach($n as $k){
+        $t->td()->Content = $k;
+    }
+});
+$names = [];
+$refs = [];
+$line = 0;
+$trademark = 'HP';
+$regex = '/(TOSHIBA|DELL|HP|OKI|RICOH|SHARP|KONICA MINOLTA|XEROX|KYOCERA|LEXMARK|CANON|EPSON|BROTHER|SAMSUNG)/i';
+$outcsv = '';
+$sb = new StringBuilder;
+$ch = 0;
+foreach($tab as $row){
+    $line ++;
+    if (is_null($header)){
+        $tr = $table->tr();
+    }
+    $name = trim(igk_getv($row, 2) ?? '');
+    $ref = trim(igk_getv($row, 10) ?? '');
+    $name = implode("", array_filter(explode(' ', $name)));
+    if (empty($name)){
+        $t = igk_getv($row, 8); 
+        Logger::info("no name at ".($line) . " - ".$t);
+        if (!empty($t)){
+            if (preg_match($regex, $t)){
+                $trademark = $t;
+            }else {
+                Logger::warn("no found - ".$t);
+            }
+        }
+        continue;
+    }
+    if (isset($names[$name])){
+        Logger::danger("contains ".$name. " - ".$names[$name]);
+        $names[$name]++;
+        continue;
+    }
+    if (isset($refs[$ref])){
+        Logger::info("contains reference ".$ref);
+        continue;
+    }
+    $names[$name] = 1;
+    $rc = new Data();
+    $rc->name = $name;
+    $rc->stock = 0;
+    $rc->price = trim(igk_getv($row, 4, ''));
+    $rc->cat = trim(igk_getv($row, 5, '0'));
+    $rc->code = trim(igk_getv($row, 6, '0'));
+    $rc->colorType = trim(igk_getv($row, 7, '0'));
+    $rc->compatible = trim(igk_getv($row, 8, '0'));
+    $rc->qtePage = trim(igk_getv($row, 9, '0'));
+    $rc->ref = $ref;
+    $rc->trademark = $trademark;
+    $table->tr()->loaddata($rc);
+    $p = '';
+    if (!$ch){
+        foreach($rc as $l=>$k){
+            $sb->append($p);
+            $sb->append($l);
+            $p = ',';
+        }
+        $sb->appendLine();
+        $ch = 1;
+    }
+    $p = '';
+    foreach($rc as $l=>$k){  
+        if (strpos($k, ",") !== false){
+            $k = '"'.$k.'"';
+        }
+        $sb->append($p);
+        $sb->append($k);
+        $p = ',';
+    }
+    $sb->appendLine();
+}
+igk_io_w2file(TonerafrikaController::ctrl()->getDataDir()."/compatibilities.csv", $sb.'');

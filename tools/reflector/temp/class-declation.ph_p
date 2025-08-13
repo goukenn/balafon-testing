@@ -1,0 +1,33 @@
+<?php
+
+
+final class info extends sample implements ivector, avion, array{
+    
+
+    /**
+     * sample
+     * @return void 
+     */
+    private function doSome(){
+        $Job= <<<LIT
+
+    The here doc
+LIT;
+        if (32 == $x){
+            igk_wln_e('content;', 32);
+        }
+    }  
+    private int $m_jiji;
+
+
+    public function action_init($x, /** @var int */ $y){
+        echo 'initialize....';
+    }
+
+    abstract function dox();
+
+    abstract function vitesse();
+
+    abstract function vitesses();
+
+}

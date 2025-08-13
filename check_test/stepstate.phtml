@@ -1,0 +1,136 @@
+<?php
+// @author: C.A.D. BONDJE DOUE
+// @file: winui/stepstate.phtml
+// @desc: view winui/stepstate
+// @date: 20221224 15:08:34
+use IGK\System\Html\Dom\HtmlNode;
+$t  || ($t = igk_create_node("div"));
+class HtmlStepStateNode extends HtmlNode
+{
+    var $tagname = "div";
+    protected function initialize()
+    {
+        parent::initialize();
+        $this["class"] = "steper";
+    }
+    public function addStep(string $step)
+    {
+        $s = igk_create_node("div");
+        $s["data-label"] = $step;
+        $this->add($s);
+        return $this;
+    }
+}
+function igk_html_node_stepstate()
+{
+    $n = new HtmlStepStateNode();
+    return $n;
+}
+$t->div()->stepstate()
+    ->addStep("Initialize")
+    ->addStep("Add Product")
+    ->addStep("update Database");
+function reverseArrayQueries(array $arr, array $operations)
+{
+    foreach ($operations as $operation) {
+        list($start, $end) = $operation;
+        $subarray = array_slice($arr, $start, $end - $start + 1);
+        $subarray = array_reverse($subarray);
+        array_splice($arr, $start, $end - $start + 1, $subarray);
+    }
+    return $arr;
+}
+function minMovesToTarget(array $tools, string $target, int $startIndex) {
+    $n = count($tools);
+    $leftMoves = 0;
+    $rightMoves = 0;
+    if ($n<=0){
+      return 0;
+    }
+    $end = false;
+    // Calculate the number of moves needed to reach the target tool moving left
+    $i = $startIndex;
+    while(true){
+    // for ($i = $startIndex; $i >= 0; $i--) {
+      if ($tools[$i] == $target) {
+        break;
+      }
+      $leftMoves++;
+      if ($end && ($i == $startIndex)){
+        break;
+      }
+      $i--;
+      if (($i <= 0) && !$end){
+        $end = true;
+        $i = $n - 1;
+      }
+    }
+    if ($leftMoves==$n){
+      return 0;
+    }
+    // Calculate the number of moves needed to reach the target tool moving right
+    //for ($i = $startIndex; $i < $n; $i++) {
+    $end = false;
+    $i = $startIndex;
+    while(true){
+      if ($tools[$i] == $target) {
+        break;
+      }
+      $rightMoves++;
+      $i++;
+      if ($end && ($i == $startIndex)){
+        break;
+      }
+      if ($i == $n){
+        $i = 0;
+        $end = true;
+      }
+    }
+    if ($rightMoves==$n){
+      return 0;
+    }
+    // Return the minimum number of moves
+    return min($leftMoves, $rightMoves);
+  }
+// The function to find the number of distinct pairs of stocks
+// that reached the target profit
+function findPairs(array $stockProfit, int $target) {
+    // Initialize a counter for the number of pairs
+    $pairCount = 0;
+    // Sort the array in ascending order
+    sort($stockProfit);
+    // Initialize two pointers, one at the beginning and one at the end of the array
+    $start = 0;
+    $end = count($stockProfit) - 1;
+    // Iterate through the array until the two pointers meet
+    while ($start < $end) {
+        // Calculate the sum of the profits of the two stocks
+        $sum = $stockProfit[$start] + $stockProfit[$end];
+        // If the sum is equal to the target, increment the counter and move both pointers
+        if ($sum == $target) {
+            $pairCount++;
+            $start++;
+            $end--;
+        }
+        // If the sum is less than the target, move the start pointer
+        elseif ($sum < $target) {
+            $start++;
+        }
+        // If the sum is greater than the target, move the end pointer
+        else {
+            $end--;
+        }
+    }
+    // Return the number of pairs
+    return $pairCount;
+}
+$stockProfit = [5, 7, 9, 13, 11, 6, 6, 3, 3];
+$target = 12;
+$pairCount = findPairs($stockProfit, $target);
+echo "The number of pairs is: $pairCount";
+exit;
+//   $tools = ['tool1', 'tool2', 'tool3', 'tool4', 'tool5'];
+// $target = 'tool6';
+// $startIndex = 4;
+// $result = minMovesToTarget($tools, $target, $startIndex);
+// igk_wln_e("the sample :::: ", $result);

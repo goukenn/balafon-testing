@@ -1,0 +1,23 @@
+<?php
+// @author: C.A.D. BONDJE DOUE
+// @filename: test_add_obj.phtml
+// @date: 20230225 18:49:48
+// @desc: testing add object 
+use IGK\Helper\Activator;
+use IGK\System\Html\Converters\Converter;
+use IGK\System\Html\Converters\HtmlConvDefinition;
+use IGK\System\Html\Dom\HtmlItemBase;
+// copy reference 
+$m =$t; 
+$m->div()->Content = "presentation d'information";
+$c = ["loc"=>"info", "lastmod"=>"", "info"=>[1, 5], "node"=>$t, "catars"=>
+Activator::CreateNewInstance(HtmlConvDefinition::class,["attr"=>["x"=>200], 
+"value"=> [1,2,3,4, clone($t), $m]
+])
+];
+$n = igk_create_node("sample");
+$n->url()->add(igk_html_conv2html($c, 1, "div", "li"));
+$n->renderXML((object)[
+    "Indent"=>1
+]);
+exit;

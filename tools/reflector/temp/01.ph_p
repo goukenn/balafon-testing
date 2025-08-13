@@ -1,0 +1,8 @@
+<?php
+
+/// <summary>
+
+/// litteral </summary>
+
+echo 'js litteral';
+

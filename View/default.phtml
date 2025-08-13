@@ -1,0 +1,25 @@
+<?php
+//  $a = $t->div();
+//  $a->ul()->li()->Content = "Item 1";
+// $a = igk_create_node("div");
+// $a["class"] = "presentation";
+// $a->ul()->li()->Content = "Present";
+// $t->div()->add($a);
+// $t->ul()->loop(2)->li()->Content = '<div>Presentation : {{ $raw  +255 }} </div>';
+// if (false){
+//     $y = 128;
+//     $t->add("item-".$y)->Content = "Sample".$y;
+//     if ($y > 200)
+//         $t->div()->Content = "2000";
+//     $t->div()->content = "finish";
+// }
+// echo "data:".$y->x;
+// if (false){
+//     $y = (object)["name"=>"condition-2"];
+//     $t->add("item-".$y->name)->Content = "Sample -- " .$y->name;
+// }
+// $t->div()->article($ctrl, "/Volumes/Data/Dev/PHP/balafon_site_dev/.test/View/article.template", ["echelle"]);
+// $t->div()->article($ctrl, "/Volumes/Data/Dev/PHP/balafon_site_dev/.test/View/article.template", $data);
+$t->div()->loop(10, null)->div()->Content  = 'BASE DE : {{ $index }} ';
+// $t->div()->div()->Content = ' present {{ $data }} ';
+// $t->div()->loop($data, null)->div()->Content  = 'BASE DE : {{ $index }} {{ $data }} ';

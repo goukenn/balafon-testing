@@ -1,0 +1,254 @@
+<?php
+
+// @author: C.A.D. BONDJE DOUE
+// @filename: gen_sass.phtml
+// @date: 20221004 10:08:29
+// @desc: 
+// @info: https://sass-lang.com
+// @usage : balafon --run  src/application/Projects/app_test/Views/tools/gen_sass.phtml
+
+use IGK\Css\ICssResourceResolver; 
+use IGK\System\Html\Css\GlobalCssParser;
+use IGK\System\IO\Configuration\ConfigurationReader;
+use IGK\System\IO\StringBuilder;
+
+/**
+ * represent SassFileBuilder
+ * @package 
+ */
+class SassBuilder implements ICssResourceResolver
+{
+    private $properties;
+    private $def;
+    private $medias;
+    private $css_reader;
+    private $m_rules;
+
+    public function getCssReader()
+    {
+        return $this->css_reader;
+    }
+
+    public function __construct()
+    {
+        $this->properties  = [];
+        $this->def = [];
+        $this->medias = [];
+        $this->m_rules = [];
+        $this->css_reader = ConfigurationReader::CreateCssValueReader();
+    }
+
+    public function resolve(string $path): ?string
+    {
+        return null;
+    }
+
+    public function resolveColor(string $keyValue): ?string
+    {
+        if (isset($this->properties[$keyValue])) {
+            return "\$" . $this->properties[$keyValue]->name;
+        }
+        return null;
+    }
+    public function render()
+    {
+        $sb = new StringBuilder;
+        $css_reader = $this->css_reader;
+        //properties and color
+        foreach ($this->properties as $k) {
+            $v = $k->value;
+            if (is_array($v)) {
+                igk_wln_e("data , ", $k->name, $v);
+            }
+            if (!is_numeric($v)) {
+                $v = '"' . $v . '"';
+            }
+            $sb->appendLine("\$" . $k->name . ": " . $v);
+        }
+        foreach ($this->m_rules as $key => $value) {
+            $sb->appendLine($key);
+            // rules
+            foreach ($value as $t => $s) {
+                $this->_renderDef($sb, $t, (array)$s, "\t");
+            }
+        } 
+
+        $inf = new StringBuilder();
+        foreach ($this->def as $k => $def) {
+            $inf->appendLine($k);
+            $value = false;
+            foreach ($def as $m => $n) {
+                if (is_numeric($m)) {
+                    continue;
+                }
+                if ($m == "content") {
+                    $n = "\"$n\"";
+                } else {
+                    if (empty($m)) {
+                        continue;
+                    }
+                }
+                $inf->appendLine("\t" . sprintf("%s: %s", $m, ltrim($n)));
+                $value = true;
+            }
+            if ($value) {
+                $sb->appendLine("" . trim($inf));
+            }
+            $inf->clear();
+        }
+
+        foreach ($this->medias as $key => $value) {
+            if (is_null($g = $value)) {
+                continue;
+            }
+            $sb->appendLine("@media " . $key);
+            // render medias info
+            foreach ($g as $t => $s) {
+                if (!empty($m = (array)$css_reader->read($s))) {
+                    $this->_renderDef($sb, $t, (array)$m, "\t");
+                }
+            }
+        }
+        return $sb;
+    }
+    private function _renderDef($sb, $t, $def, $depth = "")
+    {
+        $inf = null;
+        $value = false;
+        $child = $depth . "\t";
+
+        foreach ($def as $m => $n) {
+            if (is_null($n) || is_numeric($m)) {
+                continue;
+            }
+            if ($m == "content") {
+                $n = "\"$n\"";
+            } else {
+                if (empty($m)) {
+                    continue;
+                }
+            }
+            if (is_null($inf)) {
+                $inf = new StringBuilder();
+            }
+            $inf->appendLine($child . sprintf("%s: %s", $m, ltrim($n)));
+            $value = true;
+        }
+        if ($value) {
+            $sb->appendLine($depth . $t);
+            $sb->appendLine(rtrim("" . $inf));
+        }
+        $inf->clear();
+    }
+    /**
+     * add properties
+     * @param string $key 
+     * @param mixed $value 
+     * @return void 
+     */
+    public function addProperties(string $key, $value)
+    {
+        $this->properties[$key] = (object)["name" => $key, "value" => $value];
+    }
+    public function addDef($k, array $def)
+    {
+        if (isset($this->def[$k])) {
+            $this->def[$k] = array_filter(array_merge($this->def[$k], $def));
+        } else {
+            $this->def[$k] = $def;
+        }
+    }
+    public function resolvThemeDef()
+    {
+    }
+    public function addMedia($key, $data)
+    {
+        $this->medias[$key] = $data;
+    }
+    public function addRule($key, $def)
+    {
+        $this->m_rules[$key] = $def;
+    }
+    /**
+     * load theme
+     * @param mixed $theme 
+     * @return void 
+     * @throws IGKException 
+     */
+    public function load($theme)
+    {
+        $builder = $this;
+        $tab = $theme->getCl();
+        $ft = $theme->getFont();
+        $rules = $theme->getRules();
+        $itab = $theme->to_array();
+        $rparams = igk_getv($itab, 6);
+
+        unset($itab["medias"]);
+        unset($itab[5]);
+        unset($itab[1]);
+        unset($itab[6]);
+        unset($itab[2]);
+        if ($dec_rules = $theme->def->getDeclaredRules()) {
+            foreach ($dec_rules as $k => $v) {
+                $def = GlobalCssParser::Parse($v, $builder->getCssReader());
+                if (!$def) continue;
+                $builder->addRule($k, $def->definition);
+            }
+        }
+
+        array_map(function ($v, $k) use ($builder) {
+            $builder->addProperties($k, $v);
+        }, $tab, array_keys($tab));
+        if ($rparams)
+            array_map(function ($v, $k) use ($builder) {
+                $builder->addProperties($k, $v);
+            }, $rparams, array_keys($rparams));
+
+
+        $css_reader = ConfigurationReader::CreateCssValueReader();
+
+        // $tab = $css_reader->read("width:100%;height: 16px; background-image: url('../../assets/_lib_/Default/R/Img/pics_16x24/hsep.png');");
+        // $tab = $css_reader->read("font-family: 'Roboto', courier , sans-serif;");// padding:0px; position:fixed !important; {sys:loc_a} z-index:800; margin:0px");
+        // $tab = $css_reader->read("padding: [prop:buttonPadding]; color:gray");// padding:0px; position:fixed !important; {sys:loc_a} z-index:800; margin:0px");
+
+        // igk_wln_e($tab);
+
+        $theme->map(function ($type, $k, $v) use ($theme, $builder, $css_reader) {
+            switch ($type) {
+                case "def":
+                    $tab = array_filter((array)$css_reader->read($v));
+                    if (!empty($tab)) {
+                        $builder->addDef($k, $tab);
+                    }
+                    break;
+                case "media":
+                    $builder->addMedia($k, $v);
+                    break;
+            }
+        }, $theme, $builder);
+    }
+}
+// convert doc theme to sass definifion 
+$doc = igk_app()->getDoc();
+$theme = igk_app()->getDoc()->getTheme();
+$systheme = igk_app()->getDoc()->getSysTheme();
+igk_css_bind_sys_global_files($systheme);
+igk_css_load_theme($theme);
+
+$print = $theme->getMedia("print"); // self::IGK_CSS_XSM_SCREEN)
+$print["body .no-styoe"] = "background-color: indigo";
+
+$g = AppTestProject::ctrl();
+
+$g::bindCssStyle($theme, true);
+
+// igk_wln_e("print", $print, $g);
+
+$builder = new SassBuilder;
+$builder->load($systheme);
+$builder->load($theme);
+
+echo "/** css generated **/\n";
+echo $builder->render();  
+echo "\n";

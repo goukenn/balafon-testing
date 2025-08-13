@@ -1,0 +1,6 @@
+{
+    "$schema":"https://igkdev.com/schemas/balafon.config.json",
+    "plugin":[
+        "pcss-plugin"
+    ]
+}

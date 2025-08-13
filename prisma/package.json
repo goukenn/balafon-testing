@@ -1,0 +1,31 @@
+{
+  "name": "demo-primas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "<bondje.doue@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "commonjs",
+  "scripts": {
+    "start": "tsc index.ts --outdir ./dist && node dist/index.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "dotenv": "^16.3.1",
+    "next": "^14.0.4",
+    "prisma": "^5.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "$schema": "https://igkdev.com/schemas/btm.syntax.json",
+    "scopeName":"demo.line",
+    "patterns":[
+        {"include":"#greeting"}
+    ],
+    "repository":{
+        "greeting":{
+            "match":"\\bbonjour\\b",
+            "tokenID":"greeting",
+            "name":"demo.greeting.demo.line"
+        }
+    }
+}

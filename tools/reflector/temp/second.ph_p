@@ -1,0 +1,67 @@
+<?php
+// @command: balafon --run .test/tools/reflector/temp/second.php
+// @author: C.A.D. BONDJE DOUE
+// @filename: second.php
+// @date: 20250703 16:32:14
+// @desc: 
+namespace mathematical;
+// TODO : loading function global .....
+// TODO : loading function mixing .....
+
+
+
+// /**
+// *
+// * @package mathematical
+// */
+// class action{
+//     /**
+//     * @return mixed
+//     */
+//      function ActionQuatar(){
+       
+//      }
+// }
+
+// /**
+// *
+// * @package mathematical
+// */
+// class entity{
+//     /**
+//     * @return mixed
+//     */
+//      function entities_sample(){
+//         // basic code loading....
+//      }
+// }
+
+// /**
+// *
+// * @package mathematical
+// */
+// class vector2i{
+//     /**
+//     * @var mixed
+//     */
+//     var $t;
+//     /**
+//     * @var mixed
+//     */
+//     var $x;
+//     /**
+//     * @var mixed
+//     */
+//     var $y;
+//     /**
+//     * @var mixed
+//     */
+//     var $z;
+//     /**
+//     * @return mixed
+//     */
+//      function sample(){
+//         return $this->x + $this->z;
+//      }
+// }
+

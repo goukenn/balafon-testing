@@ -1,0 +1,18 @@
+// import { useHead } from './vueuse/head';
+// import { unref, computed } from 'vue';
+const { unref, computed } = Vue;
+let siteTitle = 'hello';
+let separator = '|';
+export const usePageTitle = (pageTitle) =>
+    useHead(
+        computed(() => ({
+            title: `${unref(pageTitle)} ${separator} ${siteTitle}`,
+        }))
+    );
+export const useMeta = (data) => {
+    return 'data';//useHead({ ...data, title: `${data.title} | CORK - Multipurpose Bootstrap Dashboard Template` });
+};
+<?php
+header('Content-Type:text/javascript');
+//#{{%@MainLayout()%}}
+igk_exit();

@@ -1,0 +1,53 @@
+<?php
+class RClass{
+    var $_load_classes = [];
+    public function registerClass($file, $classname){
+        $file = igk_io_collapse_path($file);
+        if (empty($this->_load_classes)){
+            $this->_load_classes = ["cl"=>[], "files"=>[]];
+        }
+       
+        $index = count($this->_load_classes["cl"]);
+        $this->_load_classes["cl"][$classname] = $index;
+        if (!($finfo = igk_getv($this->_load_classes["files"],$file))){
+            $finfo = (object)['p'=>$file];
+            $this->_load_classes["files"][$file] = $finfo;
+        } 
+        $this->_load_classes["files"][$index] = & $finfo;      
+    }
+    public function getregisterClass($classname){
+        if ($index = igk_getv($this->_load_classes["cl"], $classname)){
+            $finfo = $this->_load_classes["files"][$index];
+            return $finfo->p;
+        }
+    }
+
+}
+$p = igk_io_expand_path("%lib%/.Caches/.classes");
+ 
+$lib = unserialize(file_get_contents($p));
+function getRegClass($p, $n){
+    if (empty($p)){
+        return;
+    }
+    if (!is_null($index = igk_getv($p["cl"], $n))){
+        $finfo = $p["files"][$index];
+        return $finfo->p;
+    }
+}
+// igk_wln("class ", getRegClass($lib, IGKApplicationFactory::class));
+// igk_html_pre($lib);
+// igk_wln($lib);
+
+$g = new RClass;
+
+$g->registerClass("/emap", "class1");
+$g->registerClass("/emap", "class2");
+$g->registerClass("/emap/9", "class89");
+$g->registerClass("/emap/9", "class894");
+$g->registerClass("/emap/9", "classX");
+$g->registerClass("/emap/9", "classB");
+$g->registerClass("/emap/_indi9", "classW");
+
+
+$p = $g->getregisterClass("class2"); 

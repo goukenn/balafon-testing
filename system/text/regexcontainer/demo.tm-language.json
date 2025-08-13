@@ -1,0 +1,33 @@
+{
+    "$scope":"check.demos",
+    "patterns":[
+        {"include":"#string"},
+        {
+            "begin":"\\b(?P<prop>background-color|display)\\b",
+            "end":":",
+            "name":"property-block",
+            "captures":{
+                "prop":{
+                    "name":"property.name",
+                    "patterns":[
+                        {
+                            "name":"for-background",
+                            "match":"background"
+                        }
+                    ]
+                }
+            },
+            "patterns":[
+                {"include":"#string"}
+            ]
+        }
+    ],
+    "repository":{
+        "string":{
+            "name":"string-litteral",
+            "begin":"(\"|')",
+            "end":"\\\\1"
+        }
+    }
+
+}

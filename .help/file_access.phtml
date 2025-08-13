@@ -1,0 +1,25 @@
+<?php
+$file = "";
+chmod(IGK_LIB_DIR, octdec('0775'));
+echo IGK_LIB_DIR . " FileAccess : ".substr(sprintf("%o", fileperms(IGK_LIB_DIR)), -4);
+$file = igk_io_sys_tempnam('igk');
+
+foreach([
+    $file ,
+    dirname($file)    
+] as $k){
+    echo "<br />\n".$k . " =  FileAccess : ".substr(sprintf("%o", fileperms(IGK_LIB_DIR)), -4);
+}
+$data = [];
+$out = dirname(IGK_LIB_DIR)."/sample/data.txt";
+$data[] = $out;
+$data[] = "try to store folder : ok ". igk_io_w2file($out, "ouput the data", true);
+
+
+// try to get 
+echo "try read file: ";
+echo readfile("/usr/local/apache2/conf/modsecurity/base_rules/modsecurity_crs_35_bad_robots.conf");
+$t->obdata(function($data){
+    igk_wln($data, $_SERVER);
+},$data);
+ 

@@ -1,0 +1,33 @@
+<?php
+
+use function igk_resources_gets as __;
+
+
+igk_view_handle_actions($fname, [
+    "upload"=>function(){
+        igk_ilog("load big file....");
+        igk_io_store_ajx_uploaded_data($this->getDataDir(), "data.zip");
+        echo json_encode(["msg"=>"update"]);        
+        igk_exit();
+    }
+], $params);
+
+
+$t->clearChilds();
+$frm = $t->div()->container()->row()->col()->form();
+$frm->h2()->Content = "upload file : 222 ";
+$frm->div()->ajxpickfile($this->getAppUri($fname."/upload"), "{'accept':'.zip'}")
+->setClass("igk-btn")
+->setAttribute("value", "Pick Zip File test uploading")
+->Content = "upload file";
+
+$frm = $t->div()->container()->row()->col()->form($this->getAppUri($fname."/upload"));
+
+$frm->fields([
+    "fname"=>["type"=>"file"]
+]);
+$frm->button()->setAttribute("type","submit")->Content = __("Upload");
+
+// $t->div()->obdata(function(){
+//     igk_html_pre(apache_get_modules());
+// }); 

@@ -1,0 +1,28 @@
+<?php
+// @author: C.A.D. BONDJE DOUE
+
+
+// @filename: class-type.php
+
+
+// @date: 20250703 15:13:59
+// @desc: 
+
+namespace IGK\Demo;
+
+// sample....
+class info extends igk\use\battard {
+    use sample{
+doAction as info;
+    }
+
+    function b(){}
+ 
+    function a(){}
+}
+
+
+interface IVector{
+    function basic();
+    function basic();
+}

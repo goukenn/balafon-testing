@@ -1,0 +1,17 @@
+<?php
+
+use IGK\Helper\ActionHelper;
+use igk\js\Vue3\Compiler\VueSFCUtility;
+use igk\js\Vue3\Libraries\VueRouter;
+
+  $ctrl = TtreController::ctrl(); 
+  $ctrl->register_autoload();
+$ref = VueRouter::InitRoute($ctrl, 'vue-dashboard-router.pinc');
+$g = ActionHelper::GetActionUri($ctrl, \Actions\Ttre\stockAction::class);
+
+$s = $ref->render();
+$g = $ref->getLibraries();
+echo  'render lib  : '.VueSFCUtility::RenderLibraryAsConstantDeclaration($g);
+
+echo $s;
+exit;

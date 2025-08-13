@@ -1,0 +1,879 @@
+EURAL	EURAL (versie 2014)
+	
+010101	01 01 01 - déchets provenant de l'extraction des minéraux métallifères
+010102	01 01 02 - déchets provenant de l'extraction des minéraux non métallifères
+010304*	01 03 04* - stériles acidogènes provenant de la transformation du sulfure
+010305*	01 03 05* - autres stériles contenant des substances dangereuses
+010306	01 03 06 - stériles autres que ceux visés aux rubriques 01 03 04 et 01 03 05
+010307*	01 03 07* - autres déchets contenant des substances dangereuses provenant de la transformation physique et chimique des minéraux métallifères
+010308	01 03 08 - déchets de poussières et de poudres autres que ceux visés à la rubrique 01 03 07
+010309	01 03 09 - boues rouges issues de la production d'alumine autres que celles visées à la rubrique 01 03 10
+010310*	01 03 10* - boues rouges issues de la production d'alumine contenant des substances dangereuses, autres que les déchets visés à la rubrique 01 03 07
+010399	01 03 99 - déchets non spécifiés ailleurs
+010407*	01 04 07* - déchets contenant des substances dangereuses provenant de la transformation physique et chimique des minéraux non métallifères
+010408	01 04 08 - déchets de graviers et débris de pierres autres que ceux visés à la rubrique 01 04 07
+010409	01 04 09 - déchets de sable et d'argile
+010410	01 04 10 - déchets de poussières et de poudres autres que ceux visés à la rubrique 01 04 07
+010411	01 04 11 - déchets de la transformation de la potasse et des sels minéraux autres que ceux visés à la rubrique 01 04 07
+010412	01 04 12 - stériles et autres déchets provenant du lavage et du nettoyage des minéraux autres que ceux visés aux rubriques 01 04 07 et 01 04 11
+010413	01 04 13 - déchets provenant de la taille et du sciage des pierres autres que ceux visés à la rubrique 01 04 07
+010499	01 04 99 - déchets non spécifiés ailleurs
+010504	01 05 04 - boues et autres déchets de forage à l'eau douce
+010505*	01 05 05* - boues et autres déchets de forage contenant des hydrocarbures
+010506*	01 05 06* - boues de forage et autres déchets de forage contenant des substances dangereuses
+010507	01 05 07 - boues et autres déchets de forage contenant des sels de baryum, autres que ceux visés aux rubriques 01 05 05 et 01 05 06
+010508	01 05 08 - boues et autres déchets de forage contenant des chlorures, autres que ceux visés aux rubriques 01 05 05 et 01 05 06
+010599	01 05 99 - déchets non spécifiés ailleurs
+020101	02 01 01 - boues provenant du lavage et du nettoyage
+020102 - Cat1 - cadavres et parties d’animaux familiers, d’animaux de zoo, d’animaux de cirque et d'animaux sauvages	02 01 02 - Cat1 - cadavres et parties d’animaux familiers, d’animaux de zoo, d’animaux de cirque et d'animaux sauvages
+020102 - Cat1 - cadavres d’animaux d'élevage (sensibles aux EST)	02 01 02 - Cat1 - cadavres d’animaux d'élevage (sensibles aux EST)
+020102 - Cat1 - cadavres d’animaux d'élevage (non sensibles aux EST)	02 01 02 - Cat1 - cadavres d’animaux d'élevage (non sensibles aux EST)
+020102 - Cat1 - autres déchets de tissus animaux	02 01 02 - Cat1 - autres déchets de tissus animaux
+020103	02 01 03 - déchets de tissus végétaux
+020104	02 01 04 - déchets de matières plastiques (à l'exclusion des emballages)
+020106 - Cat2 - lisier	02 01 06 - Cat2 - lisier
+020106 - Cat2 - contenu de l'appareil digestif	02 01 06 - Cat2 - contenu de l'appareil digestif
+"020106 
+"	"02 01 06 - fèces, urine et fumier (y compris paille souillée), effluents, collectés séparément et traités hors site
+"
+020107	02 01 07 - déchets provenant de la sylviculture
+020108*	02 01 08* - déchets agrochimiques contenant des substances dangereuses
+020109	02 01 09 - déchets agrochimiques autres que ceux visés à la rubrique 02 01 08
+020110	02 01 10 - déchets métalliques
+020199	02 01 99 - déchets non spécifiés ailleurs
+020201	02 02 01 - boues provenant du lavage et du nettoyage
+020202 - Cat3 - carcasses et parties d’animaux non destinés à la consommation humaine, les déchets de découpe	"02 02 02 - Cat3 - carcasses et parties d’animaux non destinés à la consommation humaine, telles que: 
+- les déchets de découpe
+- les têtes des volailles
+- les cuirs et les peaux
+- les soies de porcs
+- les plumes
+- le sang
+- les animaux aquatiques
+- les œufs et les sous-produits d'œufs"
+"020202 - Cat3 - autres déchets d'origine animale
+"	"02 02 02 - Cat3- autres déchets d'origine animale
+"
+020203 - Cat1 - matériels à risque spécifiés 	02 02 03 - Cat1 - matériels à risque spécifiés 
+020203 - Cat1 - cadavres ou parties d’animaux morts contenant des matériels à risque spécifiés 	02 02 03 - Cat1 - cadavres ou parties d’animaux morts contenant des matériels à risque spécifiés 
+020203 - Cat2 - déchets animaux déclarés impropres à la consommation humaine en raison de la présence de corps étrangers ou contenant des résidus de substances dépassant le niveau autorisé	02 02 03 - Cat2 - déchets animaux déclarés impropres à la consommation humaine en raison de la présence de corps étrangers ou contenant des résidus de substances dépassant le niveau autorisé
+020203 - Cat2 - autres déchets d'origine animale ou les mélanges de matières de Cat 2 avec des matières de Cat 3	02 02 03 - Cat2 - autres déchets d'origine animale ou les mélanges de matières de Cat 2 avec des matières de Cat 3
+020203 - Cat3 - anciennes denrées alimentaires 	02 02 03 - Cat3 - anciennes denrées alimentaires provenenant du secteur alimentaire
+020203 - Cat3 - autres déchets d'origine animale	02 02 03 - Cat3 - autres déchets d'origine animale
+020203	02 02 03 - matières impropres à la consommation ou à la transformation
+020204 - Cat1 - déchets de traitement des eaux résiduaires	02 02 04 - Cat1 - déchets collectés lors du traitement des eaux résiduaires, auprès des établissements Cat1
+020204 - Cat2 - déchets de traitement des eaux résiduaires	02 02 04 - Cat2 - déchets collectés lors du traitement des eaux résiduaires, auprès d'aurtres établissements que Cat1
+020204	02 02 04 - boues provenant du traitement in situ des effluents
+020299 - Cat1 - produits dérivés	02 02 99 - Cat1 - produits dérivés
+020299 - Cat2 - produits dérivés	02 02 99 - Cat2 - produits dérivés
+020299 - Cat3 - produits dérivés	02 02 99 - Cat3 - produits dérivés
+020299	02 02 99 - déchets non spécifiés ailleurs
+020301	02 03 01 - boues provenant du lavage, du nettoyage, de l'épluchage, de la centrifugation et de la séparation
+020302	02 03 02 - déchets d'agents de conservation
+020303	02 03 03 - déchets de l'extraction aux solvants
+020304	02 03 04 - matières impropres à la consommation ou à la transformation
+020305	02 03 05 - boues provenant du traitement in situ des effluents
+020399	02 03 99 - déchets non spécifiés ailleurs
+020401	02 04 01 - terre provenant du lavage et du nettoyage des betteraves
+020402	02 04 02 - carbonate de calcium déclassé
+020403	02 04 03 - boues provenant du traitement in situ des effluents
+020499	02 04 99 - déchets non spécifiés ailleurs
+020501 - Cat3 - anciennes denrées alimentaires et SPA provenant de l'industrie laitière	02 05 01 - Cat3 - SPA provenant de l'industrie laitière
+020501	02 05 01 - matières impropres à la consommation ou à la transformation
+020502 - Cat3 - boues de centrifugeuses ou de séparateurs issues de la transformation du lait	02 05 02 - Cat3 - boues de centrifugeuses ou de séparateurs issues de la transformation du lait
+020502	02 05 02 - boues provenant du traitement in situ des effluents
+020599	02 05 99 - déchets non spécifiés ailleurs
+020601 - Cat 3 - anciennes denrées alimentaires et SPA provenant de l'industrie boulangère	02 06 01 - Cat 3 - SPA provenant de l'industrie boulangère
+020601	02 06 01 - matières impropres à la consommation ou à la transformation
+020602	02 06 02 - déchets d'agents de conservation
+020603	02 06 03 - boues provenant du traitement in situ des effluents
+020699	02 06 99 - déchets non spécifiés ailleurs
+020701	02 07 01 - déchets provenant du lavage, du nettoyage et de la réduction mécanique des matières premières
+020702	02 07 02 - déchets de la distillation de l'alcool
+020703	02 07 03 - déchets de traitements chimiques
+020704	02 07 04 - matières impropres à la consommation ou à la transformation
+020705	02 07 05 - boues provenant du traitement in situ des effluents
+020799	02 07 99 - déchets non spécifiés ailleurs
+030101	03 01 01 - déchets d'écorce et de liège
+030104*	03 01 04* - sciure de bois, copeaux, chutes, bois, panneaux de particules et placages contenant des substances dangereuses
+030105	03 01 05 - sciure de bois, copeaux, chutes, bois, panneaux de particules et placages autres que ceux visés à la rubrique 03 01 04
+030199	03 01 99 - déchets non spécifiés ailleurs
+030201*	03 02 01* - composés organiques non halogénés de protection du bois
+030202*	03 02 02* - composés organochlorés de protection du bois
+030203*	03 02 03* - composés organométalliques de protection du bois
+030204*	03 02 04* - composés inorganiques de protection du bois
+030205*	03 02 05* - autres produits de protection du bois contenant des substances dangereuses
+030299	03 02 99 - produits de protection du bois non spécifiés ailleurs
+030301	03 03 01 - déchets d'écorce et de bois
+030302	03 03 02 - liqueurs vertes (provenant de la récupération de liqueur de cuisson)
+030305	03 03 05 - boues de désencrage provenant du recyclage du papier
+030307	03 03 07 - refus séparés mécaniquement provenant du broyage de déchets de papier et de carton
+030308	03 03 08 - déchets provenant du tri de papier et de carton destinés au recyclage
+030309	03 03 09 - déchets de boues résiduaires de chaux
+030310	03 03 10 - refus fibreux, boues de fibres, de charge et de couchage provenant d'une séparation mécanique
+030311	03 03 11 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 03 03 10
+030399	03 03 99 - déchets non spécifiés ailleurs
+040101	04 01 01 - déchets d'écharnage et refentes
+040102	04 01 02 - résidus de pelanage
+040103*	04 01 03* - déchets de dégraissage contenant des solvants sans phase liquide
+040104	04 01 04 - liqueur de tannage contenant du chrome
+040105	04 01 05 - liqueur de tannage sans chrome
+040106	04 01 06 - boues, notamment provenant du traitement in situ des effluents, contenant du chrome
+040107	04 01 07 - boues, notamment provenant du traitement in situ des effluents, sans chrome
+040108	04 01 08 - déchets de cuir tanné (refentes sur bleu, dérayures, échantillonnages, poussières de ponçage), contenant du chrome
+040109	04 01 09 - déchets provenant de l'habillage et des finitions
+040199	04 01 99 - déchets non spécifiés ailleurs
+040209	04 02 09 - matériaux composites (textile imprégné, élastomère, plastomère)
+040210	04 02 10 - matières organiques issues de produits naturels (par exemple graisse, cire)
+040214*	04 02 14* - déchets provenant des finitions contenant des solvants organiques
+040215	04 02 15 - déchets provenant des finitions autres que ceux visés à la rubrique 04 02 14
+040216*	04 02 16* - teintures et pigments contenant des substances dangereuses
+040217	04 02 17 - teintures et pigments autres que ceux visés à la rubrique 04 02 16
+040219*	04 02 19* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+040220	04 02 20 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 04 02 19
+040221	04 02 21 - fibres textiles non ouvrées
+040222	04 02 22 - fibres textiles ouvrées
+040299	04 02 99 - déchets non spécifiés ailleurs
+050102*	05 01 02* - boues de dessalage
+050103*	05 01 03* - boues de fond de cuves
+050104*	05 01 04* - boues d'alkyles acides
+050105*	05 01 05* - hydrocarbures accidentellement répandus
+050106*	05 01 06* - boues contenant des hydrocarbures provenant des opérations de maintenance de l'installation ou des équipements
+050107*	05 01 07* - goudrons acides
+050108*	05 01 08* - autres goudrons
+050109*	05 01 09* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+050110	05 01 10 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 05 01 09
+050111*	05 01 11* - déchets provenant du nettoyage d'hydrocarbures avec des bases
+050112*	05 01 12* - hydrocarbures contenant des acides
+050113	05 01 13 - boues du traitement de l'eau d'alimentation des chaudières
+050114	05 01 14 - déchets provenant des colonnes de refroidissement
+050115*	05 01 15* - argiles de filtration usées
+050116	05 01 16 - déchets contenant du soufre provenant de la désulfuration du pétrole
+050117	05 01 17 - mélanges bitumineux
+050199	05 01 99 - déchets non spécifiés ailleurs
+050601*	05 06 01* - goudrons acides
+050603*	05 06 03* - autres goudrons
+050604	05 06 04 - déchets provenant des colonnes de refroidissement
+050699	05 06 99 - déchets non spécifiés ailleurs
+050701*	05 07 01* - déchets contenant du mercure
+050702	05 07 02 - déchets contenant du soufre
+050799	05 07 99 - déchets non spécifiés ailleurs
+060101*	06 01 01* - acide sulfurique et acide sulfureux
+060102*	06 01 02* - acide chlorhydrique
+060103*	06 01 03* - acide fluorhydrique
+060104*	06 01 04* - acide phosphorique et acide phosphoreux
+060105*	06 01 05* - acide nitrique et acide nitreux
+060106*	06 01 06* - autres acides
+060199	06 01 99 - déchets non spécifiés ailleurs
+060201*	06 02 01* - hydroxyde de calcium
+060203*	06 02 03* - hydroxyde d'ammonium
+060204*	06 02 04* - hydroxyde de sodium et hydroxyde de potassium
+060205*	06 02 05* - autres bases
+060299	06 02 99 - déchets non spécifiés ailleurs
+060311*	06 03 11* - sels et solutions contenant des cyanures
+060313*	06 03 13* - sels et solutions contenant des métaux lourds
+060314	06 03 14 - sels solides et solutions autres que ceux visés aux rubriques 06 03 11 et 06 03 13
+060315*	06 03 15* - oxydes métalliques contenant des métaux lourds
+060316	06 03 16 - oxydes métalliques autres que ceux visés à la rubrique 06 03 15
+060399	06 03 99 - déchets non spécifiés ailleurs
+060403*	06 04 03* - déchets contenant de l'arsenic
+060404*	06 04 04* - déchets contenant du mercure
+060405*	06 04 05* - déchets contenant d'autres métaux lourds
+060499	06 04 99 - déchets non spécifiés ailleurs
+060502*	06 05 02* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+060503	06 05 03 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 06 05 02
+060602*	06 06 02* - déchets contenant des sulfures dangereux
+060603	06 06 03 - déchets contenant des sulfures autres que ceux visés à la rubrique 06 06 02
+060699	06 06 99 - déchets non spécifiés ailleurs
+060701*	06 07 01* - déchets contenant de l'amiante provenant de l'électrolyse
+060702*	06 07 02* - déchets de charbon actif utilisé pour la production du chlore
+060703*	06 07 03* - boues de sulfate de baryum contenant du mercure
+060704*	06 07 04* - solutions et acides, par exemple acide de contact
+060799	06 07 99 - déchets non spécifiés ailleurs
+060802*	06 08 02* - déchets contenant des chlorosilanes dangereux
+060899	06 08 99 - déchets non spécifiés ailleurs
+060902	06 09 02 - scories phosphoriques
+060903*	06 09 03* - déchets de réactions basées sur le calcium contenant des substances dangereuses ou contaminées par de telles substances
+060904	06 09 04 - déchets de réactions basées sur le calcium autres que ceux visés à la rubrique 06 09 03
+060999	06 09 99 - déchets non spécifiés ailleurs
+061002*	06 10 02* - déchets contenant des substances dangereuses
+061099	06 10 99 - déchets non spécifiés ailleurs
+061101	06 11 01 - déchets de réactions basées sur le calcium provenant de la production de dioxyde de titane
+061199	06 11 99 - déchets non spécifiés ailleurs
+061301*	06 13 01* - produits phytosanitaires inorganiques, agents de protection du bois et autres biocides
+061302*	06 13 02* - charbon actif usé (sauf rubrique 06 07 02)
+061303	06 13 03 - noir de carbone
+061304*	06 13 04* - déchets provenant de la transformation de l'amiante
+061305*	06 13 05* - suies
+061399	06 13 99 - déchets non spécifiés ailleurs
+070101*	07 01 01* - eaux de lavage et liqueurs mères aqueuses
+070103*	07 01 03* - solvants, liquides de lavage et liqueurs mères organiques halogénés
+070104*	07 01 04* - autres solvants, liquides de lavage et liqueurs mères organiques
+070107*	07 01 07* - résidus de réaction et résidus de distillation halogénés
+070108*	07 01 08* - autres résidus de réaction et résidus de distillation
+070109*	07 01 09* - gâteaux de filtration et absorbants usés halogénés
+070110*	07 01 10* - autres gâteaux de filtration et absorbants usés
+070111*	07 01 11* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+070112	07 01 12 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 07 01 11
+070199	07 01 99 - déchets non spécifiés ailleurs
+070201*	07 02 01* - eaux de lavage et liqueurs mères aqueuses
+070203*	07 02 03* - solvants, liquides de lavage et liqueurs mères organiques halogénés
+070204*	07 02 04* - autres solvants, liquides de lavage et liqueurs mères organiques
+070207*	07 02 07* - résidus de réaction et résidus de distillation halogénés
+070208*	07 02 08* - autres résidus de réaction et résidus de distillation
+070209*	07 02 09* - gâteaux de filtration et absorbants usés halogénés
+070210*	07 02 10* - autres gâteaux de filtration et absorbants usés
+070211*	07 02 11* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+070212	07 02 12 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 07 02 11
+070213	07 02 13 - déchets plastiques
+070214*	07 02 14* - déchets provenant d'additifs contenant des substances dangereuses
+070215	07 02 15 - déchets provenant d'additifs autres que ceux visés à la rubrique 07 02 14
+070216*	07 02 16* - déchets contenant des silicones dangereux
+070217	07 02 17 - déchets contenant des silicones autres que ceux visés à la rubrique 07 02 16
+070299	07 02 99 - déchets non spécifiés ailleurs
+070301*	07 03 01* - eaux de lavage et liqueurs mères aqueuses
+070303*	07 03 03* - solvants, liquides de lavage et liqueurs mères organiques halogénés
+070304*	07 03 04* - autres solvants, liquides de lavage et liqueurs mères organiques
+070307*	07 03 07* - résidus de réaction et résidus de distillation halogénés
+070308*	07 03 08* - autres résidus de réaction et résidus de distillation
+070309*	07 03 09* - gâteaux de filtration et absorbants usés halogénés
+070310*	07 03 10* - autres gâteaux de filtration et absorbants usés
+070311*	07 03 11* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+070312	07 03 12 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 07 03 11
+070399	07 03 99 - déchets non spécifiés ailleurs
+070401*	07 04 01* - eaux de lavage et liqueurs mères aqueuses
+070403*	07 04 03* - solvants, liquides de lavage et liqueurs mères organiques halogénés
+070404*	07 04 04* - autres solvants, liquides de lavage et liqueurs mères organiques
+070407*	07 04 07* - résidus de réaction et résidus de distillation halogénés
+070408*	07 04 08* - autres résidus de réaction et résidus de distillation
+070409*	07 04 09* - gâteaux de filtration et absorbants usés halogénés
+070410*	07 04 10* - autres gâteaux de filtration et absorbants usés
+070411*	07 04 11* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+070412	07 04 12 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 07 04 11
+070413*	07 04 13* - déchets solides contenant des substances dangereuses
+070499	07 04 99 - déchets non spécifiés ailleurs
+070501*	07 05 01* - eaux de lavage et liqueurs mères aqueuses
+070503*	07 05 03* - solvants, liquides de lavage et liqueurs mères organiques halogénés
+070504*	07 05 04* - autres solvants, liquides de lavage et liqueurs mères organiques
+070507*	07 05 07* - résidus de réaction et résidus de distillation halogénés
+070508*	07 05 08* - autres résidus de réaction et résidus de distillation
+070509*	07 05 09* - gâteaux de filtration et absorbants usés halogénés
+070510*	07 05 10* - autres gâteaux de filtration et absorbants usés
+070511*	07 05 11* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+070512	07 05 12 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 07 05 11
+070513*	07 05 13* - déchets solides contenant des substances dangereuses
+070514	07 05 14 - déchets solides autres que ceux visés à la rubrique 07 05 13
+070599	07 05 99 - déchets non spécifiés ailleurs
+070601*	07 06 01* - eaux de lavage et liqueurs mères aqueuses
+070603*	07 06 03* - solvants, liquides de lavage et liqueurs mères organiques halogénés
+070604*	07 06 04* - autres solvants, liquides de lavage et liqueurs mères organiques
+070607*	07 06 07* - résidus de réaction et résidus de distillation halogénés
+070608*	07 06 08* - autres résidus de réaction et résidus de distillation
+070609*	07 06 09* - gâteaux de filtration et absorbants usés halogénés
+070610*	07 06 10* - autres gâteaux de filtration et absorbants usés
+070611*	07 06 11* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+070612	07 06 12 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 07 06 11
+070699	07 06 99 - déchets non spécifiés ailleurs
+070701*	07 07 01* - eaux de lavage et liqueurs mères aqueuses
+070703*	07 07 03* - solvants, liquides de lavage et liqueurs mères organiques halogénés
+070704*	07 07 04* - autres solvants, liquides de lavage et liqueurs mères organiques
+070707*	07 07 07* - résidus de réaction et résidus de distillation halogénés
+070708*	07 07 08* - autres résidus de réaction et résidus de distillation
+070709*	07 07 09* - gâteaux de filtration et absorbants usés halogénés
+070710*	07 07 10* - autres gâteaux de filtration et absorbants usés
+070711*	07 07 11* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+070712	07 07 12 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 07 07 11
+070799	07 07 99 - déchets non spécifiés ailleurs
+080111*	08 01 11* - déchets de peintures et vernis contenant des solvants organiques ou d'autres substances dangereuses
+080112	08 01 12 - déchets de peintures ou vernis autres que ceux visés à la rubrique 08 01 11
+080113*	08 01 13* - boues provenant de peintures ou vernis contenant des solvants organiques ou autres substances dangereuses
+080114	08 01 14 - boues provenant de peintures ou vernis autres que celles visées à la rubrique 08 01 13
+080115*	08 01 15* - boues aqueuses contenant de la peinture ou du vernis contenant des solvants organiques ou autres substances dangereuses
+080116	08 01 16 - boues aqueuses contenant de la peinture ou du vernis autres que celles visées à la rubrique 08 01 15
+080117*	08 01 17* - déchets provenant du décapage de peintures ou vernis contenant des solvants organiques ou autres substances dangereuses
+080118	08 01 18 - déchets provenant du décapage de peintures ou vernis autres que ceux visés à la rubrique 08 01 17
+080119*	08 01 19* - boues aqueuses contenant de la peinture ou du vernis contenant des solvants organiques ou autres substances dangereuses
+080120	08 01 20 - suspensions aqueuses contenant de la peinture ou du vernis autres que celles visées à la rubrique 08 01 19
+080121*	08 01 21* - déchets de décapants de peintures ou vernis
+080199	08 01 99 - déchets non spécifiés ailleurs
+080201	08 02 01 - déchets de produits de revêtement en poudre
+080202	08 02 02 - boues aqueuses contenant des matériaux céramiques
+080203	08 02 03 - suspensions aqueuses contenant des matériaux céramiques
+080299	08 02 99 - déchets non spécifiés ailleurs
+080307	08 03 07 - boues aqueuses contenant de l'encre
+080308	08 03 08 - déchets liquides aqueux contenant de l'encre
+080312*	08 03 12* - déchets d'encres contenant des substances dangereuses
+080313	08 03 13 - déchets d'encres autres que ceux visés à la rubrique 08 03 12
+080314*	08 03 14* - boues d'encre contenant des substances dangereuses
+080315	08 03 15 - boues d'encre autres que celles visées à la rubrique 08 03 14
+080316*	08 03 16* - déchets de solution de morsure
+080317*	08 03 17* - déchets de toner d'impression contenant des substances dangereuses
+080318	08 03 18 - déchets de toner d'impression autres que ceux visés à la rubrique 08 03 17
+080319*	08 03 19* - huiles dispersées
+080399	08 03 99 - déchets non spécifiés ailleurs
+080409*	08 04 09* - déchets de colles et mastics contenant des solvants organiques ou d'autres substances dangereuses
+080410	08 04 10 - déchets de colles et mastics autres que ceux visés à la rubrique 08 04 09
+080411*	08 04 11* - boues de colles et mastics contenant des solvants organiques ou d'autres substances dangereuses
+080412	08 04 12 - boues de colles et mastics autres que celles visées à la rubrique 08 04 11
+080413*	08 04 13* - boues aqueuses contenant des colles ou mastics contenant des solvants organiques ou d'autres substances dangereuses
+080414	08 04 14 - boues aqueuses contenant des colles et mastics autres que celles visées à la rubrique 08 04 13
+080415*	08 04 15* - déchets liquides aqueux contenant des colles ou mastics contenant des solvants organiques ou d'autres substances dangereuses
+080416	08 04 16 - déchets liquides aqueux contenant des colles ou mastics autres que ceux visés à la rubrique 08 04 15
+080417*	08 04 17* - huile de résine
+080499	08 04 99 - déchets non spécifiés ailleurs
+080501*	08 05 01* - déchets d'isocyanates
+090101*	09 01 01* - bains de développement aqueux contenant un activateur
+090102*	09 01 02* - bains de développement aqueux pour plaques offset
+090103*	09 01 03* - bains de développement contenant des solvants
+090104*	09 01 04* - bains de fixation
+090105*	09 01 05* - bains de blanchiment et bains de blanchiment/fixation
+090106*	09 01 06* - déchets contenant de l'argent provenant du traitement in situ des déchets photographiques
+090107	09 01 07 - pellicules et papiers photographiques contenant de l'argent ou des composés de l'argent
+090108	09 01 08 - pellicules et papiers photographiques sans argent ni composés de l'argent
+090110	09 01 10 - appareils photographiques à usage unique sans piles
+090111*	09 01 11* - appareils photographiques à usage unique contenant des piles visées aux rubriques 16 06 01, 16 06 02 ou 16 06 03
+090112	09 01 12 - appareils photographiques à usage unique contenant des piles autres que ceux visés à la rubrique 09 01 11
+090113*	09 01 13* - déchets liquides aqueux provenant de la récupération in situ de l'argent autres que ceux visés à la rubrique 09 01 06
+090199	09 01 99 - déchets non spécifiés ailleurs
+100101	10 01 01 - mâchefers, scories et cendres sous chaudière (sauf cendres sous chaudière visées à la rubrique 10 01 04)
+100102	10 01 02 - cendres volantes de charbon
+100103	10 01 03 - cendres volantes de tourbe et de bois non traité
+100104*	10 01 04* - cendres volantes et cendres sous chaudière d'hydrocarbures
+100105	10 01 05 - déchets solides de réactions basées sur le calcium, provenant de la désulfuration des gaz de fumée
+100107	10 01 07 - boues de réactions basées sur le calcium, provenant de la désulfuration des gaz de fumée
+100109*	10 01 09* - acide sulfurique
+100113*	10 01 13* - cendres volantes provenant d'hydrocarbures émulsifiés employés comme combustibles
+100114*	10 01 14* - mâchefers, scories et cendres sous chaudière provenant de la coïncinération contenant des substances dangereuses
+100115	10 01 15 - mâchefers, scories et cendres sous chaudière provenant de la coïncinération autres que ceux visés à la rubrique 10 01 14
+100116*	10 01 16* - cendres volantes provenant de la coïncinération contenant des substances dangereuses
+100117	10 01 17 - cendres volantes provenant de la coïncinération autres que celles visées à la rubrique 10 01 16
+100118*	10 01 18* - déchets provenant de l'épuration des gaz contenant des substances dangereuses
+100119	10 01 19 - déchets provenant de l'épuration des gaz autres que ceux visés aux rubriques 10 01 05, 10 01 07 et 10 01 18
+100120*	10 01 20* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+100121	10 01 21 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 10 01 20
+100122*	10 01 22* - boues aqueuses provenant du nettoyage des chaudières contenant des substances dangereuses
+100123	10 01 23 - boues aqueuses provenant du nettoyage des chaudières autres que celles visées à la rubrique 10 01 22
+100124	10 01 24 - sables provenant de lits fluidisés
+100125	10 01 25 - déchets provenant du stockage et de la préparation des combustibles des centrales à charbon
+100126	10 01 26 - déchets provenant de l'épuration des eaux de refroidissement
+100199	10 01 99 - déchets non spécifiés ailleurs
+100201	10 02 01 - déchets de laitiers de hauts fourneaux et d'aciéries
+100202	10 02 02 - laitiers non traités
+100207*	10 02 07* - déchets solides provenant de l'épuration des fumées contenant des substances dangereuses
+100208	10 02 08 - déchets solides provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 02 07
+100210	10 02 10 - battitures de laminoir
+100211*	10 02 11* - déchets provenant de l'épuration des eaux de refroidissement contenant des hydrocarbures
+100212	10 02 12 - déchets provenant de l'épuration des eaux de refroidissement autres que ceux visés à la rubrique 10 02 11
+100213*	10 02 13* - boues et gâteaux de filtration provenant de l'épuration des fumées contenant des substances dangereuses
+100214	10 02 14 - boues et gâteaux de filtration provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 02 13
+100215	10 02 15 - autres boues et gâteaux de filtration
+100299	10 02 99 - déchets non spécifiés ailleurs
+100302	10 03 02 - déchets d'anodes
+100304*	10 03 04* - scories provenant de la production primaire
+100305	10 03 05 - déchets d'alumine
+100308*	10 03 08* - scories salées de seconde fusion
+100309*	10 03 09* - crasses noires de seconde fusion
+100315*	10 03 15* - écumes inflammables ou émettant, au contact de l'eau, des gaz inflammables en quantités dangereuses
+100316	10 03 16 - écumes autres que celles visées à la rubrique 10 03 15
+100317*	10 03 17* - déchets goudronnés provenant de la fabrication des anodes
+100318	10 03 18 - déchets carbonés provenant de la fabrication des anodes autres que ceux visés à la rubrique 10 03 17
+100319*	10 03 19* - poussières de filtration des fumées contenant des substances dangereuses
+100320	10 03 20 - poussières de filtration des fumées autres que celles visées à la rubrique 10 03 19
+100321*	10 03 21* - autres fines et poussières (y compris fines de broyage de crasses) contenant des substances dangereuses
+100322	10 03 22 - autres fines et poussières (y compris fines de broyage de crasses) autres que celles visées à la rubrique 10 03 21
+100323*	10 03 23* - déchets solides provenant de l'épuration des fumées contenant des substances dangereuses
+100324	10 03 24 - déchets solides provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 03 23
+100325*	10 03 25* - boues et gâteaux de filtration provenant de l'épuration des fumées contenant des substances dangereuses
+100326	10 03 26 - boues et gâteaux de filtration provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 03 25
+100327*	10 03 27* - déchets provenant de l'épuration des eaux de refroidissement contenant des hydrocarbures
+100328	10 03 28 - déchets provenant de l'épuration des eaux de refroidissement autres que ceux visés à la rubrique 10 03 27
+100329*	10 03 29* - déchets provenant du traitement des scories salées et du traitement des crasses noires contenant des substances dangereuses
+100330	10 03 30 - déchets provenant du traitement des scories salées et du traitement des crasses noires autres que ceux visés à la rubrique 10 03 29
+100399	10 03 99 - déchets non spécifiés ailleurs
+100401*	10 04 01* - scories provenant de la production primaire et secondaire
+100402*	10 04 02* - crasses et écumes provenant de la production primaire et secondaire
+100403*	10 04 03* - arséniate de calcium
+100404*	10 04 04* - poussières de filtration des fumées
+100405*	10 04 05* - autres fines et poussières
+100406*	10 04 06* - déchets solides provenant de l'épuration des fumées
+100407*	10 04 07* - boues et gâteaux de filtration provenant de l'épuration des fumées
+100409*	10 04 09* - déchets provenant de l'épuration des eaux de refroidissement contenant des hydrocarbures
+100410	10 04 10 - déchets provenant de l'épuration des eaux de refroidissement autres que ceux visés à la rubrique 10 04 09
+100499	10 04 99 - déchets non spécifiés ailleurs
+100501	10 05 01 - scories provenant de la production primaire et secondaire
+100503*	10 05 03* - poussières de filtration des fumées
+100504	10 05 04 - autres fines et poussières
+100505*	10 05 05* - déchets solides provenant de l'épuration des fumées
+100506*	10 05 06* - boues et gâteaux de filtration provenant de l'épuration des fumées
+100508*	10 05 08* - déchets provenant de l'épuration des eaux de refroidissement contenant des hydrocarbures
+100509	10 05 09 - déchets provenant de l'épuration des eaux de refroidissement autres que ceux visés à la rubrique 10 05 08
+100510*	10 05 10* - crasses et écumes inflammables ou émettant, au contact de l'eau, des gaz inflammables en quantités dangereuses
+100511	10 05 11 - crasses et écumes autres que celles visées à la rubrique 10 05 10
+100599	10 05 99 - déchets non spécifiés ailleurs
+100601	10 06 01 - scories provenant de la production primaire et secondaire
+100602	10 06 02 - crasses et écumes provenant de la production primaire et secondaire
+100603*	10 06 03* - poussières de filtration des fumées
+100604	10 06 04 - autres fines et poussières
+100606*	10 06 06* - déchets solides provenant de l'épuration des fumées
+100607*	10 06 07* - boues et gâteaux de filtration provenant de l'épuration des fumées
+100609*	10 06 09* - déchets provenant de l'épuration des eaux de refroidissement contenant des hydrocarbures
+100610	10 06 10 - déchets provenant de l'épuration des eaux de refroidissement autres que ceux visés à la rubrique 10 06 09
+100699	10 06 99 - déchets non spécifiés ailleurs
+100701	10 07 01 - scories provenant de la production primaire et secondaire
+100702	10 07 02 - crasses et écumes provenant de la production primaire et secondaire
+100703	10 07 03 - déchets solides provenant de l'épuration des fumées
+100704	10 07 04 - autres fines et poussières
+100705	10 07 05 - boues et gâteaux de filtration provenant de l'épuration des fumées
+100707*	10 07 07* - déchets provenant de l'épuration des eaux de refroidissement contenant des hydrocarbures
+100708	10 07 08 - déchets provenant de l'épuration des eaux de refroidissement autres que ceux visés à la rubrique 10 07 07
+100799	10 07 99 - déchets non spécifiés ailleurs
+100804	10 08 04 - fines et poussières
+100808*	10 08 08* - scories salées provenant de la production primaire et secondaire
+100809	10 08 09 - autres scories
+100810*	10 08 10* - crasses et écumes inflammables ou émettant, au contact de l'eau, des gaz inflammables en quantités dangereuses
+100811	10 08 11 - crasses et écumes autres que celles visées à la rubrique 10 08 10
+100812*	10 08 12* - déchets goudronnés provenant de la fabrication des anodes
+100813	10 08 13 - déchets carbonés provenant de la fabrication des anodes autres que ceux visés à la rubrique 10 08 12
+100814	10 08 14 - déchets d'anodes
+100815*	10 08 15* - poussières de filtration des fumées contenant des substances dangereuses
+100816	10 08 16 - poussières de filtration des fumées autres que celles visées à la rubrique 10 08 15
+100817*	10 08 17* - boues et gâteaux de filtration provenant de l'épuration des fumées contenant des substances dangereuses
+100818	10 08 18 - boues et gâteaux de filtration provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 08 17
+100819*	10 08 19* - déchets provenant de l'épuration des eaux de refroidissement contenant des hydrocarbures
+100820	10 08 20 - déchets provenant de l'épuration des eaux de refroidissement autres que ceux visés à la rubrique 10 08 19
+100899	10 08 99 - déchets non spécifiés ailleurs
+100903	10 09 03 - laitiers de four de fonderie
+100905*	10 09 05* - noyaux et moules de fonderie n'ayant pas subi la coulée contenant des substances dangereuses
+100906	10 09 06 - noyaux et moules de fonderie n'ayant pas subi la coulée autres que ceux visés à la rubrique 10 09 05
+100907*	10 09 07* - noyaux et moules de fonderie ayant subi la coulée contenant des substances dangereuses
+100908	10 09 08 - noyaux et moules de fonderie ayant subi la coulée autres que ceux visés à la rubrique 10 09 07
+100909*	10 09 09* - poussières de filtration des fumées contenant des substances dangereuses
+100910	10 09 10 - poussières de filtration des fumées autres que celles visées à la rubrique 10 09 09
+100911*	10 09 11* - autres fines contenant des substances dangereuses
+100912	10 09 12 - autres fines non visées à la rubrique 10 09 11
+100913*	10 09 13* - déchets de liants contenant des substances dangereuses
+100914	10 09 14 - déchets de liants autres que ceux visés à la rubrique 10 09 13
+100915*	10 09 15* - révélateur de criques usagé contenant des substances dangereuses
+100916	10 09 16 - révélateur de criques usagé autre que celui visé à la rubrique 10 09 15
+100999	10 09 99 - déchets non spécifiés ailleurs
+101003	10 10 03 - laitiers de four de fonderie
+101005*	10 10 05* - noyaux et moules de fonderie n'ayant pas subi la coulée contenant des substances dangereuses
+101006	10 10 06 - noyaux et moules de fonderie n'ayant pas subi la coulée autres que ceux visés à la rubrique 10 10 05
+101007*	10 10 07* - noyaux et moules de fonderie ayant subi la coulée contenant des substances dangereuses
+101008	10 10 08 - noyaux et moules de fonderie ayant subi la coulée autres que ceux visés à la rubrique 10 10 07
+101009*	10 10 09* - poussières de filtration des fumées contenant des substances dangereuses
+101010	10 10 10 - poussières de filtration des fumées autres que celles visées à la rubrique 10 10 09
+101011*	10 10 11* - autres fines contenant des substances dangereuses
+101012	10 10 12 - autres fines non visées à la rubrique 10 10 11
+101013*	10 10 13* - déchets de liants contenant des substances dangereuses
+101014	10 10 14 - déchets de liants autres que ceux visés à la rubrique 10 10 13
+101015*	10 10 15* - révélateur de criques usagé contenant des substances dangereuses
+101016	10 10 16 - révélateur de criques usagé autre que celui visé à la rubrique 10 10 15
+101099	10 10 99 - déchets non spécifiés ailleurs
+101103	10 11 03 - déchets de matériaux à base de fibre de verre
+101105	10 11 05 - fines et poussières
+101109*	10 11 09* - déchets de préparation avant cuisson contenant des substances dangereuses
+101110	10 11 10 - déchets de préparation avant cuisson autres que ceux visés à la rubrique 10 11 09
+101111*	10 11 11* - petites particules de déchets de verre et poudre de verre contenant des métaux lourds (par exemple tubes cathodiques)
+101112	10 11 12 - déchets de verre autres que ceux visés à la rubrique 10 11 11
+101113*	10 11 13* - boues de polissage et de meulage du verre contenant des substances dangereuses
+101114	10 11 14 - boues de polissage et de meulage du verre autres que celles visées à la rubrique 10 11 13
+101115*	10 11 15* - déchets solides provenant de l'épuration des fumées contenant des substances dangereuses
+101116	10 11 16 - déchets solides provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 11 15
+101117*	10 11 17* - boues et gâteaux de filtration provenant de l'épuration des fumées contenant des substances dangereuses
+101118	10 11 18 - boues et gâteaux de filtration provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 11 17
+101119*	10 11 19* - déchets solides provenant du traitement in situ des effluents contenant des substances dangereuses
+101120	10 11 20 - déchets solides provenant du traitement in situ des effluents autres que ceux visés à la rubrique 10 11 19
+101199	10 11 99 - déchets non spécifiés ailleurs
+101201	10 12 01 - déchets de préparation avant cuisson
+101203	10 12 03 - fines et poussières
+101205	10 12 05 - boues et gâteaux de filtration provenant de l'épuration des fumées
+101206	10 12 06 - moules déclassés
+101208	10 12 08 - déchets de produits en céramique, briques, carrelage et matériaux de construction (après cuisson)
+101209*	10 12 09* - déchets solides provenant de l'épuration des fumées contenant des substances dangereuses
+101210	10 12 10 - déchets solides provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 12 09
+101211*	10 12 11* - déchets de glaçure contenant des métaux lourds
+101212	10 12 12 - déchets de glaçure autres que ceux visés à la rubrique 10 12 11
+101213	10 12 13 - boues provenant du traitement in situ des effluents
+101299	10 12 99 - déchets non spécifiés ailleurs
+101301	10 13 01 - déchets de préparation avant cuisson
+101304	10 13 04 - déchets de calcination et d'hydratation de la chaux
+101306	10 13 06 - fines et poussières (sauf rubriques 10 13 12 et 10 13 13)
+101307	10 13 07 - boues et gâteaux de filtration provenant de l'épuration des fumées
+101309*	10 13 09* - déchets provenant de la fabrication d'amiante-ciment contenant de l'amiante
+101310	10 13 10 - déchets provenant de la fabrication d'amiante-ciment autres que ceux visés à la rubrique 10 13 09
+101311	10 13 11 - déchets provenant de la fabrication de matériaux composites à base de ciment autres que ceux visés aux rubriques 10 13 09 et 10 13 10
+101312*	10 13 12* - déchets solides provenant de l'épuration des fumées contenant des substances dangereuses
+101313	10 13 13 - déchets solides provenant de l'épuration des fumées autres que ceux visés à la rubrique 10 13 12
+101314	10 13 14 - déchets et boues de béton
+101399	10 13 99 - déchets non spécifiés ailleurs
+101401*	10 14 01* - déchets provenant de l'épuration des fumées contenant du mercure
+110105*	11 01 05* - acides de décapage
+110106*	11 01 06* - acides non spécifiés ailleurs
+110107*	11 01 07* - bases de décapage
+110108*	11 01 08* - boues de phosphatation
+110109*	11 01 09* - boues et gâteaux de filtration contenant des substances dangereuses
+110110	11 01 10 - boues et gâteaux de filtration autres que ceux visés à la rubrique 11 01 09
+110111*	11 01 11* - liquides aqueux de rinçage contenant des substances dangereuses
+110112	11 01 12 - liquides aqueux de rinçage autres que ceux visés à la rubrique 11 01 11
+110113*	11 01 13* - déchets de dégraissage contenant des substances dangereuses
+110114	11 01 14 - déchets de dégraissage autres que ceux visés à la rubrique 11 01 13
+110115*	11 01 15* - éluats et boues provenant des systèmes à membrane et des systèmes d'échange d'ions contenant des substances dangereuses
+110116*	11 01 16* - résines échangeuses d'ions saturées ou usées
+110198*	11 01 98* - autres déchets contenant des substances dangereuses
+110199	11 01 99 - déchets non spécifiés ailleurs
+110202*	11 02 02* - boues provenant de l'hydrométallurgie du zinc (y compris jarosite et goethite)
+110203	11 02 03 - déchets provenant de la production d'anodes pour les procédés d'électrolyse aqueuse
+110205*	11 02 05* - déchets provenant des procédés hydrométallurgiques du cuivre contenant des substances dangereuses
+110206	11 02 06 - déchets provenant des procédés hydrométallurgiques du cuivre autres que ceux visés à la rubrique 11 02 05
+110207*	11 02 07* - autres déchets contenant des substances dangereuses
+110299	11 02 99 - déchets non spécifiés ailleurs
+110301*	11 03 01* - déchets cyanurés
+110302*	11 03 02* - autres déchets
+110501	11 05 01 - mattes
+110502	11 05 02 - cendres de zinc
+110503*	11 05 03* - déchets solides provenant de l'épuration des fumées
+110504*	11 05 04* - flux utilisé
+110599	11 05 99 - déchets non spécifiés ailleurs
+120101	12 01 01 - limaille et chutes de métaux ferreux
+120102	12 01 02 - fines et poussières de métaux ferreux
+120103	12 01 03 - limaille et chutes de métaux non ferreux
+120104	12 01 04 - fines et poussières de métaux non ferreux
+120105	12 01 05 - déchets de matières plastiques d'ébarbage et de tournage
+120106*	12 01 06* - huiles d'usinage à base minérale contenant des halogènes (pas sous forme d'émulsions ou de solutions)
+120107*	12 01 07* - huiles d'usinage à base minérale sans halogènes (pas sous forme d'émulsions ou de solutions)
+120108*	12 01 08* - émulsions et solutions d'usinage contenant des halogènes
+120109*	12 01 09* - émulsions et solutions d'usinage sans halogènes
+120110*	12 01 10* - huiles d'usinage de synthèse
+120112*	12 01 12* - déchets de cires et graisses
+120113	12 01 13 - déchets de soudure
+120114*	12 01 14* - boues d'usinage contenant des substances dangereuses
+120115	12 01 15 - boues d'usinage autres que celles visées à la rubrique 12 01 14
+120116*	12 01 16* - déchets de grenaillage contenant des substances dangereuses
+120117	12 01 17 - déchets de grenaillage autres que ceux visés à la rubrique 12 01 16
+120118*	12 01 18* - boues métalliques (provenant du meulage et de l'affûtage) contenant des hydrocarbures
+120119*	12 01 19* - huiles d'usinage facilement biodégradables
+120120*	12 01 20* - déchets de meulage et matériaux de meulage contenant des substances dangereuses
+120121	12 01 21 - déchets de meulage et matériaux de meulage autres que ceux visés à la rubrique 12 01 20
+120199	12 01 99 - déchets non spécifiés ailleurs
+120301*	12 03 01* - liquides aqueux de nettoyage
+120302*	12 03 02* - déchets du dégraissage à la vapeur
+130101*	13 01 01* - huiles hydrauliques contenant des PCB
+130104*	13 01 04* - huiles hydrauliques chlorées (émulsions)
+130105*	13 01 05* - huiles hydrauliques non chlorées (émulsions)
+130109*	13 01 09* - huiles hydrauliques chlorées à base minérale
+130110*	13 01 10* - huiles hydrauliques non chlorées à base minérale
+130111*	13 01 11* - huiles hydrauliques synthétiques
+130112*	13 01 12* - huiles hydrauliques facilement biodégradables
+130113*	13 01 13* - autres huiles hydrauliques
+130204*	13 02 04* - huiles moteur, de boîte de vitesses et de lubrification chlorées à base minérale
+130205*	13 02 05* - huiles moteur, de boîte de vitesses et de lubrification non chlorées à base minérale
+130206*	13 02 06* - huiles moteur, de boîte de vitesses et de lubrification synthétiques
+130207*	13 02 07* - huiles moteur, de boîte de vitesses et de lubrification facilement biodégradables
+130208*	13 02 08* - autres huiles moteur, de boîte de vitesses et de lubrification
+130301*	13 03 01* - huiles isolantes et fluides caloporteurs contenant des PCB
+130306*	13 03 06* - huiles isolantes et fluides caloporteurs chlorés à base minérale autres que ceux visés à la rubrique 13 03 01
+130307*	13 03 07* - huiles isolantes et fluides caloporteurs non chlorés à base minérale
+130308*	13 03 08* - huiles isolantes et fluides caloporteurs synthétiques
+130309*	13 03 09* - huiles isolantes et fluides caloporteurs facilement biodégradables
+130310*	13 03 10* - autres huiles isolantes et fluides caloporteurs
+130401*	13 04 01* - hydrocarbures de fond de cale provenant de la navigation fluviale
+130402*	13 04 02* - hydrocarbures de fond de cale provenant de canalisations de môles
+130403*	13 04 03* - hydrocarbures de fond de cale provenant d'un autre type de navigation
+130501*	13 05 01* - déchets solides provenant de dessableurs et de séparateurs eau/hydrocarbures
+130502*	13 05 02* - boues provenant de séparateurs eau/hydrocarbures
+130503*	13 05 03* - boues provenant de déshuileurs
+130506*	13 05 06* - hydrocarbures provenant de séparateurs eau/hydrocarbures
+130507*	13 05 07* - eau mélangée à des hydrocarbures provenant de séparateurs eau/hydrocarbures
+130508*	13 05 08* - mélanges de déchets provenant de dessableurs et de séparateurs eau/hydrocarbures
+130701*	13 07 01* - fuel oil et diesel
+130703*	13 07 03* - autres combustibles (y compris mélanges)
+130801*	13 08 01* - boues ou émulsions de dessalage
+130802*	13 08 02* - autres émulsions
+130899*	13 08 99* - déchets non spécifiés ailleurs
+140601*	14 06 01* - chlorofluorocarbones, HCFC, HFC
+140602*	14 06 02* - autres solvants et mélanges de solvants halogénés
+140603*	14 06 03* - autres solvants et mélanges de solvants
+140604*	14 06 04* - boues ou déchets solides contenant des solvants halogénés
+140605*	14 06 05* - boues ou déchets solides contenant d'autres solvants
+150101	15 01 01 - emballages en papier/carton
+150102	15 01 02 - emballages en matières plastiques
+150103	15 01 03 - emballages en bois
+150104	15 01 04 - emballages métalliques
+150105	15 01 05 - emballages composites
+150106	15 01 06 - emballages en mélange
+150107	15 01 07 - emballages en verre
+150109	15 01 09 - emballages textiles
+150110*	15 01 10* - emballages contenant des résidus de substances dangereuses ou contaminés par de tels résidus
+150111*	15 01 11* - emballages métalliques contenant une matrice poreuse solide dangereuse (par exemple amiante), y compris des conteneurs à pression vides
+150202*	15 02 02* - absorbants, matériaux filtrants (y compris les filtres à huile non spécifiés ailleurs), chiffons d'essuyage et vêtements de protection contaminés par des substances dangereuses
+150203	15 02 03 - absorbants, matériaux filtrants, chiffons d'essuyage et vêtements de protection autres que ceux visés à la rubrique 15 02 02
+160103	16 01 03 - pneus hors d'usage
+160104*	16 01 04* - véhicules hors d'usage
+160106	16 01 06 - véhicules hors d'usage ne contenant ni liquides ni autres composants dangereux
+160107*	16 01 07* - filtres à huile
+160108*	16 01 08* - composants contenant du mercure
+160109*	16 01 09* - composants contenant des PCB
+160110*	16 01 10* - composants explosifs (par exemple coussins gonflables de sécurité)
+160111*	16 01 11* - patins de freins contenant de l'amiante
+160112	16 01 12 - patins de freins autres que ceux visés à la rubrique 16 01 11
+160113*	16 01 13* - liquides de frein
+160114*	16 01 14* - antigels contenant des substances dangereuses
+160115	16 01 15 - antigels autres que ceux visés à la rubrique 16 01 14
+160116	16 01 16 - réservoirs de gaz liquéfié
+160117	16 01 17 - métaux ferreux
+160118	16 01 18 - métaux non ferreux
+160119	16 01 19 - matières plastiques
+160121*	16 01 21* - composants dangereux autres que ceux visés aux rubriques 16 01 07 à 16 01 11, 16 01 13 et 16 01 14
+160122	16 01 22 - composants non spécifiés ailleurs
+160199	16 01 99 - déchets non spécifiés ailleurs
+160209*	16 02 09* - transformateurs et accumulateurs contenant des PCB
+160210*	16 02 10* - équipements mis au rebut contenant des PCB ou contaminés par de telles substances autres que ceux visés à la rubrique 16 02 09
+160211*	16 02 11* - équipements mis au rebut contenant des chlorofluorocarbones, des HCFC ou des HFC
+160212*	16 02 12* - équipements mis au rebut contenant de l'amiante libre
+160213*	16 02 13* - équipements mis au rebut contenant des composants dangereux (3) autres que ceux visés aux rubriques 16 02 09 à 16 02 12
+160214	16 02 14 - équipements mis au rebut autres que ceux visés aux rubriques 16 02 09 à 16 02 13
+160215*	16 02 15* - composants dangereux retirés des équipements mis au rebut
+160216	16 02 16 - composants retirés des équipements mis au rebut autres que ceux visés à la rubrique 16 02 15
+160303*	16 03 03* - déchets d'origine minérale contenant des substances dangereuses
+160304	16 03 04 - déchets d'origine minérale autres que ceux visés à la rubrique 16 03 03
+160305*	16 03 05* - déchets d'origine organique contenant des substances dangereuses
+160306	16 03 06 - déchets d'origine organique autres que ceux visés à la rubrique 16 03 05
+160307*	16 03 07* - mercure métallique
+160401*	16 04 01* - déchets de munitions
+160402*	16 04 02* - déchets de feux d'artifice
+160403*	16 04 03* - autres déchets d'explosifs
+160504*	16 05 04* - gaz en récipients à pression (y compris les halons) contenant des substances dangereuses
+160505	16 05 05 - gaz en récipients à pression autres que ceux visés à la rubrique 16 05 04
+160506*	16 05 06* - produits chimiques de laboratoire à base de ou contenant des substances dangereuses, y compris les mélanges de produits chimiques de laboratoire
+160507*	16 05 07* - produits chimiques d'origine minérale à base de ou contenant des substances dangereuses, mis au rebut
+160508*	16 05 08* - produits chimiques d'origine organique à base de ou contenant des substances dangereuses, mis au rebut
+160509	16 05 09 - produits chimiques mis au rebut autres que ceux visés aux rubriques 16 05 06, 16 05 07 ou 16 05 08
+160601*	16 06 01* - accumulateurs au plomb
+160602*	16 06 02* - accumulateurs Ni-Cd
+160603*	16 06 03* - piles contenant du mercure
+160604	16 06 04 - piles alcalines (sauf rubrique 16 06 03)
+160605	16 06 05 - autres piles et accumulateurs
+160606*	16 06 06* - électrolytes de piles et accumulateurs collectés séparément
+160708*	16 07 08* - déchets contenant des hydrocarbures
+160709*	16 07 09* - déchets contenant d'autres substances dangereuses
+160799	16 07 99 - déchets non spécifiés ailleurs
+160801	16 08 01 - catalyseurs usés contenant de l'or, de l'argent, du rhénium, du rhodium, du palladium, de l'iridium ou du platine (sauf rubrique 16 08 07)
+160802*	16 08 02* - catalyseurs usés contenant des métaux ou composés de métaux de transition dangereux
+160803	16 08 03 - catalyseurs usés contenant des métaux ou composés de métaux de transition non spécifiés ailleurs
+160804	16 08 04 - catalyseurs usés de craquage catalytique sur lit fluide (sauf rubrique 16 08 07)
+160805*	16 08 05* - catalyseurs usés contenant de l'acide phosphorique
+160806*	16 08 06* - liquides usés employés comme catalyseurs
+160807*	16 08 07* - catalyseurs usés contaminés par des substances dangereuses
+160901*	16 09 01* - permanganates, par exemple, permanganate de potassium
+160902*	16 09 02* - chromates, par exemple, chromate de potassium, dichromate de sodium ou de potassium
+160903*	16 09 03* - peroxydes, par exemple, peroxyde d'hydrogène
+160904*	16 09 04* - substances oxydantes non spécifiées ailleurs
+161001*	16 10 01* - déchets liquides aqueux contenant des substances dangereuses
+161002	16 10 02 - déchets liquides aqueux autres que ceux visés à la rubrique 16 10 01
+161003*	16 10 03* - concentrés aqueux contenant des substances dangereuses
+161004	16 10 04 - concentrés aqueux autres que ceux visés à la rubrique 16 10 03
+161101*	16 11 01* - revêtements de fours et réfractaires à base de carbone provenant de procédés métallurgiques contenant des substances dangereuses
+161102	16 11 02 - revêtements de fours et réfractaires à base de carbone provenant de procédés métallurgiques autres que ceux visés à la rubrique 16 11 01
+161103*	16 11 03* - autres revêtements de fours et réfractaires provenant de procédés métallurgiques contenant des substances dangereuses
+161104	16 11 04 - autres revêtements de fours et réfractaires provenant de procédés métallurgiques non visés à la rubrique 16 11 03
+161105*	16 11 05* - revêtements de fours et réfractaires provenant de procédés non métallurgiques contenant des substances dangereuses
+161106	16 11 06 - revêtements de fours et réfractaires provenant de procédés non métallurgiques autres que ceux visés à la rubrique 16 11 05
+170101	17 01 01 - béton
+170102	17 01 02 - briques
+170103	17 01 03 - tuiles et céramiques
+170106*	17 01 06* - mélanges ou fractions séparées de béton, briques, tuiles et céramiques contenant des substances dangereuses
+170107	17 01 07 - mélanges de béton, briques, tuiles et céramiques autres que ceux visés à la rubrique 17 01 06
+170201	17 02 01 - bois
+170202	17 02 02 - verre
+170203	17 02 03 - matières plastiques
+170204*	17 02 04* - bois, verre et matières plastiques contenant des substances dangereuses ou contaminés par de telles substances
+170301*	17 03 01* - mélanges bitumineux contenant du goudron
+170302	17 03 02 - mélanges bitumineux autres que ceux visés à la rubrique 17 03 01
+170303*	17 03 03* - goudron et produits goudronnés
+170401	17 04 01 - cuivre, bronze, laiton
+170402	17 04 02 - aluminium
+170403	17 04 03 - plomb
+170404	17 04 04 - zinc
+170405	17 04 05 - fer et acier
+170406	17 04 06 - étain
+170407	17 04 07 - métaux en mélange
+170409*	17 04 09* - déchets métalliques contaminés par des substances dangereuses
+170410*	17 04 10* - câbles contenant des hydrocarbures, du goudron ou d'autres substances dangereuses
+170411	17 04 11 - câbles autres que ceux visés à la rubrique 17 04 10
+170503*	17 05 03* - terres et cailloux contenant des substances dangereuses
+170504	17 05 04 - terres et cailloux autres que ceux visés à la rubrique 17 05 03
+170505*	17 05 05* - boues de dragage contenant des substances dangereuses
+170506	17 05 06 - boues de dragage autres que celles visées à la rubrique 17 05 05
+170507*	17 05 07* - ballast de voie contenant des substances dangereuses
+170508	17 05 08 - ballast de voie autre que celui visé à la rubrique 17 05 07
+170601*	17 06 01* - matériaux d'isolation contenant de l'amiante
+170603*	17 06 03* - autres matériaux d'isolation à base de ou contenant des substances dangereuses
+170604	17 06 04 - matériaux d'isolation autres que ceux visés aux rubriques 17 06 01 et 17 06 03
+170605*	17 06 05* - matériaux de construction contenant de l'amiante
+170801*	17 08 01* - matériaux de construction à base de gypse contaminés par des substances dangereuses
+170802	17 08 02 - matériaux de construction à base de gypse autres que ceux visés à la rubrique 17 08 01
+170901*	17 09 01* - déchets de construction et de démolition contenant du mercure
+170902*	17 09 02* - déchets de construction et de démolition contenant des PCB (par exemple, mastics, sols à base de résines, double vitrage, condensateurs, contenant des PCB)
+170903*	17 09 03* - autres déchets de construction et de démolition (y compris en mélange) contenant des substances dangereuses
+170904	17 09 04 - déchets de construction et de démolition en mélange autres que ceux visés aux rubriques 17 09 01, 17 09 02 et 17 09 03
+180101	18 01 01 - objets piquants et coupants (sauf rubrique 18 01 03)
+180102	18 01 02 - déchets anatomiques et organes, y compris sacs de sang et réserves de sang (sauf rubrique 18 01 03)
+180103*	18 01 03* - déchets dont la collecte et l'élimination font l'objet de prescriptions particulières vis-à-vis des risques d'infection
+180104	18 01 04 - déchets dont la collecte et l'élimination ne font pas l'objet de prescriptions particulières vis-à-vis des risques d'infection (par exemple vêtements, plâtres, draps, vêtements jetables, langes)
+180106*	18 01 06* - produits chimiques à base de ou contenant des substances dangereuses
+180107	18 01 07 - produits chimiques autres que ceux visés à la rubrique 18 01 06
+180108*	18 01 08* - médicaments cytotoxiques et cytostatiques
+180109	18 01 09 - médicaments autres que ceux visés à la rubrique 18 01 08
+180110*	18 01 10* - déchets d'amalgame dentaire
+180201	18 02 01 - objets piquants et coupants (sauf rubrique 18 02 02)
+180202* - Cat1 - cadavres et parties d’animaux utilisés à des fins expérimentales (animaux expérimentaux)	18 02 02* - Cat1 - cadavres et parties d’animaux utilisés à des fins expérimentales (animaux expérimentaux)
+180202*	18 02 02* - déchets dont la collecte et l'élimination font l'objet de prescriptions particulières vis-à-vis des risques d'infection
+180203	18 02 03 - déchets dont la collecte et l'élimination ne font pas l'objet de prescriptions particulières vis-à-vis des risques d'infection
+180205*	18 02 05* - produits chimiques à base de ou contenant des substances dangereuses
+180206	18 02 06 - produits chimiques autres que ceux visés à la rubrique 18 02 05
+180207*	18 02 07* - médicaments cytotoxiques et cytostatiques
+180208	18 02 08 - médicaments autres que ceux visés à la rubrique 18 02 07
+190102	19 01 02 - déchets de déferraillage des mâchefers
+190105*	19 01 05* - gâteaux de filtration provenant de l'épuration des fumées
+190106*	19 01 06* - déchets liquides aqueux provenant de l'épuration des fumées et autres déchets liquides aqueux
+190107*	19 01 07* - déchets solides provenant de l'épuration des fumées
+190110*	19 01 10* - charbon actif usé provenant de l'épuration des gaz de fumées
+190111*	19 01 11* - mâchefers contenant des substances dangereuses
+190112	19 01 12 - mâchefers autres que ceux visés à la rubrique 19 01 11
+190113*	19 01 13* - cendres volantes contenant des substances dangereuses
+190114	19 01 14 - cendres volantes autres que celles visées à la rubrique 19 01 13
+190115*	19 01 15* - cendres sous chaudière contenant des substances dangereuses
+190116	19 01 16 - cendres sous chaudière autres que celles visées à la rubrique 19 01 15
+190117*	19 01 17* - déchets de pyrolyse contenant des substances dangereuses
+190118	19 01 18 - déchets de pyrolyse autres que ceux visés à la rubrique 19 01 17
+190119	19 01 19 - sables provenant de lits fluidisés
+190199	19 01 99 - déchets non spécifiés ailleurs
+190203	19 02 03 - déchets prémélangés composés seulement de déchets non dangereux
+190204*	19 02 04* - déchets prémélangés contenant au moins un déchet dangereux
+190205*	19 02 05* - boues provenant des traitements physico-chimiques contenant des substances dangereuses
+190206	19 02 06 - boues provenant des traitements physico-chimiques autres que celles visées à la rubrique 19 02 05
+190207*	19 02 07* - hydrocarbures et concentrés provenant d'une séparation
+190208*	19 02 08* - déchets combustibles liquides contenant des substances dangereuses
+190209*	19 02 09* - déchets combustibles solides contenant des substances dangereuses
+190210	19 02 10 - déchets combustibles autres que ceux visés aux rubriques 19 02 08 et 19 02 09
+190211*	19 02 11* - autres déchets contenant des substances dangereuses
+190299	19 02 99 - déchets non spécifiés ailleurs
+190304*	19 03 04* - déchets marqués comme dangereux partiellement stabilisés, autres que ceux visés à la rubrique 19 03 08
+190305	19 03 05 - déchets stabilisés autres que ceux visés à la rubrique 19 03 04
+190306*	19 03 06* - déchets catalogués comme dangereux, solidifiés
+190307	19 03 07 - déchets solidifiés autres que ceux visés à la rubrique 19 03 06
+190308*	19 03 08* - mercure partiellement stabilisé
+190401	19 04 01 - déchets vitrifiés
+190402*	19 04 02* - cendres volantes et autres déchets du traitement des gaz de fumée
+190403*	19 04 03* - phase solide non vitrifiée
+190404	19 04 04 - déchets liquides aqueux provenant de la trempe des déchets vitrifiés
+190501	19 05 01 - fraction non compostée des déchets municipaux et assimilés
+190502	19 05 02 - fraction non compostée des déchets animaux et végétaux
+190503	19 05 03 - compost déclassé
+190599	19 05 99 - déchets non spécifiés ailleurs
+190603	19 06 03 - liqueurs provenant du traitement anaérobie des déchets municipaux
+190604	19 06 04 - digestats provenant du traitement anaérobie des déchets municipaux
+190605	19 06 05 - liqueurs provenant du traitement anaérobie des déchets animaux et végétaux
+190606	19 06 06 - digestats provenant du traitement anaérobie des déchets animaux et végétaux
+190699	19 06 99 - déchets non spécifiés ailleurs
+190702*	19 07 02* - lixiviats de décharges contenant des substances dangereuses
+190703	19 07 03 - lixiviats de décharges autres que ceux visés à la rubrique 19 07 02
+190801	19 08 01 - déchets de dégrillage
+190802	19 08 02 - déchets de dessablage
+190805	19 08 05 - boues provenant du traitement des eaux usées urbaines
+190806*	19 08 06* - résines échangeuses d'ions saturées ou usées
+190807*	19 08 07* - solutions et boues provenant de la régénération des échangeurs d'ions
+190808*	19 08 08* - déchets provenant des systèmes à membrane contenant des métaux lourds
+190809 - Cat3 - mélanges de graisse et d'huile provenant de la séparation huile/eaux usées contenant seulement des huiles et graisses alimentaires de l'industrie alimentaire	19 08 09 - Cat3 - mélanges de graisse et d'huile provenant de la séparation huile/eaux usées contenant seulement des huiles et graisses alimentaires de l'industrie alimentaire
+190809	19 08 09 - mélanges de graisse et d'huile provenant de la séparation huile/eaux usées contenant seulement des huiles et graisses alimentaires
+190810*	19 08 10* - mélanges de graisse et d'huile provenant de la séparation huile/eaux usées autres que ceux visés à la rubrique 19 08 09
+190811*	19 08 11* - boues contenant des substances dangereuses provenant du traitement biologique des eaux usées industrielles
+190812	19 08 12 - boues provenant du traitement biologique des eaux usées industrielles autres que celles visées à la rubrique 19 08 11
+190813*	19 08 13* - boues contenant des substances dangereuses provenant d'autres traitements des eaux usées industrielles
+190814	19 08 14 - boues provenant d'autres traitements des eaux usées industrielles autres que celles visées à la rubrique 19 08 13
+190899	19 08 99 - déchets non spécifiés ailleurs
+190901	19 09 01 - déchets solides de première filtration et de dégrillage
+190902	19 09 02 - boues de clarification de l'eau
+190903	19 09 03 - boues de décarbonatation
+190904	19 09 04 - charbon actif usé
+190905	19 09 05 - résines échangeuses d'ions saturées ou usées
+190906	19 09 06 - solutions et boues provenant de la régénération des échangeurs d'ions
+190999	19 09 99 - déchets non spécifiés ailleurs
+191001	19 10 01 - déchets de fer ou d'acier
+191002	19 10 02 - déchets de métaux non ferreux
+191003*	19 10 03* - fraction légère des résidus de broyage et poussières contenant des substances dangereuses
+191004	19 10 04 - fraction légère des résidus de broyage et poussières autres que celles visées à la rubrique 19 10 03
+191005*	19 10 05* - autres fractions contenant des substances dangereuses
+191006	19 10 06 - autres fractions autres que celles visées à la rubrique 19 10 05
+191101*	19 11 01* - argiles de filtration usées
+191102*	19 11 02* - goudrons acides
+191103*	19 11 03* - déchets liquides aqueux
+191104*	19 11 04* - déchets provenant du nettoyage d'hydrocarbures avec des bases
+191105*	19 11 05* - boues provenant du traitement in situ des effluents contenant des substances dangereuses
+191106	19 11 06 - boues provenant du traitement in situ des effluents autres que celles visées à la rubrique 19 11 05
+191107*	19 11 07* - déchets provenant de l'épuration des gaz de combustion
+191199	19 11 99 - déchets non spécifiés ailleurs
+191201	19 12 01 - papier et carton
+191202	19 12 02 - métaux ferreux
+191203	19 12 03 - métaux non ferreux
+191204	19 12 04 - matières plastiques et caoutchouc
+191205	19 12 05 - verre
+191206*	19 12 06* - bois contenant des substances dangereuses
+191207	19 12 07 - bois autres que ceux visés à la rubrique 19 12 06
+191208	19 12 08 - textiles
+191209	19 12 09 - minéraux (par exemple sable, cailloux)
+191210	19 12 10 - déchets combustibles (combustible issu de déchets)
+191211*	19 12 11* - autres déchets (y compris mélanges) provenant du traitement mécanique des déchets contenant des substances dangereuses
+191212	19 12 12 - autres déchets (y compris mélanges) provenant du traitement mécanique des déchets autres que ceux visés à la rubrique 19 12 11
+191301*	19 13 01* - déchets solides provenant de la décontamination des sols contenant des substances dangereuses
+191302	19 13 02 - déchets solides provenant de la décontamination des sols autres que ceux visés à la rubrique 19 13 01
+191303*	19 13 03* - boues provenant de la décontamination des sols contenant des substances dangereuses
+191304	19 13 04 - boues provenant de la décontamination des sols autres que celles visées à la rubrique 19 13 03
+191305*	19 13 05* - boues provenant de la décontamination des eaux souterraines contenant des substances dangereuses
+191306	19 13 06 - boues provenant de la décontamination des eaux souterraines autres que celles visées à la rubrique 19 13 05
+191307*	19 13 07* - déchets liquides aqueux et concentrés aqueux provenant de la décontamination des eaux souterraines contenant des substances dangereuses
+191308	19 13 08 - déchets liquides aqueux et concentrés aqueux provenant de la décontamination des eaux souterraines autres que ceux visés à la rubrique 19 13 07
+200101	20 01 01 - papier et carton
+200102	20 01 02 - verre
+200108 - Cat1 - déchets de cuisine et de table provenant de moyens de transport international	20 01 08 - Cat1 - déchets de cuisine et de table provenant de moyens de transport international
+200108 - Cat3 - déchets de cuisine et de table, autre que cat 1	20 01 08 - Cat3 - déchets de cuisine et de table, autre que cat 1
+200108	20 01 08 - déchets de cuisine et de cantine biodégradables
+200110	20 01 10 - vêtements
+200111	20 01 11 - textiles
+200113*	20 01 13* - solvants
+200114*	20 01 14* - acides
+200115*	20 01 15* - déchets basiques
+200117*	20 01 17* - produits chimiques de la photographie
+200119*	20 01 19* - pesticides
+200121*	20 01 21* - tubes fluorescents et autres déchets contenant du mercure
+200123*	20 01 23* - équipements mis au rebut contenant des chlorofluorocarbones
+200125 - Cat3 - les huiles de cuisson usagées	20 01 25 - Cat3 - les huiles de cuisson usagées
+200125	20 01 25 - huiles et matières grasses alimentaires
+200126*	20 01 26* - huiles et matières grasses autres que celles visées à la rubrique 20 01 25
+200127*	20 01 27* - peinture, encres, colles et résines contenant des substances dangereuses
+200128	20 01 28 - peinture, encres, colles et résines autres que celles visées à la rubrique 20 01 27
+200129*	20 01 29* - détergents contenant des substances dangereuses
+200130	20 01 30 - détergents autres que ceux visés à la rubrique 20 01 29
+200131*	20 01 31* - médicaments cytotoxiques et cytostatiques
+200132	20 01 32 - médicaments autres que ceux visés à la rubrique 20 01 31
+200133*	20 01 33* - piles et accumulateurs visés aux rubriques 16 06 01, 16 06 02 ou 16 06 03 et piles et accumulateurs non triés contenant ces piles
+200134	20 01 34 - piles et accumulateurs autres que ceux visés à la rubrique 20 01 33
+200135*	20 01 35* - équipements électriques et électroniques mis au rebut contenant des composants dangereux, autres que ceux visés aux rubriques 20 01 21 et 20 01 23 (3)
+200136	20 01 36 - équipements électriques et électroniques mis au rebut autres que ceux visés aux rubriques 20 01 21, 20 01 23 et 20 01 35
+200137*	20 01 37* - bois contenant des substances dangereuses
+200138	20 01 38 - bois autres que ceux visés à la rubrique 20 01 37
+200139	20 01 39 - matières plastiques
+200140	20 01 40 - métaux
+200141	20 01 41 - déchets provenant du ramonage de cheminée
+200199	20 01 99 - autres fractions non spécifiées ailleurs
+200201	20 02 01 - déchets biodégradables
+200202	20 02 02 - terres et pierres
+200203	20 02 03 - autres déchets non biodégradables
+200301	20 03 01 - déchets municipaux en mélange
+200302	20 03 02 - déchets de marchés
+200303	20 03 03 - déchets de nettoyage des rues
+200304	20 03 04 - boues de fosses septiques
+200306	20 03 06 - déchets provenant du nettoyage des égouts
+200307	20 03 07 - déchets encombrants
+200399	20 03 99 - déchets municipaux non spécifiés ailleurs

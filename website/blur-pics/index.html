@@ -1,0 +1,39 @@
+<html>
+    <header>
+        <style>
+            *{
+                padding:0;
+                margin:0;
+            }
+            #figure{
+                filter: blur(4px) sepia(50);
+                width: 100%;
+                height:100%;
+            }
+            figure img{
+                width: 100%;
+                object-fit: cover;
+            }
+        </style>
+        <script>
+            let input_type = 'text|radio|color|search|tel|time|url|week|submit|date|hidden|range|reset|image|month|datetime-localcheckbox|number|email|password|file'.split('|');
+            function update_range(t){  
+                let c = document.getElementById('figure');
+                c.style.filter = 'blur('+t.value+'px)';
+                
+            }
+        </script>
+    </header>
+    <body>
+        <input type="range" min="0" max="20" oninput="javascript:update_range(this)" />
+        <div id="figure">
+        <figure >
+            <img src="assets/img/large.jpeg" alt="home-wallpaper"/>
+            <caption>my wallpager</caption>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere blanditiis quod tempore doloribus eligendi reprehenderit quasi. Error corporis commodi facilis similique molestias! Hic maiores animi asperiores ipsum voluptatem, voluptate nihil?
+            </p>
+        </figure>
+    </div>
+    </body>
+</html>

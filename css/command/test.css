@@ -1,0 +1,12 @@
+.sample[text="input,"], .info{
+    color:red;
+}
+@media (max-width:300) and print{
+    .sample #vinto{
+        color:red;
+    }
+}
+
+.card{
+    display:block;
+}

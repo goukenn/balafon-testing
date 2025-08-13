@@ -1,0 +1,11 @@
+<?php
+igk_require_module(igk\js\Vue3::class);
+use igk\js\Vue3\VueSSRRenderer;
+$src =<<<'HTML'
+<div data-v-d6420450=""><a data-v-d6420450="" href="https://vitejs.dev" target="_blank"><img data-v-d6420450="" src="/demos/assets/dist/vite.svg" class="logo" alt="Vite logo"></a><a data-v-d6420450="" href="https://vuejs.org/" target="_blank"><img data-v-d6420450="" src="/demos/assets/dist/assets/vue-5532db34.svg" class="logo vue" alt="Vue logo"></a></div><h1 data-v-4b8d1567="">Vite + Vue</h1><div data-v-4b8d1567="" class="card"><button data-v-4b8d1567="" type="button">count is 0</button><p data-v-4b8d1567=""> Edit <code data-v-4b8d1567="">components/HelloWorld.vue</code> to test HMR </p></div><p data-v-4b8d1567=""> Check out <a data-v-4b8d1567="" href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite starter </p><p data-v-4b8d1567=""> Install <a data-v-4b8d1567="" href="https://github.com/vuejs/language-tools" target="_blank">Volar</a> in your IDE for a better DX </p><p data-v-4b8d1567="" class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+HTML;
+$div = igk_create_node('div');
+$div->Content = ($src);
+$d = new VueSSRRenderer($div);
+echo "output: ".$d->renderToString().PHP_EOL;
+igk_exit();

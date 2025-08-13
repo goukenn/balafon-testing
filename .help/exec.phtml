@@ -1,0 +1,23 @@
+<?php
+
+use IGK\Helper\IO;
+
+igk_wln("lib dir ".IGK_LIB_DIR);
+$home_dir = realpath(IGK_LIB_DIR."/../");
+
+igk_wln("remove dir: 1: ".$home_dir);
+IO::RmDir($home_dir."/__igk");
+
+igk_wln("remove dir: 2:".$home_dir);
+IO::RmDir($home_dir."/_igk");
+
+foreach(igk_io_dirs($home_dir, IGK_ALL_REGEX, false) as $k=>$v){
+	igk_wln($v);
+	if (basename($v) == "igk")
+		continue;
+	if (is_dir($v)){
+		IO::RmDir($v);
+	}
+	ob_flush();
+} 
+igk_exit();

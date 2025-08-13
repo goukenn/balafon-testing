@@ -1,0 +1,43 @@
+<?php
+/**
+ * @author: C.A.D. BONDJE DOUE
+ * @version: 1.0
+ * @desc: demonstration of VueJS with dev tools
+ * @date: 2021/07/18
+ */
+
+use igk\js\VueJS\IO\OptionBuilder;
+igk_require_module(igk\js\common::class);
+igk_require_module(igk\js\VueJS::class, function($vuejs){
+    $vuejs->Configs->setAutosave(false);    
+    $vuejs->Configs->PolyfillVersion = 3;
+    $vuejs->Configs->VueRouter = true;
+    $vuejs->initDoc(igk_ctrl_current_doc());
+    $vuejs->Configs->setAutosave(true);
+});
+
+$t->clearChilds();
+
+// + | to enabled dev tools : Note at this line the dev tool only support version VueJS 2.
+$t->script()->setAttribute("src", "http://localhost:8098");
+
+$builder = new OptionBuilder();
+$builder->history = 
+$builder->routes = [
+    ["path"=>$this::buri("/home"), "component"=>["template"=>"<div>home</div>"]],
+    ["path"=>$this::buri("/data"), "component"=>["template"=>"<div>devinition</div>"]],
+];
+
+$c = $t->vuejs_app("vue_demo", $builder->build());
+$c->historyType = "hash";
+$c->Component("my-component");
+
+$c->add("my-component");
+$c->div()->nav()->host(function($nav){
+    $nav->vRouterLink($this::buri("/home"))->Content = "Home";
+    $nav->vRouterLink($this::buri("/data"))->Content = "data";
+});
+
+$c->vRouterView();
+
+$t->div()->h2()->Content = "Test VueJS devtool";

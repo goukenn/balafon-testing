@@ -1,0 +1,49 @@
+{
+    "$ref":{
+        "strokeAttributes":{
+
+        },
+        "fillAttributes":{
+            "fill":"",
+            "fill-rule":""
+        },
+        "htmlAttributes":{
+            "id":"",
+            "title":""
+        }
+        
+    },
+    "elements": {
+        "rect": {
+            "description": "",
+            "attributes": {}
+        },
+        "circle": {
+            "description": ""
+        },
+        "path":{
+            "description":"draw a path",
+            "attributes":{
+                "path":"",
+                "$ref":[
+
+                ]
+            }
+        },
+        "foreignObject": {
+            "description": "",
+            "attributes":{
+                "$ref":[
+                    "#htmlAttributes"
+                ],
+                "width":{},
+                "height":{
+
+                },
+                "clip-path":{
+
+                }
+            }
+        }
+    }
+}

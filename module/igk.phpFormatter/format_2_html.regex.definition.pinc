@@ -1,0 +1,475 @@
+<?php
+
+// @author: C.A.D. BONDJE DOUE
+// @filename: format_2_html.regex.definition.pinc
+// @date: 20250731 11:20:05
+// @desc: 
+
+use IGK\System\Text\RegexMatcherUtility;
+
+ 
+
+// define
+// 
+(function ($regex) {
+    // init php definition froamt regex
+    // $c = $regex->match('hello',  'hello-word')->last();
+    // $c->patterns = [
+    //     $regex->createPattern([
+    //         'match'=>'l',
+    //         'tokenID'=>'letter-l'
+    //     ])
+    // ]; 
+    // return;
+
+    $global_patterns = [];
+    $comments = [];
+    $global_patterns[] = $fgremove = $regex->match('(?<=\{)\\s+(?=\/\/)', 'f-gremove')->last();
+    $fgremove->replaceWith = "";
+    $fgremove->description = 'remove space between {and//';
+
+    // conditition with single litteral value 
+    $_single = $regex->begin('\\b(if|elseif|while|for|foreach)(?:\\s+|\\b)', '(?<=;)|(?=\{)', 'f-single-detector')->last();
+    $_single->isBlock = true;
+    $_single->beginCaptures = [
+        '0' => [
+            "patterns" => [
+                $regex->createPattern(['match' => '\\b(if|elseif)(\\b|\\s+)', 'tokenID' => 'condition reserved-words', 'replaceWith' => "\\1 "]),
+                $regex->createPattern(['match' => '\\b(while|for|foreach)\\b\\s*', 'tokenID' => 'loop', 'replaceWith' => '\\1 ']),
+            ]
+        ]
+    ];
+    RegexMatcherUtility::AppendPhpHereDoc($regex, $here_doc);
+    foreach ($here_doc as $h) {
+        $h->preserveContent = true;
+        $h->flags['no-tab'] = true;
+        $h->beginCaptures = [
+            '1' => [
+                'replaceWith' => ['<'=>'&lt;']
+            ],
+            '2' =>[
+                'name'=>'here_doc_name'
+            ]
+        ];
+    }
+
+
+    $global_patterns[] = $comments[] = $fmark_comment = $regex->match('(?<=;|{|}|\))\\h*\/\/.+', 'f-h-comment-separator comment')->last();
+
+    $directive = $regex->match("^\\h*\/\/\\h+(?P<directive>@[a-z_A_Z][a-z_A_Z]*\\b(?:\\h*:| ))(?P<data>.+)", 'directive-comment')->last();
+    $global_patterns[] = $comments[] = $fdoc_comments = $regex->appendCommentDocBlock()->last();
+    $global_patterns[] = $comments[] = $fmuti_comments = $regex->appendMultilineComment()->last();
+
+    $global_patterns[] = $comments[] = $fsingle_comments = $regex->appendSingleLineComment()->last();
+    $global_patterns[] = $fclose_php = $regex->begin('\?>', '(?=<\?(php|=))', 'f-html-outline-tag html')->last(); // $fsingle_comments = $regex->appendSingleLineComment()->last();
+
+    $fsingle_comments->match =  '\\h*\/\/.+';
+
+
+
+    $fclose_php->beginCaptures = [
+        '0' => [
+            'name' => 'close-tag',
+            'tokenID' => 'html-close-tag'
+        ]
+    ];
+
+
+    $global_patterns[] = $fremove = $regex->match('(?<=\))\\s+(?=;|\{|\(|\[)', 'f-remove')->last();
+    $fremove->replaceWith = '';
+
+
+
+    $directive->captures = [
+        '1' => [
+            'name' => 'name',
+            'tokenID' => 'directive'
+        ],
+        '2' => [
+            'name' => 'data',
+            'tokenID' => 'data preserve',
+            'class' => 'preserve'
+        ]
+    ];
+
+    // $regex->match('\\bbadabok\\b', 'sam');
+    // $fsingle_comments->lineFeed = true;
+
+    $arg_interpollation = $regex->createPattern([
+        'begin' => '\\${',
+        'end' => '}',
+        'contentName' => 'expression',
+        'tokenID' => 'f-arg-interpolation',
+        'beginCaptures' => [],
+        'endCaptures' => [],
+    ]);
+
+    $fbrank = $regex->begin('\[', '\]', 'f-brank')->last();
+    $fcurl = $regex->begin('\{', '\}', 'f-curl')->last();
+    $fcurl->beginCaptures = [
+        '0' => ['name' => 'f-curl-start']
+    ];
+    $fcurl->endCaptures = [
+        '0' => ['name' => 'f-curl-end']
+    ];
+    $fcurl->captures = [
+        '0' => [
+            'name' => 'curl',
+            'tokenID' => 'f-curl-brace',
+        ]
+    ];
+    $fcurl->isBlock = true;
+
+
+    $single_instruct_condition = $regex->begin('(?<=\))', '(?<=;)|(?={)', 'f-single-instruct-detection')->last();
+    $single_instruct_condition->offScreen = true;
+    $single_instruct_condition->isBlock = true;
+
+
+    $fnospace = $regex->createPattern(['match' => '\\h+', 'tokenID' => 'f-no-space', 'replaceWith' => '']);
+
+    $global_patterns[] = $frm_line = $regex->match('\\h*\\n', 'f-no-line')->last();
+    $global_patterns[] = $fnumber = $regex->match('(\\d+(?:\.\\d+)?|\.\\d+)', 'f-number')->last();
+    $global_patterns[] = $fmethod_name = $regex->match("\\b([a-z_A_Z][a-z_A_Z]*)\\b\\s*(?=\()", 'f-func-call')->last();
+    $global_patterns[] = $flink = $regex->match("((?:http(s)?|ftp):)?\/\/([^ ]+)", 'f-link')->last();
+
+
+    $foperands = $regex->match('\\b(use|var|static|as|final|protected|private|self|\$this)\\b', 'f-reserved-operand')->last();
+    $ftype = $regex->match('\\b(function|trait|interface|class)\\b', 'f-reserved-type')->last();
+    $global_patterns[] = $freserved_words = $regex->match('\\b(as|break|case|continue|default|do|else|elseif|exit|endif|endwhile|endforeach|false|final|for|foreach|function|global|if|instanceof|int|interface|namespace|null|parent|private|protected|return|require|require_once|include|include_once|__FILE__|__DIR__|self|static|static|string|switch|trait|true|use|var|while|yield)\\b', 'f-reserved-words')->last();
+
+    $global_patterns[] = $fstring = $regex->appendStringDetection('string', true)->last();
+    $global_patterns[] = $ftilt_string = $regex->begin("`", "`", 'f-tilt-string')->last();
+    $global_patterns[] = $fend_instruct = $regex->match(";", 'f-endinstruct')->last();
+    $global_patterns[] = $f_unary_operator = $regex->match('(\+\+|--)', 'f-unary-operator operator')->last();
+    $global_patterns[] = $foperator = $regex->match('\\s*(\?->|\|\||&&|=(==|=)?|\.=|<=>|<=|>=|<|>|\+|\/|-|\*|%)\\s*', 'f-operator')->last();
+    $global_patterns[] = $fphpvar = $regex->match('\$[a-zA-Z_][a-zA-Z_0-9]*', 'f-phpvar')->last();
+    $global_patterns[] = $fwspace = $regex->match('\\s{2,}', 'f-wspace')->last();
+
+    $f_unary_operator->replaceWith = '\\1';
+    $fstring->preserveContent =
+        $ftilt_string->preserveContent =
+        true;
+    $foperator->replaceWith = ' \\1 ';
+    /**
+     * forcing split line 
+     */
+    $global_patterns[] = $fsplit_after_block_comment = $regex->match('(?<=\*\/)\\h*(?=[^\\n])', 'f-split-line-comment')->last();
+    $fsplit_after_block_comment->splitLine = true;
+
+
+
+
+    $ftilt_string->patterns = [
+        $arg_interpollation
+    ];
+
+    $fwspace->replaceWith = ' ';
+
+    $frm_line->splitLine = true;
+    $frm_line->tokenID = 'f-no-line end_line';
+    $frm_line->replaceWith = ' -😒- '; // special empty space line break
+
+    $fcond = $regex->begin('\(', '\)', 'f-cond')->last();
+    // $fcond->skipNextLine = true;
+    $fcond->patterns = [
+        $fmethod_name,
+        $fnumber,
+        $foperands,
+        $freserved_words,
+        $frm_line,
+        $fwspace,
+        $fcond,
+        $foperator,
+        $fstring
+    ];
+    $fcond->captures = [0 => [
+        'name' => 'bracked-definition',
+        'tokenID' => 'bracket'
+    ]];
+
+
+    $fcurl->patterns = [
+        $regex->createPattern([
+            'match' => '(?<=\{)\\s+(?=\/(?:\/|\*))',
+            'replaceWith' => '',
+            'decription' => 'desactivate first comment block on formatting'
+        ]),
+         $regex->createPattern([
+            'match' => '\\s+(?=<<<)',
+            'replaceWith' => ' ',
+            'decription' => 'move forword to here doc'
+        ]),
+        ...$here_doc,
+        ...$comments,
+        ...$global_patterns,
+        $fcurl
+    ];
+    // $fcurl->skipPrevLine = true;
+
+    $fmethod_name->replaceWith = '\\1';
+
+    // namespace litteral 
+    $global_patterns[] = $fns_litteral = $regex->match(
+        "(\\)?[a-zA-Z_][a-zA-Z_0-9]*(\\\\[a-zA-Z_][a-zA-Z_0-9]*)*)",
+        'f-ns-litteral'
+    )->last();
+
+    $fbrank->patterns = [
+        ...$comments,
+        $foperator,
+        $fns_litteral,
+        $fstring,
+    ];
+
+
+    $jstype_declaration = $regex->createPattern([
+        'match' => '(@(?:var|param))\\b\\h+(\{.+?\}).+',
+        'tokenID' => 'js_doc_comment_type',
+        'captures' => [
+            1 => [
+                'name' => 'directive',
+            ],
+            2 => [
+                'name' => 'type-declaration',
+                'patterns' => [
+                    $regex->createPattern([
+                        'tokenID' => 'dec-curl',
+                        'begin' => '\{',
+                        'end' => '\}',
+                        'patterns' => [
+                            $fstring,
+                            $fnospace,
+                            $regex->createPattern([
+                                "match" => "\\b(any|mixed|void|undefined|null)\\b",
+                                "tokenID" => 'f-def-type'
+                            ])
+                        ]
+                    ])
+                ],
+            ]
+        ],
+        'patterns' => []
+    ]);
+
+    $fdoc_comments->patterns = [
+        $frm_line,
+        $regex->createPattern([
+            'begin' => '^\\h*\\*\\h+(?=@\\w)+',
+            "end" => "$",
+            'tokenID' => 'with-declaration',
+            'patterns' => [
+                $jstype_declaration
+            ]
+        ]),
+        $regex->createPattern(['match' => '^\\h*\\*.+', 'tokenID' => 'theb']),
+
+        $regex->createPattern([
+            'match' => '(?<=\/\\*\\*)\\h*(?=[^\\n])',
+            'tokenID' => 'thref-data preserve',
+            'replaceWith' =>
+            '* ',
+            'replacementMatch' => '\\h+',
+            'splitLine' => true,
+            'useReplaceData' => true,
+            'class' => 'preserve'
+            // function(){
+            //     echo "line.";
+            //     return 'line|||';
+            // }
+        ]),
+    ];
+
+    $fmethod_args = $regex->createPattern([
+        'begin' => '\(',
+        'end' => '\)',
+        'tokenID' => 'f-method-args',
+    ]);
+    $farray = $regex->createPattern([
+        'begin' => '\[',
+        'end' => '\]',
+        'tokenID' => 'f-array-definition',
+    ]);
+
+    $fmethod_args->patterns = [
+        $fstring,
+        $fnumber,
+        $foperator,
+        $foperands,
+        $regex->createPattern([
+            'match' => '\\s*(,|;)\\s*',
+            'replaceWith' => '\\1 ',
+            'tokenID' => 'arg-separator'
+        ]),
+        $freserved_words,
+        $fns_litteral,
+        $farray,
+    ];
+    $farray->patterns = [
+        ...$comments,
+        $fstring,
+        $fnumber,
+        $foperands,
+        $fassoc_operator  = $regex->createPattern([
+            'match' => '\\s*(=>)\\s*',
+            'replaceWith' => '\\1 ',
+            'tokenID' => 'f-arg-assoc-operator operator'
+        ]),
+        $foperator,
+        $freserved_words,
+        $fmethod_name,
+        $fns_litteral,
+        $fcurl,
+    ];
+
+
+    $single_instruct_condition->patterns = [
+        ...$comments,
+        $frm_line,
+        $fend_instruct,
+        $regex->createPattern([
+            'match' => '(?<=\))\\s*(?=[^\/])',
+            'splitLine' => true,
+            'tokenID' => 'split'
+        ]),
+        $fphpvar,
+        $foperator,
+        $fstring,
+        $fnumber,
+        $regex->createPattern([
+            'match' => '(?<=;)',
+            'tokenID' => 'finish-single-instruct',
+            // 'offScreen'=>true,
+        ]),
+        $fmethod_name,
+        $fmethod_args,
+    ];
+
+
+    // + | --------------------------------------------------------------------
+    // + | PHP-HTML - inline definitions 
+    // + |
+
+    $f_html_attrib = $regex->createPattern([
+        'tokenID' => 'f-html-attrib attrib',
+        'match' => '([a-zA-Z][a-zA-Z\-_0-9]*)',
+    ]);
+
+    $f_html_tag_symbols_patterns = [
+        $regex->createPattern(['match' => '<', 'replaceWith' => '&lt;']),
+        $regex->createPattern(['match' => '>', 'replaceWith' => '&gt;']),
+    ];
+    $f_html_inner_content = $regex->createPattern([
+        'begin' => '(?<=>)',
+        'end' => '(?=<\/)',
+        'tokenID' => 'f-html-inner html-inner',
+        'isBlock' => true,
+        'splitLine' => false,
+    ]);
+    $f_html_comment = $regex->createPattern([
+        'begin' => '<!--',
+        'end' => '-->',
+        'tokenID' => 'f-comment html-comment',
+        'preserveContent' => false,
+        // 'splitLine'=>true,
+        'useReplaceData' => true,
+        'captures' => [
+            '0' => [
+                'patterns' => [
+                    ...$f_html_tag_symbols_patterns
+                ]
+            ]
+        ],
+        'patterns' => [
+            ...$f_html_tag_symbols_patterns
+        ]
+    ]);
+    $f_html_single_space = $regex->createPattern([
+        'match' => '\\s+',
+        'replaceWith' => ' ',
+        'tokenID' => 'html-wspace',
+        'preserveContent' => true
+    ]);
+    $f_html_tags = $regex->createPattern([
+        'patterns' => [
+            $regex->createPattern([
+                'match' => '(<\/(\\w+))\\s*(>)',
+                'tokenID' => 'f-html-end-tag tag',
+                'preserveContent' => true,
+                // 'replaceWith'=>function($a){
+                //     return htmlentities($a);
+                // },
+                'beginCaptures' => [
+                    1 => [
+                        'name' => 'tag',
+                        'replaceWith' => '&lt;/$2'
+                    ],
+                    3 => [
+                        'name' => 'close-tag',
+                        'replaceWith' => '&gt;'
+                    ]
+                ],
+            ]),
+            $regex->createPattern([
+                'begin' => '(?:(<)(\\w+))\\b',
+                'end' => '(<\/\\2\\s*>|\/>)',
+                'tokenID' => 'f-html-start-tag tag',
+                'isBlock' => false,
+                'beginCaptures' => [
+                    1 => [
+                        'name' => 'basic',
+                        'replaceWith' => '&lt;'
+                    ]
+                ],
+                'endCaptures' => [
+                    0 => [
+                        'patterns' => [
+                            ...$f_html_tag_symbols_patterns
+                        ]
+                    ]
+                ],
+                // 'preserveContent'=>true,
+                // 'replaceWith'=>function($a){
+                //     return htmlentities($a);
+                // },
+                "patterns" => [
+                    $regex->createPattern(['match' => '=', 'tokenID' => 'attrib-start operator']),
+                    $f_html_inner_content,
+                    $fstring,
+                    $f_html_attrib,
+                    $f_html_single_space,
+                    $f_html_comment,
+                    ...$f_html_tag_symbols_patterns,
+                ]
+            ]),
+        ]
+    ]);
+    $fclose_php->patterns = [
+        $f_html_single_space,
+        $f_html_comment,
+        $f_html_tags,
+        $frm_line,
+    ];
+
+    // $f_html_inner_content->patterns = [
+    //     //$f_html_tags,
+    //     $f_html_comment,
+    // ];
+
+    $_single->patterns = [
+        $fcurl,
+        $single_instruct_condition,
+        ...$comments,
+        $fcond,
+    ];
+
+
+    $fmuti_comments->tokenID .= ' comment';
+    $fmuti_comments->preserveContent = true;
+    $fmuti_comments->patterns = array_merge(
+        $fmuti_comments->patterns ?? [],
+        [
+            $frm_line
+        ]
+    );
+})($regex);

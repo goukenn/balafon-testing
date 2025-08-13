@@ -1,0 +1,8 @@
+<?php
+
+use IGK\System\Installers\BackupLibConfigMiddleWare;
+
+$t->clearChilds();
+$t->h1()->Content = "Test Backup LibConfiguration middle ware....";
+$c = new BackupLibConfigMiddleWare(); 
+$c->invoke(); 

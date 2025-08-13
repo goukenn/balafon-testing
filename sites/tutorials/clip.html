@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip zone</title>
+    <style>
+        body{
+            background-color: #040816;
+        }
+        div.clip{
+            background-color:red;
+            width: 100px;
+            height:40px;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        div.clip.border-radius{
+            border-radius: 10px;
+        }
+        .div.clip.w-clip{
+            /* deprecated */
+            /* clip: rect(20 20 20 20); */
+            clip-path: rect(9, 0, 3, 4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clip border-radius"> 
+        clip with border radius
+    </div>
+    
+    <div class="clip w-clip"> 
+        clip with border radius
+    </div>
+    
+</body>
+</html>

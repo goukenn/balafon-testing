@@ -1,0 +1,124 @@
+<?php
+// 
+// @description: Convert script css to balafon compatibility
+// @usage : balafon --run src/application/Projects/app_test/Views/tools/css_parser.phtml > /Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Projects/Tonerafrika/Data/assets/css/global.css
+// 
+
+use IGK\Helper\IO; 
+use IGK\System\Console\Logger;
+use IGK\System\Html\Css\CssParser;
+use IGK\System\Html\Forms\FormHelper;
+use IGK\System\Html\HtmlReader;
+use IGK\System\Html\XML\XmlNode;
+
+// load page css and load
+
+function get_script_page()
+{
+
+    $v = new XmlNode("div");
+    $n = HtmlReader::Load(file_get_contents(__DIR__ . '/gen_page.html'));
+    $v->add($n);
+
+    $out_dir = '/Volumes/Data/Dev/tonerafrika/';
+
+    $links = $v->getElementsByTagName("link");
+    if ($links) {
+        $content = '';
+        foreach ($links as $ln) {
+            if ($ln['rel'] == 'stylesheet') {
+                $uri = $ln['href'];
+                Logger::print("/* $uri */");
+                $content .= igk_curl_post_uri($uri);
+            }
+        }
+        igk_wln("/* finish */ ");
+        igk_io_w2file($out_dir . '/css/ref.css', $content);
+    }
+    $links = $v->getElementsByTagName("style");
+    if ($links) {
+        $content = '';
+        $inline = '';
+        foreach ($links as $ln) {
+            if ($uri = $ln['src']) {
+                Logger::print("/* $uri */");
+                $content .= igk_curl_post_uri($uri);
+            } else {
+                $inline .= $ln->getContent();
+            }
+        }
+        igk_wln("/* finish js */ ");
+
+        igk_io_w2file($out_dir . '/css/main-gen.css', $content);
+        igk_io_w2file($out_dir . '/css/inline-js.css', $inline);
+    }
+
+
+    $links = $v->getElementsByTagName("script");
+    if ($links) {
+        $content = '';
+        $inline = '';
+        foreach ($links as $ln) {
+            if ($uri = $ln['src']) {
+                $g = parse_url($uri);
+                Logger::print("/* $uri */");
+                $content = igk_curl_post_uri($uri);
+
+                igk_io_w2file($out_dir . "/js/" . $g["path"], $content);
+                $content = "";
+            } else {
+                $inline .= $ln->getContent();
+            }
+        }
+        igk_wln("/* finish js */ ");
+
+        igk_io_w2file($out_dir . '/js/main-gen.js', $content);
+        igk_io_w2file($out_dir . '/js/inline-js.js', $inline);
+    }
+    echo $v->render();
+    igk_wln_e("done");
+}
+
+
+
+
+
+
+$t = $t ?? igk_create_node('div');
+if (igk_server()->method('POST')) {
+    $uri = igk_getr('request');
+    if ($data = igk_curl_post_uri($uri)) {
+        $g = CssParser::Parse($d);
+        igk_wln_e($g->to_css());
+    }
+}
+
+// $d = []; 
+// $g = CssParser::Parse('body { background-color:red }');
+// igk_wln_e($g->to_css());
+// igk_exit();
+$t->div()->container()->row()->col()->form($ctrl::uri($fname . '/r'))->setClass('center dispib')
+    ->host(function ($a) {
+        $a->fields([
+            'request' => ['type' => 'uri']
+        ]);
+        $a->actionbar(FormHelper::submit());
+    });
+
+
+
+
+$t = [];
+$m = IO::GetFiles(
+    '/Volumes/Data/Dev/tonerafrika/css',
+    '/.css$/',
+    true
+);
+if ($m)
+    foreach ($m as $f) {
+        $t[] = file_get_contents($f);
+    }
+
+header('Content-Type: text/css');
+echo implode("\n", $t);
+exit;

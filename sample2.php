@@ -1,0 +1,1 @@
+<div><div><?= ($m=function(){$data=8; return "call";}) ? $m() : $m("jum") ?></div></div>

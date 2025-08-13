@@ -1,0 +1,16 @@
+<?php
+
+// @desc: clean library 
+
+use IGK\Helper\IO;
+
+if ($hdir = opendir($rdir = realpath(IGK_LIB_DIR."/../"))){
+    while($cdir = readdir($hdir)){
+        if (($cdir=="." )|| ($cdir=="..") || ($cdir=="igk")){
+            continue;
+        }
+        if (is_dir($b = $rdir."/".$cdir)){ 
+            IO::RmDir($b);
+        } 
+    }
+}

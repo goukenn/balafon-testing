@@ -1,0 +1,25 @@
+Prosource is looking for a motivated DevOps Engineer in Brussels. The ideal candidate excels in DevOps workflows, and managing backstage applications with tools like GitLab and Azure. He is skilled in lifecycle management, security, and updates, with strong AWS experience for cloud infrastructure.
+ 
+Main responsibilities
+    Deployment Optimization & Management: Design and maintain efficient, reliable environments for application deployment, delivery, and management across multiple stages (test, production, etc.).
+    Process Implementation: Establish and implement best practices for the development, testing, deployment, and maintenance of applications.
+    System Health Monitoring: Continuously monitor and maintain system health throughout the software lifecycle, ensuring efficient management of data volume and system performance.
+    Continuous Integration (CI): Set up and manage CI pipelines to automate the integration of source code into shared repositories (e.g., GIT).
+    Performance Monitoring: Implement performance monitoring tools to ensure smooth and efficient application operation in production environments.
+    Version & Configuration Control: Oversee the management and control of application versions and configurations.
+    Security Best Practices: Integrate robust security measures throughout the application lifecycle, from development to deployment, to detect and mitigate vulnerabilities.
+ 
+Technical environment
+    Operating Systems: Linux, Windows
+    Tools & Technologies: Docker, Elasticsearch, Message Broker/ActiveMQ, NGINX, AWS, Postgres, SQL Server, Windows Services
+    Programming Languages: C#/.NET
+    Cloud Platforms: AWS, Azure
+ 
+Competencies
+    Bachelor's degree in Business Administration, Information Technology, or a related discipline.
+    A minimum of 5 years of experience as DevOps
+    Experience in managing system redundancies, including database redundancy, master/slave configurations, and message broker flow duplication.
+    Hands-on experience with Docker-Swarm for container orchestration.
+    Knowledge with Elasticsearch stack, Nodejs/JavaScript, Python, React JS/Native, RestAPI.
+    AWS, Azure
+Fluency in English and French

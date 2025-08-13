@@ -1,0 +1,32 @@
+À propos de l’offre d’emploi
+
+As a senior developer:
+• You are able to analyse and estimate the complexity and the time needed to develop new functionalities. 
+• You Develop solutions to meet business requirements using new or existing technologies in collaboration with your squad, made of frontend devs, DevOps and other backend devs.
+• You take part in the product design during all scrum-meetings (poker, sprint-planning, ...), you can easily adapt to complex software architecture.
+• Get the most of our technological stack to increase software availability, resource efficiency, and make sure our platforms can scale & support any peak load.
+• Collaborate & share your knowledge with other teams such as support, platform and project-managers to ensure the good quality and evolution of the software
+
+Your profile :
+• Graduate, Bachelor, or Master in computer science or equivalent by experience.
+• 2-3 year Experience in PHP, rest services, Zend framework knowledge is a plus.
+• Experience with SQL databases such as PostgreSQL
+• Basic experience with SCM such as Git or SVN (we ♥ Gitlab & Gitlab-CI)
+• Experience with Docker is a plus. Kubernetes is a plus-plus-plus :)
+• Experience with Javascript and Dojo Framework is a plus
+• You have a good sense of humor (mandatory)
+• You’re fluent in French and can sustain a basic technical conversation in English
+
+Our stack : 
+Infra: 
+- OpenStack
+- Kubernetes
+- Docker
+Orange Tucano Stack:
+- Postgressql 12
+- ElasticSearch 7
+- RabbitMQ
+Other apps:
+- PHP
+- Javascript
+- Dojo Framework

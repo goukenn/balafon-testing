@@ -1,0 +1,45 @@
+{
+    "version": "1.0",
+    "identifier": "com.igkdev.sketchplugin",
+    "compatibleVersion":"76.1",
+    "author": "C.A.D. BONDJE DOUE",
+    "authorEmail": "bondje.doue@igkdev.com",
+    "menu": {
+        "title": "Balafon",
+        "isRoot":false,
+        "items": [
+            {
+                "title":"Transform",
+                "items":[
+                    "com.igkdev.sketchplugin.988568F4-4E39-7AD2-7923-9F4357A90F09",
+                    "com.igkdev.sketchplugin.70AB4939-CCD0-3F52-5697-731584567F94",
+                    "-",
+                    "com.igkdev.sketchplugin.96810D6C-2C12-391D-4187-01C286DAF40F"
+                ] 
+            }
+         ]
+    },
+    "commands": [ 
+        {
+            "script":"balafon.js",
+            "name":"fit width",
+            "handler":"fitW",
+            "shortcut":null,
+            "identifier":"com.igkdev.sketchplugin.988568F4-4E39-7AD2-7923-9F4357A90F09"
+        },
+        {
+            "script":"balafon.js",
+            "name":"fit height",
+            "handler":"fitH",
+            "shortcut":null,
+            "identifier":"com.igkdev.sketchplugin.70AB4939-CCD0-3F52-5697-731584567F94"
+        },
+        {
+            "script":"balafon.js",
+            "name":"fit",
+            "handler":"fit",
+            "shortcut":null,
+            "identifier":"com.igkdev.sketchplugin.96810D6C-2C12-391D-4187-01C286DAF40F"
+        }
+    ]
+}

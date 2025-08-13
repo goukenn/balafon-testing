@@ -1,0 +1,46 @@
+<?php
+
+use igk\js\VueJS\IO\JSAppDefinition;
+use igk\js\VueJS\IO\JSExpression;
+use igk\js\VueJS\IO\OptionBuilder;
+
+$vuejs = igk_require_module(igk\JS\VueJS::class, function($vuejs){
+    $vuejs->Configs->setAutosave(false);
+    $vuejs->Configs->PolyfillVersion = 3;
+    $vuejs->Configs->VueRouter = true;
+    $vuejs->Configs->VueEx = true;
+    $vuejs->initDoc(igk_ctrl_current_doc());
+    $vuejs->Configs->setAutoSave(true);
+});
+
+$t->clearChilds();
+
+
+$builder =  new OptionBuilder();
+$builder->methods = [
+    "increment"=>JSExpression::Create("function(){ console.debug('try to increment'); }")
+];
+$builder->computed = [
+    "version" => JSExpression::Create("function(){ return this.\$store.state.current_version; }")
+];
+
+$builder->pushLibrary(JSAppDefinition::Create("Vuex", "vueEx", [
+    "state"=>[
+        "current_version"=>2
+    ],
+    "mutations"=>JSExpression::Create(
+        "{ increment (state){ state.current_version++; } }"
+    )
+]));
+
+
+// first application 
+$c = igk_html_node_vuejs_app('ovue_ex', $builder->build());  
+$c->div()->Content = "Test vueex with {{ version }} ";
+$t->add($c);
+
+
+// first application 
+$c = igk_html_node_vuejs_app('second_app', $builder->build());  
+$c->div()->Content = "second application :  {{ version }} ";
+$t->add($c);

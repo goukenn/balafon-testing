@@ -1,0 +1,10 @@
+
+@media only       screen{
+    .body {
+      background-color: lightblue;
+      
+    }
+    div.card{
+        animation-name: sample;
+    }
+  }

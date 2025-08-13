@@ -1,0 +1,38 @@
+<?php
+ 
+namespace IGK\Demo{
+
+use IGK\System    as    Local;
+use Android;
+use Santana\Basic;
+
+ 
+/**
+ * from package injection level
+ * @package IGK\Demo
+ */
+abstract class info{ 
+    /**
+     * douganti .... 
+     * @var mixed
+     */
+    var $x;
+
+    /**
+     * pratical information ....
+     * @return int 
+     */
+    protected abstract function doSome():
+    
+    
+    
+    /*                       return value */ 
+    
+    
+    
+    int ;
+}
+ 
+
+}
+

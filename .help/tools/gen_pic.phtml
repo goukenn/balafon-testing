@@ -1,0 +1,41 @@
+<?php
+
+use IGK\System\Drawing\MimeTypes;
+use IGK\System\Html\XML\XmlNode;
+
+list($width, $height) = $params;
+ 
+$data_src = null;
+if ($width && $height){
+    $data = new XmlNode("svg");
+    $data["width"] = $width;
+    $data["height"] = $height;
+    $data["viewport"] = "0 0 $width $height";
+    $data["fill"] = "#F00"; 
+    $data["style"] = "background-Color:#F0F"; 
+    $data["xmlns"] = "http://www.w3.org/2000/svg";
+    $data["version"] = "1.1";
+    $data->g();    
+    $option = (object)[
+        "header"=>'<?xml version="1.0" standalone="no"?>'.
+        '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
+    ];
+
+ 
+
+    $data_src = MimeTypes::SVGFormat(base64_encode($data->render($option)));
+ 
+}
+
+$t->h2()->Content = "Generate image tools";
+$t->h2()->Content = $params;
+if ($data_src){
+    $t->p()->Content = sprintf("%sx%s", $width, $height);
+    $t->div()->xmlNode("img")->setAttributes([
+        "width"=>$width,
+        "height"=>$height,
+        "src"=>$data_src,
+        "alt"=>"generated image",
+        "style"=>"background-color:red;"
+    ]);
+}
