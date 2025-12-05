@@ -13,10 +13,12 @@ $output = __DIR__.'/output/forem';
 IO::rmdir($output, true);
 // set language fr 
 R::LoadCtrlLang($ctrl); 
+$login = igk_getv($_ENV, 'IGK_DEFAULT_USER', 'cbondje@igkdev.com');
 $response = $ctrl->outputDownload([
     'output' => $output,
     'outzip' => null,
-    'login'  => igk_getv($_ENV, 'IGK_DEFAULT_USER', 'cbondje@igkdev.com') ,
+    'login'  => $login ,
+    'user'=>$user,
     'forem_presentation'=>true
 ]);
 Logger::success("output: ".$output);

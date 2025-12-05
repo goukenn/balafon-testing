@@ -1,4 +1,2 @@
 <?php
-
-echo "information";
-echo "basic";
+echo "basic"; ?> info

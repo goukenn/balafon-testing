@@ -1,1 +1,0 @@
-console.log('>firtst loading ... this is an hello js ');

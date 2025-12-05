@@ -1,8 +1,0 @@
-<data-schemas >
-    <DataDefinition TableName="present">
-            <Column clName="Present"
-                clCharset
-                    = "Utf8"
-            />
-    </DataDefinition>
-</data-schemas>

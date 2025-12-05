@@ -1,6 +1,8 @@
 <?php
 // @command: balafon --run .test/utils/treat_array.php definition 
 use IGK\System\Console\Logger;
+
+
 function treat_array(string $src){
     $tab = explode('|', $src);
     sort($tab);

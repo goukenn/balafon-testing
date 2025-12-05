@@ -1,1 +1,0 @@
-[information](title of **the** \(boss\))

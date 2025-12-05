@@ -1,5 +1,10 @@
 <?php
+// @author: C.A.D. BONDJE DOUE
+// @filename: create-mardown.php
+// @date: 20251024 10:23:34
+// @desc: create a README.md helper to vscode extension 
 // @command: balafon --run .test/vscode/create-mardown.php directory 
+// @balafon-command: vscode-markdown
 use IGK\System\Console\Helper\ConsoleUtility;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;

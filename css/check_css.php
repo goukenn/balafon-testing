@@ -7,7 +7,7 @@ use IGK\System\Html\Dom\HtmlDocTheme;
 // css check
 function css_check()
 {
-    $css = '/* sample */body     { background-color  :indigo  }';
+    //$css = '/* sample */body     { background-color  :indigo  }';
     $css = '/* sample */body     { apect-ration:16/9 }';
     $minifier = new CssMinifier;
     echo $minifier->minify($css);

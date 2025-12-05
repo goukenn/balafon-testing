@@ -1,4 +1,8 @@
 <?php
+// @author: C.A.D. BONDJE DOUE
+// @filename: igk_rename_media.php
+// @date: 20250903 13:23:57
+// @desc: rename media and structure it
 // @command: balafon --run .test/io/igk_rename_media.php [from] [to]
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;

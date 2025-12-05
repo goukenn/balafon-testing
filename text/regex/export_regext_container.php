@@ -25,4 +25,4 @@ $converter = new RegexMatcherContainerTmLanguageConverter;
 
 echo JSon::Encode($converter->convert($regex), JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT);
 
-exit;
+igk_exit();

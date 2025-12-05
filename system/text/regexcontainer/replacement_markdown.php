@@ -1,14 +1,16 @@
 <?php
+// @author: C.A.D. BONDJE DOUE
+// @filename: replacement_markdown.php
+// @date: 20251026 12:12:07
+// @desc: transform markdown to html using internal MarkdownConverter
+
 // @command: balafon --run .test/system/text/regexcontainer/replacement_markdown.php
 use IGK\Helper\StringUtility;
 use IGK\System\Console\App; 
 use IGK\System\Console\Logger; 
 use IGK\System\IO\Markdown\MarkdownConverter;
 use IGK\System\Text\RegexMatcherContainer;
-/**
- * transform to html 
- * @package 
- */
+ 
 $file = igk_getv($params, 0); 
 $converter = new MarkdownConverter; 
 $src = ''; 
