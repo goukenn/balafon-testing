@@ -2,8 +2,8 @@
 // @author: C.A.D. BONDJE DOUE
 // @filename: Untitled-1
 // @date: 20250602 07:53:22
-// @desc: remove empty directory 
-// @command: balafon --run .test/utils/remove-empty-dirs.php
+// @desc: remove empty directory  
+// @command: balafon --run .test/utils/remove-empty.dirs.php /path/to/dir
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 defined('IGK_FRAMEWORK') || igk_die('missing balafon framework');
@@ -34,15 +34,8 @@ IO::GetDirs($dir, function($q)use(& $dirs){
     }
     return true;
 }, true);
-foreach(IO::GetFiles($dir, "/\.DS_Store$/", true) as $f){
+$cdir = IO::GetFiles($dir, "/\.DS_Store$/", true) ?? [];
+foreach($cdir as $f){
     @unlink($f);
 }
-// while(count($dirs)>0 ){
-//     $q = array_shift($dirs);
-//     if (IO::IsDirEmpty($q)){
-//         $dirs[] = dirname($q);
-//         Logger::info('rm: '.$q);
-//         IO::RmDir($q);
-//     }
-// } 
-igk_wln_e($dirs);
+igk_wln_e(json_encode(['removed_dirs'=>$dirs], JSON_PRETTY_PRINT));

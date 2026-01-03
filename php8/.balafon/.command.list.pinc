@@ -1,0 +1,23 @@
+<?php
+// @author: C.A.D. BONDJE DOUE
+// @desc: command list cache
+// @date: 20251209 10:30:40
+
+return [
+ "AppBalafonController"=>[
+com\igkdev\projects\AppBalafon\System\Console\Commands\Modules\InitDbModulesCommand::class
+],
+ "BalafonWikiController"=>[
+com\igkdev\projects\BalafonWiki\System\Console\Commands\AddDocCommand::class
+],
+ "ForemJobDashboardController"=>[
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\CVModeleListCommand::class,
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\EnterpriseCommand::class,
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\EnterpriseListCommand::class,
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\InterimsManagementCommand::class,
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\JobFollowCommand::class,
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\LetterModeleListCommand::class,
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\ListJobTitlesCommand::class,
+com\igkdev\projects\ForemJobDashboard\System\Console\Commands\SearchEnginesCommand::class
+]
+];
