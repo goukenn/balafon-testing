@@ -62,5 +62,5 @@ igk_logger_dashline();
 $ref = global_action_list(Sample::class, $_globals_security_schemes);
 $g = new SwaggerSecurityFlowAnnotation('implicit');
 $g->tokenUrl = 'token-list';
-igk_wln_e($g);
-igk_wln_e($ref, $_globals_security_schemes);
+
+igk_wln_e($g , $ref, $_globals_security_schemes);

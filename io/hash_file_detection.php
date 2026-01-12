@@ -1,6 +1,6 @@
 <?php
  // utility script: remove file in directory if a copy of the same file exists
- // @command: balafon --run .test/io/hash_file_detection.php
+ // @command: balafon --run .test/io/hash_file_detection.php [dir]
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;

@@ -1,0 +1,12 @@
+<balafon>
+	<env name="IGK_BASE_URI" value="//localhost"></env>
+	<env name="IGK_DOCUMENT_ROOT" value="./public"></env>
+	<env name="IGK_BASE_DIR" value="./public"></env>
+	<env name="IGK_APP_DIR" value="./src/application"></env>
+	<env name="IGK_PROJECT_DIR" value="./src/application/Projects"></env>
+	<env name="IGK_PACKAGE_DIR" value="./src/application/Packages"></env>
+	<env name="IGK_MODULE_DIR" value="./src/application/Packages/Modules"></env>
+	<env name="IGK_NODE_MODULES_DIR" value="./src/application/Packages/node_modules"></env>
+	<env name="IGK_VENDOR_DIR" value="./src/application/Packages/vendor"></env>
+	<env name="IGK_SESS_DIR" value="./sesstemp"></env>
+</balafon>
