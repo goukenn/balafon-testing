@@ -14,6 +14,10 @@ if (!class_exists('A', false)) {
 /**
 * auto generate doc.
 */
+
+/**
+* auto generate doc.
+*/
 class A
     {
         /**

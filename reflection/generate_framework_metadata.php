@@ -707,7 +707,7 @@ function getGlobalFuncs($src, &$funcs)
             $doc = $d ? igk_getv($d, 'doc') : null;
            if (is_null($doc)){
                meta_updateBuffer($e, $ref = (object)['type'=>$v_type, 'property'=>true], $funcs, $src, 'subfunc');
-               $doc = $ref->doc;
+               $doc = igk_getv($ref, 'doc');
            }
             if (empty($modifier) || (preg_match('/(public|protected|var)/', $modifier))) {
                 // ignore private properties

@@ -21,6 +21,10 @@ function b(){
 /**
 * auto generate doc.
 */
+
+/**
+* auto generate doc.
+*/
 class AA{
 
             /**
