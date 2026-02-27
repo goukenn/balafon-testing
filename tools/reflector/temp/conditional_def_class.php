@@ -1,12 +1,38 @@
 <?php
  if (true){
-    function a(){
+
+/**
+* auto generate doc.
+*/
+function a(){
     }
     if (phpversion()){
-        function b(){
+
+/**
+* auto generate doc.
+*/
+function b(){
         }
-        class AA{
+
+/**
+* auto generate doc.
+*/
+
+/**
+* auto generate doc.
+*/
+class AA{
+
+            /**
+            * auto generate doc.
+            * @var mixed
+            */
             var $x;
+
+            /**
+            * auto generate doc.
+            * @var mixed
+            */
             var $j;
         }
     }

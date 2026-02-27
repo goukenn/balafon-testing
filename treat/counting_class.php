@@ -17,6 +17,13 @@ $ren = [];
 //     // igk_io_w2file($hdir.'/'.$nn, )
 // }
 // $src = '';
+
+/**
+* auto generate doc.
+* @param mixed & $info
+* @param string $file
+* @param string $src
+*/
 function treat_file(&$info, string $file, string $src)
 {
     $N = igk_io_basenamewithoutext($file);

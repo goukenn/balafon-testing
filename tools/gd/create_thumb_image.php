@@ -19,6 +19,16 @@ $type = $ext == 'png' ? 1 : 0;
 $W = igk_getv($command->options, '--width') ?? 500;
 $H = igk_getv($command->options, '--height') ?? 500;
 $_scale = igk_getv($command->options, '--scale', 'proportional');
+
+/**
+* auto generate doc.
+* @param mixed $src
+* @param mixed $w
+* @param mixed $h
+* @param mixed $type
+* @param mixed $compression
+* @param bool $antialias
+*/
 function fit_cover($src, $w, $h, $type = 1, $compression = 0, bool $antialias = false)
     {
         $ih = imagecreatefromstring($src);

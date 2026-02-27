@@ -19,6 +19,11 @@ if ($help){
 if (false === strpos($url, '%s')){
     $url .='$s';
 }
+
+/**
+* auto generate doc.
+* @param mixed $v
+*/
 function _hex($v){
     return str_pad(dechex($v), 2, '0', STR_PAD_LEFT);
 }

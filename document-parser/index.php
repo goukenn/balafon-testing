@@ -10,6 +10,10 @@ $mod = igk_require_module(\igk\devtools::class);
 require_once $mod->getTestClassesDir() . "/DocumentParserMockHttpClient.php";
 // preg_match("/(\s*|,|;)import\s*".UriDetector::URL_BRACKET_RX."/", "import 'info\"'", $tab);
 // igk_wln_e("tab", $tab);
+
+/**
+* auto generate doc.
+*/
 function _getRenderDocument1()
 {
     $content = "<!DOCTYPE html>";

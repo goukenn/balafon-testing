@@ -8,13 +8,52 @@ use IGK\System\Exceptions\CssParserException;
 use IGK\System\Exceptions\ArgumentTypeNotValidException;
 use IGK\System\Shell\OsShell;
 igk_require_module(igk\js\Vue3::class);
+
+/**
+* auto generate doc.
+*/
 class ViteApplicationHelper{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $ctrl;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $dist;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $entryNamespace = 'viteApp';
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $target = '#app';
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $mode = 'development'; // production|development
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $routeName = 'vite-router';
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     const APP_JS_MIME_TYPE = 'text/balafon-vite-app';
     /**
      * build application injection settings
@@ -25,6 +64,7 @@ class ViteApplicationHelper{
      * @throws ArgumentTypeNotValidException 
      * @throws ReflectionException 
      */
+
     public function buildApplicationInjection(){
         $s = igk_create_node('script');
         $s['type'] = self::APP_JS_MIME_TYPE;

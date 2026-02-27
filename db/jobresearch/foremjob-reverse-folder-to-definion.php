@@ -9,6 +9,13 @@ use IGK\Helper\JSonEncodeOption;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
 ForemJobDashboardController::ctrl(true);
+
+/**
+* auto generate doc.
+* @param string $dir
+* @param mixed $date
+* @param mixed & $enterpriseList
+*/
 function get_enterpise_info(string $dir, $date, &$enterpriseList)
 {
     $load_ref = function ($es, &$enterpriseList, $date, $ent) {

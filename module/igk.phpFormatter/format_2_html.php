@@ -23,7 +23,11 @@ use IGK\System\Text\IReplaceCapturedFormatDefinition;
 use IGK\System\Text\RegexMatcherCapture;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherPattern;
-use function igk_html_host as _h; 
+use function igk_html_host as _h;
+
+/**
+* auto generate doc.
+*/
 class CodeToHtmlFormatter extends FormattersCodeToHtmlFormatter
 {
 }

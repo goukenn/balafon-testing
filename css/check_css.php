@@ -5,6 +5,10 @@ use IGK\System\Html\Css\CssMinifier;
 use IGK\System\Html\Css\CssParser;
 use IGK\System\Html\Dom\HtmlDocTheme;
 // css check
+
+/**
+* auto generate doc.
+*/
 function css_check()
 {
     //$css = '/* sample */body     { background-color  :indigo  }';
@@ -12,6 +16,10 @@ function css_check()
     $minifier = new CssMinifier;
     echo $minifier->minify($css);
 }
+
+/**
+* auto generate doc.
+*/
 function calc_check()
 {
     $src = 'body{width: calc(2em + 3px); }';
@@ -23,6 +31,11 @@ function calc_check()
     echo '-', PHP_EOL;
     echo $th->get_css_def();
 }
+
+/**
+* auto generate doc.
+* @param mixed $src
+*/
 function check($src){ 
     $g = BcssParser::ParseFromContent($src);
     $th = new HtmlDocTheme(null, 'test');
@@ -32,6 +45,11 @@ function check($src){
     echo '----------------', PHP_EOL;
     echo $th->get_css_def();
 }
+
+/**
+* auto generate doc.
+* @param string $str
+*/
 function minify(string $str){
     $th = new HtmlDocTheme(null, 'test');
     $def = &$th->getdef();

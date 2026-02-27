@@ -3,7 +3,7 @@
 // @filename: generate_framework_metadata.php
 // @date: 20260211 16:45:47 
 // @command: balafon --run .test/reflection/generate_framework_metadata.php
-// usage : --dir:directory to check --regex:regex_to_handle_file --url:download_uri --title:frameworktitle
+// usage : --dir:directory to check --regex:regex_to_handle_file --url:download_uri --title:frameworktitle [--update-doc]
 
 // + | -------------------------------------------------------------------------
 // + | detect reflection function/classes/traits/interface/conditional. function  
@@ -15,14 +15,42 @@ use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherPattern;
 use IGK\System\Text\RegexMatcherUtility;
 
+/**
+* auto generate doc.
+*/
 class RegLevlMananerRegexMatcherPattern extends RegexMatcherPattern
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $isBlock;
 }
+
+/**
+* auto generate doc.
+*/
 class RegLevelManager
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $doc;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $location;
+
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param mixed $definition
+    */
     public static function ReadArgDeclaration($src, $definition = false)
     {
         $regex = new RegexMatcherContainer;
@@ -113,6 +141,7 @@ class RegLevelManager
      * @param int &$pos 
      * @return array 
      */
+
     public static function ReadFuncParams(string $src, int &$pos, &$return)
     {
         $tab = [];
@@ -165,6 +194,7 @@ class RegLevelManager
      * 
      * @return array{doc: mixed}|int 
      */
+
     public function getDocInfo(?string $type = null)
     {
         $d = [];
@@ -192,6 +222,7 @@ class RegLevelManager
      * @param mixed $e 
      * @return int 
      */
+
     public static function GetDepth($e): int
     {
         $i = 0;
@@ -225,6 +256,14 @@ function _reg_level($g, &$t, $level)
         $t[$g] = $c;
     return $c;
 }
+
+/**
+* auto generate doc.
+* @param mixed $c
+* @param mixed $type
+* @param mixed $namespace
+* @return array
+*/
 function meta_getPhpDocInfo($c, $type, $namespace): array
 {
     $p = [];
@@ -256,6 +295,11 @@ function meta_getPhpDocInfo($c, $type, $namespace): array
     }
     return $p;
 }
+
+/**
+* auto generate doc.
+* @param mixed $e
+*/
 function meta_getPhpDocDefaultSummary($e){
     $tn= $e->beginCaptures['n'][0];
     return igk_getv([
@@ -616,7 +660,7 @@ function getGlobalFuncs($src, &$funcs)
                     $modifier = 'public';
                 }
                 $d = $level->getDocInfo();
-                $doc = $d ? igk_getv($d, 'doc') : null;
+                $doc = is_object($d)||is_array($d) ? igk_getv($d, 'doc') : null;
             
                 $v_p =  [
                     'modifier' => $modifier,
@@ -707,6 +751,7 @@ function getGlobalFuncs($src, &$funcs)
                 if ($nsflag) {
                     // + | start block of ns flag
                     $nsflag = false;
+                    $funcs['::buffer'] = null;
                 } else
                     $live_doc->depth++;
             } else {
@@ -797,8 +842,8 @@ $treat = function ($tf) use (&$funcs, $ln, $update_doc) {
         $p = $funcs['::buffer']->pos;
         $buffer .= substr($c, $p);
         Logger::warn('update file: ' . $tf);
-        igk_wln_e($buffer);
-        // igk_io_w2file($tf, $buffer);
+        // igk_wln_e($buffer);
+        igk_io_w2file($tf, $buffer);
     }
     unset($funcs['::buffer']);
 };

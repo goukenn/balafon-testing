@@ -1,25 +1,61 @@
 <?php
 // balafon --run .test/test_pointer.php
 use IGK\System\Console\Logger;
+
+/**
+* auto generate doc.
+*/
 trait AAC {
+
+    /**
+    * auto generate doc.
+    */
     function doA(){
     }
 }
+
+/**
+* auto generate doc.
+*/
 trait AAT{
     use AAC;
+
+    /**
+    * auto generate doc.
+    */
     function doAat(){
     }
 }
+
+/**
+* auto generate doc.
+*/
 trait AAB{
     use AAT;
+
+    /**
+    * auto generate doc.
+    */
     function doAab(){
     }
 }
+
+/**
+* auto generate doc.
+*/
 class A{
 }
+
+/**
+* auto generate doc.
+*/
 class B  extends A{
     use AAB;
 }
+
+/**
+* auto generate doc.
+*/
 class C extends B{
 }
 /**
@@ -45,6 +81,11 @@ function igk_get_class_traits($cl){
     }
     return array_unique($traits);
 }
+
+/**
+* auto generate doc.
+* @param array $tab
+*/
 function detect_cycle(array $tab){
     $slow = 0;
     $fast = 0;

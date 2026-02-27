@@ -7,6 +7,11 @@ $n->load(<<<'HTML'
     <source srcSet="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/480x360.webp" media="(max-width: 767px), (min-width: 1100px), (-webkit-min-device-pixel-ratio: 1.01)" type="image/webp" height="360" width="480"/>
     <source srcSet="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/480x360.jpg" media="(max-width: 767px), (min-width: 1100px), (-webkit-min-device-pixel-ratio: 1.01)" type="image/jpeg" height="360" width="480"/><img src="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/250x188.webp" class="dp-new-gallery__img" alt="" height="188" width="250" loading="eager"/></picture>
 HTML);
+
+/**
+* auto generate doc.
+* @param mixed $n
+*/
 function get_source($n){
     $t = $n->tagName();
     if ($t){
@@ -17,6 +22,11 @@ function get_source($n){
         } 
     } 
 }
+
+/**
+* auto generate doc.
+* @param mixed $n
+*/
 function get_picture($n){
     return array_map(function($a){
         return get_source($a); 
@@ -26,17 +36,36 @@ function get_picture($n){
         }
     }))); 
 }
+
+/**
+* auto generate doc.
+*/
 class imageVisitor{
+
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    */
     public function visit_content_image_source($n){
         if ($g = $n['srcSet']){
             return $g;
         }
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    */
     public function visit_content_image_img($n){
         if ($g = $n['src']){
             return $g;
         }
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    */
     public function visit_content_image_link($n){
         if ($src = $n['href']){
             if ($n['as'] == 'image'){                
@@ -45,7 +74,11 @@ class imageVisitor{
         }
     }
 }
- function get_visitor(){ 
+
+/**
+* auto generate doc.
+*/
+function get_visitor(){ 
     static $visitor;
     if (is_null($visitor)){
         $visitor = new imageVisitor();

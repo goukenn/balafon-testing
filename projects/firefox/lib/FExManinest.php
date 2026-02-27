@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__.'/FExManifestBrowserSpecific.php';
+
+/**
+* auto generate doc.
+*/
 class FExManinest
 {
     /**
@@ -26,7 +30,17 @@ class FExManinest
      * @var number
      */
     var $version;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $permissions;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $background; // 
     // "scripts": ["background.js"],
     // "persistent": false

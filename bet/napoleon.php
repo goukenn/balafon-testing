@@ -72,6 +72,11 @@ $g->username = 'goukenn';
 $g->clientSourceType = BetSourceTypes::Desktop_new;
 $def_file = $ctrl->getDataDir()."/local.def.dat";
 $cookie_file = __DIR__ . '/cookie.txt';
+
+/**
+* auto generate doc.
+* @param string $cookie_file
+*/
 function load_cookie_file(string $cookie_file)
 {
     $c = file_get_contents($cookie_file);
@@ -113,6 +118,12 @@ $_headers = [
 $cookies = [];
 $cookies_entries = null;
 $bss = '';
+
+/**
+* auto generate doc.
+* @param string $site
+* @param null|mixed $cf
+*/
 function get_firefox_cookie(string $site, $cf = null)
 {
     $cf =  $cf ?? '/Users/charlesbondjedoue/Library/Application Support/Firefox/Profiles/yx5rd8i9.default-release-1702400894716/cookies.sqlite';

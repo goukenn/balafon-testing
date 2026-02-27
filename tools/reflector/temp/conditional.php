@@ -1,15 +1,27 @@
 <?php
 if (true){
-  function conditional(){
+
+/**
+* auto generate doc.
+*/
+function conditional(){
     echo 'init conditional';
   } 
   echo "after call";
 }  else {
     echo $j + 1;
-    function jump(){
+
+/**
+* auto generate doc.
+*/
+function jump(){
         return 23;
     }
-    function conditional(){
+
+/**
+* auto generate doc.
+*/
+function conditional(){
         return 23;
     }
 }

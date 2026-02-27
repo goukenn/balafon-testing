@@ -10,8 +10,22 @@ use IGKValueListener;
 * @package igk\bootstrap\Components
 */
 class Modal extends BootstrapComponentBase{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $dialog;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $labelledby;
+
+    /**
+    * auto generate doc.
+    */
     protected function initialize()
     {
         parent::initialize();

@@ -13,6 +13,12 @@ if ($class=='='){
 if (!$class || !class_exists($class, false)){
     igk_die('missing class ', $class);
 }
+
+/**
+* auto generate doc.
+* @param string $file
+* @param null|mixed & $info
+*/
 function test_reflection_use_classes_readFileHeader(string $file, & $info = null){
     $tokens = token_get_all(file_get_contents($file), 0);
     $sb = new StringBuilder;

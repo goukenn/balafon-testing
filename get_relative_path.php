@@ -56,6 +56,13 @@ function igk_io_get_relativepath_2(string $source, string $target, string $separ
     }
     return null;
 }
+
+/**
+* auto generate doc.
+* @param mixed $source
+* @param mixed $target
+* @param mixed $expected
+*/
 function test($source, $target, $expected){
     $r = igk_io_get_relativepath_2($source, $target);
     igk_wln(compact("source", "target", "r"), $r == $expected);

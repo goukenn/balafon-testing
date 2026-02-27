@@ -7,6 +7,10 @@ use IGK\System\Html\Dom\HtmlNoTagNode;
  * @package igk\bootstrap\Components
  */
 class CardHeader extends ComponentBase{
+
+    /**
+    * auto generate doc.
+    */
     protected function initialize()
     {
         $this["class"] = "card-header";

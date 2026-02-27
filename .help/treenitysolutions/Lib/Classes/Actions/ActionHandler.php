@@ -1,10 +1,25 @@
 <?php
 namespace  treenitySolutions\Actions;
 use IGK\Actions\ActionBase;
+
+/**
+* auto generate doc.
+* @package treenitySolutions\Actions
+*/
 class ActionHandler extends ActionBase {
-	private static $sm_instance;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    private static $sm_instance;
 	///.get instance
-	public static function getInstance($ctrl=null){
+
+    /**
+    * auto generate doc.
+    * @param null|mixed $ctrl
+    */
+    public static function getInstance($ctrl=null){
 		if (!self::$sm_instance){
 			self::$sm_instance = new ActionHandler();
 			self::$sm_instance->ctrl = $ctrl;
@@ -14,7 +29,11 @@ class ActionHandler extends ActionBase {
 	///.ctr
 	private function __construct(){
 	}
-	public function question(){
+
+    /**
+    * auto generate doc.
+    */
+    public function question(){
 		if(igk_qr_confirm()){
 		}
 	}

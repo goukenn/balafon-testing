@@ -1,5 +1,10 @@
 <?php
 use IGK\Helper\StringUtility;
+
+/**
+* auto generate doc.
+* @param mixed $str
+*/
 function igk_str_snake2($str){
     $g = $str;
     $p = preg_split("/[A-Z]+/", $str,-1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_OFFSET_CAPTURE |

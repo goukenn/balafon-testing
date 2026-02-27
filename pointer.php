@@ -5,6 +5,13 @@ $x = "goudron";
 <?php
 echo $x;
 exit;
+
+/**
+* auto generate doc.
+* @param mixed & $str
+* @param mixed $data
+* @param mixed $offset
+*/
 function str_insert(& $str, $data, $offset){
     $ln = strlen($str);
     $pos = $offset;

@@ -9,12 +9,22 @@ if (version_compare(PHP_VERSION, '8.0', '>=' )){
     }
 } 
 elseif (IGK_FRAMEWORK == 'balafon'){
-    function samp($a){
+
+/**
+* auto generate doc.
+* @param mixed $a
+*/
+function samp($a){
         // not defined ... with
     }
 }
 else {
-    function samp($c){
+
+/**
+* auto generate doc.
+* @param mixed $c
+*/
+function samp($c){
         // not defined ... not
     }
 }

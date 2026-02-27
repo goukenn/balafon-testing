@@ -30,6 +30,11 @@ igk_wln("checing pointer .... ");
 require_once '/Volumes/Data/wwwroot/core/Packages/Modules/igk/io/GraphQl/Lib/Classes/GraphQlPointerObject.php';
 $root = [];
 $obj = new GraphQlPointerObject($root);
+
+/**
+* auto generate doc.
+* @param mixed & $obj
+*/
 function update(& $obj){
     $obj[] = 1;
     $obj[] = -1;

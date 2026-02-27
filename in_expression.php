@@ -1,6 +1,11 @@
 <?php
 $a = 8;
 $b = 9;
+
+/**
+* auto generate doc.
+* @param mixed $x
+*/
 function eval_args($x){
     global $a, $b;
     $x = ltrim(rtrim($x, ")"), "(");
@@ -30,6 +35,11 @@ function eval_args($x){
     }
     return $x;
 }
+
+/**
+* auto generate doc.
+* @param mixed $x
+*/
 function pass($x){
     echo "in pass ", $x , "\n";
 }

@@ -28,14 +28,52 @@ if(($g === false) && ($v_fv->hasError()))
     Logger::danger(json_encode($error, JSON_PRETTY_PRINT));
     igk_exit(-1);
 }
+
+/**
+* auto generate doc.
+*/
 class DummyDefinition{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $name;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $books;
 }
+
+/**
+* auto generate doc.
+*/
 class DummyBookDefinition{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $title;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $page;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $user;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $contributor;
 }
 $i = Activator::CreateNewInstance(DummyDefinition::class, $g);

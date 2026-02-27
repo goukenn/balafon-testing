@@ -7,11 +7,29 @@
  */
 interface IJSArrayRef{
 }
+
+/**
+* auto generate doc.
+*/
 trait Basic{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $info;
 }
+
+/**
+* auto generate doc.
+*/
 class OP implements IJSArrayRef{
     use Basic;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $x;
 }
 $op = new OP;

@@ -93,6 +93,10 @@ $d->clearChilds();
 // $d->load(<<<'HTML'
 //  <h2> '{{$t('Show room')}} </h2>
 // HTML, []);
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_base_param()
 {
     // igk_wln_e("init base param ...... ");

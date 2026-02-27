@@ -13,10 +13,34 @@ use IGK\System\Text\RegexMatcherContainer;
  */
 interface ILocalization{
 }
+
+/**
+* auto generate doc.
+*/
 class JO implements ILocalization{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $locale;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $x = 89;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $y = 0;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $t = [];
 }
 /**

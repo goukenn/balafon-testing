@@ -41,10 +41,23 @@ $data = [
         "title"=>"info"
     ]
 ];
+
+/**
+* auto generate doc.
+*/
 class ViteMenuHelper extends ViteViteMenuHelper
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $source; 
 }
+
+/**
+* auto generate doc.
+*/
 class ViteMenuInfo extends ViteViteMenuInfo{
 }
 echo "build menu for balafon + vite application : " . PHP_EOL;

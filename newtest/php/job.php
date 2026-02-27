@@ -10,6 +10,10 @@ use IGK\Models\ModelBase;
 * */
 abstract class IRReportsMacros extends ModelBase{
 }
+
+/**
+* auto generate doc.
+*/
 class JO extends IRReportsMacros{
 }
 $m = new JO;

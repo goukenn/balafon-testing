@@ -9,6 +9,10 @@ use igk\io\GraphQl\System\IO\Traits\GraphQlSectionReaderTrait;
 use IGK\System\Modules;
 igk_require_module(Modules::igk_io_GraphQl());
 igk_load_class(GraphQlSectionReader::class);
+
+/**
+* auto generate doc.
+*/
 class NGraphQlReader extends GraphQlParser
 {
     use GraphQlSectionReaderTrait;
@@ -32,6 +36,11 @@ class NGraphQlReader extends GraphQlParser
     //     return $n;
     // }
 }
+
+/**
+* auto generate doc.
+* @param mixed $p
+*/
 function to_null_prop($p)
 {
     return GraphQlReaderUtils::InitDefaultProperties($p, 8);
@@ -77,14 +86,37 @@ $data = [
         ]
     ]
 ];
+
+/**
+* auto generate doc.
+*/
 class Listener implements IGraphQlInspector{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     private $m_sourceData;
+
+    /**
+    * auto generate doc.
+    * @param mixed $data
+    */
     public function setSourceData($data){
         $this->m_sourceData = $data;
     }
+
+    /**
+    * auto generate doc.
+    * @return ?string
+    */
     public function getSourceTypeName(): ?string { 
         return "User";
     }
+
+    /**
+    * auto generate doc.
+    */
     public function query() { 
         return $this->m_sourceData;
     }
@@ -94,6 +126,7 @@ class Listener implements IGraphQlInspector{
      * @return string[] 
      * @throws IGKException 
      */
+
     public function upperCase(?GraphQlQueryOptions $options=null){ 
         $d = $options->data;  
         if (is_null($d)){

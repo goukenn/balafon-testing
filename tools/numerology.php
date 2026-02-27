@@ -2,6 +2,11 @@
 for ($i = 0; $i < 26; $i++) {
     $td[chr(ord('a') + $i)] = ($i % 9) + 1;
 }
+
+/**
+* auto generate doc.
+* @param mixed $ch
+*/
 function isVowel($ch)
 {
     return preg_match("/[aeiouy]/", $ch);

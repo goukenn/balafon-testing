@@ -133,14 +133,34 @@ IO::GetFiles($dir, function ($file) use ($regex, &$list) {
  */
 class EngineLoader
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $list;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $php_code;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $namespace;
     /**
      * file definition 
      * @var ?string
      */
     var $file;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $flags = [];
     private function _get_name(string $n){
           if ($prefix = $this->namespace) {
@@ -168,19 +188,40 @@ class EngineLoader
         }
         $this->flags['last'] = $def;
     }
+
+    /**
+    * auto generate doc.
+    */
     public function visit_f_php_start()
     {
         $this->php_code = true;
     }
+
+    /**
+    * auto generate doc.
+    */
     public function visit_f_php_stop()
     {
         $this->php_code = false;
     }
+
+    /**
+    * auto generate doc.
+    */
     public function visit_php_f_var() {}
+
+    /**
+    * auto generate doc.
+    * @param mixed $e
+    */
     public function visit_php_f_cond($e)
     {
         $this->flags['cond'] = $e->value;
     }
+
+    /**
+    * auto generate doc.
+    */
     function _init_def(){
          $def = (object)[
             'conditional_type'=>null,
@@ -190,6 +231,11 @@ class EngineLoader
         ];
         return $def;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $e
+    */
     public function visit_php_f_func_global_block($e)
     {
         $def = $this->_init_def();
@@ -198,6 +244,11 @@ class EngineLoader
         }
         $this->flags['cond'] = null;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $e
+    */
     public function visit_php_f_class($e)
     {
         $def = $this->_init_def();
@@ -207,6 +258,11 @@ class EngineLoader
         $this->_reg($t, $n[0], $def);
          $this->flags['cond'] = null;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $e
+    */
     public function visit_php_f_namespace($e)
     {
         $n = igk_getv($e->beginCaptures, 'name');
@@ -214,6 +270,11 @@ class EngineLoader
             $this->namespace = $n[0];
         }
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $e
+    */
     public function visit_php_f_conditional($e)
     {
         $n = igk_getv(igk_getv($e->beginCaptures, 'type'), 0);

@@ -28,6 +28,10 @@ $json_data = <<<JSON
     }
 }
 JSON;
+
+/**
+* auto generate doc.
+*/
 class DemoValidationField extends InspectorFormFieldValidationBase
 {
     /**

@@ -10,7 +10,13 @@
 use IGK\System\IO\StringBuilder;
 $sb = new StringBuilder;
 if (!function_exists('igk_html_get_options_key')){
-    function igk_html_get_options_key(string $v):?array{
+
+/**
+* auto generate doc.
+* @param string $v
+* @return ?array
+*/
+function igk_html_get_options_key(string $v):?array{
             $d = igk_create_node("div");
             if ($d->load($v)){
                 $reftab = [];

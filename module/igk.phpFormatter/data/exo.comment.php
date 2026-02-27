@@ -1,3 +1,8 @@
+
+
+/**
+* auto generate doc.
+*/
 function x(){  
    if (true){ 
 $x = 999;           // -one-      

@@ -6,15 +6,45 @@ use IGK\System\Html\Dom\HtmlNode;
  * @package igk\bootstrap\Components
  */
 class Toast extends ComponentBase{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     protected $tagname = "div";
-    private $m_header; 
-    private $m_body; 
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    private $m_header;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    private $m_body;
+
+    /**
+    * auto generate doc.
+    */
     public function getBody(){
         return $this->m_body;
     }
+
+    /**
+    * auto generate doc.
+    */
     public function getHeader(){
         return $this->m_header;
     }
+
+    /**
+    * .ctr
+    * @param null|string $id
+    * @param null|HtmlNode $header
+    * @param null|HtmlNode $body
+    */
     public function __construct(?string $id=null, ?HtmlNode $header=null, ?HtmlNode $body=null)
     {
         parent::__construct();
@@ -32,10 +62,19 @@ class Toast extends ComponentBase{
         $header && $this->m_header->add($header);
         $body && $this->m_header->add($body);
     }
+
+    /**
+    * auto generate doc.
+    */
     public function getCanAddChilds()
     {
         return false;
     }
+
+    /**
+    * auto generate doc.
+    * @param null|mixed $options
+    */
     public function getRenderedChilds($options=null){ 
         return [
             $this->m_header,

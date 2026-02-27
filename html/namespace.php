@@ -2,12 +2,20 @@
 // @command: balafon --run .test/html/namespace.php
 use IGK\System\Html\Dom\HtmlNode;
 use function igk_html_host as _h;
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_details()
 {
     $n = new HtmlNode('details');
     $n->summary()->content = 'summary for sample ';
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function svg_details()
 {
     $n = new HtmlNode('details');

@@ -1,10 +1,20 @@
 <?php
+
+/**
+* auto generate doc.
+* @param mixed $str
+*/
 function escape_pdf_string($str){
     $str = preg_replace_callback("/(?<!\\\\)[\(\)]/",function($a){
         return "\\".$a[0];
     }, $str);
     return $str; 
 }
+
+/**
+* auto generate doc.
+* @param mixed $timespan
+*/
 function pdf_date_string($timespan){
     return sprintf('D:'.date('YmdHis', $timespan).'Z00\'00\'');
 }

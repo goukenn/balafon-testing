@@ -10,7 +10,11 @@ use IGK\System\Console\Logger;
 use IGK\System\Html\Dom\HtmlNode; 
 use IGK\System\Text\Formatters\FormatterPattern;
 use IGK\System\Text\RegexMatcherContainer;
-use function igk_html_host as _h; 
+use function igk_html_host as _h;
+
+/**
+* auto generate doc.
+*/
 class CodeToHtmlFormatter extends FormattersCodeToHtmlFormatter
 {
 }

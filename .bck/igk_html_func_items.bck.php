@@ -39,6 +39,10 @@ use IGK\System\Number;
 require_once(IGK_LIB_CLASSES_DIR . "/System/Html/Dom/Factory.php");
 require_once(IGK_LIB_CLASSES_DIR . "/System/Html/HtmlHeaderLinkHost.php");
 require_once(IGK_LIB_DIR . "/igk_html_utils.php");
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_dl(){
     return new \IGK\System\Html\Dom\HtmlDocumentListNode();
 }
@@ -68,6 +72,11 @@ function igk_html_node_radiobutton(?string $id = null)
     $i->setId($id);
     return $i;
 }
+
+/**
+* auto generate doc.
+* @param null|string $id
+*/
 function igk_html_node_table(?string $id = null)
 {
     $i = new \IGK\System\Html\Dom\HtmlTableNode();
@@ -340,6 +349,13 @@ function igk_html_create_container_section($t)
     $r = $ct->addRow();
     return $r;
 }
+
+/**
+* auto generate doc.
+* @param mixed $tagname
+* @param mixed $items
+* @param mixed $callback
+*/
 function igk_html_node_walk($tagname, $items, $callback)
 {
     $p = igk_html_parent_node();
@@ -350,6 +366,13 @@ function igk_html_node_walk($tagname, $items, $callback)
     }
     return $p;
 }
+
+/**
+* auto generate doc.
+* @param mixed $items
+* @param null|mixed $callback
+* @param mixed $ordered
+*/
 function igk_html_node_list($items, $callback = null, $ordered = 0)
 {
     if ($callback == null) {
@@ -377,6 +400,15 @@ function igk_html_node_usesvg(string $name)
     $s->Content = igk_svg_use($name);    
     return $s;
 }
+
+/**
+* auto generate doc.
+* @param mixed $menus
+* @param null|mixed $ctrl
+* @param mixed $root
+* @param mixed $item
+* @param null|mixed $callback
+*/
 function igk_html_node_menukey($menus, $ctrl = null, $root = "ul", $item = "li", $callback = null)
 {
     $n = igk_create_node("ul");
@@ -597,6 +629,12 @@ function igk_html_node_form_post(string $uri){
         . "'); return false;");
     return $a;
 }
+
+/**
+* auto generate doc.
+* @param mixed $uri
+* @param mixed $complete
+*/
 function igk_html_node_a_post($uri, $complete = '')
 {
     $a = igk_html_node_a();
@@ -608,6 +646,12 @@ function igk_html_node_a_post($uri, $complete = '')
         . "',null, " . $complete . "); return false;");
     return $a;
 }
+
+/**
+* auto generate doc.
+* @param mixed $uri
+* @param mixed $complete
+*/
 function igk_html_node_a_get($uri, $complete = '')
 {
     $a = igk_html_node_a("#");
@@ -687,6 +731,12 @@ function igk_html_node_actionbar($actions = null)
     }
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $id
+* @param null|mixed $value
+*/
 function igk_html_node_checkbox($id, $value = null)
 {
     $n = igk_create_node('input');
@@ -695,6 +745,13 @@ function igk_html_node_checkbox($id, $value = null)
     $n["value"] = $value;
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $uri
+* @param mixed $accepts
+* @param null|mixed $complete
+*/
 function igk_html_node_picker_zone($uri, $accepts = "", $complete = null)
 {
     $dv = igk_create_node("div");
@@ -895,6 +952,12 @@ function igk_html_node_ajxupdateview($cibling)
 ///<summary>append item that will be used for uri loader</summary>
 ///<param name="uri">uri to load async</param>
 ///<param name="append">append result to parent node</param>
+
+/**
+* auto generate doc.
+* @param mixed $uri
+* @param mixed $append
+*/
 function igk_html_node_ajxuriloader($uri, $append = 0)
 {
     $n = igk_create_node("div");
@@ -961,6 +1024,10 @@ function igk_html_node_article(?BaseController $ctrl=null, ?string $name=null, $
     igk_html_article($ctrl, trim($name), $n, $raw, null, true, true, $showAdminOption);
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_webarticle(){
     return igk_create_node("article");
 }
@@ -1001,6 +1068,10 @@ function igk_html_node_balafonjs($autoremove = 0)
     $c = new \IGK\System\Html\Dom\HtmlBalafonJSNode();
     return $c;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_balafonComponentJS()
 {
     return new \IGK\System\Html\Dom\HtmlBalafonJSComponentNode();
@@ -1050,6 +1121,13 @@ function igk_html_node_blocknode()
     $n->setCallback('getCanRenderTag', "return false;");
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param null|mixed $name
+* @param null|mixed $value
+* @param mixed $type
+*/
 function igk_html_node_submit($name = null, $value = null, $type = "submit")
 {
     $n = igk_html_node_input($name, $type, $value);
@@ -1229,12 +1307,20 @@ function igk_html_node_circlewaiter()
     $n->setClass("igk-circle-waiter");
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_boxdialog()
 {
     $n = igk_create_node("div");
     $n->setClass("igk-dialog");
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_dialog_circle_waiter()
 {
     $bar = igk_create_node("boxdialog")->setClass("igk-dialog");
@@ -1378,6 +1464,13 @@ function igk_html_node_communitylink($name, $link)
     $s["href"] = $link;
     return $s;
 }
+
+/**
+* auto generate doc.
+* @param mixed $n
+* @param mixed $v
+* @param mixed $k
+*/
 function igk_html_community_view($n, $v, $k){
     if (is_object($v) || is_array($v)) {
         $uri = igk_getv($v, "uri");
@@ -1444,6 +1537,10 @@ function igk_html_node_component($listener, $typename, $regName, $unregister = 0
         return $c;
     });
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_ajxtabcontrol()
 {
     return new \IGK\System\Html\Dom\HtmlAJXTabControlNode();
@@ -1788,6 +1885,11 @@ function igk_html_node_dialogboxoptions()
     }
     return $s;
 }
+
+/**
+* auto generate doc.
+* @param mixed $actionlist
+*/
 function igk_html_node_actions($actionlist)
 {
     $p = igk_html_parent_node() ?? igk_create_notagnode();
@@ -2025,6 +2127,10 @@ function igk_html_node_galleryfolder($ctrl, $folder, $ignorethumb = 1)
     }
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_headerbar()
 {
     $n = igk_create_node("div");
@@ -2218,6 +2324,12 @@ function igk_html_node_imglnk()
     // $n->setCallback("setAlt", "\$this->img['alt'] = \$value;");
     // return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $title
+* @param mixed $text
+*/
 function igk_html_node_span_label($title, $text)
 {
     $skip = false;
@@ -2255,6 +2367,14 @@ function igk_html_node_innerimg()
     $n = new IGK\System\Html\Dom\HtmlImgNode();
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $name
+* @param mixed $desc
+* @param mixed $width
+* @param mixed $height
+*/
 function igk_html_node_resimg($name, $desc = "", $width = 16, $height = 16)
 {
     $n = new HtmlNode("img");
@@ -2389,11 +2509,21 @@ function igk_html_node_jslogger()
     $n["class"] = "igk-winui-js-logger";
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_jswaiter(){
     $n = igk_create_node("div");
     $n["class"] = "igk-winui-js-waiter";
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param null|mixed $script
+* @param null|mixed $version
+*/
 function igk_html_node_script($script = null, $version = null)
 {
     return new \IGK\System\Html\Dom\HtmlScriptNode($script, $version);
@@ -2644,6 +2774,11 @@ function igk_html_node_mailto($href, $text = "")
     $n->Content = empty($text) ? $href : $text;
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $menuTab
+*/
 function igk_html_node_menulist($menuTab)
 {
     $b = igk_create_notagnode();
@@ -2758,10 +2893,18 @@ function igk_html_node_notifyhost($name = "::global", ?bool $autohide = null)
 {
     return new \IGK\System\Html\Dom\HtmlNotifyResponse($name, $autohide);
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_togglebutton()
 {
     return new \IGK\System\Html\Dom\HtmlToggleButtonNode();
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_bar()
 {
     return new \IGK\System\Html\Dom\HtmlBarNode();
@@ -2839,6 +2982,11 @@ function igk_html_node_obscript(callable $callback){
     $n->Content = $r;
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $data
+*/
 function igk_html_node_dumpdata($data)
 {
     $n = igk_create_notagnode();
@@ -3106,6 +3254,10 @@ function igk_html_node_responsenode()
     $n["class"] = "igk-response";
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_tablehost()
 {
     $n = igk_create_node("div");
@@ -3221,6 +3373,12 @@ function igk_html_node_searchbutton(string $uri, string $id="search")
     $n->on("click", "return igk.winui.searchbox.search(this);");
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param string $uri
+* @param mixed $id
+*/
 function igk_html_node_searchbox(string $uri, $id="search"){
     $n = igk_create_node("div");
     $n["class"] = "igk-winui-searchbox";
@@ -3332,6 +3490,14 @@ function igk_html_node_singlerowcol($col = null)
     }
     return null;
 }
+
+/**
+* auto generate doc.
+* @param null|string $uri
+* @param string $method
+* @param bool $notitle
+* @param bool $nofoot
+*/
 function igk_html_node_form(?string $uri = ".", string $method = "POST", bool $notitle = false, bool $nofoot = false)
 {
     $c = new \IGK\System\Html\Dom\HtmlFormNode($uri, $method, $notitle, $nofoot);
@@ -4180,6 +4346,10 @@ function igk_site_map_add_uri($n, $uri = null)
     $c->addNode("loc")->Content = igk_getv($uri, 0);
     $c->addNode("priority")->Content = 1;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_formcref()
 {
     $n = igk_create_notagnode();
@@ -4188,6 +4358,12 @@ function igk_html_node_formcref()
     });
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $optionsList
+* @param null|mixed $options
+*/
 function igk_html_node_select_options($optionsList, $options = null)
 {
     ($p = igk_html_parent_node()) || igk_die("required a parent list");
@@ -4229,6 +4405,10 @@ function igk_html_node_select_options($optionsList, $options = null)
     }
     return null;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_jsview()
 {
     $n = igk_create_node("script");
@@ -4238,6 +4418,11 @@ function igk_html_node_jsview()
 }
 // + attribute expression only use for child node
 // engine use
+
+/**
+* auto generate doc.
+* @param null|mixed $p
+*/
 function igk_html_node_attr_expression($p = null)
 {
     $c = null; 
@@ -4279,6 +4464,12 @@ function igk_html_node_fields(array $fielddata, ?array $datasource=null, ?object
     // }
     return $o;
 }
+
+/**
+* auto generate doc.
+* @param mixed $headers
+* @param null|mixed $filter
+*/
 function igk_html_node_tableheader($headers, $filter = null)
 {
     $tr = igk_create_node("tr");
@@ -4302,6 +4493,11 @@ function igk_html_node_dataschema()
     $n = new XmlNode(IGK_SCHEMA_TAGNAME);
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param mixed $style
+*/
 function igk_html_node_containerRowCol($style = "")
 {
     $p = igk_html_parent_node();
@@ -4327,6 +4523,10 @@ function igk_html_node_expression_node($raw, $ctrl = null)
     $n = new \IGK\System\Html\Dom\HtmlExpressionNode($raw, $ctrl, $ctx);
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_nbsp()
 {
     $c = igk_createtextnode("&nbsp;");
@@ -4411,6 +4611,11 @@ function igk_html_node_ViewCallback(callable $callback)
     return $n;
 }
 ///<summary> center page document</summary>
+
+/**
+* auto generate doc.
+* @param null|callable $host
+*/
 function igk_html_node_pageCenterBox(?callable $host = null)
 {
     $box = null;
@@ -4448,6 +4653,11 @@ function igk_html_node_pre($data = null)
     }
     return $p;
 }
+
+/**
+* auto generate doc.
+* @param array $fields
+*/
 function igk_html_node_hiddenFields(array $fields)
 {
     if ($f = igk_html_parent_node()) {
@@ -4610,6 +4820,12 @@ Factory::table("row", function (array $item) {
         }
     }
 });
+
+/**
+* auto generate doc.
+* @param mixed $title
+* @param mixed $def
+*/
 function igk_html_node_definition($title, $def)
 {
     $d = igk_create_node("dl");
@@ -4617,6 +4833,14 @@ function igk_html_node_definition($title, $def)
     $d->dd()->Content = $def;
     return $d;
 }
+
+/**
+* auto generate doc.
+* @param null|mixed $id
+* @param mixed $type
+* @param null|mixed $value
+* @param null|mixed $attributes
+*/
 function igk_html_node_input($id = null, $type = 'text', $value = null, $attributes = null)
 {
     $i = new HtmlNode('input');
@@ -4636,6 +4860,11 @@ function igk_html_node_input($id = null, $type = 'text', $value = null, $attribu
     }
     return $i;
 }
+
+/**
+* auto generate doc.
+* @param mixed $args
+*/
 function igk_html_node_definitions($args)
 {
     if ($q = igk_html_parent_node()) {
@@ -4723,10 +4952,21 @@ function igk_html_node_userinfo($user)
     $r->address()->Content = "data";
     return $n;
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_address()
 {
     return new \IGK\System\Html\Dom\HtmlNode("address");
 }
+
+/**
+* auto generate doc.
+* @param string $file
+* @param int $startLine
+* @param int $endLine
+*/
 function igk_html_node_view_code(string $file, int $startLine, int $endLine)
 {
     if (!file_exists($file)) {
@@ -4752,14 +4992,27 @@ function igk_html_node_space()
 {
     return new \IGK\System\Html\Dom\HtmlSpaceNode();
 }
+
+/**
+* auto generate doc.
+* @param null|mixed $src
+*/
 function igk_html_node_img($src = null)
 {
     return new \IGK\System\Html\Dom\HtmlImgNode($src);
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_xmlviewer()
 {
     return new \IGK\System\Html\Dom\HtmlXmlViewerNode();
 }
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_carousel(){
     $n = new  \IGK\System\Html\Dom\HtmlCarouselNode("div");
     $n["class"] = "igk-winui-carousel";
@@ -4828,6 +5081,11 @@ function igk_html_node_bindscript($data, $uri, $name, ?bool $production = null)
     }
     return igk_create_node("obdata", null, $fc);
 }
+
+/**
+* auto generate doc.
+* @param mixed $name
+*/
 function igk_html_node_toast_notify($name)
 {
     $node = igk_html_node_notagnode();
@@ -4853,6 +5111,11 @@ Factory::form("fields", function($fields, ?array $datasource=null, ?object $engi
     } 
     return $f;
 });
+
+/**
+* auto generate doc.
+* @param null|array $containerlist
+*/
 function igk_html_node_svg_container(?array $containerlist){
     $n = igk_create_node("div")->setClass("igk-svg-container dispn");
     if ($containerlist){
@@ -4861,7 +5124,13 @@ function igk_html_node_svg_container(?array $containerlist){
         }
     }
     return $n;
-} 
+}
+
+/**
+* auto generate doc.
+* @param array $items
+* @param string $tag
+*/
 function igk_html_node_load_array(array $items, string $tag='div'){
     $n = igk_create_notagnode();
     $n->loop($items, function($n, $i, $index)use($tag){
@@ -4989,6 +5258,12 @@ function igk_html_node_app_hearder_bar(BaseController $controller){
     $n->h1()->Content = $controller->getConfig("clAppTitle");
     return $n;
 }
+
+/**
+* auto generate doc.
+* @param BaseController $controller
+* @param null|string $entryfname
+*/
 function igk_html_node_app_login_form(BaseController $controller, ?string $entryfname){    
     return $controller->getLoader()->getLayout()->loginForm();     
 }

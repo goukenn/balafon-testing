@@ -30,6 +30,11 @@ function glue_js_code(string $code){
     }
     return $o; 
 }
+
+/**
+* auto generate doc.
+* @param string $code
+*/
 function glue_php_code(string $code){
     $o = '';
     $v_rgx = new RegexMatcherContainer;
@@ -48,11 +53,21 @@ function glue_php_code(string $code){
     }
     return $o;
 }
+
+/**
+* auto generate doc.
+* @param mixed $content
+*/
 function glue_rm_empty($content){
    return  implode("\n", array_filter(explode("\n", $content), function ($s) { 
         return (strlen(trim($s))!==0); 
     }));
 }
+
+/**
+* auto generate doc.
+* @param mixed $file
+*/
 function transform($file){
 $content = file_get_contents($file);
     $ext = igk_io_path_ext($file);

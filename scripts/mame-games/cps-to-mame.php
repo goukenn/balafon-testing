@@ -6,6 +6,12 @@ use IGK\System\IO\Path;
 Logger::print('convert cps rom to mame-compatibility');
 $in = igk_getv($params, 0) ?? __DIR__.'/cps-1';
 $out = igk_getv($params, 1) ?? __DIR__.'/out-mame/roms';
+
+/**
+* auto generate doc.
+* @param mixed $file
+* @param mixed $out
+*/
 function convertToMame($file, $out){
     $n = igk_io_basenamewithoutext($file); 
     $dir = igk_io_tempdir('roms');

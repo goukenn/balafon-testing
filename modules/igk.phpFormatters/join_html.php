@@ -5,7 +5,13 @@ use function igk_html_host as _h;
 // function render_join($n)
 // {    
 //     return HtmlRenderer::SplitterJoin($n); 
-// } 
+// }
+
+/**
+* auto generate doc.
+* @param mixed $s
+* @param mixed $g
+*/
 function render_ecap($s,$g){
     $t = $s->getTagName();
     if ($attr = HtmlRenderer::GetAttributeString($s, null)){

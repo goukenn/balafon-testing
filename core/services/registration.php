@@ -5,20 +5,46 @@ use IGK\Actions\DispatcherService;
 use IGK\Controllers\ApplicationController;
 use IGK\Controllers\SysDbController;
 use IGK\System\IInjectable;
+
+/**
+* auto generate doc.
+*/
 class DummyController extends ApplicationController{
 }
 $svg_module = igk_require_module('igk/svg');
+
+/**
+* auto generate doc.
+*/
 class EventService implements IInjectable{
+
+    /**
+    * .ctr
+    * @param null|ublic $a
+    */
     public function __construct(public $a=null){
         igk_wln("construct with a", $a);
     }
+
+    /**
+    * auto generate doc.
+    */
     function dispatch(){
         igk_wln('dispatching....');
     }
 }
 // $service = DispatcherService::CreateOrGetServiceInstance(DummyController::ctrl(true), [EventService::class=>["@args"=>[2]]]);
 // igk_wln_e("sample", $service);
+
+/**
+* auto generate doc.
+*/
 class A{
+
+    /**
+    * auto generate doc.
+    * @param EventService $sr
+    */
     function a(EventService $sr){
     }
 }

@@ -6,6 +6,13 @@
 // @command: balafon --run .test/io/toLocalPath.php
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
+/**
+* auto generate doc.
+* @param string $path
+* @param null|string $cwd
+* @return string
+*/
 function toLocalPath(string $path, ?string $cwd=null):string{
     $cwd = $cwd ?? getcwd();
     $c = igk_uri($path);

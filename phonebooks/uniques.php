@@ -14,25 +14,76 @@ use IGK\Models\PhoneBookTypes;
 use IGK\Services\IAppService;
 use IGK\System\Console\Logger;
 use IGK\System\Database\IPhoneBookDetailVisitor;
+
+/**
+* auto generate doc.
+*/
 class MyVisitor implements IPhoneBookDetailVisitor
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $name;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $d;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $x;
+
+    /**
+    * .ctr
+    * @param mixed $t
+    */
     function __construct($t)
     {
         $this->name = $t;
     }
+
+    /**
+    * auto generate doc.
+    * @param string $propertyName
+    * @param mixed $value
+    * @param mixed $oldvalue
+    * @param null|mixed $p
+    */
     public function visit(string $propertyName, $value, $oldvalue, $p = null)
     {
         $s = $this->d . ' ' . $this->x;
         return 'aa';
     }
 }
+
+/**
+* auto generate doc.
+*/
 class V2D implements IPhoneBookDetailVisitor, IAppService
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $x;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $y;
+
+    /**
+    * auto generate doc.
+    * @return array
+    */
     public function getConfigurableProperties(): array
     {
         return [
@@ -40,6 +91,12 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
             'y'
         ];
     }
+
+    /**
+    * auto generate doc.
+    * @param null|mixed $configs
+    * @return bool
+    */
     public function init($configs = null): bool
     {
         if ($configs) {
@@ -49,6 +106,14 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
         }
         return true;
     }
+
+    /**
+    * auto generate doc.
+    * @param string $propertyName
+    * @param mixed $value
+    * @param mixed $oldvalue
+    * @param null|mixed $cardinality
+    */
     public function visit(string $propertyName, $value, $oldvalue, $cardinality = null)
     {
         $v = $value;

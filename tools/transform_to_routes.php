@@ -4,14 +4,30 @@ use IGK\System\Http\RequestResponse;
 use IGK\System\IO\Path;
 use IGK\System\IO\StringBuilder;
 use \igk\js\common\JSExpression;
+
+/**
+* auto generate doc.
+*/
 class VueRouteResponse extends RequestResponse
 {
+
+    /**
+    * auto generate doc.
+    */
     public function render()
     {
     }
 }
+
+/**
+* auto generate doc.
+*/
 class AppAction
 {
+
+    /**
+    * auto generate doc.
+    */
     public function users()
     {
     }
@@ -20,28 +36,78 @@ class AppAction
      * @param int $id 
      * @return VueRouteResponse 
      */
+
     public function list_get(int $id = 8)
     {
     }
+
+    /**
+    * auto generate doc.
+    */
     public function list()
     {
     }
+
+    /**
+    * auto generate doc.
+    * @param int $id
+    */
     public function list_post(int $id = 8)
     {
     }
 }
+
+/**
+* auto generate doc.
+*/
 class VueRouterInfo
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $name;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $verb;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $description;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $path;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $component;
 }
 // because routes in vue application consiste with path and component definitions with some extrat js definition a api
-// route must return a js expression that render definition with template / setup script on possibility style 
+// route must return a js expression that render definition with template / setup script on possibility style
+
+/**
+* auto generate doc.
+*/
 class VueSFCHelper
 {
+
+    /**
+    * auto generate doc.
+    * @param string $class_name
+    * @param mixed $path
+    * @return ?array
+    */
     public static function BuildRouteFrom(string $class_name, $path = '/'): ?array
     {
         $d = igk_sys_reflect_class($class_name);
@@ -96,6 +162,7 @@ class VueSFCHelper
      * @param ReflectionMethod $meth 
      * @return null|string 
      */
+
     public static function GetArgs(ReflectionMethod $meth): ?string
     {
         if ($g = $meth->getParameters()) {

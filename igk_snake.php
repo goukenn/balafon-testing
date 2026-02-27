@@ -1,6 +1,14 @@
 <?php
 use IGK\Tests\BaseTestCase;
+
+/**
+* auto generate doc.
+*/
 class igk_snake extends BaseTestCase{
+
+    /**
+    * auto generate doc.
+    */
     public function test_snake_1(){
         $this->assertEquals(
             "p_presentation_avion",

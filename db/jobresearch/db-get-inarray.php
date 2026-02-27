@@ -65,6 +65,13 @@ JobForemJobs::registerMacro("targetOnJobId", function(){
 // SELECT * FROM `tbigk_foremjobs_job_forem_jobs` LETF JOIN `igkdev.dev`.`tbigk_foremjobs_jobs` WHERE `tbigk_foremjobs_jobs`.`id`='1';
 $lb = Jobs::joinOnJobId(JobForemJobs::targetOnJobId());
 // igk_wln_e("data ", $basic, json_encode($lb, JSON_PRETTY_PRINT));
+
+/**
+* auto generate doc.
+* @param ModelBase $model
+* @param null|mixed $prefix
+* @param null|mixed $filter
+*/
 function igk_db_column_list(ModelBase $model, $prefix=null, $filter=null){
     $keys = array_keys($model->getTableColumnInfo());
     $tkey = null;
@@ -91,6 +98,11 @@ function igk_db_column_list(ModelBase $model, $prefix=null, $filter=null){
     }, $keys);
     return $tkey;
 }
+
+/**
+* auto generate doc.
+* @param mixed $column
+*/
 function igk_db_only_column_regex($column){
     if (is_array($column)){
         $column = implode("|", $column);

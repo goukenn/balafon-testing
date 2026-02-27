@@ -6,17 +6,48 @@ use IGK\Helper\Activator;
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
 $file = '/private/tmp/sample/ios/Runner.xcodeproj/project.pbxproj';
+
+/**
+* auto generate doc.
+*/
 class LitteralClass{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $offensive;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $defensive;
 }
+
+/**
+* auto generate doc.
+*/
 class StaSample implements IResolveTypeListener{
+
+    /**
+    * auto generate doc.
+    * @param string $property
+    * @param mixed $value
+    * @param null|string $id
+    */
     function treat(string $property, $value, ?string $id=null){
         if ($property=='IPHONEOS_DEPLOYMENT_TARGET'){
             $value = 15.4;
         }
         return $value;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $id
+    * @param mixed $def
+    */
     function resolve($id, $def){
         $m = igk_getv([
             'IPHONEOS_DEPLOYMENT_TARGET'=>'',

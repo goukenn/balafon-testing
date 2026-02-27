@@ -1,8 +1,16 @@
 <?php
 // @command: balafon --run .test/modules/igk.tools.Reflector/dummy/imbricked-function.php
+
+/**
+* auto generate doc.
+*/
 function a()
 {
-    function b(){
+
+/**
+* auto generate doc.
+*/
+function b(){
         echo "b call";
     } 
 }

@@ -9,9 +9,28 @@ namespace igk\bootstrap\Components;
 * @package igk\bootstrap\Components
 */
 class BootstrapModalDialog extends BootstrapComponentBase{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $title;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $body;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $footer;
+
+    /**
+    * auto generate doc.
+    */
     protected function initialize()
     {
         parent::initialize();

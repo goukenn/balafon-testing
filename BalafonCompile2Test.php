@@ -25,22 +25,52 @@ use IGK\System\WinUI\PageLayout;
 use IGK\Tests\System\Html\HtmlReaderTest;
 use IGKException;
 use League\CommonMark\Extension\Attributes\Util\AttributesHelper;
+
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
 class AttribHandler {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     private $m_attribs = [];
+
+    /**
+    * auto generate doc.
+    * @param mixed $attribs
+    */
     public function setAttributes($attribs){
         $this->m_attribs = array_merge($this->m_attribs, $attribs);
         return $this;
     }
+
+    /**
+    * auto generate doc.
+    */
     public function getAttributeString(){
         return implode(" ", array_map(function($a, $k){
             return sprintf("%s=%s", $k, self::GetAttributeValue($a));
         }, $this->m_attribs, array_keys($this->m_attribs)));
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $v
+    */
     static function GetAttributeValue($v){
         $v = '"'.htmlentities($v).'"';
         return $v;
     }
 }
+
+/**
+* auto generate doc.
+* @param mixed $ctrl
+* @param mixed $src
+*/
 function igk_express_bind($ctrl, $src){
     $tempfile = tempnam (sys_get_temp_dir(), ".export");
     $t = new AttribHandler;
@@ -88,6 +118,11 @@ function igk_express_bind($ctrl, $src){
  */
 class BalafonCompile2Test extends BalafonCompileBase
 {
+
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public static function setUpBeforeClass(): void
     {
         $sdir = sys_get_temp_dir() . "/testCompiler";
@@ -113,6 +148,10 @@ class BalafonCompile2Test extends BalafonCompileBase
         BalafonViewCompilerUtility::GetInstructionsList($src, true, $compiler); 
         return $compiler->output();
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_use_function(){ 
         $g = $this->__compiler_source(
             implode("\n",[
@@ -128,6 +167,10 @@ class BalafonCompile2Test extends BalafonCompileBase
             ]), $g, "not valid"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_use_namespace(){ 
         $g = $this->__compiler_source(
             implode("\n",[
@@ -142,6 +185,10 @@ class BalafonCompile2Test extends BalafonCompileBase
             ]), $g, "not valid"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_use_favicon(){ 
         igk_debug(true);
         $ctrl = CompileTestController::ctrl();
@@ -161,6 +208,10 @@ class BalafonCompile2Test extends BalafonCompileBase
             ]), $g, "not valid"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function _test_use_default_project(){ 
         igk_debug(true);
         $g = $this->__compiler_source(
@@ -179,6 +230,10 @@ class BalafonCompile2Test extends BalafonCompileBase
         );
     }
     //ok
+
+    /**
+    * auto generate doc.
+    */
     public function _test_expression_logic()
     {
         $n = igk_create_node("div");
@@ -196,6 +251,10 @@ class BalafonCompile2Test extends BalafonCompileBase
         //     "logic expression failed"
         // );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function _test_compile()
     {
         $src = <<<'EOF'
@@ -229,6 +288,10 @@ EOF;
             "logic expression failed"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function _test_file_11()
     {
         $file = __DIR__ . "/.testfiles/test.11.php";
@@ -249,6 +312,10 @@ EOF;
             "failed :" . __METHOD__
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function _test_compile_loop()
     {
         // single test
@@ -280,6 +347,10 @@ EOF;
             );
         }
     }
+
+    /**
+    * auto generate doc.
+    */
     public function _test_eval_code_soure()
     {
         $src = implode("\n", [
@@ -326,6 +397,10 @@ EOF;
             "failed to get empty function list instruct"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function _test_func_name_token()
     {
         $src = implode("\n", [

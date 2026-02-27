@@ -3,6 +3,10 @@
 // firefox folder   
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
+/**
+* auto generate doc.
+*/
 class MozCacheRow
 {
     /**

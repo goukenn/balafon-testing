@@ -9,6 +9,11 @@ namespace IGK\Run;
 function logic(){
 
 }
+
+/**
+* auto generate doc.
+* @package IGK\Run
+*/
 class Info{
 
 }

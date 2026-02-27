@@ -1,4 +1,9 @@
 <?php
+
+/**
+* auto generate doc.
+* @param mixed $tab
+*/
 function LargestFour($tab){ $c = count($tab); $sum = 0; if ($c>0){ rsort($tab); $tab = array_slice($tab,0, 4); 
     while(count($tab)>0){$sum+= array_shift($tab);}} 
 return $sum; }

@@ -9,7 +9,15 @@ echo "\n";
 echo "return ".json_encode(get_included_files(), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . ";".PHP_EOL;
 IO::GetList()
 igk_exit();
+
+/**
+* auto generate doc.
+*/
 interface IBehaviour{
+
+    /**
+    * auto generate doc.
+    */
     function dosome();
 } 
 $a = new class implements IBehaviour{

@@ -12,6 +12,12 @@ $l = Users::createEmptyRow(true, true);
 // if strict raise an error
 // $l->papap = 322;
 $l->loadFromArray($data);
+
+/**
+* auto generate doc.
+* @param null|mixed $clLogin
+* @param null|mixed $clPwd
+*/
 function phone_def($clLogin=null, $clPwd=null){
     $l = Users::createEmptyRow(true, true)->loadFromArray(get_defined_vars());
    // Users::insert($k);

@@ -1,6 +1,10 @@
 <?php
 // @command: balafon --run .test/html/components/with-required-script.php
 use IGK\System\Html\CallableConstants;
+
+/**
+* auto generate doc.
+*/
 function igk_html_node_demo_inject()
 {
     $n = igk_create_node('div');

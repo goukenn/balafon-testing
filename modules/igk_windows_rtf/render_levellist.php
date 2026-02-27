@@ -5,8 +5,21 @@
 use IGK\System\IO\StringBuilder;
 use igk\Windows\Rtf\RtfLevelList as cList;
 
+/**
+* auto generate doc.
+*/
 class TxtEngineRenderer{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $tabstop = ' ';
+
+    /**
+    * auto generate doc.
+    * @param mixed $item
+    */
     public function render($item){
         $sb = new StringBuilder;
         $tab = [$item];
@@ -32,6 +45,9 @@ class TxtEngineRenderer{
     }
 }
 
+/**
+* auto generate doc.
+*/
 class RtfLevelList extends cList{
    
 }

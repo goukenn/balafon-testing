@@ -16,27 +16,86 @@ use IGK\System\Text\Traits\ReplaceUtilityTrait;
 use function igk_resources_gets as __;
 // @command: balafon --run .test/module/igk.phpFormatter/formatter.php
 require_once __DIR__ . '/PHPFormatterTmSyntaxTrait.php';
+
+/**
+* auto generate doc.
+* @param int $number
+* @param int $expected
+*/
 function igk_assert_func_num_arg(int $number, int $expected)
 {
     if ($number != $expected) {
         igk_die(sprintf(__('invalid number of argument. expected %s got %s'), $expected, $number));
     }
 }
+
+/**
+* auto generate doc.
+*/
 class PHPFormatter implements IFormatterBuild, IFormatterInfo
 {
     use FormatRegexMatcherTrait;
     use FormatterBuildTrait;
     use PHPFormatterTmSyntaxTrait;
     use ReplaceUtilityTrait;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     private $m_sb;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $depth;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $lineFeed = false;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $tabStop = '    ';
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $lineFeedSeparator = "\n";
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $flags = [];
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     const CONDITIONAL_WORDS = 'if|else|for|while|do|foreach|switch';
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     private $m_fconditional_info = null;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     private $m_replacement = [];
+
+    /**
+    * .ctr
+    */
     public function __construct()
     {
         $this->m_sb = new StringBuilder;
@@ -55,6 +114,7 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @return void 
      * @throws Exception 
      */
+
     public function build(StringBuilder $builder, IFormatterInfo $info, string $before, string $data, int $at)
     {
         $s = $data;
@@ -141,7 +201,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @param mixed &$flags 
      * @return void 
      */
+
     public function initFlags(&$flags) {}
+
+    /**
+    * auto generate doc.
+    */
     function reset()
     {
         $this->flags = [];
@@ -156,6 +221,7 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @return mixed 
      * @throws Exception 
      */
+
     protected function treatCapture(string $value, $cap, string $sourceValue, int $pos): string
     {
         $n = igk_getv($cap, 'name');
@@ -180,6 +246,7 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @param string $format 
      * @return string 
      */
+
     public function format(string $format): string
     {
         // to formaat we take only on null block 
@@ -332,6 +399,11 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $this->m_sb->rtrim();
         return $this->m_sb . '';
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $s
+    */
     protected function visit_f_instruct($s)
     {
         $s = sprintf('%s', trim($s));
@@ -348,6 +420,7 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @param mixed $e 
      * @return string 
      */
+
     protected function _treatReplacement($e): string
     {
         $s = $e->value;
@@ -532,6 +605,7 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @throws ArgumentTypeNotValidException 
      * @throws ReflectionException 
      */
+
     public static function UpdateMarkedValue(string $value, array $mark, int $start, $builder, bool $subchain)
     {
         igk_assert_func_num_arg(func_num_args(), 5);
@@ -596,6 +670,11 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         igk_is_debug() && igk_wln(__FILE__ . ":" . __LINE__,  json_encode($s));
         return $s;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $state
+    */
     public function loadStates($state)
     {
         foreach ($state as $k => $v) {
@@ -609,6 +688,7 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @param mixed $builder 
      * @return void 
      */
+
     function treatLast(string $sb, IFormatterInfo $info): string
     {
         $lb = $info->lineFeedSeparator;
@@ -621,18 +701,38 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return $sb;
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    */
     protected function visit_f_wspace(string $v,)
     {
         return ' ';
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $v
+    */
     public function visit_f_notsymbol($v)
     {
         return ' ' . trim($v);
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    */
     protected function visit_f_operator(string $v)
     {
         return sprintf(' %s ', trim($v));
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    */
     protected function visit_empty_line(string $v)
     {
         if (!$this->lineFeed) {
@@ -645,6 +745,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return '';
     }
+
+    /**
+    * auto generate doc.
+    * @param bool $render
+    * @param string $v
+    */
     protected function visit_sub_curl_start(bool $render, string $v)
     {
         $this->depth++;
@@ -654,6 +760,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
             $this->flags['brankStart'] = true;
         }
     }
+
+    /**
+    * auto generate doc.
+    * @param bool $render
+    * @param string $v
+    */
     protected function visit_sub_curl_end(bool $render, string $v)
     {
         $this->depth = max(0, $this->depth - 1);
@@ -661,6 +773,11 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         if ($render)
             $this->flags['closeBracket'] = true;
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    */
     protected function visit_curl_start(string $v)
     {
         if ($this->m_fconditional_info) {
@@ -675,6 +792,11 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $this->lineFeed = true;
         return trim($v);
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    */
     protected function visit_curl_end(string $v)
     {
         if (isset($this->flags['start-curl'])) {
@@ -704,6 +826,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $this->lineFeed = true;
         return trim($v);
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    * @param mixed $e
+    */
     public function visit_f_func_declare(string $v, $e)
     {
         $m = [];
@@ -713,16 +841,30 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return trim(implode(' ', $m)) . ' ';
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    */
     public function visit_f_symbol(string $v)
     {
         return trim($v) . ' ';
     }
+
+    /**
+    * auto generate doc.
+    */
     public function createRegexContainer()
     {
         $regexContainer = new RegexMatcherContainer;
         $this->initRegex($regexContainer);
         return $regexContainer;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $v
+    */
     protected function visit_f_func($v)
     {
         if ($v_c = $this->m_fconditional_info) {
@@ -735,15 +877,32 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return trim($v);
     }
+
+    /**
+    * auto generate doc.
+    * @param RegexMatcherCapture $e
+    * @param mixed $rid
+    * @return bool
+    */
     static function IsConditionalReservedWord(RegexMatcherCapture $e, $rid = 'reserved-word'): bool
     {
         $tid = $e->tokenID;
         return ($tid == $rid) && in_array($e->value, self::ConditionalWords());
     }
+
+    /**
+    * auto generate doc.
+    * @return array
+    */
     static function ConditionalWords(): array
     {
         return explode('|', self::CONDITIONAL_WORDS);
     }
+
+    /**
+    * auto generate doc.
+    * @param string $word
+    */
     static function CreateConditonalInfo(string $word)
     {
         return PHPFormatterConditionalInfo::CreateConditionalInfo($word);
@@ -753,10 +912,17 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @param string $word 
      * @return bool 
      */
+
     static function RequireConditionalParent(string $word): bool
     {
         return $word == 'else';
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $self
+    * @param mixed $parent
+    */
     public function GetChainChildsCondition($self, $parent)
     {
         $p = $parent;
@@ -767,37 +933,110 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return count($cond) > 1 ? sprintf('(%s)', implode(' && ', $cond)) : $cond[0];
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $s
+    */
     protected function _visit_capture_operator($s)
     {
         return sprintf(' %s ', trim($s));
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $s
+    */
     protected function _visit_capture_here_doc($s)
     {
         return $s;
     }
 }
+
+/**
+* auto generate doc.
+*/
 class PHPFormatterConditionalInfo
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $type;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $cond;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $stop;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $parent;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $dcmode;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $dirty = false;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $subchild_parent;
     /**
      * store level childs
      * @var array
      */
     var $childs = [];
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     const START = 0;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     const READ_BLOCK = 1;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $singleElement;
+
+    /**
+    * .ctr
+    */
     protected function __construct()
     {
         $this->stop = false;
         $this->dcmode = self::START;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $c
+    */
     public function appendChild($c)
     {
         if ($this->type == 'if') {
@@ -813,20 +1052,36 @@ class PHPFormatterConditionalInfo
      * @param string $word 
      * @return static 
      */
+
     public static function CreateConditionalInfo(string $word)
     {
         $c = new static;
         $c->type = $word;
         return $c;
     }
+
+    /**
+    * auto generate doc.
+    * @return bool
+    */
     public function supportCondition(): bool
     {
         return $this->type != 'else';
     }
+
+    /**
+    * auto generate doc.
+    */
     public function isElse()
     {
         return $this->type == 'else';
     }
+
+    /**
+    * auto generate doc.
+    * @param string $v
+    * @return bool
+    */
     public function supportChild(string $v): bool
     {
         switch ($this->type) {
@@ -836,15 +1091,39 @@ class PHPFormatterConditionalInfo
         }
         return false;
     }
+
+    /**
+    * auto generate doc.
+    * @return bool
+    */
     public function requiredParent(): bool
     {
         return $this->isElse();
     }
 }
+
+/**
+* auto generate doc.
+*/
 class PHPFormatRegexMatcherPattern extends RegexMatcherPattern
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $replaceWith;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $autoLineFeed = false;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $trimmed = false;
     /**
      * append line after render

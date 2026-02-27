@@ -3,6 +3,10 @@
 // # phpdelegate = 
 use Google\Service\Spanner\Delete;
 use IGK\System\Delegate;
+
+/**
+* auto generate doc.
+*/
 class ActionListener extends Delegate{
     /**
      * 

@@ -32,17 +32,36 @@ use IGKException;
  */
 class BalafonCompileTest extends BaseTestCase
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     static $sm_tempdir;
+
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public static function tearDownAfterClass(): void
     {
         IO::RmDir(self::$sm_tempdir);
     }
+
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public static function setUpBeforeClass(): void
     {
         $sdir = sys_get_temp_dir() . "/testCompiler";
         IO::CreateDir($sdir);
         self::$sm_tempdir = $sdir;
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_insert_string(){
         $g = StringUtility::Insert("data", "BB", 2);
         $this->assertEquals(
@@ -56,6 +75,7 @@ class BalafonCompileTest extends BaseTestCase
      * @throws InvalidArgumentException 
      * @throws ExpectationFailedException 
      */
+
     public function test_replace_with_offset(){
         $g = StringUtility::ReplaceAtOffset("Hello Friend", "BB", 2, 2);
         $this->assertEquals(
@@ -71,6 +91,7 @@ class BalafonCompileTest extends BaseTestCase
      * @throws IGKException 
      * @throws EnvironmentArrayException 
      */
+
     public function test_detect_node_modification()
     {
         $mod = new CompilerNodeModifyDetector;
@@ -118,6 +139,10 @@ class BalafonCompileTest extends BaseTestCase
         );
         CompilerNodeModifyDetector::UnInit();
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction(){
         $n = new BalafonViewCompileInstruction;
         $ctrl = new CompileTestController;
@@ -133,6 +158,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction_2(){
         $n = new BalafonViewCompileInstruction;
         $ctrl = new CompileTestController;
@@ -148,6 +177,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction_x(){
         $n = new BalafonViewCompileInstruction;
         $ctrl = new CompileTestController;
@@ -163,6 +196,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction_x_2(){
         $n = new BalafonViewCompileInstruction;
         $n->extract = true;
@@ -187,6 +224,7 @@ class BalafonCompileTest extends BaseTestCase
      * @throws InvalidArgumentException 
      * @throws ExpectationFailedException 
      */
+
     public function test_BalafonViewCompileInstruction_x_3(){
         $n = new BalafonViewCompileInstruction;
         $n->extract = true;
@@ -203,6 +241,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         );  
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction_x_4(){
         $n = new BalafonViewCompileInstruction;
         $n->extract = true;
@@ -219,6 +261,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction_inside_string_x(){
         $n = new BalafonViewCompileInstruction;
         $ctrl = new CompileTestController;
@@ -234,6 +280,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction_eval_html(){
         $n = new BalafonViewCompileInstruction;
         $ctrl = new CompileTestController;
@@ -249,6 +299,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_BalafonViewCompileInstruction_eval_html_2(){
         $n = new BalafonViewCompileInstruction;
         $ctrl = new CompileTestController;
@@ -268,6 +322,10 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_detect_eval_block_modification()
     {
         $src = <<<'PHP'
@@ -286,6 +344,10 @@ PHP;
         );
         CompilerNodeModifyDetector::UnInit();
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_check_block_modification()
     {
         $src = <<<'PHP'
@@ -297,6 +359,10 @@ PHP;
             "block not raise the modification"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_add_condition_block()
     {
         $c = new ConditionBlockNode;
@@ -312,6 +378,10 @@ PHP,
             "failed"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function _test_read_node()
     {
         $src = <<<'PHP'
@@ -326,6 +396,10 @@ PHP,
             "failed to compile"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_read_condition_add_node()
     {
         $src = <<<'PHP'
@@ -348,6 +422,10 @@ PHP,
             "failed to compile"
         );
     }
+
+    /**
+    * auto generate doc.
+    */
     public function test_read_condition_add_node_2()
     { 
         $src = <<<'PHP'
@@ -518,17 +596,41 @@ PHP,
 //     }
 }
 
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
 class CompileTestController extends TestController
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $entryDir;
+
+    /**
+    * auto generate doc.
+    */
     public function getArticlesDir()
     {
         return $this->entryDir . "/Articles";
     }
+
+    /**
+    * auto generate doc.
+    * @return string
+    */
     public function getDeclaredDir(): string
     {
         return $this->entryDir;
     }
+
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
     public function getAppUri(?string $m = null): string
     {
         return "testuri://" . $m;

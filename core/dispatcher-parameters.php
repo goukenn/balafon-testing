@@ -3,8 +3,19 @@
 use IGK\Actions\Dispatcher;
 use IGK\Models\Users; 
 use IGK\System\Http\Request;
+
+/**
+* auto generate doc.
+*/
 class DoSome
 {
+
+    /**
+    * auto generate doc.
+    * @param Request $request
+    * @param string $i
+    * @param null|Users $user
+    */
     public function R(Request $request, string $i, ?Users $user) {
     }
 }
@@ -15,6 +26,12 @@ $parameters = $cl->getMethod('R')->getParameters();
 $arguments = Dispatcher::GetInjectArgsByParameters($parameters, [ 7, 1]);
 var_dump($arguments);
 exit;
+
+/**
+* auto generate doc.
+* @param array $parameters
+* @param array $args
+*/
 function igk_params_list(array $parameters, array  $args)
 {
     $out = [];

@@ -1,6 +1,11 @@
 <?php
 // odoo test test consecutive
 // @command: balafon --run .test/odoo_test/consecutive.php
+
+/**
+* auto generate doc.
+* @param array $tab
+*/
 function Consecutive(array $tab){ if (($c = count($tab))<2) return 0; $max=$min=$t=0;foreach($tab as $i){ 
     if (!$t){ $min=$max=$i; $t=1; continue;}
     $max=max($max, $i); $min=min($min,$i); } return (($max-$min)+1) -$c;}

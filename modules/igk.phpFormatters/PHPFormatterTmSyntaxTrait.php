@@ -2,8 +2,17 @@
 // PHPFormatterTmSyntaxTrait
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
+
+/**
+* auto generate doc.
+*/
 trait PHPFormatterTmSyntaxTrait{
-      protected function initRegex(RegexMatcherContainer $regex)
+
+    /**
+    * auto generate doc.
+    * @param RegexMatcherContainer $regex
+    */
+    protected function initRegex(RegexMatcherContainer $regex)
     {
         $here_doc = [];
         RegexMatcherUtility::AppendPhpHereDoc($regex, $here_doc);

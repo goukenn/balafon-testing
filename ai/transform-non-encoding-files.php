@@ -252,6 +252,12 @@ $transform = [
 'ðŸ�—ï¸�' => '🏗️',
 ];
 // save to file --
+
+/**
+* auto generate doc.
+* @param mixed $transform
+* @param string $file
+*/
 function saveToFile($transform, string $file='/tmp/data.php'){
 ksort($transform);
 $sb = new StringBuilder;

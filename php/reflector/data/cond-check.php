@@ -12,7 +12,11 @@ $x = 4;
 if ($x) {
     echo 'the x';
     echo 'jumping ';
-    function xWrite()
+
+/**
+* auto generate doc.
+*/
+function xWrite()
     {
         echo "xwrite";
     }
@@ -21,7 +25,11 @@ if ($x) {
 else {
     $i = 12;
     if ($cure) {
-        function xLocal()
+
+/**
+* auto generate doc.
+*/
+function xLocal()
         {
             echo 'xLocal';
         }

@@ -1,5 +1,9 @@
 <?php
 use IGK\System\IO\File\PHPDocCommentParser;
+
+/**
+* auto generate doc.
+*/
 class A{
     /**   
      * information du jour 

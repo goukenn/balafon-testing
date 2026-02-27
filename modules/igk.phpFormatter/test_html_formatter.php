@@ -15,6 +15,11 @@ use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
 $data = json_decode(file_get_contents( "/Volumes/Data/wwwroot/core/Packages/Modules/igk/phpFormatter/Lib/Tests/datas/check.json"));
 $filter = igk_getv($params, 0);
+
+/**
+* auto generate doc.
+* @param string $src
+*/
 function igk_php_formatter_format(string $src){
     $regex = new RegexMatcherContainer;        
     HtmlFormatter::InitFormatter($regex);    

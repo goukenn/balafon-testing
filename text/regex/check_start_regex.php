@@ -11,6 +11,11 @@ $tab = ['/^hello/',
 '/(?=;|^\w+)/'
 ];
 // regex start with ^ start line check
+
+/**
+* auto generate doc.
+* @param mixed $tab
+*/
 function checkRegex($tab){
     $regex = '/(?<!\\\\|\w|\[)\^/';
     foreach($tab as $n){

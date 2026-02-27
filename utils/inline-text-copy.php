@@ -1,5 +1,9 @@
 <?php
 // @command: balafon --run .test/utils/inline-text-copy.php
+
+/**
+* auto generate doc.
+*/
 function getCliboard(){
     $_os = strtolower(PHP_OS);
     if ($_os =='darwin')

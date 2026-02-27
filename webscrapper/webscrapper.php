@@ -49,12 +49,48 @@ if ($p->parseContent('<!DOCTYPE html><html><head>'.
     Logger::success('exports to ');
     igk_wln_e($p->resources());
 }
+
+/**
+* auto generate doc.
+*/
 class LocalClient implements IHttpClient{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $followLocation;
+
+    /**
+    * auto generate doc.
+    * @return ?array
+    */
     public function getRequestHeaderResponse(): ?array { return null; }
+
+    /**
+    * auto generate doc.
+    * @param string $url
+    * @param IHttpClientOptions $options
+    */
     public function download(string $url, IHttpClientOptions $options) { }
+
+    /**
+    * auto generate doc.
+    * @param string $url
+    */
     public function get(string $url) { }
+
+    /**
+    * auto generate doc.
+    * @param string $url
+    * @param array $data
+    */
     public function post(string $url, array $data = []) { }
+
+    /**
+    * auto generate doc.
+    * @param string $url
+    */
     public function request(string $url) { 
         $list = [
             "https://local.com:7300/home/p/info-about"=>function(){return $this->getPage("<p>About page</p><a href='/cv'>let cv</a><a href='../'>go back</a>", "About");},
@@ -68,6 +104,13 @@ class LocalClient implements IHttpClient{
         }
         return $this->getErrorDocument('missing - '.$url);
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $content
+    * @param string $title
+    * @param null|string $id
+    */
     public function getPage($content,string $title, ?string $id=null){
         $doc = IGKHtmlDoc::CreateDocument('page'.igk_str_assert_prepend($id,'-'));
         $this->_disableSetting($doc);
@@ -85,6 +128,11 @@ class LocalClient implements IHttpClient{
         $doc->noCoreScript = true;
         $doc->noPowered = true;
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $msg
+    */
     public function getErrorDocument($msg){
         $doc = IGKHtmlDoc::CreateDocument('error');
         $this->_disableSetting($doc);
@@ -92,6 +140,11 @@ class LocalClient implements IHttpClient{
         $doc->getBody()->div()->Content = $msg;
         return $doc->render();
     }
+
+    /**
+    * auto generate doc.
+    * @return int
+    */
     public function getStatus(): int { 
         return 200;
     }

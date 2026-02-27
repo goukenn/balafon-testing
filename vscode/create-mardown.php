@@ -24,6 +24,10 @@ foreach($sections as $t){
     // section conten
 }
 $content = $sb.'';
+
+/**
+* auto generate doc.
+*/
 function igk_html_doctype(){
     return '<!DOCTYPE html>';
 }

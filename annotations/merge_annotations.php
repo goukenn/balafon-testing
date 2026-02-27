@@ -27,8 +27,23 @@ class Sample
  */
 class BAnnotation extends AnnotationBase
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $title;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $version;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $description;
 }
 /**
@@ -50,7 +65,7 @@ if (!function_exists('igk_logger_dashline')) {
      * @param string $litteral 
      * @return void 
      */
-    function igk_logger_dashline($counter = 80, $litteral = '-')
+function igk_logger_dashline($counter = 80, $litteral = '-')
     {
         Logger::print(str_repeat($litteral, $counter));
     }

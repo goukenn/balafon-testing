@@ -1,5 +1,11 @@
 <?php
 $g = 'prodr_U8AZser__  _Guid';
+
+/**
+* auto generate doc.
+* @param mixed $s
+* @param mixed $splitter
+*/
 function get_constants_name($s, $splitter="/[A-Z0-9]+/"){
     $s = preg_replace("/[^a-z_0-9]/i", "", $s);
     $g = array_filter(explode("_",$s));

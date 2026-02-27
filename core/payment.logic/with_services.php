@@ -6,16 +6,44 @@ use IGK\System\IO\DotEnvConfiguration;
 use IGK\System\Services\Traits\ServiceContainerTrait;
 use IGK\System\Services\Traits\ServicePropertyTrait;
 use IGK\Models\Users;
+
+/**
+* auto generate doc.
+*/
 interface IPaymentService extends IAppService{
+
+    /**
+    * auto generate doc.
+    * @param mixed $options
+    */
     function initPayment($options);
 }
+
+/**
+* auto generate doc.
+*/
 class PayPalPayment implements IPaymentService
 {
     use ServicePropertyTrait;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $apiKey;
+
+    /**
+    * .ctr
+    * @param null|Users $user
+    */
     public function __construct(private ?Users $user)
     {
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $options
+    */
     public function initPayment($options)
     {
         igk_wln('start payment with paypal');
@@ -24,6 +52,7 @@ class PayPalPayment implements IPaymentService
      * 
      * @return \IGK\System\Services\IAppServiceProperty[] 
      */
+
     public function getConfigurableProperties(): array
     {
         return [
@@ -35,26 +64,57 @@ class PayPalPayment implements IPaymentService
         ];
     }   
 }
+
+/**
+* auto generate doc.
+*/
 class VisaPayment implements IPaymentService{
      use ServicePropertyTrait;
+
+    /**
+    * auto generate doc.
+    * @param mixed $options
+    */
     public function initPayment($options)
     {
         igk_wln_e('init payment with VISA');
     }
 }
+
+/**
+* auto generate doc.
+*/
 class PaymentServiceContainer implements IAppServiceContainer
 {
     use ServiceContainerTrait {
         register as traitRegister;
-    } 
+    }
+
+    /**
+    * auto generate doc.
+    * @return array
+    */
     public function getConfigurableProperties(): array
     {
         return [];
     }
+
+    /**
+    * auto generate doc.
+    * @param null|mixed $configs
+    * @return bool
+    */
     public function init($configs = null): bool
     {
         return true;
     }
+
+    /**
+    * auto generate doc.
+    * @param string $name
+    * @param IAppService $service
+    * @return bool
+    */
     public function register(string $name, IAppService $service): bool
     {
         if ($service instanceof IPaymentService){

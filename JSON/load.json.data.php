@@ -10,7 +10,11 @@ use IGK\System\Helpers\AnnotationHelper;
 use IGK\System\IO\JSon\Annotations\JSonBindAsAnnotation; 
 include __DIR__ . '/TempOracle.php'; 
 if (!class_exists('A', false)) {
-    class A
+
+/**
+* auto generate doc.
+*/
+class A
     {
         /**
          * 
@@ -18,6 +22,11 @@ if (!class_exists('A', false)) {
          * @JSonBindAsAnnotation(mixed, required=true)
          */
         var $name;
+
+        /**
+        * auto generate doc.
+        * @var mixed
+        */
         var $title;
         /**
          * @JSonBindAsAnnotation(version)
@@ -39,6 +48,10 @@ if (!class_exists('A', false)) {
          * @var mixed
          */
         var $siri;
+
+        /**
+        * auto generate doc.
+        */
         function join()
         {
             return implode("\n", array_map(function($a){ return is_object($a) || is_array($a)? json_encode($a) : $a;},  (array)$this));

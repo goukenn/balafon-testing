@@ -7,9 +7,28 @@ use IGK\System\Html\Dom\HtmlNoTagNode;
  * @package igk\bootstrap\Components
  */
 class Card extends ComponentBase{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     private $m_cardbody;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     private $m_header;
-    private $m_footer; 
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    private $m_footer;
+
+    /**
+    * auto generate doc.
+    */
     protected function initialize(){
        $this["class"]  = "card"; 
        $this->m_cardbody = new HtmlNode("div");
@@ -21,9 +40,28 @@ class Card extends ComponentBase{
        parent::_Add($this->m_cardbody);
        parent::_Add($this->m_footer);
     }
+
+    /**
+    * auto generate doc.
+    */
     public function getHeader(){ return $this->m_header; }
+
+    /**
+    * auto generate doc.
+    */
     public function getBody(){return $this->m_cardbody; }
+
+    /**
+    * auto generate doc.
+    */
     public function getFooter(){return $this->m_footer; }
+
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    * @param mixed $force
+    * @return bool
+    */
     function _Add($n, $force = false): bool
     {        
         return $this->m_cardbody->_Add($n);
@@ -32,6 +70,7 @@ class Card extends ComponentBase{
      * get body content helper
      * @return mixed 
      */
+
     public function getBodyContent(){
         return $this->m_cardbody->getContent();
     }
@@ -40,6 +79,7 @@ class Card extends ComponentBase{
      * @param mixed $v 
      * @return $this 
      */
+
     public function setBodyContent($v){
         $this->m_cardbody->setContent($v);
         return $this;

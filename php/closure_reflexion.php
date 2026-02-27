@@ -42,10 +42,26 @@ if ($c){
     }
     print_r($params);
 }
+
+/**
+* auto generate doc.
+*/
 interface ISource{
+
+    /**
+    * auto generate doc.
+    */
     function doFoo();
 }
+
+/**
+* auto generate doc.
+*/
 class B implements ISource{
+
+    /**
+    * auto generate doc.
+    */
     function doFoo(){
         return 'call foo on '.__CLASS__;
     }

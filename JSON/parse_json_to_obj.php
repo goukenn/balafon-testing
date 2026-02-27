@@ -10,11 +10,24 @@ use igk\jsonParser\Traits\JSONArraySerializableAllTrait;
 use igk\jsonParser\Traits\JSONInstanceVarSerializableSkipNullTrait;
 use IGK\System\Collections\ArrayList;
 use igk\btmSyntax\Formatters;
+
+/**
+* auto generate doc.
+*/
 class PHPDevPackageObj extends ArrayList implements JsonSerializable
 {
     use JSONArraySerializableAllTrait;
 }
+
+/**
+* auto generate doc.
+*/
 class PHPDevPackageObjTypeConverter extends JSONTypeConverterBase{
+
+    /**
+    * auto generate doc.
+    * @param mixed $value
+    */
     public function convertFrom($value) {
         $ref = new PHPDevPackageObj;
         if (is_object($value)){
@@ -26,7 +39,16 @@ class PHPDevPackageObjTypeConverter extends JSONTypeConverterBase{
         return $ref;
      }
 }
+
+/**
+* auto generate doc.
+*/
 class LColorTypeConverter extends JSONTypeConverterBase{
+
+    /**
+    * auto generate doc.
+    * @param mixed $value
+    */
     public function convertFrom($value) {
         $cl = new LColor;
         if (is_object($value)){
@@ -46,9 +68,28 @@ class LColorTypeConverter extends JSONTypeConverterBase{
         return $cl;
     }
 }
+
+/**
+* auto generate doc.
+*/
 class LColor{
-    var $red; 
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $red;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $green;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $blue;
 }
 /**
@@ -91,8 +132,17 @@ class PHPObj implements JsonSerializable
    // var $users;
    use JSONInstanceVarSerializableSkipNullTrait;
 }
+
+/**
+* auto generate doc.
+*/
 class JUserTypeConverter extends JSONTypeConverterBase
 {
+
+    /**
+    * auto generate doc.
+    * @param mixed $value
+    */
     public function convertFrom($value)
     {
         list($name, $firstname) = igk_extract($value, explode('|', 'name|firstname'));
@@ -109,8 +159,23 @@ class JUserTypeConverter extends JSONTypeConverterBase
  */
 class JUser implements JsonSerializable
 {
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $name;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $firstname;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $age;
     use JSONInstanceVarSerializableSkipNullTrait;
 }

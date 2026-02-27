@@ -10,6 +10,10 @@ use IGK\System\Html\Dom\HtmlNode;
 * @package igk\bootstrap\Components
 */
 abstract class BootstrapComponentBase extends HtmlNode{
+
+    /**
+    * auto generate doc.
+    */
     protected function initialize()
     {
         parent::initialize();

@@ -2,6 +2,12 @@
 // @command: balafon --run .test/projects/firefox/extension.command.php
 use IGK\System\Console\Helper\ConsoleUtility;
 require_once(__DIR__.'/lib/FExManinest.php');
+
+/**
+* auto generate doc.
+* @param mixed $outdir
+* @param mixed $command
+*/
 function create_extension($outdir, $command){
     $ref_option = (object)[
         'name'=>igk_getv($command->options, '--name', 'balafon-extension')

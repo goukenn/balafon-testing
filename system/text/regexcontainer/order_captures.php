@@ -11,7 +11,12 @@ preg_match($regex, $l, $tab, PREG_OFFSET_CAPTURE, 0);
 // $c = RegexCaptureInfo::CreateFrom(['to'=>10,'pos'=>10]);
 // igk_wln_e($c);
 if (!function_exists('igk_regex_order_captures')) {
-    function igk_regex_order_captures($captures)
+
+/**
+* auto generate doc.
+* @param mixed $captures
+*/
+function igk_regex_order_captures($captures)
     {
         return RegexTreatCapture::OrderCaptures($captures);
     }

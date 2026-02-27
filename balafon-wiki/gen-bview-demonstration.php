@@ -40,6 +40,14 @@ igk_wln_e($n);
 //     return [$k, $v];
 // }, (array)$r->read($a));
 // igk_wln_e($attr);
+
+/**
+* auto generate doc.
+* @param null|mixed $title
+* @param null|mixed $c
+* @param null|mixed $b
+* @param null|mixed $options
+*/
 function igk_html_node_bview_demo($title=null, $c=null, $b=null, $options=null){
     $n = _h('div.bview-demo',);
     if ($title){

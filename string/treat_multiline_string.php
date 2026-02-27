@@ -47,6 +47,13 @@ $detector = (object)[
     "offset" => 0,
     "counter" => 0
 ];
+
+/**
+* auto generate doc.
+* @param mixed $detector
+* @param mixed $a
+* @param mixed & $v_open
+*/
 function python_detect_match($detector, $a, &$v_open = 0)
 {
     $list = [];
@@ -69,6 +76,13 @@ function python_detect_match($detector, $a, &$v_open = 0)
         $detector->join = true;
     }
 }
+
+/**
+* auto generate doc.
+* @param mixed $detector
+* @param mixed $a
+* @param mixed & $list
+*/
 function python_detect_symbol($detector, $a, &$list)
 {
     return preg_match($detector->match, $a, $list, PREG_OFFSET_CAPTURE, $detector->offset);

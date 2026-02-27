@@ -5,8 +5,17 @@ use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
 use IGK\System\Net\Mail;
 use IGK\System\Uri;
+
+/**
+* auto generate doc.
+*/
 class MailRendererEngine
 {
+
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    */
     public function render($n)
     {
         $tagname = $n->getTagName();

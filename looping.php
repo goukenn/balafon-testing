@@ -1,15 +1,43 @@
 <?php
+
+/**
+* auto generate doc.
+*/
 class A{
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $v;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $childs;
+
+    /**
+    * .ctr
+    * @param mixed $v
+    * @param null|array $childs
+    */
     public function __construct($v, ?array $childs=null){
         $this->childs = $childs;
         $this->v = $v;    
     }
+
+    /**
+    * get string presentation.
+    */
     public function __toString()
     {
         return $this->v;
     }
+
+    /**
+    * auto generate doc.
+    */
     public function render(){
         return "#".$this->v;
     }
@@ -22,6 +50,11 @@ $tab = [
     'Z'
 ];
 // ar
+
+/**
+* auto generate doc.
+* @param mixed $tab
+*/
 function render($tab){
     $o = "";
     $q = $p = null;

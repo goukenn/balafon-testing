@@ -6,6 +6,11 @@ use IGK\System\Html\Dom\HtmlNode;
  * @package igk\bootstrap\Components
  */
 class ToastHeader extends ComponentBase{
+
+    /**
+    * .ctr
+    * @param string $title
+    */
     public function __construct(string $title)
     {
         parent::__construct();

@@ -2,6 +2,11 @@
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
+
+/**
+* auto generate doc.
+* @param mixed $src
+*/
 function test_format_read_css($src){
     $regexContainer = new RegexMatcherContainer;
     $item = $regexContainer->begin("\\b(background-color|background)\\b", ";|(?=>})")->last();

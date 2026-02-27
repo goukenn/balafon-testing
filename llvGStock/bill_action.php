@@ -34,6 +34,12 @@ class BillInfo{
      * @var array<Products>
      */
     var $products = [];
+
+    /**
+    * auto generate doc.
+    * @param Products $product
+    * @param float $qte
+    */
     public function addProduct(Products $product, float $qte=0){
         if (is_null($product) || ($qte<=0)){
             return false;
@@ -55,7 +61,11 @@ class BillInfo{
             $this->products[$product->prodId] = (object)["qte"=>0, "product"=>$product];
         }
         $this->products[$product->prodId]->qte += $qte; 
-    } 
+    }
+
+    /**
+    * auto generate doc.
+    */
     public function store(){
         $reseller = $this->reseller;
         $user = $this->user;

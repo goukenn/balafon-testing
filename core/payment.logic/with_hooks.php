@@ -1,15 +1,42 @@
 <?php
 // @command: balafon --run .test/core/payment.logic/with_hooks.php
+
+/**
+* auto generate doc.
+*/
 interface IPayment{
+
+    /**
+    * auto generate doc.
+    * @param mixed $options
+    */
     public function initPayment($options);
 }
+
+/**
+* auto generate doc.
+*/
 class BitcoinPayment implements IPayment{
+
+    /**
+    * auto generate doc.
+    * @param mixed $options
+    */
     public function initPayment($options)
     {
         throw new \Exception('Not implemented');
     }
 }
+
+/**
+* auto generate doc.
+*/
 class BancontactPayment implements IPayment{
+
+    /**
+    * auto generate doc.
+    * @param mixed $options
+    */
     public function initPayment($options)
     {
         throw new \Exception('Not implemented');

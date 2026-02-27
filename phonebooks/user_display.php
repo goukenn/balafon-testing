@@ -10,22 +10,59 @@ use IGK\System\Console\Logger;
 use IGK\System\Http\Request;
 use IGK\System\IInjectable;
 use IGK\System\Services\Traits\ServicePropertyTrait;
+
+/**
+* auto generate doc.
+*/
 interface IUserDisplay extends IInjectable , IAppService
 {
+
+    /**
+    * auto generate doc.
+    * @param Users $user
+    * @return string
+    */
     function render(Users $user):string;
 }
+
+/**
+* auto generate doc.
+*/
 class UserDisplay  implements IUserDisplay{
     use ServicePropertyTrait {
         getConfigurableProperties as getConfigurablePropertiesTrait;
     }
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $x;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $t;
+
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
     var $s; 
     /**
      * defini users
      * @var Users
      */
     var $user;
+
+    /**
+    * .ctr
+    * @param int $i
+    * @param IFooService $foo
+    * @param Request $request
+    * @param IFooService $faa
+    */
     public function __construct(protected int $i, 
     //Users
     IFooService $foo,
@@ -35,32 +72,75 @@ class UserDisplay  implements IUserDisplay{
     { 
         igk_wln($foo, $faa, $request, $foo === $faa);
     }
+
+    /**
+    * auto generate doc.
+    * @param Users $user
+    * @return string
+    */
     function render(Users $user):string{
      return   $this->i.' : vs '. $this->x.'='. $user->clGuid.':'.$user->clLogin;
     }
+
+    /**
+    * auto generate doc.
+    * @return array
+    */
     public function getConfigurableProperties(): array
     {
         $p = $this->getConfigurablePropertiesTrait();
         $p['user']->required = true;
         return $p;
-    } 
+    }
+
+    /**
+    * auto generate doc.
+    * @param null|Users $user
+    */
     public function setT(?Users $user){
         $this->t = $user;
     }
+
+    /**
+    * auto generate doc.
+    * @param Users $user
+    */
     public function setUser(Users $user){
         $this->user = $user; 
     }
 }
+
+/**
+* auto generate doc.
+*/
 interface IFooService extends IInjectable{
 }
+
+/**
+* auto generate doc.
+*/
 class FooService implements IFooService{
+
+    /**
+    * .ctr
+    * @param string $x
+    */
     public function __construct(string $x)
     {
         Logger::info('create foo service '.$x);
     }
 }
+
+/**
+* auto generate doc.
+*/
 class FaaService implements IFooService{
- public function __construct($x)
+
+    /**
+    * .ctr
+    * @param mixed $x
+    */
+    public function __construct($x)
     {
         Logger::info('create faa service '.$x);
     }
