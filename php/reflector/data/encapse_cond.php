@@ -1,5 +1,4 @@
 <?php
-
 if ($b) {
     if ($m)
         if ($a)

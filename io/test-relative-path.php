@@ -1,7 +1,6 @@
 <?php
 // @command: balafon --run .test/io/test-relative-path.php
 use IGK\System\Console\Logger;
-
 $ls = json_decode(<<<JSON
 [{
     
@@ -22,12 +21,8 @@ $ls = json_decode(<<<JSON
         "response":"../../Lib/igk"
 }]
 JSON);
-
-
 foreach($ls as $p=>$f){
-
     $g= \IGK\System\IO\Path::GetRelativePath($f->source, $f->target);
-
     igk_wln($g );
     if ($g == $f->response){
         Logger::success("success");
@@ -35,4 +30,3 @@ foreach($ls as $p=>$f){
         Logger::danger('faild');
     }
 }
-

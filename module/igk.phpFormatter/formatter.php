@@ -1,5 +1,4 @@
 <?php
-
 use IGK\Helper\StringUtility;
 use igk\phpFormatter\IFormatterBuild;
 use igk\phpFormatter\IFormatterInfo;
@@ -14,12 +13,9 @@ use IGK\System\Text\RegexMatcherCapture;
 use IGK\System\Text\RegexMatcherPattern;
 use IGK\System\Text\Traits\FormatRegexMatcherTrait;
 use IGK\System\Text\Traits\ReplaceUtilityTrait;
-
 use function igk_resources_gets as __;
-
 // @command: balafon --run .test/module/igk.phpFormatter/formatter.php
 require_once __DIR__ . '/PHPFormatterTmSyntaxTrait.php';
-
 function igk_assert_func_num_arg(int $number, int $expected)
 {
     if ($number != $expected) {
@@ -32,7 +28,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
     use FormatterBuildTrait;
     use PHPFormatterTmSyntaxTrait;
     use ReplaceUtilityTrait;
-    
     private $m_sb;
     var $depth;
     var $lineFeed = false;
@@ -42,7 +37,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
     const CONDITIONAL_WORDS = 'if|else|for|while|do|foreach|switch';
     private $m_fconditional_info = null;
     private $m_replacement = [];
-
     public function __construct()
     {
         $this->m_sb = new StringBuilder;
@@ -51,7 +45,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $this->tabStop = '-123';
         $this->initFlags($this->flags);
     }
-
     /**
      * 
      * @param StringBuilder $builder 
@@ -69,10 +62,7 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $w = 1;
         $__STEP__ = igk_env_count(__METHOD__);
         igk_is_debug() && Logger::print('formatter->build::::: ' . $__STEP__ . ' [' . json_encode($data) . '] depth=' . $info->depth . ' linefeed=' . $info->lineFeed);
-
         extract(igk_extract_var($info->flags, 'lineFeed|instruct|closeBracket|appendInlineInstruct|start-curl|preserveData'));
-
-
         if (!empty(trim($before)) || ($before == ' ') || isset($info->flags['before'])) {
             if (isset($i->flags['before'])) {
                 $before = $i->flags['before'];
@@ -97,7 +87,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                     $builder->rtrim();
                     $info->unsetFlag('lf');
                 } else {
-
                     // $builder->rmLast($info->lineFeedSeparator);
                     $info->lineFeed = true;
                 }
@@ -126,9 +115,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                 $builder->append($s);
             }
         } else {
-
-
-
             if (igk_getv($i->flags, 'lf')) {
                 // remove white space 
                 $s = ltrim($s);
@@ -156,13 +142,11 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      * @return void 
      */
     public function initFlags(&$flags) {}
-
     function reset()
     {
         $this->flags = [];
         $this->initFlags($this->flags);
     }
-
     /**
      * handle treat capture 
      * @param string $value 
@@ -217,7 +201,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                         continue;
                     // format custom replacement value
                     $s = $e->value = $this->_treatReplacement($e, $format);
-
                     $cinf = $this->m_fconditional_info;
                     if (self::IsConditionalReservedWord($e, 'f-reservedword')) {
                         if ($q = $cinf) {
@@ -296,10 +279,8 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                             }
                             break;
                         case 'f-instruct':
-
                             break;
                         default:
-
                             if (method_exists($listener, $fc = 'visit_' . StringUtility::FuncName($tid))) {
                                 $s = call_user_func_array([$listener, $fc], [$e->value, $e, $pos]);
                             }
@@ -311,7 +292,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                     $offset = $pos;
                 } else {
                     Logger::danger('not allowed ' . $tid);
-
                     // if (method_exists($listener, $fc = 'visit_sub_' . StringUtility::FuncName($tid))) {
                     //     $tab = [[$listener, $fc], [$e->value, $e, $pos]];
                     //     // replacement use for invocation 
@@ -363,7 +343,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return $s;
     }
-   
     /**
      * 
      * @param mixed $e 
@@ -371,7 +350,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
      */
     protected function _treatReplacement($e): string
     {
-
         $s = $e->value;
         $pr = false;
         $ns = '';
@@ -422,13 +400,11 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                 continue;
             }
             igk_is_debug() && Logger::warn('replace: value[' . json_encode($te->value) . '] * ' . $te->from . ' vs ' . $offset);
-
             $rpv = $te->value;
             $tc = $te->from - $offset - $start;
             $v_update = false;  // update the current data
             if ($sub) {
                 $chains = self::_GetChainList($sub, $te, $last);
-
                 if ($chains) {
                     // $sub_state = $save_state($this); // state at the end 
                     if (($mc = count($sub->mark)) == 0) {
@@ -443,12 +419,9 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                         //$this->lineFeed = false;
                         //$this->flags = [];
                     }
-
                     $v_cdef = [];
                     self::ResolveCapture($te, $v_cdef, []);
-
                     $rpv = self::UpdateMarkedValue($rpv, $chains, $te->from, $this, true);
-
                     if ($v_cdef) {
                         $rpv = self::UpdateCaptureDef($te, $v_cdef, $rpv);
                     }
@@ -458,11 +431,9 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                     $tc = $te->from - $offset - $start;
                     unset($chains);
                     $v_update = true;
-
                     $p = $this->treatLast($rpv, $this);
                 }
             }
-
             if ($tc < 0) {
                 igk_wln_e('forward group detected');
             }
@@ -484,8 +455,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
             // Logger::success('offscreen ------------------');
             // $before = '|'; //substr($s, $offset, $tc);
             // $this->build($sb, $this, $before, $p, $te->from, '');
-
-
             $offset = ($te->to + $_pos) - $start;
             if (!$remove) {
                 $this->lineFeed = $this->lineFeed || $te->match->autoLineFeed;
@@ -506,12 +475,10 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
                 $sub->mark[] = $_inf;
             }
         }
-
         // + | restore global state --- 
         $restore($state);
         if ($sub) {
             $ns = '';
-
             $ns = self::UpdateMarkedValue($e->value, $sub->mark, $e->from, $this, false);
         }
         if ($pr) {
@@ -520,7 +487,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         $s = self::UpdateCaptureDef($e, $v_def, $s);
         $s = self::ReplaceData($s, $e);
-
         return $s;
     }
     /**
@@ -551,7 +517,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return $chains;
     }
-   
     /**
      * 
      * @param string $value 
@@ -574,7 +539,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $offset = 0;
         $el = false;
         $sb = new StringBuilder($s);
-
         while (count($mark) > 0) {
             $q = array_shift($mark);
             $e = $q[0];
@@ -657,9 +621,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return $sb;
     }
-   
-
-
     protected function visit_f_wspace(string $v,)
     {
         return ' ';
@@ -762,7 +723,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $this->initRegex($regexContainer);
         return $regexContainer;
     }
-
     protected function visit_f_func($v)
     {
         if ($v_c = $this->m_fconditional_info) {
@@ -816,7 +776,6 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         return $s;
     }
 }
-
 class PHPFormatterConditionalInfo
 {
     var $type;
@@ -858,8 +817,6 @@ class PHPFormatterConditionalInfo
     {
         $c = new static;
         $c->type = $word;
-
-
         return $c;
     }
     public function supportCondition(): bool
@@ -884,7 +841,6 @@ class PHPFormatterConditionalInfo
         return $this->isElse();
     }
 }
-
 class PHPFormatRegexMatcherPattern extends RegexMatcherPattern
 {
     var $replaceWith;
@@ -902,10 +858,5 @@ class PHPFormatRegexMatcherPattern extends RegexMatcherPattern
     var $flags;
 }
 $formatter = new PHPFormatter;
-
-
-
-
-
 echo  $formatter->format(file_get_contents(__DIR__ . '/data/exo.comment.php')), PHP_EOL;
 exit;

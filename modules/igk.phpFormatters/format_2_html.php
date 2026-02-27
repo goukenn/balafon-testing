@@ -4,24 +4,19 @@
 // @date: 20250731 10:57:27
 // @desc: show usage of global html formatter
 // @command: balafon --run .test/module/igk.phpFormatter/format_2_html.php
- 
 use igk\phpFormatter\Formatters\CodeFormatterFormatterEngineInfo;
 use igk\phpFormatter\Formatters\CodeToHtmlFormatter as FormattersCodeToHtmlFormatter;
 use IGK\System\Console\Logger; 
 use IGK\System\Html\Dom\HtmlNode; 
 use IGK\System\Text\Formatters\FormatterPattern;
 use IGK\System\Text\RegexMatcherContainer;
-
 use function igk_html_host as _h; 
-
 class CodeToHtmlFormatter extends FormattersCodeToHtmlFormatter
 {
 }
-
 $regex = new RegexMatcherContainer;
 $regex->patternCreatorClass = FormatterPattern::class; 
 include __DIR__.'/format_2_html.regex.definition.pinc';
-
 // Logger::info('export - source');
 // $c = $regex->export('source.php');
 // echo JSon::Encode($c, JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT);
@@ -31,8 +26,6 @@ include __DIR__.'/format_2_html.regex.definition.pinc';
 //  */
 // $mod = igk_require_module('igk/phpFormatter'); 
 // $regex = $mod->getFormatRegexContainer('source.php');
-
-
 $engine = new CodeToHtmlFormatter();
 $engine->autoFormat = true;
 $engine->showLine = true;
@@ -40,28 +33,20 @@ $engine->baseLanguage = 'php';
 $engine->lineSplitter = '😒';
 $engine->viewLine = true;
 $regex->setEngineInfo(new CodeFormatterFormatterEngineInfo($engine) );
-
 $src = '<?php hello ?> sample avec 300 nuit <!-- ca alors --><div local:info="12">inner sample</div><?php $var = 12;';
 $src = implode("\n", ['?><div local:info="12">inner sample ',
 '<!-- write here local - ',
 'for sample -> def',' local --> ','<span>avec vigueur {{ local }}</span> basic . definition .</div>']);
-
-
 $src = implode("\n", ['?><div local:info="12">hello folks!</div>']);
 $src = implode("\n", ['function doAction(){ ?><?php }']);
 $src = implode("\n", ['function doAction(){ ?><div>hello folks! {{ indication }} </div><?php }']);
 $src = implode("\n", ['?><div>one<span>two</span></div>']);
 $src = implode("\n", ['<?php $x = 12 + $x; $r; function a(){?><div>one<span>two</span></div> <?php }']);
-
-
-
 $src = implode("\n", ['$r();    $ra();      ', '', '','$i=12^7;']);
 // $src = implode("\n", ['function doAction(){ ? ><div>hello folks!  <span>one</span></div><?php }']);
-
 $transform = $engine->exec($regex, $src, true); 
 // igk_wln($transform);
 // igk_exit();
-
 echo "<!DOCTYPE html>";
 // alternative to convert bmstring - 
 // echo mb_convert_encoding(''.
@@ -237,12 +222,10 @@ CSS);
     'charset' => 'UTF8',
     'locale' => 'en'
 ])
-
     // ,
     // 'UTF8',
     // 'UTF8',
     //  )
 ;
-
 Logger::success('done');
 igk_exit();

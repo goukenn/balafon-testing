@@ -1,0 +1,8 @@
+Object: Candidature au poste de Frontend Developer
+
+Merci d'avoir posé votre candidature au poste de Frontend Developer
+Nous avons bien reçu votre candidature.
+Nous vous tiendrons au courant de la suite de la procédure.
+
+Cordialement,
+L'équipe de HR

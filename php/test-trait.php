@@ -3,7 +3,6 @@
 // @filename: test-trait.php
 // @date: 20250731 16:51:38
 // @desc: use trait logic a
-
 // @command: balafon --run .test/php/test-trait.php
 // NOTE : les traits permette d'encapsuler directement une fonctionnalité 
 abstract class A
@@ -20,9 +19,7 @@ trait TraitA
         igk_wln_e("from trait ___" . __METHOD__, $this);
     }
 }
-
 // NOTE : a trait can access a protected class member - required in class 
-
 class BBBB extends A
 {
     use TraitA{
@@ -35,7 +32,5 @@ class BBBB extends A
     }
 }
 $b = new BBBB();
-
 echo $b->a();
-
 exit;

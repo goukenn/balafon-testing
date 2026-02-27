@@ -1,13 +1,10 @@
 <?php
 // @command: balafon --run .test/db/jobresearch/load-claude-data.php
-
 use com\igkdev\projects\ForemJobDashboard\Models\JobEnterprises;
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
 use IGK\System\Console\Logger;
-
 $ctrl = ForemJobDashboardController::ctrl(true);
-
 /**
  *  @var MainTaskModelUtility
  */
@@ -21,10 +18,8 @@ Jobs::Delete([Jobs::FD_TITLE=>'']);
 Jobs::Delete([Jobs::FD_ENTERPRISE_ID=>null]);
 Jobs::Delete([Jobs::FD_ENTERPRISE_ID=>'']);
 Jobs::Delete([Jobs::FD_ENTERPRISE_ID=>'145']);
-
 if ($user = $ctrl::login($user)) {
     if ($user = $ctrl->getUserProfile()->user()) { 
-
         foreach ($data as $row) {
             if (strstr( $row->titre, 'distance')){
                 continue;

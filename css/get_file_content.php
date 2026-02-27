@@ -8,5 +8,4 @@ $doc = IGKHtmlDoc::CreateDocument('temp');
 $th = $doc->getSysTheme();
 $th->initGlobalDefinition();
 $src  = CssUtils::GetInjectableStyleFromFileDefinition(__DIR__."/default.pcss", $ctrl, $th, $css, false);
-
 igk_wln_e("src:" , $src, $th->getRootReference());

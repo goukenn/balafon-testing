@@ -77,4 +77,4 @@ echo $css->minify(
 
 
 
-exit;
+igk_exit();

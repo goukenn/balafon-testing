@@ -1,5 +1,4 @@
 <?php
-
 if (true){
   function conditional(){
     echo 'init conditional';

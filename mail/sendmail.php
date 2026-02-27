@@ -5,7 +5,6 @@
 // @date: 20250929 18:48:57
 // @desc: send mail demonstration 
 // @balafon-command: sendmail 
-
 use IGK\System\Net\Mail;
 use function igk_html_host as _h;
 $option = igk_mail_option();

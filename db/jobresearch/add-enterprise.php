@@ -1,5 +1,4 @@
 <?php
-
 // @author: C.A.D. BONDJE DOUE
 // @filename: add-enterprise.php
 // @date: 20250804 11:35:42
@@ -17,9 +16,7 @@ foreach(explode(',', $name) as $c){
         igk_wln('data: '.$ex->getMessage());
     }
     finally{
-
     }
 }
-
 echo JobEnterprises::count();
 exit;

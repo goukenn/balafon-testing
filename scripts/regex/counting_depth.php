@@ -1,5 +1,4 @@
 <?php
-
 // @command: balafon --run .test/scripts/regex/counting_depth.php
 /**
  * counting depth 

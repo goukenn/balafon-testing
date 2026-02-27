@@ -1,0 +1,33 @@
+Key Responsibilities
+
+Full-Stack Development: Design, develop, and maintain scalable web applications using Svelte and Flask.
+Deployment & Cloud Management: Deploy and manage applications on DigitalOcean, utilizing serverless architecture.
+API Development: Design, implement, and optimize RESTful APIs using Express.js (Python optional) and other modern frameworks.
+Automation & Scripting: Build automation tools to streamline development processes.
+Problem-Solving & Debugging: Analyze complex problems, identify root causes, and implement efficient solutions.
+Collaboration & Communication: Work closely with cross-functional teams to ensure seamless integration and execution of key projects.
+Code Quality & Best Practices: Implement CI/CD pipelines, conduct code reviews, and ensure best practices in Git, testing, and software quality assurance.
+
+What We’re Looking For
+
+Proficiency in Node.js, React, and DigitalOcean.
+Experience with serverless applications and cloud infrastructure.
+Strong problem-solving skills and ability to quickly learn new technologies.
+Familiarity with Express.js, Python, and scripting is a plus.
+Understanding of modern software development practices (CI/CD, testing, Git).
+Excellent communication and collaboration skills.
+Adaptability and a proactive, solution-oriented mindset.
+
+Why Join Company 97?
+
+Be part of an innovative and fast-growing company revolutionizing the cloud services.
+Opportunity to build a team and establish a long-term presence in one of Europe’s most vibrant cities.
+Competitive salary and performance-based incentives.
+A chance to grow professionally in a hands-on, entrepreneurial role.
+
+You Should Not Apply If
+
+You are looking for a corporate 9 to 5 job
+You are political and enjoy gossiping and talking about people behind their backs.
+You are looking for a stable and slow dead-end job
+You do not aim to be one of the best in the world at what you do

@@ -1,5 +1,4 @@
 <?php
- 
 echo 'inclusion', PHP_EOL;
 ob_start();
 include __DIR__.'/inc';

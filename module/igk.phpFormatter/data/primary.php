@@ -1,7 +1,5 @@
 <?php
 namespace RASTA\Basic;
- 
-
 if (true){
     class Sample{
         var $var_x;

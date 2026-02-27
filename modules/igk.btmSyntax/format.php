@@ -7,7 +7,6 @@
 // + | --------------------------------------------------------------------
 // + | 
 // + |
-
 use igk\btmSyntax\Formatter;
 use igk\btmSyntax\FormatterMatchInfo;
 use igk\btmSyntax\IFormatterListener;

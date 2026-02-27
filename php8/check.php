@@ -1,7 +1,5 @@
 <?php
-
 $data = include(__DIR__ . '/include.php');
-
 foreach ($data as $f) {
     if (basename($f) == 'balafon') continue;
     try {

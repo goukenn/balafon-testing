@@ -1,5 +1,5 @@
 <?php
-// + | usign str piep value exeemple
+// + | usign str pipe value example
 // balafon --run .test/string/pipe_value.php
 use IGK\System\Console\Logger;
 use IGK\System\DataArgs;

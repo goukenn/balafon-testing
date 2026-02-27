@@ -1,33 +1,20 @@
 <?php
-
-
 // @command: balafon --run .test/core/dispatcher-parameters.php
-
 use IGK\Actions\Dispatcher;
 use IGK\Models\Users; 
 use IGK\System\Http\Request;
-
 class DoSome
 {
     public function R(Request $request, string $i, ?Users $user) {
-        
     }
 }
 // Logger::info('-----------------------|-------------------------------------------');
 $cl = igk_sys_reflect_class(DoSome::class);
 $parameters = $cl->getMethod('R')->getParameters();
-
 // igk_environment()->set('debug/dispatcher', true);
 $arguments = Dispatcher::GetInjectArgsByParameters($parameters, [ 7, 1]);
-
-
 var_dump($arguments);
 exit;
-
-
-
-
-
 function igk_params_list(array $parameters, array  $args)
 {
     $out = [];
@@ -62,13 +49,9 @@ function igk_params_list(array $parameters, array  $args)
         }
         $out[] = $v;
     }
-
     return $out;
 }
-
-
 igk_environment()->set('debug/dispatcher', true);
 $arguments = Dispatcher::GetInjectArgsByParameters($parameters, [ 7, 1]);
-
 $list = []; // igk_params_list($parameters, [$user, 1]);
 igk_wln_e($arguments, $list);

@@ -3,15 +3,12 @@
 // @filename: detect_g_functions.php
 // @date: 20250729 22:46:14
 // @desc: encrypt 
-
 // @command: balafon --run .test/module/igk.phpFormatter/detect_g_functions.php [dir]
-
 use IGK\Helper\IO;
 use IGK\Helper\StringUtility;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
-
 $dir = igk_getv($params, 0) ?? IGK_LIB_DIR;
 $regex = new RegexMatcherContainer;
 $pos = 0;
@@ -25,10 +22,8 @@ $line_comment = $regex->appendSingleLineComment("\\h*\/\/")->last();
 $string = $regex->appendStringDetection('string', true)->last();
 $_multi_comment = $regex->appendMultilineComment()->last();
 $_depth_comment = $regex->match('(^\\h*\/\/.+)', 'depth-line-comment')->last();
-
 $regex->match('\$[a-zA-Z_][a-zA-Z_0-9]*', 'f-var');
 $regex->match('\\b(public|static|protected|private|final)\\b', 'f-modifier');
-
 $f_curl = $regex->createPattern(['begin' => '\{', 'end' => '\}', 'tokenID' => 'f_curl']);
 $f_cond_curl = $regex->createPattern(['begin' => '\{', 'end' => '\}', 'tokenID' => 'f_condition_curl']);
 $f_class = $regex->begin('\\b(?<type>class|interface|trait)\\b\\s*\\b(?P<name>[a-zA-Z_][a-zA-Z_0-9]*)\\b', '(?<=\})', 'f-class')->last();
@@ -39,11 +34,8 @@ $comments = [
     $_doc_comment,
     $line_comment,
 ];
-
 $f_cond = $regex->createPattern(['begin' => '\(', 'end' => '\)', 'tokenID' => 'f_cond']);
-
 $f_conditional = $regex->begin('\\b(?<type>if|else|elseif)\\b', '(?<=;|\})', 'f-conditional')->last();
-
 $f_c_func = $regex->createPattern([
     'begin' => '\\b(function)\\b(?:(\\s+(&\\s*))?|(\\s*))(?P<name>[a-zA-Z_][a-zA-Z_0-9]*)\\s*(?=\()',
     'end' => '(?<=\}|;)',
@@ -64,7 +56,6 @@ $_sub_curl_definition->patterns = [
     $f_curl,    
     $_sub_curl_definition
 ];
-
 $regex->append($f_c_func);
 $f_curl->patterns = [
     $f_curl
@@ -91,7 +82,6 @@ $f_cond_curl->patterns = [
 $f_c_func->patterns = [
    $f_curl,
 ];
-
 /**
  * 
  * @param RegexMatcherContainer $regex 
@@ -128,7 +118,6 @@ function d_function(RegexMatcherContainer $regex, string $src, &$list, string $f
         }
     }
 }
-
 $list = [];
 IO::GetFiles($dir, function ($file) use ($regex, &$list) {
     if (!preg_match('/\.(php|phtml|pinc)$/', $file))
@@ -138,8 +127,6 @@ IO::GetFiles($dir, function ($file) use ($regex, &$list) {
     d_function($regex, $src, $list, $file);
     return false;
 }, true);
-
-
 /**
  * 
  * @package 
@@ -235,9 +222,7 @@ class EngineLoader
         }
     }
 }
-
 extract(igk_extract_var($list, 'functions|classes|traits|interfaces'));
-
 if ($functions) {
     ksort($functions);
     igk_wln("# functions");
@@ -251,5 +236,4 @@ foreach (explode('|', 'interfaces|traits|classes') as $k) {
     }
 }
 print_r($classes['RASTA\\Basic\\XCS']);
-
 igk_exit();

@@ -73,10 +73,15 @@ $content = file_get_contents($file);
     igk_io_w2file($file, $g);
 }
 $file = igk_getv($params, 0);
+$skip = igk_getv($command->options, '--skip');//, '\/node_modules\/|\.git/');
+
 if ($file && file_exists($file)) {
     if (is_dir($file)){
         $files = IO::GetFiles($file, "/\.(js|php|phtml)$/", true);
         foreach($files as $file){
+            if ($skip && preg_match('/('.$skip.')/', $file)){
+                continue;
+            }
             Logger::info('treat: '.$file);
             transform($file);
         }

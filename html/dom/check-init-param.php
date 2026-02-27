@@ -3,15 +3,10 @@
 // @filename: check-init-param.php
 // @date: 20251024 08:32:48
 // @desc: check initial parameter for noode creationg 
-
 // @command: balafon --run .test/html/dom/check-init-param.php
-
 use IGK\System\Console\Logger;
 use IGK\System\Html\Dom\HtmlItemBase;
-
 igk_wln('check run file:');
-
-
 foreach($tb = ['content', [
     'title'=>'sample',
     'Content'=>'litteral sample'
@@ -20,7 +15,6 @@ foreach($tb = ['content', [
     $n->dummy($r);
     Logger::print($n->render());
 }
-
 // enregistrement de package
 igk_reg_component_package('goukenn', function($n){
     igk_wln('create component: '.$n);
@@ -43,6 +37,5 @@ foreach($tb as $k){
     //$n->gouken_card($k);
     Logger::print($n->render());
 }
-
 Logger::success('done');
 igk_exit();

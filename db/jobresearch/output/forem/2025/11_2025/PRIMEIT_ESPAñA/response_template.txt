@@ -1,0 +1,6 @@
+Object: response à votre candidature
+Madame, Monsieur,
+Votre cadidature a été prise en compte au poste de Maquetador/a Web (HTML / CSS / BEM / Git). 
+Nous reviendrons vers vous dans les plus bref délais.
+Cordialement,
+

@@ -1,12 +1,8 @@
 <?php
-
 // unicode_symbol_on_jobs_description.php
-
 // p - info 
 // @command: balafon --run .test/project/foremjobs/scripts/unicode_symbol_on_jobs_description.php
-
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
-
 $jobs = Jobs::GetCache('id', 1469);
 $desc = <<<EOF
 Vous maîtrisez JavaScript et vous adorez concevoir des applications SIG performantes, intuitives et utilisables même offline ?
@@ -43,13 +39,8 @@ Vous êtes passionné(e) par le développement web et souhaitez créer des appli
 
 Faites partie de l’aventure Gate-16. Postulez dès maintenant !
 EOF;
-
 // $ad = ForemJobDashboardController::ctrl(true)->getDataAdapter();
 // $ad->set_charset('utf8mb4');
-
-
 $jobs->description = $desc;
-
 $jobs->update();
-
 igk_exit();

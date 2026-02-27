@@ -1,0 +1,37 @@
+Developer in the European Union.
+
+As a Junior Fullstack Developer, you will join a fast-growing tech team building innovative, data-driven solutions for a modern online platform. You'll collaborate directly with senior engineers to design, develop, and optimize new features while learning best practices across the entire software lifecycle. This is an opportunity to gain hands-on experience in both frontend and backend development using cutting-edge technologies. Working in a remote-first environment, you'll be supported by a culture that values curiosity, ownership, and continuous learning — ideal for developers ready to accelerate their career and make an immediate impact.
+
+Accountabilities
+
+Contribute to the design, development, and maintenance of full-stack applications for a high-traffic platform
+Debug and optimize both new and existing features to ensure speed, scalability, and reliability
+Refactor and document code to improve performance and maintainability
+Collaborate closely with team members across time zones in an agile, remote-first environment
+Participate in code reviews, learn from experienced developers, and continuously develop your technical skills
+Support the development lifecycle from ideation to deployment, helping bring real-world features to production
+
+
+Requirements
+
+Basic programming knowledge in any modern language (TypeScript, Python, JavaScript, etc.)
+Strong problem-solving mindset and willingness to learn new tools and frameworks quickly
+Good written and spoken English communication skills
+Collaborative attitude and ability to work effectively in a distributed, remote team
+Enthusiasm for software engineering, gaming, or sports (any combination is a plus)
+Availability to work within time zones UTC to UTC+3
+Familiarity with or interest in modern technologies such as NestJS, Node.js, React, Python, Angular, DynamoDB, Postgres, and Docker is advantageous
+
+
+Benefits
+
+Fully remote position — work from anywhere in the world
+Competitive salary with performance-based bonuses
+25 days of paid vacation per year
+Career growth opportunities with mentorship and hands-on learning
+Dynamic and youthful team culture focused on innovation and collaboration
+A chance to work on exciting, real-world projects in a fast-paced environment
+
+Jobgether is a Talent Matching Platform that partners with companies worldwide to efficiently connect top talent with the right opportunities through AI-driven job matching.
+
+When you apply, your profile goes through our AI-powered screening process designed to identify top tal

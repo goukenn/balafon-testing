@@ -3,9 +3,7 @@
 $c = ["o"=>"one","t"=>"three","l"=>"last"];
 echo $m = end($c);
 reset($c);
-echo $m = current($c); 
-
-<<<MD
+echo $m = current($c); <<<MD
 #array manipulation 
 - end
 - reset
@@ -13,5 +11,4 @@ echo $m = current($c);
 - prev
 - next
 MD;
-
 exit;

@@ -3,7 +3,6 @@
 // @filename: treat_files.php
 // @date: 20250903 13:15:18
 // @desc: treat all svg ios sf symbols
-
 // balafon --run .test/sfsymbols/treat_files.php %1
 use igk\ios\SfSymbols\Helper;
 igk_require_module('igk\\ios\\SfSymbols');

@@ -1,0 +1,9 @@
+# font-size 12
+# --font-size 1.4em
+div.card{   
+    span{
+        --font-size: 2em;
+        display: inline-block;
+        font-size:  var(--font-size);
+    } 
+}

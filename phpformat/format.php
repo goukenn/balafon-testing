@@ -4,7 +4,6 @@ use IGK\System\Console\Logger;
 use igk\tools\Reflector\FormatPHPCode;
 $formatter = new FormatPHPCode;
 $formatter->blockOnly = true;
-
 $src = implode("\n", [
     'function         a($b=      "part {-}");'
     // .'$a = 8;   ' .

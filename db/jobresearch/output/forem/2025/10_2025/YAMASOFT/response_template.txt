@@ -1,0 +1,6 @@
+Object: response à votre candidature
+Madame, Monsieur,
+Votre cadidature a été prise en compte au poste de Junior Frontend Engineer (Bulgaria-only). 
+Nous reviendrons vers vous dans les plus bref délais.
+Cordialement,
+

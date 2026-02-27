@@ -1,0 +1,39 @@
+Missions ?
+
+Intégré à nos équipes sur notre Digital Factory ou chez nos clients, vous interviendrez sur un projet de développement Back-End.
+
+En tant que Développeur PHP / Symfony (H/F), vous assurez les missions suivantes :
+
+Le développement des tâches qui vous sont assignées en respectant les spécifications
+
+Le Code Review avec les autres développeurs du projet
+
+L'écriture de tests unitaires et fonctionnels durant vos développements
+
+L'industrialisation de vos développements via notre PIC (Jenkins)
+
+La participation au Daily Scrum Meeting, Sprint Revue, Rétro de Sprint et Planning Poker
+
+La Stack Technique
+
+Back-End (impératif) : Symfony
+
+BDD (impératif) : SQL (MySQL, PostgreSQL, SQLServer) et/ou NoSQL (MongoDB, Cassandra, Redis)
+
+Outils : Git, Jenkins, Jira , Google Cloud ( impératif)
+
+Profil
+
+Alors ? Prêt à devenir Amiltonien ?
+
+N'hésitez Pas à Postuler Si Vous Vous Reconnaissez
+
+Diplômé Bac+3 à Bac+5 (Licence, Master ou école d'ingénieur), vous disposez de 4 ans d'expérience en développement Php/Symfony.
+
+Vous aimez découvrir de nouveaux contextes fonctionnels et comprendre les objectifs des applications que vous développez.
+
+A l'aise dans une organisation agile, vous faites preuve de rigueur et appliquez les standards de qualité Amiltone durant toute la durée des développements.
+
+Outre vos compétences techniques, nous nous intéressons également à votre potentiel et votre motivation.
+
+Nos postes sont ouverts aux personnes en situation de handicap.

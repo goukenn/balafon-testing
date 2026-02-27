@@ -8,7 +8,6 @@
 // --- --exclude:Y-m-d[,Y-m-d] ranges
 // command sample: balafon --run .test/db/jobresearch/db-init-for-me.php --querydebug willy.meli@yahoo.fr --to:2025-03-15 --from:2025-01-01 --exclude:2025-01-10,2025-01-20 --exclude:2025-02-01
 use com\igkdev\projects\ForemJobDashboard\ContractTypes;
-use com\igkdev\projects\ForemJobDashboard\Models\JobEnterprises;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;

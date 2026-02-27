@@ -1,11 +1,9 @@
 <?php
-
 // @author: C.A.D. BONDJE DOUE
 // @filename: check-query.php
 // @date: 20251203 08:50:53
 // @desc: check loading schema table query creation 
 // @command: balafon --run .test/db/schemas/check-query.php
-
 use IGK\Database\DbSchemas;
 use IGK\System\Html\XML\XmlNode;
 // $def = <<<XML
@@ -34,16 +32,12 @@ $def = <<<XML
 </DataDefinition>
 </data-schemas>
 XML;
-
 $xml = new XmlNode();
 $xml->load($def);
-
 $g = DbSchemas::GetDefinition($xml, $ctrl);
 $table = igk_conf_get($g, 'tables/tbigk_grades');
 $column = igk_conf_get($table, 'columnInfo/grd_max_score');
 $ad = igk_get_data_adapter('MYSQL');
 $grammar = $ad->getGrammar();
 $query = $grammar->createTableQuery('tbigk_grades', igk_getv($table, 'columnInfo')); //$ctrl::createTableQuery()
-
 igk_wln_e($column, $query);
-

@@ -1,10 +1,7 @@
 <?php
-
 // @command: balafon --run .test/db/reset-column-id.php
-
 use IGK\Models\Users;
 use IGK\System\Console\Logger;
-
 $tab = Users::select_all(null, ['Columns' => ['clId']]);
 $count = 1;
 $ad = Users::model()->getDataAdapter();
@@ -22,13 +19,9 @@ foreach ($tab as $row) {
     }
 }
 $ad->setFilter($g);
-
 $ad->sendQuery(sprintf(
     'ALTER TABLE %s AUTO_INCREMENT=%s',
     $ad->escape_string(Users::table()),
     $count
 ));
-
-
-
 Logger::success('-> done');

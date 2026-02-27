@@ -2,11 +2,9 @@
 // @balafon-command: load-vcard
 // @desc: vcard reader operation 
 // @command: balafon --run .test/vcard/reader.php
-
 use IGK\Database\PhoneBookUtility;
 use IGK\System\Console\Logger;
 use IGK\System\IO\VCF\VCard;
-
 // + | create entry in select row - 
 // + | $c = new PhoneConverter;
 // + | $r = $c->treat('07544555');

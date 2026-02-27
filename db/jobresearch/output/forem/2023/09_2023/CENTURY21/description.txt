@@ -1,0 +1,41 @@
+Job Title: Full Stack Developer 
+Contract Duration: As soon as possible - 
+Work Location: 1020 Brussels 
+Remote Status: Hybrid 
+Languages: English, French OR Dutch 
+
+Role Overview
+The Full Stack Developer will be responsible for developing and maintaining internal applications across front-end, middle-tier, and back-end layers. This includes:
+•	Designing and implementing new applications in collaboration with the IT team and relevant departments.
+•	Ensuring compatibility of software systems through interface development.
+•	Conducting audits and redesigning applications to optimize performance.
+•	Providing ongoing maintenance and user support for internal systems.
+Key Responsibilities
+Application Development & Maintenance
+•	Full Stack PHP Development: Develop applications using the Laravel framework, covering backend logic, database management, and front-end development (HTML/CSS/JS).
+•	Git Version Control: Manage repositories, branches, merges, and pull requests within collaborative projects.
+•	Integration with DevOps Processes: Ensure seamless integration into the team's DevOps workflow.
+•	VueJS Development: Build reusable components for the Vuemann intranet framework.
+•	Automated Front-End Testing: Implement and maintain Jest and Cypress tests to ensure robustness.
+•	Application Audit & Redesign: Analyze and optimize existing PHP code, identifying dependencies and database structures.
+•	Database Management (MySQL): Perform modeling, queries, and migrations for core business and intranet applications.
+•	Technical Documentation: Write user and developer documentation to enhance maintainability.
+•	Production Bug Fixes & Support: Resolve issues, collaborating with hospital users.
+•	Business Interface Development: Design ergonomic interfaces for HR departments, invoicing, and other non-technical audiences.
+Skills & Expertise Required
+Technical Expertise
+•	PHP with Laravel Framework
+•	VueJS or Equivalent Front-End Framework
+•	HTML/CSS/JS
+•	MySQL Database Management
+•	Git Version Control & Collaboration
+•	Automated Testing (Jest, Cypress)
+•	Application Security & Data Protection
+•	Software Installation & System Configuration
+Interpersonal & Professional Skills
+•	Autonomy & Organization
+•	Strong Analytical & Problem-Solving Skills
+•	Customer-Oriented Mindset
+•	Effective Communication Skills (written & oral)
+•	Collaboration & Teamwork
+•	Ability to Translate T

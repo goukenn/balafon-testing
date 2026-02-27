@@ -4,7 +4,6 @@
 // @date: 20250811 08:35:31
 // @desc: rename columns table 
 // @command: balafon --run .test/scripts/db/rename_column_tables.php
-
 use IGK\Controllers\BaseController;
 use IGK\System\Console\Logger;
 use IGK\System\Regex\Replacement;

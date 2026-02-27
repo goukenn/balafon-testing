@@ -7,9 +7,7 @@ use IGK\Models\Groupauthorizations;
 use IGK\Models\Groups;
 use IGK\Models\Usergroups;
 use IGK\System\Console\Logger;
-
 $ctrl = ForemJobDashboardController::ctrl(true);
-
 Authorizations::registerMacro('for', function(BaseController $ctrl){
     return $this->select_all([
        Authorizations::FD_CL_CONTROLLER=>$ctrl::keyName()
@@ -27,7 +25,6 @@ if ($c){
     Logger::info('delete : '. $ad->sendQuery($query));
 }
 $c = [];
-
 foreach(Groups::select_all($cond = [
     Groups::FD_CL_CONTROLLER=>$ctrl::keyName()
 ]) as $row){
@@ -42,8 +39,6 @@ if ($c){
  * drop groups
  */
 Groups::delete($cond);
-
 DbInitManagement::InitControllerProfile($ctrl,false);
- 
 Logger::success('done');
 igk_exit(0);

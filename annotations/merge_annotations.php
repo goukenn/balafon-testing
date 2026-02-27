@@ -2,7 +2,7 @@
 // @command: balafon --run .test/annotations/merge_annotations.php
 use igk\docs\swagger\Annotations\SwaggerSecurityFlowAnnotation;
 use IGK\System\Annotations\AnnotationBase;
-use IGK\System\Annotations\AnnotationInfo;
+use IGK\System\Annotations\AnnotationInfoAnnotation;
 use IGK\System\Console\Logger;
 use IGK\System\Helpers\AnnotationHelper;
 $_globals_security_schemes = [];
@@ -62,5 +62,4 @@ igk_logger_dashline();
 $ref = global_action_list(Sample::class, $_globals_security_schemes);
 $g = new SwaggerSecurityFlowAnnotation('implicit');
 $g->tokenUrl = 'token-list';
-
 igk_wln_e($g , $ref, $_globals_security_schemes);

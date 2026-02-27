@@ -1,5 +1,4 @@
 <?php
-
 function first(){
     global $jp;
 $jump = 12;

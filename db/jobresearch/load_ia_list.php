@@ -1,7 +1,5 @@
 <?php
-
 // @command: balafon --run .test/db/jobresearch/load_ia_list.php
-
 use com\igkdev\projects\ForemJobDashboard\Models\JobEnterprises;
 use com\igkdev\projects\ForemJobDashboard\Models\JobForemJobs;
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
@@ -10,15 +8,12 @@ use IGK\Helper\JSon;
 use IGK\System\Console\Logger;
 use IGK\System\IO\File\CsvFile;
 use IGK\System\Text\RegexMatcherContainer;
-
 ForemJobDashboardController::ctrl(true);
-
 $l = __DIR__ . '/data/ia_list.csv';
 $csv = new CsvFile();
 $csv->separator = ';';
 $g = $csv->parseData(file_get_contents($l));
 $header = array_shift($g);
-
 $unk = JobEnterprises::GetCache(JobEnterprises::FD_NAME, 'UNKNOWN');
 $uid = ForemJobDashboardController::SignInUser();
 $rid = JobUsers::GetCache(JobUsers::FD_GUID, $uid->clGuid);
@@ -30,7 +25,6 @@ $desc = [];
 $same = [];
 foreach ($tc as $row) {
     $tab = rand(0, count($g) - 1);
-
     $row->title = $g[$tab][1];
     $row->enterprise_id = JobEnterprises::GetCache(JobEnterprises::FD_NAME, $g[$tab][0])->id;
     $row->description = 
@@ -45,7 +39,5 @@ foreach ($tc as $row) {
     $desc[$row->description] = $row->description;
     $row->update();
 }
-
 igk_wln_e(array_values($same));
-
 igk_wln_e(JSon::Encode($tc, null, JSON_PRETTY_PRINT));

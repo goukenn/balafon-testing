@@ -1,14 +1,11 @@
 <?php
 // @command: balafon --run .test/db/jobresearch/fix-offers-to-web.php
-
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
 use com\igkdev\projects\ForemJobDashboard\Models\JobSourceTypes;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
 use com\igkdev\projects\ForemJobDashboard\SourceTypes;
 use IGK\System\Console\Logger;
-
 $ctrl = ForemJobDashboardController::ctrl(true);
-
 $callback = function($user, $ctrl)use($params){
     /**
     *  @var MainTaskModelUtility
@@ -18,7 +15,6 @@ $callback = function($user, $ctrl)use($params){
     $list = $m_u->listJobs($user, $search ?? '2024');
     $id = JobSourceTypes::GetCache( JobSourceTypes::FD_NAME, SourceTypes::WEB)->id;
     $nid = JobSourceTypes::GetCache( JobSourceTypes::FD_NAME, SourceTypes::LINKEDIN)->id;
-
     foreach($list as $row){
         /**
          * @var $row Jobs
@@ -32,8 +28,6 @@ $callback = function($user, $ctrl)use($params){
             $row->{Jobs::FD_SUMMARY} = '';
             $update = true;
         }
-        
-
         if ($update && rand(0,1)){
             Logger::info('update - '.$row->id);
             $row->save();

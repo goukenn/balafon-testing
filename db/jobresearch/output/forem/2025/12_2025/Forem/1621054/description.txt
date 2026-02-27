@@ -1,0 +1,50 @@
+Résumé complet de l'offre d'emploi - Développeur Python/Odoo (H/F/X)
+📋 Informations générales
+Référence: Forem 1621054
+Employeur: TALENTUS (agence de travail temporaire)
+Client final: Entreprise spécialisée dans les cuisines personnalisées
+Localisation: Rhisnes (avec déplacements réguliers en Belgique et au Luxembourg)
+Type de contrat: CDI (Contrat à Durée Indéterminée)
+Régime: Temps plein (39h/38h par semaine)
+Date limite de candidature: 25 décembre 2025
+🎯 Le poste
+Missions principales
+Vous serez responsable du développement, de la maintenance et de l'optimisation des solutions Odoo de l'entreprise. Vos missions incluent :
+Développer et maintenir des modules Odoo en Python avec un focus sur la qualité et la performance du code
+Collaborer avec les équipes métiers pour analyser leurs besoins et proposer des solutions techniques adaptées
+Concevoir, optimiser et gérer des bases de données SQL et XML
+Participer à l'intégration et à la gestion d'outils Azure (Logic Apps, Azure Data Factory, etc.)
+Assurer le suivi et la documentation technique des projets ERP
+Effectuer une veille technologique et proposer des améliorations ou innovations
+👤 Profil recherché
+Formation et expérience
+Formation: Bachelier/Master en informatique ou équivalent
+Expérience: 2 à 3 ans en développement Python/Odoo
+Compétences techniques requises
+Maîtrise de Python et des modules Odoo
+Bonnes connaissances en SQL, XML et environnements Linux
+Connaissances en C# et outils Azure (Logic Apps, Azure Data Factory) appréciées
+Compétences linguistiques
+Français: Niveau C2 (Expert) - Exigé
+Anglais: Niveau B2 minimum (Avancé) - Exigé - pour lire la documentation technique et échanger avec des interlocuteurs étrangers
+Qualités personnelles
+Autonomie et rigueur
+Capacité à travailler en équipe
+Aptitude à comprendre les besoins métiers et à proposer des solutions adaptées
+Passion pour le développement et les projets stimulants
+💼 Ce qui est offert
+Avantages
+Contrat CDI stable
+Chèques repas
+Voiture de société
+Entreprise à taille humaine avec une culture familiale
+Environnement de travail agréable et propice à l'épanouissement
+Possibilités d'évolution en interne
+Horaires
+Temps plein: 39h/38h par semaine
+📞 Comment postuler
+Personne de contact: Mme. Caroline Remacle
+Coordonnées:
+Email: caroline.remacle@talentus.be
+Téléphone: +32 10 247 703
+Période de diffusion: Du 13 novembre au 25 décembre 2025

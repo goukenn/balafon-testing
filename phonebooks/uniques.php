@@ -3,9 +3,7 @@
 // @filename: uniques.php
 // @date: 20251221 14:08:43
 // @desc: test uniques all phone book
-
 // @command: balafon --run .test/phonebooks/uniques.php
- 
 use IGK\Database\DbQueryCondition;
 use IGK\Database\Macros\PhoneBooksMacros;
 use IGK\Helper\JSon;
@@ -16,7 +14,6 @@ use IGK\Models\PhoneBookTypes;
 use IGK\Services\IAppService;
 use IGK\System\Console\Logger;
 use IGK\System\Database\IPhoneBookDetailVisitor;
-
 class MyVisitor implements IPhoneBookDetailVisitor
 {
     var $name;
@@ -26,7 +23,6 @@ class MyVisitor implements IPhoneBookDetailVisitor
     {
         $this->name = $t;
     }
-
     public function visit(string $propertyName, $value, $oldvalue, $p = null)
     {
         $s = $this->d . ' ' . $this->x;
@@ -37,7 +33,6 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
 {
     var $x;
     var $y;
-
     public function getConfigurableProperties(): array
     {
         return [
@@ -45,7 +40,6 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
             'y'
         ];
     }
-
     public function init($configs = null): bool
     {
         if ($configs) {
@@ -62,13 +56,11 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
         if (isset($oldvalue)) {
             // check for cardinality 
             // Logger::info('cardinality ...');
-
             $g = $oldvalue;
             if (!is_array($g)) {
                 $g = [$g];
             }
             $g[] = $v;
-
             if ($cardinality > 0) {
                 if (count($g) > $cardinality) {
                     igk_die('detail exceeds');
@@ -79,9 +71,7 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
         return $this->x.':'.$v;
     }
 }
-
 IGKServices::Register(IPhoneBookDetailVisitor::class, V2D::class);
-
 $uniques = [];
 $T1 = PhoneBooks::class;
 $cond = [];
@@ -125,9 +115,6 @@ foreach ($rows as $r) {
 ksort($duplicate);
 // echo JSon::Encode($duplicate, JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 // echo "\n";
-
-
-
 $bsic = [];
 foreach ($duplicate as $c) {
     $q = $c->first;
@@ -149,6 +136,5 @@ foreach ($duplicate as $c) {
     }
 }
 // igk_wln_e(count($uniques), count($rows), $duplicate);
-
 Logger::success('done');
 exit;

@@ -4,31 +4,26 @@
 // @date: 20250722 19:03:24
 // @desc: get all library constants
 // @command: balafon --run test/php/reflector/all-constants.php
-
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
-
 $n = 'sample';
 define($n, "12");
 $regex = new RegexMatcherContainer;
 $block = $regex->begin('<\?php\\b', '(\?>)', 'php-start')->last();
 $regex->autoStore = false;
-
 $tc = [
     $regex->appendStringDetection('string',true)->last(),
     $regex->appendMultilineComment()->last(),
     $regex->appendSingleLineComment()->last(),    
 ];
 RegexMatcherUtility::AppendPhpHereDoc($regex, $tc);
-
 $patterns = [
   ...$tc
 ];
 $cond = $regex->createPattern(['begin'=>'\(', 'end'=>'\)','tokenID'=>'cond']); 
 $defined = $regex->begin('(?=\\bdefine\\b)', '(?<=\))', 'defined')->last();
-
 $subblock = $regex->createPattern(['begin'=>'\(', 'end'=>'\)','tokenID'=>'subblock']);
 $subblock->patterns = [
     ...$tc,
@@ -47,12 +42,9 @@ $defined->patterns = [
     $regex->createPattern(['match'=>"\\bdefine\\b", 'tokenID'=>'s-define']),
     ...$tc,
     $cond,
-    
 ];
-
 $patterns[] = $defined;
 $regex->autoStore = true;
-
 $block->patterns = $patterns;
 $constants = [];
 $dir = igk_getv($params, 0) ?? IGK_LIB_DIR; 
@@ -87,7 +79,6 @@ IO::GetFiles($dir, function($f)use($regex, & $constants){
                         igk_io_collapse_path($f)
                         );
                     }
-
                     $constants[$cc] = 1;
                 } else{
                     igk_is_debug() && Logger::warn('/!\ defined litteral '. $e->value);
@@ -98,20 +89,15 @@ IO::GetFiles($dir, function($f)use($regex, & $constants){
             if ( $start && ($e->tokenID=='string')){
                 $litteral[] = $e->value;
             }
-          
         }
     };
-
     //  throw new Exception("d");
 }, true);
 }
 catch(\Exception $ex){
-
 }
-
 $constants = array_keys($constants);
 sort($constants);
-
 echo json_encode(compact('constants'), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), PHP_EOL;
 Logger::success('done');
 igk_exit();

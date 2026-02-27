@@ -4,7 +4,6 @@
 // @date: 20250731 10:57:27
 // @desc: show usage of global html formatter
 // @command: balafon --run .test/module/igk.phpFormatter/format_2_html.php
-
 use IGK\Helper\JSon;
 use IGK\Helper\JSonEncodeOption;
 use IGK\Helper\StringUtility;
@@ -24,17 +23,13 @@ use IGK\System\Text\IReplaceCapturedFormatDefinition;
 use IGK\System\Text\RegexMatcherCapture;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherPattern;
-
 use function igk_html_host as _h; 
-
 class CodeToHtmlFormatter extends FormattersCodeToHtmlFormatter
 {
 }
-
 $regex = new RegexMatcherContainer;
 $regex->patternCreatorClass = FormatterPattern::class; 
 // include __DIR__.'/format_2_html.regex.definition.pinc';
-
 // Logger::info('export - source');
 // $c = $regex->export('source.php');
 // echo JSon::Encode($c, JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT);
@@ -43,10 +38,7 @@ $regex->patternCreatorClass = FormatterPattern::class;
  * @var ?IPHPFormatterModule
  */
 $mod = igk_require_module('igk/phpFormatter');
-
 $regex = $mod->getFormatRegexContainer('source.php');
-
-
 $engine = new CodeToHtmlFormatter();
 $engine->autoFormat = true;
 $engine->showLine = true;
@@ -54,12 +46,10 @@ $engine->baseLanguage = 'php';
 $engine->lineSplitter = '😒';
 $engine->viewLine = true;
 $regex->setEngineInfo(new CodeFormatterFormatterEngineInfo($engine) );
-
 $src = 'hello';
 $transform = $engine->exec($regex, $src, true); 
 igk_wln($transform);
 igk_exit();
-
 echo "<!DOCTYPE html>";
 // alternative to convert bmstring - 
 // echo mb_convert_encoding(''.
@@ -208,12 +198,10 @@ CSS);
     'charset' => 'UTF8',
     'locale' => 'en'
 ])
-
     // ,
     // 'UTF8',
     // 'UTF8',
     //  )
 ;
-
 Logger::success('done');
 igk_exit();

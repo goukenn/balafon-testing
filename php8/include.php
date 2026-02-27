@@ -838,4 +838,3 @@ return [
     "/Volumes/Data/Dev/PHP/balafon2/src/Lib/igk/Lib/Classes/Css/IGKCssColorHost.php",
     "/var/www/html/sites/balafon/.test/php8/anonymous_class.php"
 ];
-

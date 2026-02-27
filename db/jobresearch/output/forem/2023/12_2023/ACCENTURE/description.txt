@@ -1,0 +1,39 @@
+Document généré le 
+Le Forem — https://www.leforem.be/recherche-offres/offre-detail/1377886
+Analyste développeur ERP (f/m/x) (H/F/X)
+Référence Le Forem : 1377886 Date de mise à jour : 
+VLEVIA
+Transformation et conservation de la viande de boucherie, à l'exclusion de la viande de volaille
+Type de contrat
+Durée indéterminée
+Lieux de travail
+Mouscron
+Régime de travail
+Temps plein
+Langue(s)
+FR, EN
+Nombre de poste(s) : 1
+Le Groupe JG&V exerce l’activité de grossiste en viandes ainsi que l’activité de transport et logistique. Le groupe est
+actif dans la production et la transformation de produits à base de viande à destination de la grande distribution, des
+grossistes, des boucheries, des collectivités et des restaurants, etc. L’activité ferme consiste en l’élevage et
+l’engraissement de bétail, ainsi qu’au commerce de bétail vivant. Enfin, l’activité de transport et de logistique porte sur
+toute sorte de produits mais principalement des produits réfrigérés.
+Le Groupe commercialise des produits innovants, de qualité et savoureux et est à l’écoute de ses clients durant tout le
+processus de production du produit final.
+Poste à pourvoir
+Responsabilités et missions
+Pour notre société VLEVIA, faisant partie de JG&V Group actif dans le secteur de la viande et du transport
+(www.jeangotta.be, www.vlevia.be, www.tlv.lu), nous recherchons un
+Analyste développeur ERP (f/m/x) qui rapportera au Responsable IT Group et qui travaillera en étroite
+collaboration avec notre fournisseur ERP, Sita Software
+Missions principales :
+1. Développement ERP : Participer à la conception, personnalisation et maintenance d’un système ERP.
+Collaborer avec les relais ERP sur le terrain et le comité de décision pour assurer la performance des
+solutions ERP
+2. Analyse et Développement : Travailler sur l'analyse des besoins métiers et participer à la création de
+nouvelles fonctionnalités et applications en fonction des spécifications des utilisateurs
+3. Rédaction de Documentation : Rédiger des documents techniques pour usage interne, tels que des guides
+utilisateurs et des procédures d'exploitation, afin de mutualiser les connaissances du service support
+4. Garde IT : Participer au service de garde (une semaine sur deux) pour assurer la continuité des services
+informatiques en dehors des heures normales
+5. Support Helpdesk : Assurer le support technique de premier et deuxième niveau pour l’ERP et les inciden

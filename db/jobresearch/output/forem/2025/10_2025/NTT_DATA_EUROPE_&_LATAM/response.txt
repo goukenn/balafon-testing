@@ -1,0 +1,10 @@
+Object: confirmation de la réception de la candidature - .NET developer - C#/ Laravel/ .NET
+Bonjour,
+
+Nous accusons bonne réception de votre CV et vous en remercions.
+
+Celui-ci sera examiné attentivement dans les plus brefs délais.
+
+Sans retour de notre part, cela indiquera que votre profil ne correspond pas à nos besoins actuels. Néanmoins, il sera conservé dans notre réserve de recrutement pour de futures opportunités.
+
+A bientôt,

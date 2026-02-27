@@ -1,14 +1,8 @@
 <?php
-
-
 namespace  treenitySolutions\Actions;
-
 use IGK\Actions\ActionBase;
-
 class ActionHandler extends ActionBase {
 	private static $sm_instance;
-	 
-	
 	///.get instance
 	public static function getInstance($ctrl=null){
 		if (!self::$sm_instance){
@@ -17,17 +11,11 @@ class ActionHandler extends ActionBase {
 		}
 		return self::$sm_instance ;
 	}
-	
 	///.ctr
 	private function __construct(){
 	}
-	
-	
 	public function question(){
 		if(igk_qr_confirm()){
-			
 		}
 	}
-	
-	
 }

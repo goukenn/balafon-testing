@@ -1,9 +1,7 @@
 <?php
-
 // check syntaxex 
 // @command: balafon --run .test/module/igk.phpFormatter/check.php
 use IGK\System\Text\RegexMatcherContainer;
-
 $regex = new RegexMatcherContainer;
 // if null = consider to read until of the current line:
 // $regex->begin('function\\b((\\s*&\\s+)|(\\s+))([a-zA-Z_][a-zA-Z0-9_]*)', null);
@@ -27,7 +25,6 @@ $c = $regex->begin('function\\b((\\s*&\\s+)|(\\s+))\\b([a-zA-Z_][a-zA-Z0-9_]*)\\
 // $curl->patterns = [
 //     $curl
 // ];
-
 $_start = $regex->createPattern(['match'=>'{', 'tokenID'=>'curl-start']);
 $_end = $regex->createPattern(['match'=>'}', 'tokenID'=>'curl-end']);
 $_sub_curl = $regex->createPattern(['begin'=>'(?<=\{)', 'end'=>'(?=\})', 'tokenID'=>'sub-curl']);
@@ -51,8 +48,6 @@ $c->patterns = [
          'match'=>'(?<=\})'
     ]),
 ];
-
-
 $src = implode("\n", [
     // 'function sample de jour comme de nuit',
     // 'avec la bordure',
@@ -66,7 +61,6 @@ $src = implode("\n", [
     'function data()',
     'sdata s ;',
     'function info(){}',
-
 ]);
 $pos = 0;
 while ($g = $regex->detect($src, $pos)) {

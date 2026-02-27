@@ -1,15 +1,12 @@
 <?php
-
 // @author: C.A.D. BONDJE DOUE
 // @filename: zip_site.php
 // @date: 20250913 16:16:21
 // @desc: zip site
 // @command: balafon --run .test/tools/zip_site.php
 // @balafon-command: zipsite
-
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
-
 $dir = igk_getv(
     $params,
     0
@@ -64,7 +61,6 @@ if ($zip->open($v_odir, ZipArchive::OVERWRITE | ZipArchive::CREATE)) {
         ) {
             return;
         }
-
         if (($bf = realpath($f)) != $f) {
             if (false === $bf) {
                 return;
@@ -95,7 +91,5 @@ if ($zip->open($v_odir, ZipArchive::OVERWRITE | ZipArchive::CREATE)) {
         "compression" => sprintf('%s%%', round((100 * $fsize) / $T)),
     ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), PHP_EOL;
 }
-
-
 Logger::success('complete');
 igk_exit(1, 0);

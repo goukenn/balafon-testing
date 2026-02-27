@@ -1,0 +1,8 @@
+Object: Candidature au poste de Programista front-end
+
+Merci d'avoir posé votre candidature au poste de Programista front-end
+Nous avons bien reçu votre candidature.
+Nous vous tiendrons au courant de la suite de la procédure.
+
+Cordialement,
+L'équipe de HR
