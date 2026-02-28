@@ -387,12 +387,13 @@ function igk_html_node_list($items, $callback = null, $ordered = 0)
     }
     return $n;
 }
-
 /**
-* auto generate doc.
-* @param mixed $name
-*/
-function igk_html_node_usesvg($name)
+ * use registrated svg file  
+ * @param string $name 
+ * @return HtmlItemBase 
+ * @throws IGKException 
+ */
+function igk_html_node_usesvg(string $name)
 { 
     $s = igk_create_node("span");
     $s->Content = igk_svg_use($name);    
@@ -902,6 +903,9 @@ function igk_html_node_ajxpickfile(string $uri, ?string $param = null)
     $param && $u->setAttributes(["igk:data" => $param]);
     return $u;
 }
+///<summary>create winui-ajxreplacecontent</summary>
+///<param name="uri"></param>
+///<param name="method"></param>
 /**
  * create winui-ajxreplacecontent
  * @param mixed $uri
@@ -915,6 +919,8 @@ function igk_html_node_ajxreplacecontent($uri, $method = "GET")
     $n->setCallback("AcceptRender", "igk_html_callback_replacecontent_acceptrender");
     return $n;
 }
+///<summary>create winui-ajxreplacesource</summary>
+///<param name="selection"></param>
 /**
  * create winui-ajxreplacesource
  * @param mixed $selection
@@ -926,6 +932,8 @@ function igk_html_node_ajxreplacesource($selection)
     $n["igk:data"] = $selection;
     return $n;
 }
+///<summary>create winui-ajxupdateview</summary>
+///<param name="cibling"></param>
 /**
  * create winui-ajxupdateview
  * @param mixed $cibling
@@ -937,6 +945,9 @@ function igk_html_node_ajxupdateview($cibling)
     $n["igk:target"] = $cibling;
     return $n;
 }
+///<summary>append item that will be used for uri loader</summary>
+///<param name="uri">uri to load async</param>
+///<param name="append">append result to parent node</param>
 
 /**
 * auto generate doc.
@@ -953,6 +964,7 @@ function igk_html_node_ajxuriloader($uri, $append = 0)
     }
     return $n;
 }
+///<summary>used to render data</summary>
 /**
  * used to render data
  */
@@ -970,6 +982,10 @@ function igk_html_node_arraydata($tab)
     }
     return $n;
 }
+///<summary>create winui-arraylist</summary>
+///<param name="list"></param>
+///<param name="tag"></param>
+///<param name="callback"></param>
 /**
  * create winui-arraylist
  * @param mixed $list
@@ -988,6 +1004,7 @@ function igk_html_node_arraylist($list, $tag = "li", $callback = null)
     }
     return $n;
 }
+///<summary>bind article</summary>
 /**
  * bind article - article
  */
@@ -1010,6 +1027,7 @@ function igk_html_node_article(?BaseController $ctrl=null, ?string $name=null, $
 function igk_html_node_webarticle(){
     return igk_create_node("article");
 }
+///<summary>create winui-backgroundlayer</summary>
 /**
  * create winui-backgroundlayer
  */
@@ -1022,6 +1040,8 @@ function igk_html_node_backgroundlayer($imgPath = null)
     }
     return $n;
 }
+///<summary></summary>
+///<param name="v"></param>
 
 /**
 * auto generate doc.
@@ -1034,6 +1054,8 @@ function igk_html_node_badge($v)
     $n->setContent($v);
     return $n;
 }
+///<summary>create winui-balafonjs</summary>
+///<param name="autoremove"></param>
 /**
  * create winui-balafonjs
  * @param mixed $autoremove
@@ -1051,6 +1073,11 @@ function igk_html_node_balafonComponentJS()
 {
     return new \IGK\System\Html\Dom\HtmlBalafonJSComponentNode();
 }
+///<summary>create winui-bindarticle</summary>
+///<param name="ctrl"></param>
+///<param name="name"></param>
+///<param name="data"></param>
+///<param name="showAdminOption"></param>
 /**
  * create winui-bindarticle
  * @param mixed $ctrl
@@ -1064,6 +1091,10 @@ function &igk_html_node_bindarticle($ctrl, $name, $data = null, $showAdminOption
     igk_html_binddata($ctrl, $n, $name, $data, true, true, $showAdminOption);
     return $n;
 }
+///<summary>create winui-bindcontent</summary>
+///<param name="content"></param>
+///<param name="entries"></param>
+///<param name="ctrl"></param>
 /**
  * create winui-bindcontent
  * @param mixed $content
@@ -1076,6 +1107,7 @@ function igk_html_node_bindcontent($content, $entries, $ctrl = null)
     $n->Content = igk_html_bind_content($ctrl, $content, $entries);
     return $n;
 }
+///<summary>create winui-blocknode</summary>
 /**
  * create winui-blocknode
  */
@@ -1107,6 +1139,7 @@ function igk_html_node_submit($name = null, $value = null, $type = "submit")
     $n["value"] = $value;
     return $n;
 }
+///<summary>create winui-bodybox</summary>
 /**
  * create winui-bodybox
  */
@@ -1116,6 +1149,11 @@ function igk_html_node_bodybox()
     $n["class"] = "igk-bodybox fit igk-parentscroll igk-powered-viewer overflow-y-a";
     return $n;
 }
+///<summary>create winui-btn</summary>
+///<param name="name"></param>
+///<param name="value"></param>
+///<param name="type"></param>
+///<param name="attributes"></param>
 /**
  * create winui-btn
  * @param mixed $name
@@ -1132,6 +1170,7 @@ function igk_html_node_btn($name, $value, $type = "submit", $attributes = null)
     $btn["class"] = "cl" . $type;
     return $btn;
 }
+///<summary>build select node</summary>
 /**
  * build select node
  */
@@ -1148,6 +1187,7 @@ function igk_html_node_buildselect($name, $rows, $idk, $callback = null, $select
     }
     return $sl;
 }
+///<summary>create winui-bullet</summary>
 /**
  * create winui-bullet
  */
@@ -1157,6 +1197,7 @@ function igk_html_node_bullet()
     $n->setClass("igk-bullet");
     return $n;
 }
+///<summary>create a button </summary>
 /**
  * create a button
  */
@@ -2531,7 +2572,7 @@ function igk_html_node_jsscript($file, $minify = false)
  * @param mixed $for
  * @param mixed $key
  */
-function igk_html_node_label(?string $for = null, ?string $key = null)
+function igk_html_node_label($for = null, $key = null)
 {
     $n = new HtmlNode("label");
     $n["for"] = $for;
@@ -5297,13 +5338,13 @@ function igk_html_node_toggleThemeButton(?string $tag=null){
     return $c;
 }
 /**
- * inject option option to pass
+ * helper: create script to inject js options
  * @param mixed $name 
  * @param mixed $options js_inline script to pass
  * @return HtmlItemBase 
  * @throws IGKException 
  */
-function igk_html_node_jsscript_options($name, $options){
+function igk_html_node_jsscript_options(string $name, string $options){
     $n = igk_create_node('script'); 
     $n->Content = sprintf('igk.system.defineOption("%s", %s)',$name, $options);
     return $n;

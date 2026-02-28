@@ -9,69 +9,101 @@ use IGK\System\Console\Logger;
 */
 class MozCacheRow
 {
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $creationTime;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $expiry;
+
     /**
-     * @var string
-     */
+    * auto generate doc.
+    * @var string
+    */
     var $host;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $id;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $inBrowserElement;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $isHttpOnly;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $isPartitionedAttributeSet;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $isSecure;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $lastAccessed;
+
     /**
-     * @var string
-     */
+    * auto generate doc.
+    * @var string
+    */
     var $name;
+
     /**
-     * @var string
-     */
+    * auto generate doc.
+    * @var string
+    */
     var $originAttributes;
+
     /**
-     * @var string
-     */
+    * auto generate doc.
+    * @var string
+    */
     var $path;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $rawSameSite;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $sameSite;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $schemeMap;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $value;
 }
 $cf = __DIR__ . '/sampl.sqlite';

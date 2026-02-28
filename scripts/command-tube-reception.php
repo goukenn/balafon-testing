@@ -3,9 +3,9 @@
 // @filename: command-tube-reception.php
 // @date: 20250905 11:39:56
 // @desc: script to handle tbe command 
-// @command: balafon --run .test/scripts/command-tube-reception.php
+// @command: | balafon --run .test/scripts/command-tube-reception.php
 // @balafon-command: tube
-// @balafon-example: 
+// @balafon-example: balafon --find src/application/Projects '\.jp(e)?g$' | balafon --run .test/scripts/command-tube-reception.php shell rm  
 use IGK\Helper\IO;
 use IGK\System\Console\App; 
 use IGK\System\Console\Logger;
@@ -16,12 +16,13 @@ $is_debug = igk_is_debug('cli-tube');
 !defined('IGK_FRAMEWORK') && igk_die('missing framework');
 if (!isset($command)) {
     igk_die('$command is missing');
-} 
+}
+
 /**
- * 
- * @param callable $r 
- * @return void 
- */
+* auto generate doc.
+* @param callable $r
+* @return void
+*/
 function _treat_std_in(callable $r)
 {
     $sb = '';
@@ -91,7 +92,7 @@ $invocation_command = [
         $exec = implode(' ', func_get_args());
         _treat_std_in(function (string $v) use ($exec) {
             foreach (explode("\n", $v) as $l) {
-                if (empty($v)) continue;
+                if (empty($l)) continue;
                 $c = escapeshellarg($l);
                 echo `$exec $c`;
             }

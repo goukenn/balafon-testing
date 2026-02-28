@@ -130,6 +130,12 @@ class BalafonCompile2Test extends BalafonCompileBase
         self::$sm_tempdir = $sdir;
         igk_io_w2file($sdir . "View/test.pinc", file_get_contents(__DIR__ . "/.testfiles/test.pinc"));
     }
+
+    /**
+    * auto generate doc.
+    * @param string $src
+    * @param null|array $variables
+    */
     private function __compiler_source(string $src, ?array $variables=null)
     {
         $compiler = new BalafonViewCompiler2;

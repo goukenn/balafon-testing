@@ -4,13 +4,13 @@ use IGK\Helper\Activator;
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
-// because some time we want to create a string declaration type 
+// because some time we want to create a string declaration type
+
 /**
- * 
- * @package
- * @property string $name
- * @property string $id anned
- */
+* auto generate doc.
+* @package 1
+* @property string $id anned
+*/
 interface ILocalization{
 }
 

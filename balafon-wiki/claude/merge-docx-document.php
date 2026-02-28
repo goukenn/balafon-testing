@@ -4,12 +4,12 @@
 // + |
 // @command: balafon --run .test/balafon-wiki/claude/merge-docx-document.php
 use IGK\Helper\IO;
+
 /**
- * 
- * @param array $files 
- * @param string $output 
- * @return void 
- */
+* auto generate doc.
+* @param string $output
+* @return void
+*/
 function mergeDocxManual(array $files, string $output) {
     $zip = new ZipArchive();
     $mainContent = '';

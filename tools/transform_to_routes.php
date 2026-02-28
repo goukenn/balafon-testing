@@ -31,11 +31,12 @@ class AppAction
     public function users()
     {
     }
+
     /**
-     * 
-     * @param int $id 
-     * @return VueRouteResponse 
-     */
+    * auto generate doc.
+    * @param int $id
+    * @return VueRouteResponse
+    */
 
     public function list_get(int $id = 8)
     {

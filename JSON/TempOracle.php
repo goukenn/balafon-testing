@@ -18,9 +18,10 @@ class TempOracle{
     * @var mixed
     */
     var $title;
+
     /**
-     * @JSonBindAsAnnotation(arrayOf<TempOracle>)
-     * @var mixed
-     */
+    * auto generate doc.
+    * @var mixed
+    */
     var $childs;
 }

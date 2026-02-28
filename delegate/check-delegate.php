@@ -8,13 +8,12 @@ use IGK\System\Delegate;
 * auto generate doc.
 */
 class ActionListener extends Delegate{
+
     /**
-     * 
-     * @param null|int $x some data 
-     * @param null|int $y inline y
-     * @return void 
-     * @throws Exception 
-     */
+    * auto generate doc.
+    * @param null|int $y inline y
+    * @return void
+    */
     public function __invoke(?int $x=null, ?int $y=null){
         igk_assert_die((($c =func_num_args())!=2), sprintf('require parameters: %s got %s', 2, $c));
         call_user_func_array([parent::class, __FUNCTION__], func_get_args());

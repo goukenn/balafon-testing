@@ -22,15 +22,12 @@ function igk_regex_order_captures($captures)
     }
 }
 if (!function_exists('igk_regex_treat_capture')) {
+
     /**
-     * 
-     * @param mixed $tab 
-     * @param mixed $capture_info 
-     * @param mixed $capture 
-     * @param callable(string $v, ICaptureInfo $cap) $callable 
-     * @return void 
-     * @throws Exception 
-     */
+    * auto generate doc.
+    * @param callable(string $v
+    * @return void
+    */
     function igk_regex_treat_capture(string $source_value, int $offset, $capture_info, $capture, $callable) {
         return RegexTreatCapture::TreatCapture($source_value, $offset, $capture_info, $capture, $callable);
     }
@@ -64,9 +61,11 @@ $l = RegexTreatCapture::CreateFromRegexResult($tab, [
         return '<p>'.$v.'</p>';
     },
     'type'=>function($cap){
-        /**
-         * @var \IGK\System\Text\IRegexCaptureInfo $cap
-         */  
+
+    /**
+    * auto generate doc.
+    * @var \IGK\System\Text\IRegexCaptureInfo $cap
+    */  
         $n = igk_create_node('div');
         $n['class'] = 'card card-'.$cap->value;
         $n->text('@'.$cap->value);

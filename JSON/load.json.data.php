@@ -18,13 +18,29 @@ if (!class_exists('A', false)) {
 /**
 * auto generate doc.
 */
-class A
+
+    /**
+    * auto generate doc.
+    * @package
+    */
+
+    /**
+    * auto generate doc.
+    * @package
+    */
+
+    /**
+    * auto generate doc.
+    * @package test
+    * @author C.A.D. BONDJE DOUE
+    */
+    class A
     {
+
         /**
-         * 
-         * @var mixed
-         * @JSonBindAsAnnotation(mixed, required=true)
-         */
+        * auto generate doc.
+        * @var mixed
+        */
         var $name;
 
         /**
@@ -32,25 +48,29 @@ class A
         * @var mixed
         */
         var $title;
+
         /**
-         * @JSonBindAsAnnotation(version)
-         * @var mixed
-         */
+        * auto generate doc.
+        * @var mixed
+        */
         var $version;
+
         /**
-         * @JSonDecodeAs(\Cars[])
-         * @var mixed
-         */
+        * auto generate doc.
+        * @var mixed
+        */
         var $cars;
+
         /**
-         * @JSonBindAsAnnotation(array)
-         * @var mixed
-         */
+        * auto generate doc.
+        * @var mixed
+        */
         var $local;
+
         /**
-         * @JSonBindAsAnnotation(arrayOf<TempOracle>)
-         * @var mixed
-         */
+        * auto generate doc.
+        * @var mixed
+        */
         var $siri;
 
         /**

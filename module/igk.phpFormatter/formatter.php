@@ -104,16 +104,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         $this->tabStop = '-123';
         $this->initFlags($this->flags);
     }
+
     /**
-     * 
-     * @param StringBuilder $builder 
-     * @param igk\phpFormatter\IFormatterInfo $info 
-     * @param string $before 
-     * @param string $data 
-     * @param int $at 
-     * @return void 
-     * @throws Exception 
-     */
+    * auto generate doc.
+    * @param int $at
+    * @return void
+    */
 
     public function build(StringBuilder $builder, IFormatterInfo $info, string $before, string $data, int $at)
     {
@@ -415,11 +411,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return $s;
     }
+
     /**
-     * 
-     * @param mixed $e 
-     * @return string 
-     */
+    * auto generate doc.
+    * @param mixed $e
+    * @return string
+    */
 
     protected function _treatReplacement($e): string
     {
@@ -590,21 +587,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
         }
         return $chains;
     }
+
     /**
-     * 
-     * @param string $value 
-     * @param array $mark 
-     * @param int $start 
-     * @param mixed $builder 
-     * @param bool $glue 
-     * @return string 
-     * @throws Exception 
-     * @throws Error 
-     * @throws IGKException 
-     * @throws CssParserException 
-     * @throws ArgumentTypeNotValidException 
-     * @throws ReflectionException 
-     */
+    * auto generate doc.
+    * @param bool $glue
+    * @return string
+    */
 
     public static function UpdateMarkedValue(string $value, array $mark, int $start, $builder, bool $subchain)
     {
@@ -907,11 +895,12 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
     {
         return PHPFormatterConditionalInfo::CreateConditionalInfo($word);
     }
+
     /**
-     * 
-     * @param string $word 
-     * @return bool 
-     */
+    * auto generate doc.
+    * @param string $word
+    * @return bool
+    */
 
     static function RequireConditionalParent(string $word): bool
     {

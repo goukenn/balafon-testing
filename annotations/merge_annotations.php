@@ -15,16 +15,17 @@ $_globals_security_schemes = [];
  */
 class Sample
 {
+
     /**
-     * @return void 
-     */
+    * auto generate doc.
+    * @return void
+    */
     function actions() {}
 }
+
 /**
- *  
- * @AnnotationInfo(multiple=false)
- * @package 
- */
+* auto generate doc.
+*/
 class BAnnotation extends AnnotationBase
 {
 
@@ -46,12 +47,12 @@ class BAnnotation extends AnnotationBase
     */
     var $description;
 }
+
 /**
- * 
- * @param string $class_or_name 
- * @param array &$tab 
- * @return void 
- */
+* auto generate doc.
+* @param array &$tab
+* @return void
+*/
 function global_action_list(string $class_or_name, &$tab)
 {
     $ref = igk_sys_reflect_class($class_or_name) ?? new ReflectionClass($class_or_name);

@@ -48,10 +48,10 @@ class PayPalPayment implements IPaymentService
     {
         igk_wln('start payment with paypal');
     }
+
     /**
-     * 
-     * @return \IGK\System\Services\IAppServiceProperty[] 
-     */
+    * auto generate doc.
+    */
 
     public function getConfigurableProperties(): array
     {

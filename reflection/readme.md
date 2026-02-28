@@ -2,11 +2,11 @@
 
 
 ```bash
-balafon --run .test/reflection/generate_framework_metadata.php --dir:.test/reflection/autoinject_docsphp --update-doc
+balafon --run .test/reflection/command-generate_framework_metadata.php --dir:.test/reflection/autoinject_docsphp --update-doc
 ```
 
 ```bash
-balafon --run .test/reflection/generate_framework_metadata.php  --update-doc
+balafon --run .test/reflection/command-generate_framework_metadata.php  --update-doc
 ```
 
 

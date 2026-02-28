@@ -123,6 +123,11 @@ class LocalClient implements IHttpClient{
         $doc->getBody()->Content = $content;
         return $doc->render();
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $doc
+    */
     private function _disableSetting($doc){
         $doc->noCoreCss = true;
         $doc->noCoreScript = true;

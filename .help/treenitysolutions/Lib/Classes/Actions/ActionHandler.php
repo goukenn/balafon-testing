@@ -27,7 +27,11 @@ class ActionHandler extends ActionBase {
 		return self::$sm_instance ;
 	}
 	///.ctr
-	private function __construct(){
+
+    /**
+    * .ctr
+    */
+    private function __construct(){
 	}
 
     /**

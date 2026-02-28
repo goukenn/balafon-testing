@@ -6,9 +6,11 @@ $ctrl = bantubeatController::ctrl();
 $g = "data";
 $sb = new StringBuilder;
 $n = new MailDocument();
+
 /**
- * @var mixed $m
- */
+* auto generate doc.
+* @var mixed $m
+*/
 $n->article($ctrl,'registrationMail', new DataArgs([
     'firstName'=>$g,
     'activate_uri'=>$ctrl->getAppUri("api/users/activate"),

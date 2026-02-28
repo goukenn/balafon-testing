@@ -39,9 +39,11 @@ $book_title = igk_getv($params, 1) ?? 'BALAFON';
  * @property ?string $path
  */
 interface IRtfBulletReference {}
+
 /**
- * @return IRtfBulletReference
- */
+* auto generate doc.
+* @return IRtfBulletReference
+*/
 function getBulletRefererence(string $s, $separator = RtfConstants::BulletSeparator)
 {
     return RtfUtility::BulletPlaceHolderInfo($s, $separator);
@@ -71,10 +73,10 @@ function getBulletRefererence(string $s, $separator = RtfConstants::BulletSepara
 // igk_wln("?" , buildPlaceHolder("A"));
 // igk_wln("?" , $a->level);
 // igk_exit();
+
 /**
- * 
- * @package 
- */
+* auto generate doc.
+*/
  
 $doc = new RtfDocument();
 

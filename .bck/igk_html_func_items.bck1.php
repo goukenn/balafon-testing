@@ -46,13 +46,12 @@ require_once(IGK_LIB_DIR . "/igk_html_utils.php");
 function igk_html_node_dl(){
     return new \IGK\System\Html\Dom\HtmlDocumentListNode();
 }
- /**
-  * 
-  * @param bool $condition 
-  * @param mixed $args 
-  * @return HtmlAssertNode 
-  * @throws IGKException 
-  */
+
+/**
+* auto generate doc.
+* @param mixed $args
+* @return HtmlAssertNode
+*/
 function igk_html_node_assertnode(bool $condition,  ...$args){
     if (!($p = igk_html_parent_node())){
         igk_die("assert node must be set to a parent");
@@ -116,12 +115,12 @@ function igk_file_content($file)
 {
     return file_get_contents($file);
 }
+
 /**
- * 
- * @param string $hook 
- * @param mixed $args 
- * @return HtmlNoTagNode 
- */
+* auto generate doc.
+* @param mixed $args
+* @return HtmlNoTagNode
+*/
 function igk_html_node_yield(string $hook, ...$args)
 {
     $n = igk_html_node_notagnode();
@@ -144,11 +143,11 @@ function igk_html_node_text($txt = null)
 ///<summary></summary>
 ///<param name="menuList"></param>
 ///<param name="selected"></param>
+
 /**
- * 
- * @param mixed $menuList
- * @param mixed $selected
- */
+* auto generate doc.
+* @param mixed $selected
+*/
 function igk_html_node_configsubmenu($menuList, $selected)
 {
     $ul = igk_create_node("ul")->setClass("igk-cnf-content_submenu");
@@ -552,15 +551,12 @@ function igk_html_node_menus($items, $callback=null, $subtag = "ul", $item = "li
     igk_html_build_menu($node, $items, $callback, null, null, $item, $subtag);
     return $node;
 }
+
 /**
- * 
- * @param mixed $items 
- * @param mixed $engine 
- * @param string $tag 
- * @param string $item 
- * @return HtmlItemBase<mixed, string> 
- * @throws IGKException 
- */
+* auto generate doc.
+* @param string $item
+* @return HtmlItemBase<mixed
+*/
 function igk_html_node_accordeon_menus($items, $engine=null, $tag="ul", $item="li"){
     $n = igk_html_node_menus($items, $engine, $tag, $item);
     $n->balafonjs()->Content = "igk.winui.menu.accordeonMenu.init(igk.getParentScript());";
@@ -674,14 +670,12 @@ function igk_html_node_abbr($title = null)
 }
 ///<summary>create winui-abtn</summary>
 ///<param name="uri"></param>
+
 /**
- * 
- * @param string $uri target reference
- * @param string $type button type
- * @param string $role role 
- * @return HtmlItemBase<mixed, string> 
- * @throws IGKException 
- */
+* auto generate doc.
+* @param string $role role
+* @return HtmlItemBase<mixed
+*/
 function igk_html_node_abtn($uri = "#", $type = "default", $role = "button")
 {
     $n = igk_create_node("a");
@@ -779,9 +773,11 @@ function igk_html_node_ajsbutton($code, $type = 'default')
     return $n;
 }
 ///<param name="options">JSON Options</param>
+
 /**
- * @param mixed $optionsJSON Options
- */
+* auto generate doc.
+* @param mixed $optionsJSON Options
+*/
 function igk_html_node_ajspickfile($u, $options = null)
 {
     $n = igk_create_node("a");
@@ -1026,10 +1022,11 @@ function igk_html_node_backgroundlayer($imgPath = null)
     }
     return $n;
 }
+
 /**
- * 
- * @param mixed $v
- */
+* auto generate doc.
+* @param mixed $v
+*/
 function igk_html_node_badge($v)
 {
     $n = igk_create_node("span");
@@ -1305,9 +1302,10 @@ function igk_html_node_author_community(?array $options=null)
     return $n;
 }
 ///<summary></summary>
+
 /**
- * 
- */
+* auto generate doc.
+*/
 function igk_html_node_clearboth()
 {
     $n = igk_create_node("div");
@@ -1391,12 +1389,11 @@ function igk_html_node_colviewbox()
 ///<param name="id">identify the node</param>
 ///<param name="tab">list o items</param>
 ///<param name="options" default="null"> options to manage the combobox</param>
+
 /**
- * 
- * @param mixed $id
- * @param mixed $tab
- * @param mixed $options the default value is null
- */
+* auto generate doc.
+* @param mixed $options the default value is null
+*/
 function igk_html_node_combobox($id, $tab, $options = null)
 {
     $n = igk_create_node("select")->setId($id);
@@ -1997,11 +1994,11 @@ function igk_html_node_formactionbutton($id, $value, $uri, $method = "GET", $tex
 ///<summary></summary>
 ///<param name="formfields"></param>
 ///<param name="engine" default="null"></param>
+
 /**
- * 
- * @param mixed $formfields
- * @param mixed $engine the default value is null
- */
+* auto generate doc.
+* @param mixed $engine the default value is null
+*/
 function igk_html_node_formfields($formfields, $engine = null)
 {
     $n = igk_html_node_notagnode();
@@ -2012,9 +2009,10 @@ function igk_html_node_formfields($formfields, $engine = null)
     return $n;
 }
 ///<summary></summary>
+
 /**
- * 
- */
+* auto generate doc.
+*/
 function igk_html_node_formgroup()
 {
     $n = igk_create_node('div');
@@ -2062,12 +2060,11 @@ function igk_html_node_framedialog($id, $ctrl, $closeuri = ".", $reloadcallback 
 ///<param name="ctrl"></param>
 ///<param name="folder"></param>
 ///<param name="ignorethumb" default="1"></param>
+
 /**
- * 
- * @param mixed $ctrl
- * @param mixed $folder
- * @param mixed $ignorethumb the default value is 1
- */
+* auto generate doc.
+* @param mixed $ignorethumb the default value is 1
+*/
 function igk_html_node_galleryfolder($ctrl, $folder, $ignorethumb = 1)
 {
     $n = igk_create_node("div");
@@ -2347,10 +2344,11 @@ function igk_html_node_resimg($name, $desc = "", $width = 16, $height = 16)
 }
 ///<summary></summary>
 ///<param name="text" default="'Jombotron'"></param>
+
 /**
- * 
- * @param mixed $text the default value is 'Jombotron'
- */
+* auto generate doc.
+* @param Jombotron
+*/
 function igk_html_node_jombotron($text = 'Jombotron')
 {
     $n = igk_create_node("div");
@@ -2688,11 +2686,11 @@ function igk_html_node_livenodecallback($listener, $name, $callback)
 ///<summary></summary>
 ///<param name="expression"></param>
 ///<param name="data" default="null"></param>
+
 /**
- * 
- * @param mixed $expression
- * @param mixed $data the default value is null
- */
+* auto generate doc.
+* @param mixed $data the default value is null
+*/
 function igk_html_node_localizabletext($expression, $data = null)
 {
     $c = igk_html_initbindexpression($expression);
@@ -2721,11 +2719,10 @@ EOF;
 ///<summary></summary>
 ///<param name="href"></param>
 ///<param name="text" default=""></param>
+
 /**
- * 
- * @param mixed $href
- * @param mixed $text the default value is ""
- */
+* auto generate doc.
+*/
 function igk_html_node_mailto($href, $text = "")
 {
     $n = igk_create_node("a");
@@ -3189,9 +3186,10 @@ function igk_html_node_repeatcontent($number)
     return $n;
 }
 ///<summary></summary>
+
 /**
- * 
- */
+* auto generate doc.
+*/
 function igk_html_node_replace_uri($uri = null)
 {
     $c = igk_create_notagnode();
@@ -3394,10 +3392,11 @@ function igk_html_node_separator($type = 'horizontal')
 }
 ///<summary></summary>
 ///<param name="menulist"></param>
+
 /**
- * 
- * @param mixed $menulist
- */
+* auto generate doc.
+* @param mixed $menulist
+*/
 function igk_html_node_sidemenunavigation($menulist)
 {
     $ul = igk_create_node("ul")->setClass("side-navigation");
@@ -4466,11 +4465,11 @@ function igk_html_node_containerRowCol($style = "")
 ///<summary></summary>
 ///<param name="raw"></param>
 ///<param name="ctrl" default="null"></param>
+
 /**
- * 
- * @param mixed $raw
- * @param mixed $ctrl the default value is null
- */
+* auto generate doc.
+* @param mixed $ctrl the default value is null
+*/
 function igk_html_node_expression_node($raw, $ctrl = null)
 { 
     $ctx = HtmlReader::GetOpenerContext();
@@ -4507,12 +4506,11 @@ function igk_html_node_actiongroup()
 ///<param name="app"></param>
 ///<param name="baduri" default="null"></param>
 ///<param name="goodUri" default="null"></param>
+
 /**
- * @param mixed $app
- * 
- * @param mixed $baduri the default value is null
- * @param mixed $goodUri the default value is null
- */
+* auto generate doc.
+* @param mixed $goodUri the default value is null
+*/
 function igk_html_node_apploginform($app, $baduri = null, $goodUri = null)
 {
     igk_load_library("app_ctrl");
@@ -4551,12 +4549,12 @@ function igk_html_node_host(callable $callback, ...$args)
     return $p;
 }
 ///<summary>bind view callback to parent as text view node</summary>
+
 /**
- * 
- * @param mixed $callback callback to call 
- * @return mixed 
- * @throws Exception 
- */
+* auto generate doc.
+* @param mixed $callback callback to call
+* @return mixed
+*/
 function igk_html_node_ViewCallback(callable $callback)
 {
     $n = igk_html_parent_node();
@@ -4853,14 +4851,12 @@ function igk_html_node_singleviewnode()
     }
     return $f;
 }
+
 /**
- * 
- * @param mixed $ctrl 
- * @param mixed $view 
- * @param mixed|null $params 
- * @return mixed 
- * @throws IGKException 
- */
+* auto generate doc.
+* @param mixed|null $params
+* @return mixed
+*/
 function igk_html_node_include($ctrl, $view, $params = null)
 {
     $bind = function () {
@@ -4896,11 +4892,12 @@ function igk_html_node_include($ctrl, $view, $params = null)
     }
     return $f;
 }
+
 /**
- * 
- * @param Users $user 
- * @return HtmlNode<mixed, string> 
- */
+* auto generate doc.
+* @param Users $user
+* @return HtmlNode<mixed
+*/
 function igk_html_node_userinfo($user)
 {
     $n = new \IGK\System\Html\Dom\HtmlNode("div");
@@ -5008,15 +5005,12 @@ function igk_html_node_beforeRenderNextSibling(callable $callback){
 function igk_html_node_widget(?string $tagname=null){
     return new \IGK\System\Html\Dom\HtmlWidgetNode($tagname);
 }
+
 /**
- * 
- * @param array|\IGK\Controllers\BaseController $data data to bind
- * @param mixed $uri uri to load
- * @param mixed $name 
- * @param null|bool $production 
- * @return null|HtmlItemBase 
- * @throws IGKException 
- */
+* auto generate doc.
+* @param null|bool $production
+* @return null|HtmlItemBase
+*/
 function igk_html_node_bindscript($data, $uri, $name, ?bool $production = null)
 {
     $p = igk_html_parent_node();

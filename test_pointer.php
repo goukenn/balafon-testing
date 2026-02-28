@@ -58,11 +58,12 @@ class B  extends A{
 */
 class C extends B{
 }
+
 /**
- * 
- * @param mixed $cl 
- * @return array 
- */
+* auto generate doc.
+* @param mixed $cl
+* @return array
+*/
 function igk_get_class_traits($cl){
     $tab = array_values(class_parents($cl));
     array_unshift($tab, $cl);

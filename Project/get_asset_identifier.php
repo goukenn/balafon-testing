@@ -1,7 +1,9 @@
 <?php
+
 /**
- * @var \IGK\Controllers\BaseController $ctrl environment controller 
- */
+* auto generate doc.
+* @var \IGK\Controllers\BaseController $ctrl environment controller
+*/
 use IGK\System\IO\Path;
 use IGK\System\IO\ResIdentifierConstants;
 $r = 'src/'.$ctrl->asset('/js/main.js', false);

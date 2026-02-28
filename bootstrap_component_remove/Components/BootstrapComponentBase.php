@@ -5,8 +5,9 @@
 namespace igk\bootstrap\Components;
 use IGK\System\Html\Dom\HtmlNode;
 ///<summary></summary>
+
 /**
-* 
+* auto generate doc.
 * @package igk\bootstrap\Components
 */
 abstract class BootstrapComponentBase extends HtmlNode{

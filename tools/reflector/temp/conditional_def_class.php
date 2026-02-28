@@ -25,7 +25,23 @@ function b(){
 /**
 * auto generate doc.
 */
-class AA{
+
+        /**
+        * auto generate doc.
+        * @package
+        */
+
+        /**
+        * auto generate doc.
+        * @package
+        */
+
+        /**
+        * auto generate doc.
+        * @package test
+        * @author C.A.D. BONDJE DOUE
+        */
+        class AA{
 
             /**
             * auto generate doc.

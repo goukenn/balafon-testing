@@ -82,17 +82,12 @@ $f_cond_curl->patterns = [
 $f_c_func->patterns = [
    $f_curl,
 ];
+
 /**
- * 
- * @param RegexMatcherContainer $regex 
- * @param string $src 
- * @param mixed &$list 
- * @param string $file 
- * @return void 
- * @throws Exception 
- * @throws IGKException 
- * @throws Error 
- */
+* auto generate doc.
+* @param string $file
+* @return void
+*/
 function d_function(RegexMatcherContainer $regex, string $src, &$list, string $file)
 {
     $pos = 0;
@@ -127,10 +122,10 @@ IO::GetFiles($dir, function ($file) use ($regex, &$list) {
     d_function($regex, $src, $list, $file);
     return false;
 }, true);
+
 /**
- * 
- * @package 
- */
+* auto generate doc.
+*/
 class EngineLoader
 {
 
@@ -162,12 +157,24 @@ class EngineLoader
     * @var mixed
     */
     var $flags = [];
+
+    /**
+    * auto generate doc.
+    * @param string $n
+    */
     private function _get_name(string $n){
           if ($prefix = $this->namespace) {
             $n = $prefix . "\\" . $n;
         }
         return $n;
     }
+
+    /**
+    * auto generate doc.
+    * @param string $type
+    * @param string $n
+    * @param null|mixed $def
+    */
     private function _reg(string $type, string $n, $def = null)
     {
         if ($prefix = $this->namespace) {

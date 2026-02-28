@@ -19,12 +19,12 @@ $builder
 ])
 ->type("class");
 $def = new StringBuilder();
+
 /**
- * 
- * @param mixed $def 
- * @param DbColumnInfo $cinfo 
- * @return void 
- */
+* auto generate doc.
+* @param DbColumnInfo $cinfo
+* @return void
+*/
 function laravel_blue_print_bind($def, $cinfo){
     if ($cinfo->clAutoIncrement){
         $def->append("->autoIncrement(true)");

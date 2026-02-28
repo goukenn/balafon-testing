@@ -5,9 +5,11 @@ use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
 use IGK\System\Console\Logger;
 $ctrl = ForemJobDashboardController::ctrl(true);
+
 /**
- *  @var MainTaskModelUtility
- */
+* auto generate doc.
+* @var MainTaskModelUtility
+*/
 $m_u = $ctrl->modelUtility('MainTask');
 $data = igk_conf_get(
     json_decode(file_get_contents('/Users/charlesbondjedoue/Desktop/JobResponse/offres_emploi_complete_173.json')),

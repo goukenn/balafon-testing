@@ -44,6 +44,9 @@ balafon --run .test/reflection/generate_framework_metadata.php --dir:/Volumes/Da
 balafon --run .test/reflection/generate_framework_metadata.php --dir:/Volumes/Data/Dev/PHP/frameworks/wordpress --title:wordpress --version:6.0 --url:'https://wordpress.org/download' > /Volumes/Data/Dev/ai/claude/claude-app-balafon-wikireference/vite-project/src/data/wordpress.6.sdk.json
 
 
+# for balafon 
+balafon --run .test/reflection/command-generate_framework_metadata.php --update-doc > /Volumes/Data/Dev/ai/claude/claude-app-balafon-wikireference/vite-project/src/data/sdk.json
+
 
 
 ```

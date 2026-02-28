@@ -95,28 +95,35 @@ class LColor{
 /**
  * 
  */
+
+/**
+* auto generate doc.
+* @package test
+* @author C.A.D. BONDJE DOUE
+*/
 class PHPObj implements JsonSerializable
 {
+
     /**
-     * 
-     * @var PHPDevPackageObj
-     */
+    * auto generate doc.
+    * @var PHPDevPackageObj
+    */
     var $devPackages;
+
     /**
-     * 
-     * @var ?LColor[]
-     */
+    * auto generate doc.
+    */
     var $colors;
     /**
      * 
      * @var string
      */
     //var $name;
+
     /**
-     * 
-     * @var igk\jsonParser\JSONVersion
-     *
-     */
+    * auto generate doc.
+    * @var igk\jsonParser\JSONVersion
+    */
     //var $version;
     /**
      * require definition 
@@ -124,11 +131,11 @@ class PHPObj implements JsonSerializable
      * @DecodeAs(string[])
      */
     //var $required;
+
     /**
-     * 
-     * @var mixed
-     * @DecodeAs(...JUser)
-     */
+    * auto generate doc.
+    * @var mixed
+    */
    // var $users;
    use JSONInstanceVarSerializableSkipNullTrait;
 }
@@ -152,11 +159,11 @@ class JUserTypeConverter extends JSONTypeConverterBase
         return $u;
     }
 }
+
 /**
- * 
- * @package 
- * @T_ypeConverter(JSUserTypeConverter)
- */
+* auto generate doc.
+* @package 1
+*/
 class JUser implements JsonSerializable
 {
 

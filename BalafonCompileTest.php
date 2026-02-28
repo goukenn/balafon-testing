@@ -451,6 +451,13 @@ PHP,
             "failed to compile"
         );
     }
+
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
     private function _get_compiler_result($src, $params=null):string{
         $ctrl = new CompileTestController();
         $ctrl->entryDir = self::$sm_tempdir;

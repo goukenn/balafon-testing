@@ -13,12 +13,13 @@ use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
 // @params 
 // string default_user 
-// - 
+// -
+
 /**
- * 
- * @param mixed $arg0
- * @return mixed 
- */
+* auto generate doc.
+* @param mixed $arg0
+* @return mixed
+*/
 function get_dates(){
     func_get_arg(0) ? extract(func_get_arg(0)): null; 
     return include __DIR__ . '/db-init.php';

@@ -1,10 +1,10 @@
 <?php
+
 /**
- * 
- * @package 
- * @property stdClass $source source definition
- * @property stdClass $info info definition
- */
+* auto generate doc.
+* @package 1
+* @property stdClass $info info definition
+*/
 interface IJSArrayRef{
 }
 

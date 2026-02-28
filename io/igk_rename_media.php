@@ -11,12 +11,11 @@ $from = igk_getv($params, 0);
 $to = igk_getv($params, 1);
 $copy = property_exists($command->options, '--copy');
 if (!function_exists('igk_io_rename_media')) {
+
     /**
-     * @param string $dir
-     * @param string $to destination folder 
-     * @param string $dir
-     * @param string $dir
-     */
+    * auto generate doc.
+    * @param string $dir
+    */
     function igk_io_rename_media(string $dir, ?string $to=null, bool $recursive = false, $copy=false)
     {
         $rename = is_callable($copy)? $copy : ($copy ? function($from, $to){

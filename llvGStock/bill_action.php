@@ -14,25 +14,33 @@ use com\igkdev\app\llvGStock\Models\Resellers;
 use com\igkdev\app\llvGStock\PaymentConstants; 
 use IGK\System\Console\Logger;
 use IGK\System\Number;
+
 /**
- * 
- * @package 
- */
+* auto generate doc.
+*/
+
+/**
+* auto generate doc.
+* @package
+*/
 class BillInfo{
+
     /**
-     * 
-     * @var mixed
-     */
+    * auto generate doc.
+    * @var mixed
+    */
     var $user;
+
     /**
-     * 
-     * @var ?Resellers
-     */
+    * auto generate doc.
+    * @var ?Resellers
+    */
     var $reseller;
+
     /**
-     * 
-     * @var array<Products>
-     */
+    * auto generate doc.
+    * @var array<Products>
+    */
     var $products = [];
 
     /**

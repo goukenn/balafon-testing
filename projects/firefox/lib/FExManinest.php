@@ -6,29 +6,41 @@ require_once __DIR__.'/FExManifestBrowserSpecific.php';
 */
 class FExManinest
 {
+
     /**
-     * @var array
-     */
+    * auto generate doc.
+    * @var array
+    */
     var $content_scripts;
+
     /**
-     * @var string
-     */
+    * auto generate doc.
+    * @var string
+    */
     var $description;
+
     /**
-     * @var mixed
-     */
+    * auto generate doc.
+    * @var mixed
+    */
     var $icons;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $manifest_version;
+
     /**
-     * @var string
-     */
+    * auto generate doc.
+    * @var string
+    */
     var $name;
+
     /**
-     * @var number
-     */
+    * auto generate doc.
+    * @var number
+    */
     var $version;
 
     /**
@@ -44,9 +56,10 @@ class FExManinest
     var $background; // 
     // "scripts": ["background.js"],
     // "persistent": false
+
     /**
-     * 
-     * @var ?FExManifestBrowserSpecific
-     */
+    * auto generate doc.
+    * @var ?FExManifestBrowserSpecific
+    */
     var $browser_specific_settings;
 }

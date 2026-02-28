@@ -93,10 +93,11 @@ $sess_id = isset($argv[3]) ? $argv[3] : null;
     $_SERVER['SCRIPT_NAME'] = basename($l);
     chdir(dirname($l));
     if (!function_exists('igk_boot_request_environment')) {
+
         /**
-         * 
-         * @return void 
-         */
+        * auto generate doc.
+        * @return void
+        */
         function igk_boot_request_environment($app) {
             $cnf = igk_configs();
             foreach([

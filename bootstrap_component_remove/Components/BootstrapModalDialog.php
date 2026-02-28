@@ -4,8 +4,9 @@
 // @date: 20230312 07:09:12
 namespace igk\bootstrap\Components;
 ///<summary></summary>
+
 /**
-* 
+* auto generate doc.
 * @package igk\bootstrap\Components
 */
 class BootstrapModalDialog extends BootstrapComponentBase{

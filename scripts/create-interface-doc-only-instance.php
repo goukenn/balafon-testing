@@ -8,19 +8,20 @@ use IGK\Helper\Activator;
 use IGK\System\Console\Logger;
 use IGK\System\IToArray;
 use IGK\System\Text\RegexMatcherContainer;
+
 /**
- * 
- * @package 
- * @property int $z litteral definition
- * @var {s} $i
- */
+* auto generate doc.
+* @package 1
+* @var {s} $i
+* @property int $z litteral definition
+*/
 interface B {}
+
 /**
- * 
- * @package 
- * @property int|mixed $x 
- * @property int|mixed $y 
- */
+* auto generate doc.
+* @package 1
+* @property int|mixed $y
+*/
 interface A extends B {}
 $props = Activator::GetInstanceProperties(A::class);
 if (($obj = Activator::CreateNewInstance(A::class, ['z'=>500])) instanceof A){

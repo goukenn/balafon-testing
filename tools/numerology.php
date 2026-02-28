@@ -25,11 +25,12 @@ foreach (str_split(strtolower($n)) as $s) {
         $not_pnumber += $c;
     }
 }
+
 /**
- * 
- * @param int $number 
- * @return mixed 
- */
+* auto generate doc.
+* @param int $number
+* @return mixed
+*/
 function isTreatNumber(int $number)
 {
     while ($number >= 10) {

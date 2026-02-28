@@ -26,11 +26,12 @@ igk_exit();
 // + | --------------------------------------------------------------------
 // + | check tranform code to html 
 // + | --------------------------------------------------------------------
+
 /**
- * 
- * @param mixed $src 
- * @return string 
- */
+* auto generate doc.
+* @param mixed $src
+* @return string
+*/
 function _transform($src){
     $converter = new MarkdownConverter;
     $converter->allowLinkDocument = true;

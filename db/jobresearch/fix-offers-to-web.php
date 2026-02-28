@@ -7,8 +7,10 @@ use com\igkdev\projects\ForemJobDashboard\SourceTypes;
 use IGK\System\Console\Logger;
 $ctrl = ForemJobDashboardController::ctrl(true);
 $callback = function($user, $ctrl)use($params){
+
     /**
-    *  @var MainTaskModelUtility
+    * auto generate doc.
+    * @var MainTaskModelUtility
     */
     $search = igk_getv($params, 0);
     $m_u = $ctrl->modelUtility('MainTask');    
@@ -16,9 +18,11 @@ $callback = function($user, $ctrl)use($params){
     $id = JobSourceTypes::GetCache( JobSourceTypes::FD_NAME, SourceTypes::WEB)->id;
     $nid = JobSourceTypes::GetCache( JobSourceTypes::FD_NAME, SourceTypes::LINKEDIN)->id;
     foreach($list as $row){
+
         /**
-         * @var $row Jobs
-         */
+        * auto generate doc.
+        * @var $row Jobs
+        */
         $update = false;
         if ($row->{Jobs::FD_FROM_ID} == $id){
             $update = true;

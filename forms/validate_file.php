@@ -34,10 +34,10 @@ JSON;
 */
 class DemoValidationField extends InspectorFormFieldValidationBase
 {
+
     /**
-     * 
-     * @var mixed
-     * @FormField(type=file, placeholder=choose - a file, accept=image/*, maxSize=300, required=1, multiple=true)
+    * auto generate doc.
+    * @var mixed
     */
     var $wRM002;
 }

@@ -38,9 +38,11 @@ $regex->patternCreatorClass = FormatterPattern::class;
 // $c = $regex->export('source.php');
 // echo JSon::Encode($c, JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT);
 // exit;
+
 /**
- * @var ?IPHPFormatterModule
- */
+* auto generate doc.
+* @var ?IPHPFormatterModule
+*/
 $mod = igk_require_module('igk/phpFormatter');
 $regex = $mod->getFormatRegexContainer('source.php');
 $engine = new CodeToHtmlFormatter();

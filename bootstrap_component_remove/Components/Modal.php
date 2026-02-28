@@ -5,8 +5,9 @@
 namespace igk\bootstrap\Components;
 use IGKValueListener;
 ///<summary></summary>
+
 /**
-* 
+* auto generate doc.
 * @package igk\bootstrap\Components
 */
 class Modal extends BootstrapComponentBase{

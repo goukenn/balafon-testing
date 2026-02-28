@@ -37,9 +37,11 @@ function igk_params_list(array $parameters, array  $args)
     $out = [];
     $i = 0;
     $next = false;
+
     /**
-     * @var ReflectionProperty $p
-     */
+    * auto generate doc.
+    * @var ReflectionProperty $p
+    */
     foreach ($parameters as $p) {
         $v = igk_getv($args, $i);
         $next = true;
