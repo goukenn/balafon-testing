@@ -1,5 +1,5 @@
 <?php
-use IGK\System\IO\JSon\Annotations\JSonBindAsAnnotation;
+use IGK\System\IO\JSon\Annotations\JSonBindAsAnnotation as JSonBindAs;
 
 /**
 * auto generate doc.
@@ -20,4 +20,11 @@ class TempOracle{
     * @var mixed
     */
     var $childs;
+
+    /**
+     * 
+     * @var mixed
+     * @JSonBindAs(Int)
+     */
+    var $age;
 }
