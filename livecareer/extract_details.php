@@ -14,4 +14,4 @@ while(count($ls)){
     }
 } 
 echo json_encode($tls, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-exit;
+igk_exit();

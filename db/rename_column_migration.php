@@ -25,4 +25,4 @@ foreach($cfinfo as $k=>$cl){
     }
 }
 $m->renderAJX();
-exit;
+igk_exit();

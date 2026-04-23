@@ -23,4 +23,4 @@ array_map(function($u)use(& $tab){
     $tab[$e] = 1;
 }, $uris);
 igk_wln(var_export(array_keys($tab), true));
-exit;
+igk_exit();

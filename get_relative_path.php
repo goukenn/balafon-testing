@@ -63,7 +63,7 @@ function test($source, $target, $expected){
     igk_wln(compact("source", "target", "r"), $r == $expected);
 }
 test("/A/B/C/", "/A/B/C", "../C");
-exit;
+igk_exit();
 test("/A/B/C", "/A/B/B", "./B");
 test("/A/B/C", "/A/B/C/E/F", "./E/F");
 test("/A/B/C", "/A/B/C/E/F/G/D", "./E/F/G/D");
@@ -75,4 +75,4 @@ test("/tmp/B/C/D/E/J/K/L/M", "/Volumes/Data/B/C/D/E", "../../../../../../../../.
 test("/src/public/assets/_lib_/Scripts/",
 "/src/application/Lib/igk/Scripts/igk.js/", 
 "../../../../../application/Lib/igk/Scripts/igk.js/");
-exit;
+igk_exit();

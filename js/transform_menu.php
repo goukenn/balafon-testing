@@ -34,4 +34,4 @@ echo "build menu for balafon + vite application : " . PHP_EOL;
 echo JSExpression::Stringify((object)ViteMenuHelper::Build($data), (object)[
     'ignoreNull'=>true, 
 ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-exit;
+igk_exit();

@@ -24,4 +24,4 @@ $exclude = [
 $files = igk_loadlib_dirs($dir, '.php', $exclude);
 print_r($files);
 echo "done";
-exit;
+igk_exit();

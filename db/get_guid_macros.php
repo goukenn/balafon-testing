@@ -9,4 +9,4 @@ echo Users::select_all(null, ['Limit',1])[0]->guid();
 $user =  igk_get_user_bylogin('cbondje@igkdev.com');
 Authorization::BindUserToGroup($ctrl, $user, Profiles::Admin);
 print_r($user->groups());
-exit;
+igk_exit();

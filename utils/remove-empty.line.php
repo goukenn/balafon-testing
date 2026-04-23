@@ -121,6 +121,7 @@ function transform($file)
         case 'php':
         case 'phtml':
         case 'pinc':
+        case 'pcss':
             $g = glue_php_code($content);
             break;
         default:
@@ -133,7 +134,7 @@ $file = igk_getv($params, 0);
 $skip = igk_getv($command->options, '--skip');
 if ($file && file_exists($file)) {
     if (is_dir($file)) {
-        $files = IO::GetFiles($file, "/\.(js|php|phtml)$/", true);
+        $files = IO::GetFiles($file, "/\.(js|php|phtml|pcss|pinc)$/", true);
         foreach ($files as $file) {
             if ($skip && preg_match('/(' . $skip . ')/', $file)) {
                 continue;

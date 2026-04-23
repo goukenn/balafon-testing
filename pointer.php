@@ -5,7 +5,7 @@ $x = "goudron";
 <<?= $x ?>>---<?= $x ?>8<?= $x ?></<?= $x ?>>
 <?php
 echo $x;
-exit;
+igk_exit();
 /**
 * auto generate doc.
 * @param mixed & $str

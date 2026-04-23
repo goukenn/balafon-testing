@@ -15,4 +15,4 @@ $exist = file_exists($sr);
 igk_debug(1);
 $g = IGKResourceUriResolver::getInstance()->resolve($sr); 
 igk_wln_e("resolving = ", $g);
-exit;
+igk_exit();

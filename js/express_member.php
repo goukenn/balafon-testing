@@ -45,4 +45,4 @@ class B extends D{
 $s = new B();
 $s->content = ["./src/**/*.{html,js}"];
 echo $s->to_js(["map"=>['content'=>'db:facebook']]);
-exit;
+igk_exit();

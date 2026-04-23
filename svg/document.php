@@ -25,4 +25,4 @@ $doc->defs()->filter()->setId('f1')->feGaussianBlur(
 );
 $doc->g()->rect(40, 40)->setLocation(30,30)->fill("red")->useFilter('url(#f1)');
 echo $doc->render();  
-exit;
+igk_exit();

@@ -9,4 +9,4 @@ $fc = function (Users $user, int $x, int $y = 4, string $limit="100", ?GraphQlQu
 $p = new ReflectionFunction($fc); 
 echo "resolution : ".PHP_EOL;
 echo GraphQlDbHelper::GenSDLFuncParameter($p->getParameters());
-exit;
+igk_exit();

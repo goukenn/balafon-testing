@@ -10,7 +10,7 @@ foreach ($data as $f) {
         \ob_end_clean();
         if (strlen($s) > 0) {
             echo "file : " . $f . " \n";
-            exit;
+            igk_exit();
         }
     } catch (TypeError $ex) {
     }

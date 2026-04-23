@@ -7,4 +7,4 @@ $user->clStatus = 1;
 $user->save();
 echo igk_configs()->db_name . PHP_EOL;
 echo json_encode($user->to_array()) . PHP_EOL;
-exit;
+igk_exit();

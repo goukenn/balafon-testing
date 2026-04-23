@@ -12,4 +12,4 @@ echo $m = current($c); <<<MD
 - prev
 - next
 MD;
-exit;
+igk_exit();

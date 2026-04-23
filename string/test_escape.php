@@ -34,4 +34,4 @@ echo igk_str_escape("''information") . PHP_EOL;
 echo igk_str_escape("T'ai ou") . PHP_EOL;
 echo igk_str_escape("partir @dans la visiont '", "!@'") . PHP_EOL;
 echo igk_str_escape("already \'escaped") . PHP_EOL;
-exit;
+igk_exit();

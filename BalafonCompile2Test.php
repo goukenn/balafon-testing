@@ -93,7 +93,7 @@ function igk_express_bind($ctrl, $src){
     echo  "end data : \n" . $t->render();
     $end = igk_sys_request_time() - $start;
     echo "data:\n".$output;
-    exit;
+    igk_exit();
 }
 /**
  * test compiler ... 
@@ -238,7 +238,7 @@ $___IGK_PHP_SETTER___['x'] = $x = $___IGK_PHP_EXPRESSION___[igk_express_eval('"B
 // $___AGRG___ =  $___IGK_PHP_EXPRESSION___['"Hello" .$x'];
 $___AGRG___ =  $___IGK_PHP_EXPRESSION___['$x'];
 // igk_wln_e('eval test_compile data : ', $___AGRG___, $x);
-//exit;
+//igk_exit();
 $___IGK_PHP_SETTER___['t']->setClass("information")->div()->Content =  $___AGRG___; 
 // // igk_wln_e('data, ', $y);
 EOF;

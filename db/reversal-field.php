@@ -35,7 +35,7 @@ $import->addFieldListener('primaryCategory', function(& $tab, $key, $map){
 });
 $tab = json_decode(file_get_contents($file));
 array_map($import, $tab->sites);
-exit;
+igk_exit();
 $g = DbUtility::GetReversalUniqueColumn($table, false);
 if ($g) {
     Logger::success("reversal col : " . implode(",", array_map('trim', array_keys($g))));

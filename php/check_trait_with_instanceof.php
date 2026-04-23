@@ -38,4 +38,4 @@ if ($op instanceof IJSArrayRef){
     echo "info : ";
     print_r($op->source);
 }
-exit;
+igk_exit();

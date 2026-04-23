@@ -15,4 +15,4 @@ $builder(
 $e = VueSFCCompiler::ConvertToVueRenderMethod($n);
 igk_wln($e);
 $n->renderAJX();
-    exit;
+    igk_exit();

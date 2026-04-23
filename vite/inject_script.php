@@ -106,4 +106,4 @@ $b->mode = 'build';
 $b->routeName = 'vueapp/default-routes';
 $src = $b->buildApplicationInjection();
 echo 'result : '.$src . PHP_EOL;
-exit;
+igk_exit();

@@ -29,7 +29,7 @@ $faces = [
 foreach ($faces as $name => $emoji) {
     echo sprintf("%-8s -> %s\n", $name, $emoji), PHP_EOL;
 }
-exit;
+igk_exit();
 $c = 56800;
 $i = 0;
 $f = "\\uc0\\u55356 \\u56808 \\u55356 \\u%s \\\n";
@@ -41,4 +41,4 @@ foreach(range(1, 100) as $k){
     $g = hexdec('1F600');
     echo "\u{1F601}", PHP_EOL;
 }
-exit;
+igk_exit();

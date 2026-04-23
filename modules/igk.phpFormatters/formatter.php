@@ -1007,4 +1007,4 @@ class PHPFormatRegexMatcherPattern extends RegexMatcherPattern
 }
 $formatter = new PHPFormatter;
 echo  $formatter->format(file_get_contents(__DIR__ . '/data/exo.comment.php')), PHP_EOL;
-exit;
+igk_exit();

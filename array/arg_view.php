@@ -11,4 +11,4 @@ $arg = [
 ];
 $cm =  Utility::BuildArgs($arg);
 echo $cm;
-exit;
+igk_exit();

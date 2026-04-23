@@ -6,7 +6,7 @@ $l = version_compare($p_version, "7.4", ">");
 echo "------------------------------", PHP_EOL;
 echo $p_version;
 echo PHP_VERSION , '[ ' .$l.' ]', PHP_EOL;
-exit;
+igk_exit();
 use IGK\Models\Users;
 $data = ['clLogin'=>'dummy', 'clPwd'=>'admin'];
 $l = Users::createEmptyRow(true, true);

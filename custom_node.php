@@ -19,4 +19,4 @@ $t->load(<<<EOF
 EOF);
 igk_debug(1);
 $t->renderAJX();
-exit;
+igk_exit();

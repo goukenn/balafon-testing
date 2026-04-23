@@ -21,4 +21,4 @@ array_map(function($a)use($sb){
 }, $props);
 $sb->appendLine("}");
 Logger::print($sb.'');
-exit;
+igk_exit();

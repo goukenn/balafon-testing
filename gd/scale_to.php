@@ -27,4 +27,4 @@ while(count($list)>0){
     $c = igk_gd_resize_proportional(file_get_contents($file), $W, $H, 0, $compression , false, true,false );    
     igk_io_w2file(Path::Combine(dirname($file), $prefix.basename($file)), $c);
 }
-    exit;
+    igk_exit();

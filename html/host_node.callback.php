@@ -6,4 +6,4 @@ $g = _h('div > host', [function($a){
     $a->div()->Content = 'Hello';
 }]);
 echo $g->render();
-exit;
+igk_exit();

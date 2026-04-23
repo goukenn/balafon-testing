@@ -9,7 +9,7 @@
 // + |
 use IGK\Controllers\SysDbController;
 // + | print_r(array_keys(get_defined_vars()));
-// + | exit;
+// + | igk_exit();
 
 $action = igk_getv($params, 0);
 $shift = 1;

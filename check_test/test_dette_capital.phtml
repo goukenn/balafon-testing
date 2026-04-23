@@ -15,18 +15,18 @@ igk_view_handle_actions($fname, [
     igk_navto_referer($this::uri('test_dette_capital'));
 }
 ], $params);
-// $ad = L81Controller::ctrl()->getDataAdapter();
-// $model = RMembers::model(); 
-// $tableinfo = $model->getTableInfo() ;
-// $query = $ad->getGrammar()->createInsertQuery($model->table(), 
-// ['clrMPosition_Id'=>'RMembers.Member'], $tableinfo);
-// igk_wln_e(__FILE__.":".__LINE__, $query);
+
+
+
+
+
+
 igk_google_addfont($doc, 'Roboto');
 $t['class'] = '+google-Roboto';
 function form_sold_quot($a
-// , 
-// ($userprofile, $groups, $auths,) 
-// $roles=null
+
+
+
 )
 {
     L81Controller::register_autoload();
@@ -37,17 +37,17 @@ function form_sold_quot($a
     $a->h2()->Content = 'Month';
     $sec = $a->section();
     $ul = $sec->div()->ul();
-    $ul->li()->Content = "2022v--{{ x }}"; // $userprofile->display();
+    $ul->li()->Content = "2022v--{{ x }}"; 
     $a->fields([
         "mois"=>['type'=>'select', 'data'=>FormHelper::YearMounthSelection(date('Y'))],
         "memberid"=>['type'=>'select', 'data'=>$sl_users],
         "avalistid"=>['type'=>'select','data'=>$sl_users],
-        // 
+        
         "amount"=>['type'=>'number', 
         'id'=>'amount',
         'maxlength'=>10,        
         'attribs'=>[
-            // 'v-model'=>'amount'
+            
             ':value'=>'in_amount',
             '@input'=>'update_amount',
         ]],
@@ -151,8 +151,8 @@ JS])
 \form_sold_quot::class
 ); 
 $t->div()->setClass("pad-4")->Content = "0.00 €";
-// , $profiles, $groups, $roles); 
-// , $frm->host(ViewHelper::Form('user_profile_details'));<<<'JS'
+
+
 {
     data(){
         return {

@@ -24,4 +24,4 @@ foreach($envs as $k=>$v){
 $r = InstallerHelper::HandleBacktickCommand(shell_exec("{$php_cmd} {$balafon_cmd} --project:list --debug 1>&1 2>&1; echo $?"));
 chdir($b_cd);
 print_r($r);
-exit;
+igk_exit();

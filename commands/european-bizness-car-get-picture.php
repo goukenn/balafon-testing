@@ -13,4 +13,4 @@ $base_uri = 'https://www.autoscout24.be/fr/offres/volvo-s40-2-0d-136-kinetic-die
 if ($content = igk_curl_post_uri($base_uri)){
     $loader->loadContent($content);  
 }
-exit;
+igk_exit();

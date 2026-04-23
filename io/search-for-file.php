@@ -12,4 +12,4 @@ foreach(IO::GetFiles($dir, "/\.php$/", true) as $f){
     }
 }
 echo "finish", PHP_EOL;
-exit;
+igk_exit();

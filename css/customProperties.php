@@ -6,4 +6,4 @@ use IGK\System\Html\Dom\HtmlDoctype;
 $css = new HtmlDocTheme(null, 'temp');
 $css['body']= 'size:32px 12pt';
 echo $css->get_css_def(true, true);
-exit;
+igk_exit();

@@ -12,4 +12,4 @@ use IGKSysUtil as sysutil;
 require_once IGK_LIB_DIR.'/Lib/functions-helpers/db.php';
 $ctrl = SysDbController::ctrl(); 
 echo GraphQlDbHelper::GenSQLDefinition($ctrl);
-exit;
+igk_exit();

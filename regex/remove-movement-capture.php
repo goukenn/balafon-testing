@@ -10,4 +10,4 @@ $src = "\\s+((?=(info))|(?<=alpha))";
  Logger::print(json_encode($tab));
  Logger::info('result : '.$sb);
 Logger::success('done');
-exit;
+igk_exit();

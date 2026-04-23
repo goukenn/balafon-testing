@@ -45,4 +45,4 @@ use ($ad, $pattern, $new) {
     }
 });
 Logger::success('done');
-exit;
+igk_exit();

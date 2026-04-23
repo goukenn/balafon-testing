@@ -28,4 +28,4 @@ $t = new TheDataClass;
 $t->setSample('indigo');
 TheDataClass::DoAction($t, null);
 TheDataClass::DoAction($t, $callback);
-exit;
+igk_exit();

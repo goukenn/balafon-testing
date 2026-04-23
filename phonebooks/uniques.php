@@ -186,4 +186,4 @@ foreach ($duplicate as $c) {
     }
 }
 Logger::success('done');
-exit;
+igk_exit();

@@ -22,7 +22,7 @@ $cl = igk_sys_reflect_class(DoSome::class);
 $parameters = $cl->getMethod('R')->getParameters();
 $arguments = Dispatcher::GetInjectArgsByParameters($parameters, [ 7, 1]);
 var_dump($arguments);
-exit;
+igk_exit();
 /**
 * auto generate doc.
 * @param array $parameters

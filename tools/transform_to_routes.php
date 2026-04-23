@@ -194,4 +194,4 @@ foreach($routes as $r){
 }
 echo $router->render();
 print_r($routes);
-exit;
+igk_exit();

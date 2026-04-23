@@ -41,4 +41,4 @@ $r = implode(PHP_EOL, [
 igk_wl($r."\n");
 igk_exit();
 $ad->close();
-exit;
+igk_exit();

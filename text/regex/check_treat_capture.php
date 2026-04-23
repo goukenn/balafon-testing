@@ -55,4 +55,4 @@ $src = 'Hey! presentat bonjour tout le monde';
 preg_match("/(bon)j(our)/", $src, $cap, PREG_OFFSET_CAPTURE, 0);
 $v = RegexMatcherContainer::_TreatCaptures($captures, $cap, $src);
 Logger::print($v);
-exit;
+igk_exit();

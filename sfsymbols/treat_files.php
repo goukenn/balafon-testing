@@ -10,4 +10,4 @@ $file = $params[0];
 $content = file_get_contents($file);
 $p = Helper::TreatSvg($content);
 echo $p;
-exit;
+igk_exit();

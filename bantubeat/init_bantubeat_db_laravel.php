@@ -89,4 +89,4 @@ $def->appendLine("}");
 $builder->defs($def."");
 ob_end_clean(); 
 echo $builder->render();
-exit;
+igk_exit();

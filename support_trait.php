@@ -36,4 +36,4 @@ if ($cl){
 } else {
     echo "failed";
 }
-exit;
+igk_exit();

@@ -27,4 +27,4 @@ if ($key && $value){
     $data[$key] = $value;
 }
 igk_wln(json_encode((object)$data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-exit;
+igk_exit();

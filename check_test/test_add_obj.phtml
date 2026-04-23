@@ -7,7 +7,7 @@ use IGK\Helper\Activator;
 use IGK\System\Html\Converters\Converter;
 use IGK\System\Html\Converters\HtmlConvDefinition;
 use IGK\System\Html\Dom\HtmlItemBase;
-// copy reference 
+
 
 $m =$t; 
 $m->div()->Content = "presentation d'information";
@@ -21,4 +21,4 @@ $n->url()->add(igk_html_conv2html($c, 1, "div", "li"));
 $n->renderXML((object)[
     "Indent"=>1
 ]);
-exit;
+igk_exit();

@@ -34,4 +34,4 @@ function get_constants_name($s, $splitter="/[A-Z0-9]+/"){
     return strtoupper($g);
 }
 echo "Name : ".get_constants_name($g).PHP_EOL;
-exit;
+igk_exit();

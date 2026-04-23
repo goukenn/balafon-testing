@@ -15,4 +15,4 @@ echo implode(',', array_map(function($a)use($kf){
     return strtoupper($a->{$kf->name});
 }, $fd));
 echo PHP_EOL;
-exit;
+igk_exit();

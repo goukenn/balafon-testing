@@ -49,4 +49,4 @@ class BBBB extends A
 }
 $b = new BBBB();
 echo $b->a();
-exit;
+igk_exit();

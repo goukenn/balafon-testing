@@ -14,4 +14,4 @@ foreach($r as $t){
     }
 }
 echo JSon::Encode($r);
-exit;
+igk_exit();

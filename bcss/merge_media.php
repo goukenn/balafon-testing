@@ -9,4 +9,4 @@ $src = implode("\n", [
 ]);
 $f = BcssParser::ParseFromContent($src);
 echo $f->render();
-exit;
+igk_exit();

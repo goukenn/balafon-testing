@@ -7,4 +7,4 @@ if ($u = Users::Register(['clLogin'=>"cbondje@igkdev.com"])){
     $u->activate();
     echo $u->to_json();
 }
-exit;
+igk_exit();

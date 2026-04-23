@@ -10,4 +10,4 @@ HtmlNodeBuilder::Init($node, [
     ]
 ]);
 $node->renderAJX();
-exit;
+igk_exit();

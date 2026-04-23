@@ -18,4 +18,4 @@ Logger::print( $src);
 Logger::info('output:');
 $g =  $minify->minify($src);
 echo $g , PHP_EOL;
-exit;
+igk_exit();

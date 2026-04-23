@@ -1,14 +1,9 @@
 <?php
-// @command: balafon --run .test/newtest/php/extract_interface_definition.php
-use com\igkdev\app\L81\Database\Macros\RReportsMacros;
+// @command: balafon --run .test/newtest/php/extract_interface_definition.php 
 use com\igkdev\app\L81\Models\RMembers;
 use com\igkdev\app\L81\Models\RReports;
-use IGK\Helper\Database;
-use IGK\Helper\PhpHelper;
-use IGK\Helper\SysUtils;
-use IGK\Models\ModelBase;
-use IGK\System\IO\File\PHPScriptBuilder;
-use IGK\System\IO\StringBuilder;
+use IGK\Helper\Database; 
+use IGK\System\IO\File\PHPScriptBuilder; 
 
 L81Controller::ctrl()->register_autoload(); 
 $sb = Database::GetPhpDocMacrosDefintionToInject(RReports::class);
@@ -22,4 +17,4 @@ $p_builder->type('interface')
 ->phpdoc($sb.'');
 igk_wln($p_builder->render()); 
 echo "report db macros".PHP_EOL;
-exit;
+igk_exit();

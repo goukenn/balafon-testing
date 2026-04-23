@@ -14,4 +14,4 @@ $g = $ref->getLibraries();
 echo  'render lib  : '.VueSFCUtility::RenderLibraryAsConstantDeclaration($g);
 
 echo $s;
-exit;
+igk_exit();

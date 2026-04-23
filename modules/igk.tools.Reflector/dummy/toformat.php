@@ -33,4 +33,4 @@ $i = 45 +   10 . 7   + b();
 foreach range(1,5) as $k:
     echo $k
 endforeach
-exit;
+igk_exit();

@@ -8,4 +8,4 @@ $t = new VueNoTagNode;
 $builder = new HtmlNodeBuilder($t);
 ViewHelper::Inc($file, compact('ctrl', 't', 'builder'));
 echo $t->render();
-exit;
+igk_exit();

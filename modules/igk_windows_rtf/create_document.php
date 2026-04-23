@@ -31,7 +31,7 @@ $src = <<<'MD'
 ### I.c. est Belle
 MD;
 echo MarkdownToRtf::convert($src);
-exit; 
+igk_exit(); 
 $doc = new RtfDocument;
 $doc->fonts = [
     RtfFonts::CourierNew,

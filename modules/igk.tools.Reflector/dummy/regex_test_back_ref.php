@@ -4,4 +4,4 @@
 $src = "info  ;";
 $c = preg_match("/(?<=info)(?=\s*;)/", $src, $tab);
 print_r(json_encode($tab, JSON_PRETTY_PRINT));
-exit;
+igk_exit();

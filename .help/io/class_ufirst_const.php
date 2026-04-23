@@ -12,7 +12,7 @@ if (!is_file($treat)){
 }
 if (!is_file($treat)){
     Logger::danger("missing file : ".$treat);
-    exit;
+    igk_exit();
 }
 $s = implode ("\n", array_filter(array_map(function($a){
     $a = trim($a);
@@ -24,4 +24,4 @@ $sb = new PHPScriptBuilder;
 $sb->type('function')
 ->defs($s);
 igk_wln_e($sb->render().'');
-exit;
+igk_exit();

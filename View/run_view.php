@@ -8,4 +8,4 @@ $t = new HtmlNode("div");
 $builder = new HtmlNodeBuilder($t) ;
 include $params[0];
 $t->renderAJX();
-exit;
+igk_exit();

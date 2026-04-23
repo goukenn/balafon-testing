@@ -13,4 +13,4 @@ igk_wln( "[4,8,6,20] = 13 ? ", Consecutive([4,8,6,20]) );
 igk_wln( "[4,8,6] = 2 ? ", Consecutive([4,8,6]) );
 igk_wln( "[-14,-10] = 3 ? ", Consecutive([-14,-10]) );
 igk_wln( "[-14,-10,10] = 22 ? ", Consecutive([-14,-10, 10]) );
-exit;
+igk_exit();

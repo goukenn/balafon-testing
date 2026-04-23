@@ -16,4 +16,4 @@ function b(){
 a();
 print_r(get_defined_functions());
 b();
-exit;
+igk_exit();

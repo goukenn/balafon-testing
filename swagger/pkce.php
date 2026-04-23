@@ -9,7 +9,7 @@ use IGK\Models\Users;
 $date1 = "2025-01-02";
 $date3 = "2026-01-01";
 echo $date3 > $date1, PHP_EOL;
-exit;
+igk_exit();
 $j = SwaggerAccess::PKCELoginAndTokenResponse('cbondje@igkdev.com','adminBonaje123', 
 '1ba45b705c2e755a498a2ddb06c52860',
 'vntt4HUbBm3LXf6wCJp98n307Y6qSZ0V3IOWyPzxjQc',

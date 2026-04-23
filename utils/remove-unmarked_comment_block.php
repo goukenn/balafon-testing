@@ -1,5 +1,9 @@
-<?php
-// @command: balafon --run .test/utils/detect_comment_block.php [dir]
+<?php 
+// @author: C.A.D. BONDJE DOUE
+// @filename: remove-unmarked_comment_block.php
+// @date: 20260423 11:30:37
+// @desc: remove unmarked comment block . single line comment 
+// @command: balafon --run .test/utils/remove-unmarked_comment_block.php [dir]
 use IGK\Helper\IO;
 use IGK\System\Console\App;
 use IGK\System\Console\Logger;
@@ -79,7 +83,7 @@ function showAndRemoveCommentList($list, bool $cleanAll = false)
 }
 list($dir,) = igk_extract($params, '0|1');
 list($isCleanAll) = igk_prop_exists($command->options, '--clean-all');
-$regex = igk_getv($command->options, '--regex', '/\.php$/');
+$regex = sprintf('/%s/', igk_getv($command->options, '--regex') ?? '\.php$');
 $list = [];
 $exclude = ['.git'];
 igk_wln('directory: ', realpath($dir), '');
@@ -92,6 +96,6 @@ if (count($list) > 0) {
     Logger::print('Items : ' . count($list));
     showAndRemoveCommentList($list, $isCleanAll);
 } else {
-    Logger::info('no dump coment found');
+    Logger::info('no comment found.');
 }
 igk_exit();

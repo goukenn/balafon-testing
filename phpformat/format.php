@@ -25,4 +25,4 @@ Logger::info('source:' . $src);
 $s = $formatter->format($src);
 Logger::success('Result:');
 igk_wln_e($s);
-exit;
+igk_exit();

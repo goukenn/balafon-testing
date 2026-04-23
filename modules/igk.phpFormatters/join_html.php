@@ -19,4 +19,4 @@ function render_ecap($s,$g){
     return sprintf("<%s%s>%s</%s>", $t, $attr, $g, $t);
 }
 echo render_ecap(_h('link.line'), 'sublime');
-exit;
+igk_exit();

@@ -17,4 +17,4 @@ ob_end_clean();
 $src =VueSFCCompiler::ConvertToVueRenderMethod($t);
 echo "render ---ajx : ";
 echo $src;
-exit;
+igk_exit();

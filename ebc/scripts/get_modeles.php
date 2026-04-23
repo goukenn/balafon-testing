@@ -59,4 +59,4 @@ foreach($def as $k=>$v){
     } 
 }
 echo igk_map_array_to_str($gout);
-exit;
+igk_exit();

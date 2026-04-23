@@ -96,7 +96,7 @@ function detect_cycle(array $tab){
 $data = [0, 1 , 2 , 3 ,4 ];
 Logger::print("Found duplicate");
 echo detect_cycle($data);
-exit;
+igk_exit();
 Logger::info("create a value copy ");
 $r = $data;
 $r[0] = 8;
@@ -107,4 +107,4 @@ $r = & $data;
 $r[0] = 8;
 print_r($data);
 Logger::warn(sprintf("value is equal ? %s ", $r == $data));
-exit;
+igk_exit();

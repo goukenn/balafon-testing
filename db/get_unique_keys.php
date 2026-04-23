@@ -33,5 +33,5 @@ foreach($columns as $t=>$v){
     }, $v);
 }
 print_r($columns); 
-exit;
+igk_exit();
 igk_wln_e($columns);

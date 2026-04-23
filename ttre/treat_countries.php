@@ -9,4 +9,4 @@ foreach($lines as $m){
     $tab[] = (object)compact('code', 'name');
 }
 echo json_encode($tab, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-exit;
+igk_exit();

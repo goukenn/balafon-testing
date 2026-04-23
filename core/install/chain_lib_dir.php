@@ -12,4 +12,4 @@ if (!is_link($lnk = $app_folder . "/Lib/igk") && !file_exists($lnk)) {
     Logger::info("relative: ".$relative);
     @symlink($relative, $lnk);
 }
-exit;
+igk_exit();

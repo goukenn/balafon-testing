@@ -70,4 +70,4 @@ JS;
 };
 ConsoleUtility::MakeFiles($bind, null, true);
 Logger::print("OF Data : ".$of);
-exit;
+igk_exit();

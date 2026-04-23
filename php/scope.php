@@ -6,4 +6,4 @@ try{
 }catch(\Exception $exm){
 }
 print_r($ex);
-exit;
+igk_exit();

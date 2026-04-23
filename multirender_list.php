@@ -83,4 +83,4 @@ $args = '';
 shell_exec("yarn add vue@3 && yarn add vite");
 $r = shell_exec("node main.js {$args}"); 
 IO::RmDir($temp);
-exit;
+igk_exit();

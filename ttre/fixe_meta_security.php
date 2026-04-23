@@ -4,7 +4,7 @@ $query = "select meta_id, meta_value from wp_2023_postmeta WHERE meta_value LIKE
 $ad = igk_get_data_adapter(IGK_MYSQL_DATAADAPTER);
 if (!$ad->connect()){
     echo "failed to connect";
-    exit;
+    igk_exit();
 }
 $result = $ad->sendQuery($query);
 $c = 0;

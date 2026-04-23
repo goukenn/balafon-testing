@@ -5,4 +5,4 @@ use IGK\Controllers\SysDbController;
 $ctrl = SysDbController::ctrl(true);
 $rs = $ctrl->getDataAdapter()->dropAllRelations();
 echo $rs;
-exit;
+igk_exit();

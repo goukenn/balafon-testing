@@ -20,4 +20,4 @@ foreach(explode(',', $name) as $c){
     }
 }
 echo JobEnterprises::count();
-exit;
+igk_exit();

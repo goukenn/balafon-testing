@@ -30,4 +30,4 @@ if ($scripts = $vue->getElementsByTagName("script")){
         }
     }
 }
-exit;
+igk_exit();

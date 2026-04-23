@@ -1,5 +1,5 @@
 <?php
-// balafon --run /Volumes/Data/wwwroot/core/Projects/app_test/Views/parse_data.phtml
+
 use IGK\System\Console\Logger;
 use IGK\System\Html\Css\CssParser;
 use IGK\System\IO\StringBuilder;
@@ -12,13 +12,13 @@ class Data{
     var $cat;
     var $code;
     var $colorType;
-    // var $modeles=[];
+    
     var $compatible;
     var $qtePage;
     var $ref;
     var $trademark;
 }
-// SAVE MS-DOS separated comma value
+
 $data = file_get_contents('/Users/charlesbondjedoue/Desktop/data.csv'); 
 $header = null;
 $table = $preview->table();

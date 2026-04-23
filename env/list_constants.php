@@ -24,4 +24,4 @@ ksort($l);
 echo 'done: ', PHP_EOL;
 igk_io_w2file(__DIR__.'/data.json', json_encode($l, JSON_PRETTY_PRINT| JSON_UNESCAPED_SLASHES));
 print_r($l);
-exit;
+igk_exit();

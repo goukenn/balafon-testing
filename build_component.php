@@ -34,4 +34,4 @@ $builder([
     ]
 ],  $main->vTeleport("body"));
 $main->renderAJX();
-exit;
+igk_exit();

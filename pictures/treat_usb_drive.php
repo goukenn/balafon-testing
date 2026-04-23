@@ -14,4 +14,4 @@ foreach($g as $k){
     }
 }
 Logger::success('done');
-exit;
+igk_exit();

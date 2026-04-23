@@ -22,7 +22,7 @@ $m->renderAJX();
 echo PHP_EOL;
 echo PHP_EOL;
 $d->renderAJX();
-exit;
+igk_exit();
 $builder([
     "div" => [
         "div" => [

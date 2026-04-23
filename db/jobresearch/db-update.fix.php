@@ -73,4 +73,4 @@ if ($desc) {
     Logger::info(count($tab));
 }
 Logger::success('done');
-exit;
+igk_exit();

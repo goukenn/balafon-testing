@@ -4,7 +4,7 @@ $query = "select ID, post_content from wp_2023_posts WHERE post_content LIKE '%h
 $ad = igk_get_data_adapter(IGK_MYSQL_DATAADAPTER);
 if (!$ad->connect()){
     echo "failed to connect";
-    exit;
+    igk_exit();
 }
 $result = $ad->sendQuery($query);
 $c = 0;
