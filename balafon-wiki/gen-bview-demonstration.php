@@ -7,6 +7,7 @@ use IGK\System\Html\HtmlNodeBuilder;
 use IGK\System\IO\Configuration\ConfigurationReader;
 use function igk_resources_gets as __;
 use function igk_html_host as _h;
+
 igk_require_module('igk/bviewParser');
 $r = BviewParser::ParseFromContent(implode("\n", [
     'div.j > loop([[:@raw->list]]){ ',
@@ -22,25 +23,6 @@ $c = $builder($r->data, null,(object)[
     ]
 ]);
 igk_wln_e($n);
-// $a = 'info:sample, litteral,x:845,disable';
-// $r = new ConfigurationReader();
-// $r->activeAttribute = new HtmlActiveAttrib;
-// $r->separator = ':';
-// $r->delimiter = ',';
-// $r->escape_start = "[";
-// $r->escape_end = ']';
-// $v_activa_attrib = []; // HtmlNodeTagExplosionDefinition::_GetActiveAttribute($a);
-// $attr = ArrayMapKeyValue::Map(function ($k, $v) {
-//     if (is_null($v)) {
-//         if (strpos($k, "@") === 0) {
-//             return [$k = ltrim($k, '@'), new HtmlActiveAttrib];
-//         }
-//         return null;
-//     }
-//     return [$k, $v];
-// }, (array)$r->read($a));
-// igk_wln_e($attr);
-
 /**
 * auto generate doc.
 * @param null|mixed $title

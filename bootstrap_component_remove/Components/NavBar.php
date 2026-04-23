@@ -10,13 +10,11 @@ use igk\bootstrap\Utils;
 * @package igk\bootstrap\Components
 */
 class NavBar extends ComponentBase{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     protected $tagname = "nav";
-
     /**
     * auto generate doc.
     */
@@ -24,7 +22,6 @@ class NavBar extends ComponentBase{
     {
         $this["class"] = "navbar";
     }
-
     /**
     * auto generate doc.
     * @param string $brandTitle
@@ -36,7 +33,6 @@ class NavBar extends ComponentBase{
         $dv["class"] = "container-fluid";
         $dv->a("#")->setContent($brandTitle)->setClass("navbar-brand");
         $dv->add(Utils::CreateNavbarTogglerButton());
-        //igk_html_build_menu($dv, $items, null, null, "nav");
         return $n;
     }
 }

@@ -3,10 +3,10 @@
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 Logger::print('convert cps rom to mame-compatibility');
 $in = igk_getv($params, 0) ?? __DIR__.'/cps-1';
 $out = igk_getv($params, 1) ?? __DIR__.'/out-mame/roms';
-
 /**
 * auto generate doc.
 * @param mixed $file
@@ -23,7 +23,6 @@ function convertToMame($file, $out){
     IO::CreateDir(dirname($ofile));
     if ($zip->open($ofile, ZipArchive::CREATE | ZipArchive::OVERWRITE)){
         igk_zip_dir($dir, $zip, null, null, true);
-       // rename($dir, $ofile = Path::Combine($out, $n.'.zip'));
         $zip->close();
         Logger::info('outfile: '.$ofile);
     }

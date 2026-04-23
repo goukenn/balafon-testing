@@ -1,22 +1,19 @@
 <?php
-
 /**
 * auto generate doc.
 */
-class A{
 
+class A{
     /**
     * auto generate doc.
     * @var mixed
     */
     var $v;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $childs;
-
     /**
     * .ctr
     * @param mixed $v
@@ -26,7 +23,6 @@ class A{
         $this->childs = $childs;
         $this->v = $v;    
     }
-
     /**
     * get string presentation.
     */
@@ -34,7 +30,6 @@ class A{
     {
         return $this->v;
     }
-
     /**
     * auto generate doc.
     */
@@ -49,8 +44,6 @@ $tab = [
     new A ("SDP",  [ "X", new A("Z", ["D", "E", new A("SAMPLING"), "F"]) ]),
     'Z'
 ];
-// ar
-
 /**
 * auto generate doc.
 * @param mixed $tab
@@ -69,20 +62,11 @@ function render($tab){
                     echo $p->render();
                     continue;
                 } 
-                // else {
-                //     echo "no closing found\n";
-                //     break;
-                // }
             }
             echo "A detected : ".$q."\n";
-            //if ($q->childs){
                 array_unshift($tab, ...array_merge(($q->childs) ? $q->childs: [], [$q]));
                 array_unshift($nodes, $q);
                 continue;
-            // }else{
-            //     echo "have no childs \n";
-            //     echo $q->render();
-            // }
         } else {
             echo "->".$q."\n";
         }

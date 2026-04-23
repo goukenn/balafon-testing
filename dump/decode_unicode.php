@@ -1,7 +1,7 @@
 <?php
-// balafon --run .test/dump/decode_unicode.php
-$v = "{\"x\": \"VALORISATION \\\"avec\\\" DE MAT\u00c9RIELS\"}"; // quotes string 
- $v = '{"x": "VALORISATION \"avec\" DE MAT\u00c9RIELS"}'; // single quote string
+
+$v = "{\"x\": \"VALORISATION \\\"avec\\\" DE MAT\u00c9RIELS\"}"; 
+ $v = '{"x": "VALORISATION \"avec\" DE MAT\u00c9RIELS"}'; 
 if (strpos($v, '\\u') !== false){
     $v = addslashes($v);  
 } 

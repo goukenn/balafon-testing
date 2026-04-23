@@ -7,6 +7,7 @@
 // @balafon-command: forem-gen-page
 use function igk_resources_gets as __;
 use function igk_html_host as _h; 
+
 $ctrl = ForemJobDashboardController::ctrl(true);
 if (!isset($user)){
     $user = igk_sys_default_user(); 

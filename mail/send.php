@@ -11,7 +11,6 @@ use IGK\System\Uri;
 */
 class MailRendererEngine
 {
-
     /**
     * auto generate doc.
     * @param mixed $n
@@ -22,7 +21,7 @@ class MailRendererEngine
         if (strtolower($tagname) ==  'svg') {
             $url =  base64_encode(
                 implode("", [
-                    $n->render() // '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="red"><rect width="100" height="100"></rect></svg>'
+                    $n->render() 
                 ])
             );
             $img = IGKGD::Create(32, 32);
@@ -33,12 +32,8 @@ class MailRendererEngine
             $sc = ob_get_contents();
             ob_end_clean();
             $l = base64_encode($sc);
-            // return '<img src="data:image/png;base64,'.htmlentities($l).'" alt="directory"/>';
             $src = 'data:image/svg+xml;base64,' . $url;
-            //return '<img src="' . $src . '" />';
-            // '                 https://igkdev.com/mail-previewer/mail/decode?d'
             return '<img alt="res" src="https://igkdev.com/mail-previewer/mail/decode/file.svg?d=' . htmlentities($url) . '" />';
-            // return '<img src="'.htmlentities('https://igkdev.com/mail-previewer/mail/decode/favicon.ico?d='.htmlentities($url)).'" />';
         }
     }
 }

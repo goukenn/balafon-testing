@@ -12,12 +12,11 @@ use igk\Windows\Rtf\RtfFonts;
 use igk\Windows\Rtf\RftViewKinds;
 use igk\Windows\Rtf\RtfBulletNFCTypes;
 use igk\Windows\Rtf\RtfTable;
+
 /*
 ## Table des matiÃ¨res
-
 1. [ Introduction aux formulaires](#91---introduction-aux-formulaires)
 */
-
 $src = <<<'MD'
 # Chapitre 1: Introduction 
 ## I. Architecture gÃ©nÃ©rale
@@ -33,7 +32,6 @@ $src = <<<'MD'
 MD;
 echo MarkdownToRtf::convert($src);
 exit; 
-
 $doc = new RtfDocument;
 $doc->fonts = [
     RtfFonts::CourierNew,
@@ -52,15 +50,7 @@ $doc->setFont(0);
 $doc->setFontSize(24);
 $doc->setTextColor(3);
 $doc->setBackgroundColor(-1);
-// $doc->line(implode("\n", ['\i Hello \b fri\i0end\b0', 'avec ', 'moi']));
-// $doc->line("\nOne");
-// $doc->line("\nOne BAS");
-// $doc->line("échôpe\n");
-// $doc->line("10€");
-// $doc->page();
-// $doc->line("{\\ul\\cb {\\cf4 1} 00}€\n");
 $doc->setViewKind(40, 15, RftViewKinds::Draft);
-// create list override - to 
 $doc->listOverride('\\ls1', "\\listid1", "\\'00.", RtfBulletNFCTypes::Decimal, 152, 2, 1);
 $doc->listOverride('\\ls2', "\\listid2", "\\uc0\\u8225");
 $doc->setHeader("Balafon 2026");
@@ -68,13 +58,8 @@ $doc->setFirstLineIndent(2);
 $doc->setLineIndent(3); 
 $doc->list('information 1', '1.');
 $doc->list('information 2', RtfConstants::PUCE_SQARE, null, "\\ls1");
-// $doc->setHeader('Heading...');
-// $doc->setFooterNote('The note');
 $tb = new RtfTable;
 $tb->setCell(0,[
-    // [
-    //     20, [['solid', 15]]
-    // ],
     [
         40, [['solid', 30], ['dash', 15], ['dashdot', 15, 2], ['dot', 20]]
     ],

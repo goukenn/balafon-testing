@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/scripts/regex/counting_depth.php
+
 /**
  * counting depth 
  * @param string $s 
@@ -16,7 +17,6 @@ function igk_count_depth($s, $tabstop=null){
     } 
     return $c;
 }   
-// echo igk_count_depth("\tbonjour")  == 1, "\n";
 echo "with: tab\t" , igk_count_depth("\t\tbonjour")  == 2, "\n";
 echo "with: space\t", igk_count_depth("        bonjour")  == 2, "\n";
 igk_exit();

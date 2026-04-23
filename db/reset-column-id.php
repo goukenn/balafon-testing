@@ -2,6 +2,7 @@
 // @command: balafon --run .test/db/reset-column-id.php
 use IGK\Models\Users;
 use IGK\System\Console\Logger;
+
 $tab = Users::select_all(null, ['Columns' => ['clId']]);
 $count = 1;
 $ad = Users::model()->getDataAdapter();

@@ -1,8 +1,9 @@
 <?php
 // @command: balafon --run .test/get_width_column.list.php
 use IGK\Models\Users;
-        $conditions = [];
-        $cl =['tbigk_users.clLogin'];//  Users::columnList(null, '/clPwd/');
+
+$conditions = [];
+        $cl =['tbigk_users.clLogin'];
         $options = [
             'Limit'=>1,
             'Columns'=> $cl

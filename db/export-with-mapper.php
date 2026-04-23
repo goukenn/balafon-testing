@@ -6,6 +6,7 @@ use IGK\System\Console\App;
 use IGK\System\Console\AppExecCommand;
 use IGK\System\Console\Logger;
 use IGK\System\Database\Import\DbModelImporterMap;
+
 $ctrl = \IGK\Helper\SysUtils::GetControllerByName(igk_getv($params, 0) ?? '');
 $ctrl::register_autoload();
 $model = igk_getv($params, 1);

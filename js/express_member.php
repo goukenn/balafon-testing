@@ -8,32 +8,27 @@ use igk\js\common\Traits\JSVariableStringifyTrait;
 */
 class D extends IGKObject{
     use JSVariableStringifyTrait;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     protected $m_content;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     protected $m_theme = [];
-
     /**
     * auto generate doc.
     * @var mixed
     */
     protected $m_plugins = [];
-
     /**
     * auto generate doc.
     */
     public function getContent(){
         return $this->m_content;
     }
-
     /**
     * auto generate doc.
     * @param mixed $v
@@ -42,15 +37,12 @@ class D extends IGKObject{
         $this->m_content = $v;
     }
 }
-
 /**
 * auto generate doc.
 */
 class B extends D{
-    // var $x; 
 }
 $s = new B();
 $s->content = ["./src/**/*.{html,js}"];
-// $s->x = "jjj";
 echo $s->to_js(["map"=>['content'=>'db:facebook']]);
 exit;

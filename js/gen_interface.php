@@ -6,6 +6,7 @@
 // @command: balafon --run .test/js/gen_interface.php
 use IGK\System\Console\Logger;
 use IGK\System\IO\StringBuilder;
+
 $n = igk_getv($params, 0);
 $props = explode(',', igk_getv($params, 1) ?? '');
 $type = igk_getv($command->options,'--type', 'class');

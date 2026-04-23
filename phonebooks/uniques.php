@@ -20,25 +20,21 @@ use IGK\System\Database\IPhoneBookDetailVisitor;
 */
 class MyVisitor implements IPhoneBookDetailVisitor
 {
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $name;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $d;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $x;
-
     /**
     * .ctr
     * @param mixed $t
@@ -47,7 +43,6 @@ class MyVisitor implements IPhoneBookDetailVisitor
     {
         $this->name = $t;
     }
-
     /**
     * auto generate doc.
     * @param string $propertyName
@@ -61,25 +56,21 @@ class MyVisitor implements IPhoneBookDetailVisitor
         return 'aa';
     }
 }
-
 /**
 * auto generate doc.
 */
 class V2D implements IPhoneBookDetailVisitor, IAppService
 {
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $x;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $y;
-
     /**
     * auto generate doc.
     * @return array
@@ -91,7 +82,6 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
             'y'
         ];
     }
-
     /**
     * auto generate doc.
     * @param null|mixed $configs
@@ -106,7 +96,6 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
         }
         return true;
     }
-
     /**
     * auto generate doc.
     * @param string $propertyName
@@ -119,8 +108,6 @@ class V2D implements IPhoneBookDetailVisitor, IAppService
         $v = $value;
         $n = $propertyName;
         if (isset($oldvalue)) {
-            // check for cardinality 
-            // Logger::info('cardinality ...');
             $g = $oldvalue;
             if (!is_array($g)) {
                 $g = [$g];
@@ -169,7 +156,7 @@ foreach ($rows as $r) {
             $duplicate[$v]->count++;
             $duplicate[$v]->ids[$r->EntryGuid] = PhoneBooksMacros::getPhoneDetails($r);
         }
-        $uniques[$v][] = $r; //->EntryGuid;
+        $uniques[$v][] = $r; 
     } else {
         Logger::danger('missing. ');
         $r->delete();
@@ -178,8 +165,6 @@ foreach ($rows as $r) {
     igk_wln_e($d);
 }
 ksort($duplicate);
-// echo JSon::Encode($duplicate, JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-// echo "\n";
 $bsic = [];
 foreach ($duplicate as $c) {
     $q = $c->first;
@@ -200,6 +185,5 @@ foreach ($duplicate as $c) {
         }
     }
 }
-// igk_wln_e(count($uniques), count($rows), $duplicate);
 Logger::success('done');
 exit;

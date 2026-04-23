@@ -16,7 +16,6 @@ use IGK\System\Text\RegexMatcherContainer;
 * @property int $z litteral definition
 */
 interface B {}
-
 /**
 * auto generate doc.
 * @package 1

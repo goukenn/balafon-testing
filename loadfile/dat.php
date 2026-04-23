@@ -1,9 +1,10 @@
 <?php
+// @command: balafon --run .test/loadfile/dat.php
 use IGK\Helper\IO;
-$f1 = '/Volumes/Data/Downloads/cork-vue-v2.0.1/vue3/src/components/winui/DashbaordUsersTableView.vue';
-$f2 = '/Volumes/Data/Downloads/cork-vue-v2.0.1/vue3/src/components/winui/DashbaordSubUserMenuActionView.vue';
+
+$f1 = igk_getv($param, 0) ?? igk_die('missing vue1'); 
+$f2 = igk_getv($paramn,1) ?? igk_die('missing vue2'); 
 igk_wln_e("relative ", IO::GetRelativePath($f1, $f2), igk_io_get_relativepath($f1, $f2));
-//igk_wln_e("relative ", IO::GetRelativePath($f1, $f2));
 $src =<<<'JS'
 
 <template>

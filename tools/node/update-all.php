@@ -5,11 +5,12 @@
 // @desc: vite maximum node modules
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 IO::CreateDir($g = __DIR__.'/sample');
 $r = IO::CopyFiles($g, '/tmp');
 igk_wln_e($r);
 $dir = igk_getv($params, 0) ?? igk_die('missing params');
-$pack_dir = igk_getv($params, 1); // igk_die('missing params');
+$pack_dir = igk_getv($params, 1); 
 $pack = basename($pack_dir);
 $cversion = (object)[];
 $T = 0;
@@ -29,11 +30,6 @@ IO::GetFiles($dir, function($f)use( $pack_dir, $pack,& $T, $cversion){
             $T++;
         }
         }
-        // $package = json_decode(file_get_contents($f));
-        // if (!isset($cversion->version) || ($cversion->version <=$package->version)){
-        //     $cversion->version = $package->version;
-        //     $cversion->file = $f;
-        // }
     }
 }, true);
 Logger::success('done: '.$T);

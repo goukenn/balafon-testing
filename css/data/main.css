@@ -1,0 +1,11 @@
+body{
+    background-color:red;
+    display:   inline-block}
+
+body a{
+    color: yellow;
+    display: flex;
+}
+div [text=".card, div"], .panel{
+    background-color: indigo;
+}

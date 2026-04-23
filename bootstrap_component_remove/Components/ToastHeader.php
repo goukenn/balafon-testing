@@ -1,12 +1,12 @@
 <?php
 namespace igk\bootstrap\Components;
 use IGK\System\Html\Dom\HtmlNode;
+
 /**
  * represent bootstrap toast component
  * @package igk\bootstrap\Components
  */
 class ToastHeader extends ComponentBase{
-
     /**
     * .ctr
     * @param string $title

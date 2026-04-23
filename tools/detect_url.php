@@ -2,6 +2,7 @@
 use igk\devtools\DocumentParser\UriDetector;
 use IGK\Mapping\PropertyMapper;
 use IGK\System\Uri;
+
 $file = '/tmp/notes.txt';
 $g = file_get_contents($file);
 $v_detector = new UriDetector;

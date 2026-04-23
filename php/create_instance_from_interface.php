@@ -4,7 +4,6 @@ use IGK\Helper\Activator;
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
-// because some time we want to create a string declaration type
 
 /**
 * auto generate doc.
@@ -13,30 +12,25 @@ use IGK\System\Text\RegexMatcherContainer;
 */
 interface ILocalization{
 }
-
 /**
 * auto generate doc.
 */
 class JO implements ILocalization{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $locale;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $x = 89;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $y = 0;
-
     /**
     * auto generate doc.
     * @var mixed
@@ -54,6 +48,5 @@ function create_instance_from_interface($class_name, $resolver=null){
     return Activator::CreateFromInterface($class_name, $resolver);
 }
 Logger::SetColorizer(new Colorize);
-// $r = create_instance_from_interface(ILocalization::class);
 $r = create_instance_from_interface(JO::class);
 igk_wln_e("done", $r);

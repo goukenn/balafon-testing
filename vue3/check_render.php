@@ -3,6 +3,7 @@ use IGK\Helper\ViewHelper;
 use igk\js\Vue3\Compiler\VueSFCCompiler;
 use igk\js\Vue3\Components\VueNoTagNode;
 use IGK\System\Html\HtmlNodeBuilder;
+
 $file = $params[0];
 $t = new VueNoTagNode;
 $builder = new HtmlNodeBuilder($t);
@@ -15,6 +16,5 @@ if (!empty($f)){
 ob_end_clean();
 $src =VueSFCCompiler::ConvertToVueRenderMethod($t);
 echo "render ---ajx : ";
-// $t->renderAJX();
 echo $src;
 exit;

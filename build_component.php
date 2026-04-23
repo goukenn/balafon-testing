@@ -1,6 +1,10 @@
 <?php
-// testing 
+// @author: C.A.D. BONDJE DOUE
+// @filename: build_component.php
+// @date: 20260422 22:34:01
+// @desc: build component
 use IGK\System\Html\HtmlNodeBuilder;
+
 $main = igk_create_node("vue_component");
 echo get_class($main) . "\n";
 $builder = new HtmlNodeBuilder($main);
@@ -25,10 +29,7 @@ $builder([
             "div"=>"body .... menu content",
             "clonenode"=>[
                 "@"=>$bmenus
-            ],
-            // "vMenus"=>[
-            //     "@"=>[$menus]
-            // ]
+            ], 
         ]
     ]
 ],  $main->vTeleport("body"));

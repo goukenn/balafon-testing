@@ -1,10 +1,10 @@
 <?php
-// balafon --run .test/bantubeat/init_bantubeat_db_laravel.php > src/application/Projects/bantubeat/Laravel/src/database/migrations/2023_02_28_091309_init_bantubeatcontroller_db.php
 use IGK\Database\DbColumnInfo;
 use IGK\Helper\Database;
 use IGK\Helper\StringUtility;
 use IGK\System\IO\File\PHPScriptBuilder;
 use IGK\System\IO\StringBuilder;
+
 $ctrl = bantubeatController::ctrl();
 $ctrl->register_autoload();
 ob_start();
@@ -19,7 +19,6 @@ $builder
 ])
 ->type("class");
 $def = new StringBuilder();
-
 /**
 * auto generate doc.
 * @param DbColumnInfo $cinfo
@@ -37,7 +36,6 @@ function laravel_blue_print_bind($def, $cinfo){
     }
 }
 $rollback = new StringBuilder;
-// laravel core database 
 $exclude_table = ["personal_access_tokens", "activities_log", "migrations", 'password_resets'];
 $def->appendLine("public function up(){");
     foreach ($schema->tables as $table => $info) {
@@ -82,13 +80,6 @@ $def->appendLine("public function up(){");
             laravel_blue_print_bind($def, $cinfo);
             $def->appendLine(";");
         }
-            // $table->id();
-            // $table->string('name');
-            // $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable();
-            // $table->string('password');
-            // $table->rememberToken();
-            // $table->timestamps();
         $def->appendLine("});");
     }
 $def->appendLine("}"); 

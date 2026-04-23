@@ -6,6 +6,7 @@ use IGK\System\Html\Css\CssSession;
 use IGK\System\Http\Request;
 use IGK\System\Http\WebFileResponse;
 use WinUI\Layout;
+
 $___IGK_PHP_SETTER_VAR___['pwa'] = $pwa = null;
 CssSession::getInstance()->setTheme("indigo");
 igk_reg_hook(IGKEvents::HOOK_HTML_META, function(){

@@ -1,12 +1,12 @@
 <?php
 namespace igk\bootstrap\Components;
 use IGK\System\Html\Dom\HtmlNode;
+
 /**
  * represent bootstrap toast component
  * @package igk\bootstrap\Components
  */
 class ToastContainer extends ComponentBase{
-
     /**
     * .ctr
     */
@@ -15,7 +15,6 @@ class ToastContainer extends ComponentBase{
         parent::__construct("div");
         $this["class"] = "toast-container"; 
     }
-
     /**
     * auto generate doc.
     * @param mixed $n

@@ -1,5 +1,6 @@
 <?php
 use IGK\Helper\Utility;
+
 $s = json_decode(Utility::TO_JSON(
     [['info'=>555], 'generate' => date('Ymd His')],
     [

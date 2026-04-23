@@ -5,31 +5,27 @@ use igk\Google\flutter\System\IO\XCodeprojFile;
 use IGK\Helper\Activator;
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
-$file = '/private/tmp/sample/ios/Runner.xcodeproj/project.pbxproj';
 
+$file = '/private/tmp/sample/ios/Runner.xcodeproj/project.pbxproj';
 /**
 * auto generate doc.
 */
 class LitteralClass{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $offensive;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $defensive;
 }
-
 /**
 * auto generate doc.
 */
 class StaSample implements IResolveTypeListener{
-
     /**
     * auto generate doc.
     * @param string $property
@@ -42,7 +38,6 @@ class StaSample implements IResolveTypeListener{
         }
         return $value;
     }
-
     /**
     * auto generate doc.
     * @param mixed $id

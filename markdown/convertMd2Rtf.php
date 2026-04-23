@@ -6,8 +6,8 @@
 // @command: balafon --run .test/markdown/convertMd2Rtf.php
 use igk\Markdown\MarkdownToRtfConverter;
 use IGK\System\Drawing\Colorf;
+
 $cl = Colorf::FromString('#32c4aB');
-// igk_wln_e($cl->toByte());
 $converter = new MarkdownToRtfConverter;
 $src = implode("\n", [
     '# the title',

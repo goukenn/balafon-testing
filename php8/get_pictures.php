@@ -1,13 +1,14 @@
 <?php
+
 $n = igk_create_notagnode();
 $n->load(<<<'HTML'
 <picture class="dp-new-gallery__picture">
     <source srcSet="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/250x188.webp" media="(min-width: 768px) and (max-width: 1099px) and (-webkit-max-device-pixel-ratio: 1)" type="image/webp" height="188" width="250"/>
     <source srcSet="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/250x188.jpg" media="(min-width: 768px) and (max-width: 1099px) and (-webkit-max-device-pixel-ratio: 1)" type="image/jpeg" height="188" width="250"/>
     <source srcSet="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/480x360.webp" media="(max-width: 767px), (min-width: 1100px), (-webkit-min-device-pixel-ratio: 1.01)" type="image/webp" height="360" width="480"/>
-    <source srcSet="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/480x360.jpg" media="(max-width: 767px), (min-width: 1100px), (-webkit-min-device-pixel-ratio: 1.01)" type="image/jpeg" height="360" width="480"/><img src="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/250x188.webp" class="dp-new-gallery__img" alt="" height="188" width="250" loading="eager"/></picture>
+    <source srcSet="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/480x360.jpg" media="(max-width: 767px), (min-width: 1100px), (-webkit-min-device-pixel-ratio: 1.01)" type="image/jpeg" height="360" width="480"/>
+    <img src="https://prod.pictures.autoscout24.net/listing-images/f97c0a40-9866-4b77-953a-44d76244081d_9681b3cc-03bc-48f6-ba7d-dd3ff7b31dcc.jpg/250x188.webp" class="dp-new-gallery__img" alt="" height="188" width="250" loading="eager"/></picture>
 HTML);
-
 /**
 * auto generate doc.
 * @param mixed $n
@@ -22,7 +23,6 @@ function get_source($n){
         } 
     } 
 }
-
 /**
 * auto generate doc.
 * @param mixed $n
@@ -36,12 +36,10 @@ function get_picture($n){
         }
     }))); 
 }
-
 /**
 * auto generate doc.
 */
 class imageVisitor{
-
     /**
     * auto generate doc.
     * @param mixed $n
@@ -51,7 +49,6 @@ class imageVisitor{
             return $g;
         }
     }
-
     /**
     * auto generate doc.
     * @param mixed $n
@@ -61,7 +58,6 @@ class imageVisitor{
             return $g;
         }
     }
-
     /**
     * auto generate doc.
     * @param mixed $n
@@ -74,7 +70,6 @@ class imageVisitor{
         }
     }
 }
-
 /**
 * auto generate doc.
 */

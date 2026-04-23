@@ -1,6 +1,7 @@
 <?php
 use igk\io\GraphQl\GraphQlParser;
 use igk\io\GraphQl\Tests\GraphQlMockInlineSpearListener;
+
 define('IGK_TEST_INIT', 1);
 igk_require_module(igk\io\GraphQl::class);
 $src = <<<'GQL'

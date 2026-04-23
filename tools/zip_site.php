@@ -7,6 +7,7 @@
 // @balafon-command: zipsite
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 $dir = igk_getv(
     $params,
     0
@@ -15,37 +16,20 @@ $v_odir = igk_getv(
     $params,
     1
 ) ?? 'out.zip';
-$exclude_dir = [
+$exclude_dir = array_merge([
     ".Caches",
     "node_modules",
     ".git",
     ".vscode",
     "vendor",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/sesstemp",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/.Caches",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Data",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Projects/CarRental/Data/store",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Projects/AppBalafon/Data/backup/balafon",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/assets/_chs_",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/assets/_lib_",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/assets/_prj_",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/assets/_mod_",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/module",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/test_inclusion",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/ttr-dashboard",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/woh",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/swagger",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/swagger2",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/phpmyadmin",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/daw",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/app",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/webgrind",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/auth",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/demos",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/winui",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/public/wordpress",
-    "/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Projects/AppBalafon/Data/store",
-];
+], (function($command){
+    if ($m= igk_getv($command->options, '--exclude')){
+        if (!is_array($m)){
+            $m = [$m];
+        }
+    }
+  return $m ?? [];  
+})($command));
 $zip = new ZipArchive();
 if ($zip->open($v_odir, ZipArchive::OVERWRITE | ZipArchive::CREATE)) {
     $entry = [];
@@ -57,7 +41,7 @@ if ($zip->open($v_odir, ZipArchive::OVERWRITE | ZipArchive::CREATE)) {
             return;
         }
         if (
-            (dirname($f) == '/Volumes/Data/Dev/PHP/balafon_site_dev/src/public') && (!preg_match('/\\b(index\.php)\\b/', $bname))
+            (dirname($f) == getenv('IGK_SITE_DEV_DIR').'/src/public') && (!preg_match('/\\b(index\.php)\\b/', $bname))
         ) {
             return;
         }

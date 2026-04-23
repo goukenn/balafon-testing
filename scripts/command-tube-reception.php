@@ -12,12 +12,10 @@ use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
 
 $is_debug = igk_is_debug('cli-tube'); 
-
 !defined('IGK_FRAMEWORK') && igk_die('missing framework');
 if (!isset($command)) {
     igk_die('$command is missing');
 }
-
 /**
 * auto generate doc.
 * @param callable $r
@@ -44,11 +42,12 @@ function _treat_std_in(callable $r)
 }
 $invocation_command = [
     'default' => function (...$params) {
+        ($gdks_dir = constant('IGK_GKDS_FILE_DIR')) || igk_die('IGK_GKDS_FILE_DIR constant must be set');
         $c = fopen(IO::STDIN_STREAM, 'r');
         $sb = '';
-        IO::CreateDir($of = "/Volumes/Data/BCK/gkds-files");
+        IO::CreateDir($of = $gdks_dir); 
         Logger::info('move to gdks files: '.$of);
-        $dlib = '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application';
+        $dlib = getenv('IGK_SITE_DEV_DIR').'/src/application';
         if ($c) {
             while (!feof($c)) {
                 if (false !== ($tc = fread($c, 4066))) {
@@ -94,7 +93,7 @@ $invocation_command = [
             foreach (explode("\n", $v) as $l) {
                 if (empty($l)) continue;
                 $c = escapeshellarg($l);
-                echo `$exec $c`;
+                echo shell_exec("$exec $c");
             }
         });
     },
@@ -109,7 +108,6 @@ $invocation_command = [
     },
     'zip' => function (?string $outfile, ?string $entry_dir=null){
         !$outfile && igk_die('required outfile');
-        // passing to zip
         $zip = new ZipArchive();
         if ($zip->open($outfile, ZipArchive::CREATE | ZipArchive::OVERWRITE)){
             _treat_std_in(function (string $v) use ($zip, $entry_dir) {

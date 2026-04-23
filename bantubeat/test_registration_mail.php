@@ -2,11 +2,11 @@
 use IGK\System\DataArgs;
 use IGK\System\IO\StringBuilder;
 use IGK\System\Net\MailDocument;
+
 $ctrl = bantubeatController::ctrl();
 $g = "data";
 $sb = new StringBuilder;
 $n = new MailDocument();
-
 /**
 * auto generate doc.
 * @var mixed $m

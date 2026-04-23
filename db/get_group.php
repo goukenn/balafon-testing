@@ -2,6 +2,7 @@
 use IGK\Helper\Authorization;
 use IGK\Helper\JSon;
 use IGK\System\Http\WebResponse;
+
 $c = bantubeatController::ctrl();
 $c::register_autoload();
 $g = Authorization::GetGroups(bantubeatController::ctrl());

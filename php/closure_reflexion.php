@@ -1,8 +1,8 @@
 <?php
-// balafon --run .test/php/closure_reflexion.php
 use igk\io\GraphQl\GraphQlQueryOptions;
 use IGK\Models\ModelBase;
 use IGK\Models\Users; 
+
 $c = function (Users $user, array $def, & $x=12, int $j=JSON_PRETTY_PRINT, ?GraphQlQueryOptions $option=null){
 };
 $g = new ReflectionFunction($c);
@@ -35,30 +35,25 @@ if ($c){
         $p['is_promoted'] = $v_is_v8 ? $info->isPromoted() : false;
         $p['allow_null'] = $info->allowsNull();  
         $params[$n] = (object)array_merge(['type'=>$t], $p); 
-        // if callable - map data
         if ($callable){
             $callable($params[$n]);
         };
     }
     print_r($params);
 }
-
 /**
 * auto generate doc.
 */
 interface ISource{
-
     /**
     * auto generate doc.
     */
     function doFoo();
 }
-
 /**
 * auto generate doc.
 */
 class B implements ISource{
-
     /**
     * auto generate doc.
     */

@@ -8,6 +8,7 @@ use IGK\Helper\IO;
 use IGK\Helper\StringUtility;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 (php_sapi_name() != 'cli') && igk_die('run in cli please');
 $prefixes = ['annexes_','chapter_', 'introduction_', 'preface_'];
 $clean = property_exists($command->options, '--clean' );

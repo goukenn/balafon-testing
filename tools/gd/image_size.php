@@ -1,8 +1,8 @@
 <?php
-// get image size 
 // @command: balafon --run .test/tools/gd/image_size.php
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
+
 $file = igk_getv($params, 0) ?? igk_die('required file path');
 if (!file_exists($file)){
     igk_die('missing file');

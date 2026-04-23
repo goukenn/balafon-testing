@@ -5,7 +5,6 @@
 * auto generate doc.
 */
 trait One{
-
     /**
     * auto generate doc.
     */
@@ -13,20 +12,17 @@ trait One{
         echo "appy";
     }
 }
-
 /**
 * auto generate doc.
 */
 class BaseA{
     use One;
 }
-
 /**
 * auto generate doc.
 */
 class BaseB extends BaseA{
 }
-
 /**
 * auto generate doc.
 * @param string $class_name

@@ -1,8 +1,8 @@
 <?php
 // @command: balafon --run .test/projects/firefox/extension.command.php
 use IGK\System\Console\Helper\ConsoleUtility;
-require_once(__DIR__.'/lib/FExManinest.php');
 
+require_once(__DIR__.'/lib/FExManinest.php');
 /**
 * auto generate doc.
 * @param mixed $outdir

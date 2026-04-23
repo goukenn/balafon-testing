@@ -1,5 +1,6 @@
 <?php
 use IGK\System\Regex\Replacement;
+
 $s = <<<'JS'
 "use strict";
 console.log("info")

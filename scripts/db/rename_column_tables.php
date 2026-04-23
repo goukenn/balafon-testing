@@ -7,8 +7,7 @@
 use IGK\Controllers\BaseController;
 use IGK\System\Console\Logger;
 use IGK\System\Regex\Replacement;
-// replace in table 
-// check command : balafon --run .test/scripts/db/rename_column_tables.php --controller:WikiNodeJSPluginsController Plugins "^pgl(_)*" "pgl_"
+
 if ((!$params) || (count($params) < 2)) {
     igk_die('missing required parameter');
 }
@@ -31,7 +30,6 @@ use ($ad, $pattern, $new) {
                 continue;
             }
             Logger::info('replace '.$old_column.'==>'.$new_column);
-            // $new_column = $n;
             $b = $v_info[$new_column];
             $ts = $grammar->getColumnInfo($b);
             $query = sprintf(
@@ -45,19 +43,6 @@ use ($ad, $pattern, $new) {
             igk_wln("result : ".$f);
         }
     }
-    // foreach ($info as $n => $info) {
-    //     $old_column = $g;
-    //     $new_column = $n;
-    //     $query = sprintf(
-    //         'ALTER TABLE %s CHANGE COLUMN %s %s',
-    //         $table,
-    //         '',
-    //         $old_column,
-    //         $new_column,
-    //         $grammar->getColumnInfo($info)
-    //     );
-    // }
-    // $ad->sendQuery($query);
 });
 Logger::success('done');
 exit;

@@ -2,6 +2,7 @@
 // @command: balafon --run .test/db/retreive_foreing_keys/foreign.php
 use IGK\Controllers\SysDbController;
 use IGK\System\Console\Logger;
+
 $c = SysDbController::ctrl(true);
 $ad = $c->getDataAdapter();
 $g = $ad->reverse_foreing_keys("tbigk_users", "clGuid");

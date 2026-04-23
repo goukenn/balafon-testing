@@ -1,4 +1,5 @@
 <?php
+
 if ($b) {
     if ($m)
         if ($a)
@@ -10,5 +11,4 @@ if ($b) {
         else echo 'jungolo';
     else echo 'jiga';
 }
-// do some
 echo "sample";

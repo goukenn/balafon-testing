@@ -1,5 +1,6 @@
 <?php
 use IGK\Models\Users;
+
 $ctrl = bantubeatController::ctrl();
 $ctrl->register_autoload();
 $user = $ctrl->model(\Users::class)->select_row(1); 

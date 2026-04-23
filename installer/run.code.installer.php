@@ -1,15 +1,15 @@
 <?php
 // @command: php .test/installer/run.code.installer.php
 // @description: run code manual installer 
-include '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Lib/igk/Lib/Classes/IGKBacktickHelperCommandTrait.php';
-include '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Lib/igk/Inc/core/installer.helper.pinc';
+
+include IGK_LIB_CLASSES_DIR . '/IGKBacktickHelperCommandTrait.php';
+include IGK_LIB_DIR. '/Inc/core/installer.helper.pinc';
 $php_cmd = InstallerHelper::GetPhpBinary();
-$balafon_cmd = '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Lib/igk/bin/balafon';
-// InstallerHelper::RmFiles('/tmp/balafon_bcd/.balafon');
+$balafon_cmd = getenv('IGK_SITE_DEV_DIR').'/src/application/Lib/igk/bin/balafon';
 $b_cd = getcwd();
 $dir = '/tmp/balafon_bcd';
 chdir($dir);
-$app_dir = '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application';
+$app_dir = getenv('IGK_SITE_DEV_DIR').'/src/application';
 $envs = [
     'IGK_WORKING_DIR'=>$dir.'/src',
     'IGK_APP_DIR'=>$app_dir,
@@ -18,20 +18,10 @@ $envs = [
     'IGK_PROJECT_DIR'=>$app_dir.'/Projects'
 ];
 ksort($envs);
-// $sb = '<environments-constants>';
-// foreach(array_keys($envs) as $n){
-//     $sb .= '<env name="'.$n.'">';
-//     $sb .= '<description lang="fr"></description>';
-//     $sb .= '<description lang="en"></description>';
-//     $sb .= '</env>';
-// }
-// $sb.='</environments-constants>';
-// echo $sb, PHP_EOL;//json_encode($envs);
-// exit;
 foreach($envs as $k=>$v){
     putenv(sprintf('%s=%s', $k, $v));
 }
-$r = InstallerHelper::HandleBacktickCommand(`{$php_cmd} {$balafon_cmd} --project:list --debug 1>&1 2>&1; echo $?`);
+$r = InstallerHelper::HandleBacktickCommand(shell_exec("{$php_cmd} {$balafon_cmd} --project:list --debug 1>&1 2>&1; echo $?"));
 chdir($b_cd);
 print_r($r);
 exit;

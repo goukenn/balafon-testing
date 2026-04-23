@@ -6,40 +6,11 @@ use IGK\System\Html\Dom\HtmlDocumentNode;
 use IGK\System\Http\IHttpClient;
 use IGK\System\Http\IHttpClientOptions;
 use igk\tools\webscrapper\WebScrapperDocument;
+
 $p = new WebScrapperDocument;
 $p->base = 'https://local.com:7300';
 $outdir = __DIR__.'/web-site-scrap';
-IO::RmDir($outdir);
-// if ($p->parseContent('<script src="assets/Scripts/igk.js?version=3"></script><script src="https://unpkg.com/vue-router@4.2.4/dist/vue-router.global.prod.js?format"></script>')){
-//     Logger::success('export ok');
-//     $p->exportTo($outdir);
-//     Logger::success('exports to ');
-// }
-// if ($p->parseContent('<script src="demo/js">')){
-//     Logger::success('export ok');
-//     $p->exportTo($outdir);
-//     Logger::success('exports to ');
-// }
-// if ($p->parseContent('<link rel="stylesheet" href="https://local.com:7300/assets/Styles/balafon.css?v=13.02.0.0831">')){
-//     Logger::success('export ok');
-//     $p->exportTo($outdir);
-//     Logger::success('exports to ');
-// }
-// $src = file_get_contents("/Volumes/Data/Dev/Vite/vite-project/dist/assets/index-d7bd537c.js");
-// detect js inline uri spécificattion
-// preg_match_all("/('|\")[^;, ]+\.(svg|png|jp(e)?g)\\1/", $src, $tab);
-// preg_match("/import\s*\(\s*(?P<url>'[^']*'|\"[^\"]*\")\s*\)/", "import('presentation');", $tab);
-// preg_match("/import\s*\(\s*(?P<url>'[^']*'|\"[^\"]*\")\s*\)/", "import(\"presentation\");", $tab);
-// print_r($tab);
-// igk_wln_e("done");
-// $p->base = 'http://localhost:4173/';
-// if ($p->parseContent(file_get_contents("/Volumes/Data/Dev/Vite/vite-project/dist/index.html"))){
-//     Logger::success('export ok');
-//     $p->exportTo($outdir);
-//     Logger::success('exports to ');
-//     igk_wln($p->resources());
-// }
-// treat style content 
+IO::RmDir($outdir); 
 $p->base = 'https://local.com:7300';
 if ($p->parseContent('<!DOCTYPE html><html><head>'.    
     '<script type="module" src="/assets/_mod_/igk/js/Vue3/Scripts/default.js"></script>',
@@ -49,44 +20,37 @@ if ($p->parseContent('<!DOCTYPE html><html><head>'.
     Logger::success('exports to ');
     igk_wln_e($p->resources());
 }
-
 /**
 * auto generate doc.
 */
 class LocalClient implements IHttpClient{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $followLocation;
-
     /**
     * auto generate doc.
     * @return ?array
     */
     public function getRequestHeaderResponse(): ?array { return null; }
-
     /**
     * auto generate doc.
     * @param string $url
     * @param IHttpClientOptions $options
     */
     public function download(string $url, IHttpClientOptions $options) { }
-
     /**
     * auto generate doc.
     * @param string $url
     */
     public function get(string $url) { }
-
     /**
     * auto generate doc.
     * @param string $url
     * @param array $data
     */
     public function post(string $url, array $data = []) { }
-
     /**
     * auto generate doc.
     * @param string $url
@@ -104,7 +68,6 @@ class LocalClient implements IHttpClient{
         }
         return $this->getErrorDocument('missing - '.$url);
     }
-
     /**
     * auto generate doc.
     * @param mixed $content
@@ -123,7 +86,6 @@ class LocalClient implements IHttpClient{
         $doc->getBody()->Content = $content;
         return $doc->render();
     }
-
     /**
     * auto generate doc.
     * @param mixed $doc
@@ -133,7 +95,6 @@ class LocalClient implements IHttpClient{
         $doc->noCoreScript = true;
         $doc->noPowered = true;
     }
-
     /**
     * auto generate doc.
     * @param mixed $msg
@@ -145,7 +106,6 @@ class LocalClient implements IHttpClient{
         $doc->getBody()->div()->Content = $msg;
         return $doc->render();
     }
-
     /**
     * auto generate doc.
     * @return int

@@ -4,6 +4,7 @@ use igk\docs\swagger\SwaggerConfiguration;
 use igk\docs\swagger\SwaggerGenerator;
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
+
 $ctrl = ForemJobDashboardController::ctrl(true);
 $config = SwaggerConfiguration::LoadSwaggerConfigurationFromProject($ctrl);
 Logger::SetColorizer(new Colorize);

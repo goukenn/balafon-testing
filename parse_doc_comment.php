@@ -13,7 +13,7 @@ class A{
      * @response(
      *      Users[]|Json
      * )
-     * @url https://igkdev.com/schema-db
+     * @url https:
      */
       /**
      * entry falback action

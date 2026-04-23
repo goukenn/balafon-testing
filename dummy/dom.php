@@ -1,4 +1,5 @@
 <?php
+
 $list = [
     "tomates","mangues", "avocats"
 ];

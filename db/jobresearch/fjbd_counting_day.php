@@ -5,8 +5,8 @@
 // @desc: counting number of jobsearch / day 
 // @command: balafon --run .test/db/jobresearch/fjbd_counting_day.php --querydebug
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
+
 $c = ForemJobDashboardController::ctrl(true);
-//counting searching per day 
 $T1 = Jobs::class;
 $r = $T1::prepare()
 ->columns(

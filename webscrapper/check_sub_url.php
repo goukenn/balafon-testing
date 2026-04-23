@@ -1,9 +1,12 @@
 <?php
+// @command: balafon --run .test/webscrapper/check_sub_url.php
 use IGK\Helper\IO;
 use IGK\System\Html\HtmlNodeBuilder;
 use igk\tools\webscrapper\Tests\WebScrapperTestHttpClient;
 use igk\tools\webscrapper\WebScrapperDocument;
-require_once '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Packages/Modules/igk/tools/webscrapper/Lib/Tests/WebScrapperTestHttpClient.php';
+
+$module = igk_get_module('igk.tools.webscrapper');
+require_once $module->getDeclaredDir(). '/Lib/Tests/WebScrapperTestHttpClient.php';
 $n = igk_create_node('ul');
 $builder = new HtmlNodeBuilder($n);
 HtmlNodeBuilder::RunBuild($n, [
@@ -17,13 +20,7 @@ $t = '<!DOCTYPE html><html><head><meta charset="UTF-8" /></head><body><a href="/
 $document->base = 'https://local.com:7300';
 $document->setHttpClient(new WebScrapperTestHttpClient);
 if ($document->parseContent($t)) {
-    // $this->assertEquals(
-    //     '<!DOCTYPE html><html><head><meta charset="UTF-8"/></head><body><a href="pages/about.html">about</a></body></html>',
-    //     $document->render()
-    // );
-    $temp = "/tmp/div/";// igk_io_tempdir('wbs-');
+    $temp = "/tmp/div/";
     $document->exportTo($temp);
-    // `code {$temp}`;
     print_r($document->resources());
-    // IO::RmDir($temp);
 }

@@ -1,5 +1,6 @@
 <?php
-// balafon --run .test/ttre/treat_erral.php > .test/ttre/eural_code.json
+// @command: balafon --run .test/ttre/treat_erral.php
+
 $tcode = explode("\n", file_get_contents(__DIR__."/eural_code_list_2.txt"));
 $data = [];
 $key = null;
@@ -25,20 +26,5 @@ foreach($tcode as $l){
 if ($key && $value){
     $data[$key] = $value;
 }
-//\u813f => "à"
-//\u00e0 => "à"
-//\u00ee => "î"
-//\u732b => "è"
-//\u00ea => "ê"
-//\u951a => "ê"
-//\u2019 => "'"
-//\u00e7 => "ç"
-//\u83bd => "ç"
-//\u00fb => "û"
-//\u00f4 => "ô"
-//\u00a0 => " "
-//\u00ef => "ï"
-//\u8302 => "ï"
-//\u0153 => "oe"
 igk_wln(json_encode((object)$data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 exit;

@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/php8/enum-class-definition.php
+
 declare(strict_types=1);
 use com\igkdev\projects\Veteran\EnumChampion;
 include __DIR__.'/enum-gen.php';

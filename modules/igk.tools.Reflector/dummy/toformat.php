@@ -8,25 +8,21 @@
 * auto generate doc.
 */
 interface IActions{
-
     /**
     * auto generate doc.
     */
     function b();
-
     /**
     * auto generate doc.
     */
     function a();
 }
-
 /**
 * auto generate doc.
 */
 function a(){
     echo 'rover';
 }
-
 /**
 * auto generate doc.
 */

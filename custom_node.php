@@ -1,4 +1,5 @@
 <?php
+
 $t = igk_create_node('div');
 igk_debug(1);
 $t->load(<<<EOF

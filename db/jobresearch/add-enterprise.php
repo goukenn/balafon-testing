@@ -6,6 +6,7 @@
 // @command: balafon --run .test/db/jobresearch/add-enterprise.php
 use com\igkdev\projects\ForemJobDashboard\Models\JobForemJobs;
 use com\igkdev\projects\ForemJobDashboard\Models\JobEnterprises;
+
 ForemJobDashboardController::ctrl(true);
 $name = igk_getv($params, 0) ?? igk_die('missing enterprise name');
 foreach(explode(',', $name) as $c){

@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/markdown/dom/markdown.php
+
 $s = <<<EOF
 ```bash
 # Importer les données

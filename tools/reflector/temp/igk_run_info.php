@@ -1,5 +1,4 @@
 <?php
-
 namespace IGK\Run;
 
 /**
@@ -7,13 +6,10 @@ namespace IGK\Run;
  * @return void 
  */
 function logic(){
-
 }
-
 /**
 * auto generate doc.
 * @package IGK\Run
 */
 class Info{
-
 }

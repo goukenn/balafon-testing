@@ -3,6 +3,7 @@
 // @command: balafon --run .test/asset.php
 use IGK\System\Console\BalafonCommand;
 use IGK\System\IO\CoreFileSystem;
+
 $file = $ctrl->getAssetsDir()."/css/main.css";
 if (1 || !file_exists($file)){
     $g = BalafonCommand::Exec(sprintf(

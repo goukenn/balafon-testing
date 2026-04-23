@@ -3,6 +3,7 @@
 use igk\bcssParser\System\IO\BcssParser;
 use IGK\System\Console\Logger;
 use IGK\System\Html\Css\CssMinifier;
+
 $minify = new CssMinifier;
 $code = <<<CODE
 div{a{background:red} a.sample{background-color:blue;}

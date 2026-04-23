@@ -1,7 +1,7 @@
 <?php
-// demo - formatter 
 use igk\btmSyntax\Lib\FormatterDefinitionLoader;
 use IGK\Helper\JSon;
+
 $definition = [
     "scopeName" => "php.source.detected",
     "repository" => [
@@ -32,10 +32,6 @@ $definition = [
             "match"=>"#color",
         ] 
     ],
-    // "patterns" => [
-    //     ["include" => "#php-vars"],
-    //     ["begin" => "<<<", "end" => ",", "name" => "local"]
-    // ]
 ];
 $def = FormatterDefinitionLoader::Load($definition);
 igk_wln(__FILE__ . ":" . __LINE__, $def, [

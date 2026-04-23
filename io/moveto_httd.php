@@ -3,6 +3,7 @@
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 $src = '/Volumes/Data/Media/Pictures/2025/all_pictures';
 $dest = '/Volumes/HHD128Go/all_pictures';
 while(true){

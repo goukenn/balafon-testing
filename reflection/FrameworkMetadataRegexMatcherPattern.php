@@ -3,7 +3,6 @@
 // @file: FrameworkMetadataRegexMatcherPattern
 // @date: 20260228 08:54:37
 namespace IGK\System\Console\Commands\Utility;
-
 use IGK\System\Text\RegexMatcherPattern;
 
 /**
@@ -16,7 +15,6 @@ use IGK\System\Text\RegexMatcherPattern;
  */
 class FrameworkMetadataRegexMatcherPattern extends RegexMatcherPattern
 {
-
     /**
      * auto generate doc.
      * @var mixed

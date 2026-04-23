@@ -1,5 +1,6 @@
 <?php
 use IGK\System\Text\RegexMatcherContainer;
+
 if ( file_exists($fs = __DIR__.'/balafon.js')){
     $src = file_get_contents($fs);
 } else{
@@ -21,14 +22,4 @@ while($g = $regex->detect($src, $pos)){
 ksort($list);
 Logger::warn('balafon namespaces');
 Logger::print($list);
-// no gain of size 
-// $list = array_keys($list);
-// sort($list);
-// $g = strlen($src);
-// foreach($list as $k=>$v){
-//     $src = str_replace($v, '_ns['.$k.']', $src);
-// }
-// igk_wln($dt = str_replace('"', '\'', json_encode($list)));
-// $src.= $dt;
-// $dg = strlen($src);
-igk_wln_e("done"); // --- ", $g - $dg);
+igk_wln_e("done"); 

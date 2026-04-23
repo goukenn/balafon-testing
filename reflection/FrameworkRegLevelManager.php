@@ -3,7 +3,6 @@
 // @file: FrameworkRegLevelManager
 // @date: 20260228 08:56:23
 namespace IGK\System\Console\Commands\Utility;
-
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
 
@@ -14,7 +13,6 @@ use IGK\System\Text\RegexMatcherContainer;
 */
 class FrameworkRegLevelManager
 {
-
     /**
      * level marker separator
      * @var string
@@ -25,19 +23,16 @@ class FrameworkRegLevelManager
      * @var mixed
      */
     var $doc;
-
     /**
      * doc replaced with 
      * @var mixed
      */
     var $docReplaceWith;
-
     /**
      * auto generate doc.
      * @var mixed
      */
     var $location;
-
     /**
     * auto generate doc.
     * @param string $doc
@@ -47,7 +42,7 @@ class FrameworkRegLevelManager
     public static function FormatDoc(string $doc, $e, $tabSeparator)
     {
         $d = FrameworkRegLevelManager::GetDepth($e);
-        $tab = str_repeat($tabSeparator, $d); // live_doc->depth);
+        $tab = str_repeat($tabSeparator, $d); 
         $doc = $tab . implode("\n" . $tab, array_map('trim', explode("\n", $doc)));
         return $doc;
     }
@@ -60,7 +55,6 @@ class FrameworkRegLevelManager
     {
         $regex = new RegexMatcherContainer;
         $pos = 0;
-        // define
         $block = $regex->begin("\(", "\)", "block")->last();
         $array_block = $regex->begin("\[", "\]", "block-array")->last();
         $string = $regex->appendStringDetection('string', true)->last();
@@ -81,7 +75,6 @@ class FrameworkRegLevelManager
                 $array_block
             ];
         }
-
         $regex->match("\\s*(,|=)\\s*", "skip")->last();
         $block->patterns = [
             $l,
@@ -140,14 +133,12 @@ class FrameworkRegLevelManager
         }
         return $r;
     }
-
     /**
-    * auto generate doc.
+    * read only function parameters 
     * @param int &$pos
     * @return array
     */
-
-    public static function ReadFuncParams(string $src, int &$pos, &$return)
+    public static function ReadFuncParams(string $src, int &$pos, &$return): array
     {
         $tab = [];
         $regex = new RegexMatcherContainer;
@@ -155,25 +146,18 @@ class FrameworkRegLevelManager
         $cm[] = $regex->appendMultilineComment()->last();
         $cm[] = $regex->appendStringDetection('string', true)->last();
         $cm[] = $tarray = $regex->begin('\[', '\]', 'array')->last();
-
-
         $brank = $regex->begin('\(', '\)', 'brank')->last();
         $tarray->patterns =
             $brank->patterns = [
                 $cm,
                 $brank
             ];
-
         $treturn = $regex->begin(':', '(?=\{|;)', 'return')->last();
         $stop = $regex->match('(?=\{)', 'stop')->last();
-
-        // define
-
         $e_stop = false;
         while ($g = $regex->detect($src, $pos)) {
             if ($e = $regex->end($g, $src, $pos)) {
                 if ($e->getisRootCaptured()) {
-                    // Logger::warn('tokenid:' .$e->tokenID);
                     if ($e_stop == false) {
                         if ($e->tokenID == 'brank') {
                             if (!empty($v = substr($e->value, 1, -1))) {
@@ -195,12 +179,10 @@ class FrameworkRegLevelManager
         }
         return $tab;
     }
-
     /**
     * auto generate doc.
     * @return array{doc: mixed}|int
     */
-
     public function getDocInfo(?string $type = null)
     {
         $d = [];
@@ -226,13 +208,11 @@ class FrameworkRegLevelManager
         }
         return 1;
     }
-
     /**
     * auto generate doc.
     * @param mixed $e
     * @return int
     */
-
     public static function GetDepth($e): int
     {
         $i = 0;
@@ -243,7 +223,6 @@ class FrameworkRegLevelManager
             }
             $g = $g->parent;
         }
-
         return $i;
     }
 }

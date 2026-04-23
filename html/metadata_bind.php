@@ -2,16 +2,13 @@
 use IGK\Helper\StringUtility;
 use IGK\System\Html\Dom\HtmlDocumentNode;
 use IGK\System\Html\Metadatas\AppleTouchIconMetadataDefinition;
+
 $doc = IGKHtmlDoc::CreateDocument('dummy-document');
-// igk_wln_e( StringUtility::GetSnakeKebab('dummyDocument_Aample', true));
 $doc->metadatas->bind([
-    // "title"=>"No Ways",
-    // "description"=>"Binding Metas",
-    // "keywords"=>"Demos",
     "ogTitle"=>"Basic title content ..... ---------------------",
     "ogImage"=>"Sangoku",
     "applicationName"=>"Demo APP.",
-    "icons"=>"Balsicsfs", // (object)['apple'=>'http//apple', 'icon'=>'the cions'],
+    "icons"=>"Balsicsfs", 
     'twitterCard'=>'large_image',
     'archives'=>'my_archive',
     'assets'=>'https://example.com/assets',

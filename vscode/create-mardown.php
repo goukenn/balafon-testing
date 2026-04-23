@@ -9,7 +9,8 @@ use IGK\System\Console\Helper\ConsoleUtility;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
 use IGK\System\IO\StringBuilder;
-($dir = igk_getv($params, 0) ); // ?? igk_die("missing output directry");
+
+($dir = igk_getv($params, 0) ); 
 $file = 'README.md';
 if ($info = igk_getv($params, 1)){
     if (file_exists($info)){
@@ -21,10 +22,8 @@ $sections = ['title','features', 'versions', 'license'];
 foreach($sections as $t){
     $sb->appendLine("# ".$t);
     $sb->appendLine('---');
-    // section conten
 }
 $content = $sb.'';
-
 /**
 * auto generate doc.
 */
@@ -37,9 +36,8 @@ if (!$dir){
 igk_io_w2file($of = Path::Combine($dir, $file), 
 $content);
 $bind = [];
-// preview markdown 
 $bind[$dir.'/index.html'] = function($file){
-    $n = igk_create_node('html'); // IGKHtmlDoc::CreateDocument('--markdown');
+    $n = igk_create_node('html'); 
     $head = $n->head();
     $head->link()->setAttributes([
         'href'=>'assets/css/main.css',

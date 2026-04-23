@@ -1,28 +1,25 @@
 <?php
+// @command: balafon --run .test/View/present.php
 
 /**
 * auto generate doc.
 */
 class ViewHandler{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     private static $sm_instance;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $tab = [];
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $attrbInd = false;
-
     /**
     * auto generate doc.
     */
@@ -30,14 +27,12 @@ class ViewHandler{
         is_null(self::$sm_instance) && self::$sm_instance = new self;
         return self::$sm_instance;
     }
-
     /**
     * .ctr
     */
     private function __construct(){  
         $this->tab = ["class"=>null, "style"=>null];      
     }
-
     /**
     * auto generate doc.
     */
@@ -58,7 +53,6 @@ $__igk_attr__ = Closure::fromCallable(function($arr){
         $tab = explode(" ", $this->tab["class"] ?? "");
         $carr = array_map(function($a)use(& $tab){
             if (strpos($a,'-')===0){
-                // remove 
                 $k = substr($a, 1);
                 if ( ($index = array_search($k, $tab)) === false){
                     unset($tab[$index]);
@@ -72,8 +66,8 @@ $__igk_attr__ = Closure::fromCallable(function($arr){
     $this->tab = array_merge($this->tab, $arr);
     $this->attribBind = true;
 })->bindTo(ViewHandler::getInstance());
-include_once "/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Lib/igk/Lib/Classes/IGKObject.php";
-include_once "/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Lib/igk/Lib/Classes/System/Html/Css/CssSession.php";
+include_once IGK_LIB_CLASSES_DIR ."/IGKObject.php";
+include_once IGK_LIB_CLASSES_DIR. "/System/Html/Css/CssSession.php";
 ob_start();
 include("datac.php");
 $c = ob_get_contents();

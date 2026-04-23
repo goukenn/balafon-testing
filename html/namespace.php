@@ -12,7 +12,6 @@ function igk_html_node_details()
     $n->summary()->content = 'summary for sample ';
     return $n;
 }
-
 /**
 * auto generate doc.
 */
@@ -23,8 +22,6 @@ function svg_details()
     $n->summary()->content = 'summary for sample ';
     return $n;
 }
-// $l = igk_reg_component_package();
-// print_r(array_keys($l));
 $rec = _h('svg:rect')->setAttributes([
     'id' => 'rc-background',
     'x' => '10',

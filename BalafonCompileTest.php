@@ -3,7 +3,7 @@
 // @filename: BalafonCompileTest.php
 // @date: 20220830 17:44:36
 // @desc: 
-// phpunit -c phpunit.xml.dist src/application/Lib/igk/Lib/tests/System/Compilers/BalafonCompileTest.php
+// @command: phpunit -c phpunit.xml.dist src/application/Lib/igk/Lib/tests/System/Compilers/BalafonCompileTest.php
 namespace IGK\Tests\System\Compilers;
 use IGK\Controllers\BaseController;
 use IGK\Helper\IO;
@@ -26,19 +26,18 @@ use IGK\Tests\Controllers\TestController;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use PHPUnit\Framework\ExpectationFailedException;
 use IGKException;
+
 /**
  * test compiler ... 
  * @package IGK\Tests\System\Compilers
  */
 class BalafonCompileTest extends BaseTestCase
 {
-
     /**
     * auto generate doc.
     * @var mixed
     */
     static $sm_tempdir;
-
     /**
     * auto generate doc.
     * @return void
@@ -47,7 +46,6 @@ class BalafonCompileTest extends BaseTestCase
     {
         IO::RmDir(self::$sm_tempdir);
     }
-
     /**
     * auto generate doc.
     * @return void
@@ -58,7 +56,6 @@ class BalafonCompileTest extends BaseTestCase
         IO::CreateDir($sdir);
         self::$sm_tempdir = $sdir;
     }
-
     /**
     * auto generate doc.
     */
@@ -75,7 +72,6 @@ class BalafonCompileTest extends BaseTestCase
      * @throws InvalidArgumentException 
      * @throws ExpectationFailedException 
      */
-
     public function test_replace_with_offset(){
         $g = StringUtility::ReplaceAtOffset("Hello Friend", "BB", 2, 2);
         $this->assertEquals(
@@ -91,7 +87,6 @@ class BalafonCompileTest extends BaseTestCase
      * @throws IGKException 
      * @throws EnvironmentArrayException 
      */
-
     public function test_detect_node_modification()
     {
         $mod = new CompilerNodeModifyDetector;
@@ -130,7 +125,6 @@ class BalafonCompileTest extends BaseTestCase
             $mod->getModify(),
             "attribute modify"
         );
-        // by default will detect environment node creation 
         CompilerNodeModifyDetector::Init();
         igk_create_node("div");
         $this->assertTrue(
@@ -139,7 +133,6 @@ class BalafonCompileTest extends BaseTestCase
         );
         CompilerNodeModifyDetector::UnInit();
     }
-
     /**
     * auto generate doc.
     */
@@ -158,7 +151,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
-
     /**
     * auto generate doc.
     */
@@ -177,7 +169,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
-
     /**
     * auto generate doc.
     */
@@ -196,7 +187,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
-
     /**
     * auto generate doc.
     */
@@ -224,7 +214,6 @@ class BalafonCompileTest extends BaseTestCase
      * @throws InvalidArgumentException 
      * @throws ExpectationFailedException 
      */
-
     public function test_BalafonViewCompileInstruction_x_3(){
         $n = new BalafonViewCompileInstruction;
         $n->extract = true;
@@ -241,7 +230,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         );  
     }
-
     /**
     * auto generate doc.
     */
@@ -261,7 +249,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
-
     /**
     * auto generate doc.
     */
@@ -280,7 +267,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
-
     /**
     * auto generate doc.
     */
@@ -299,7 +285,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
-
     /**
     * auto generate doc.
     */
@@ -314,7 +299,6 @@ class BalafonCompileTest extends BaseTestCase
         $n->controller = $ctrl;
         $n->variables = & $tab; 
         $result = $n->compile();
-        // igk_wln_e("result", $result);
         $this->assertEquals(
             "\$m = '8';\n".
             "?><div><div>ok</div></div><?php\n"
@@ -322,7 +306,6 @@ class BalafonCompileTest extends BaseTestCase
             $result
         ); 
     }
-
     /**
     * auto generate doc.
     */
@@ -344,7 +327,6 @@ PHP;
         );
         CompilerNodeModifyDetector::UnInit();
     }
-
     /**
     * auto generate doc.
     */
@@ -359,7 +341,6 @@ PHP;
             "block not raise the modification"
         );
     }
-
     /**
     * auto generate doc.
     */
@@ -378,7 +359,6 @@ PHP,
             "failed"
         );
     }
-
     /**
     * auto generate doc.
     */
@@ -396,7 +376,6 @@ PHP,
             "failed to compile"
         );
     }
-
     /**
     * auto generate doc.
     */
@@ -411,7 +390,6 @@ PHP;
         $compiler_result = $this->_get_compiler_result($src, [10]);
          $g = igk_create_node("div");
          $g->text($compiler_result);
-         // igk_wln_e("result :::", $g->render());
         $this->assertEquals(<<<'PHP'
 <div><?php
 if (8 == $params[0]): 
@@ -422,7 +400,6 @@ PHP,
             "failed to compile"
         );
     }
-
     /**
     * auto generate doc.
     */
@@ -439,7 +416,6 @@ PHP;
         $g = igk_create_node("div");
         $g->text($compiler_result);
         $rep = $g->render();
-        // igk_wln_e(" result: ", $compiler_result, $rep);
         $this->assertEquals(<<<'PHP'
 <div><?php
 if (8 == $params[0]): 
@@ -451,7 +427,152 @@ PHP,
             "failed to compile"
         );
     }
-
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $this->assertEquals(
+            "\$m = '8';\n".
+            "?><div><div>ok</div></div><?php\n"
+            ,
+            $result
+        ); 
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_detect_eval_block_modification()
+    {
+        $src = <<<'PHP'
+    $n = igk_create_node("div");
+    $n->Content= "presentation";
+PHP;
+        CompilerNodeModifyDetector::Init();
+        $t = new CompilerNodeModifyDetector();
+        ob_start();
+        eval("?><?php" . $src);
+        $buffer = ob_get_contents();
+        ob_end_clean();
+        $this->assertTrue(
+            CompilerNodeModifyDetector::SysModify(),
+            "block not raise the modification"
+        );
+        CompilerNodeModifyDetector::UnInit();
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_check_block_modification()
+    {
+        $src = <<<'PHP'
+    $n = igk_create_node("div");
+    $n->Content= "presentation";
+PHP; 
+        $this->assertTrue(
+            BalafonViewCompilerUtility::CheckBlockModify($src),
+            "block not raise the modification"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_add_condition_block()
+    {
+        $c = new ConditionBlockNode;
+        $c->type = "if";
+        $c->condition = "(true)";
+        $c->add("li")->Content = "Ok";
+        $n = igk_create_node("div");
+        $n->add($c);  
+        $this->assertEquals(<<<'PHP'
+<div><?php if (true): ?><li>Ok</li><?php endif; ?></div>
+PHP,
+            $n->render(),
+            "failed"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function _test_read_node()
+    {
+        $src = <<<'PHP'
+<?php
+$t->div()->Content = 'Hello';
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src);
+        $this->assertEquals(<<<'PHP'
+<div><div>Hello</div></div>
+PHP,
+            $compiler_result,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node()
+    {
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $t->div()->Content = 'Hello';
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [10]);
+         $g = igk_create_node("div");
+         $g->text($compiler_result);
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
     /**
     * auto generate doc.
     * @param mixed $src
@@ -472,150 +593,22 @@ PHP,
         $opt->controller = $ctrl;
         $opt->view_args = $args;
         $buffer = "";
-        $data = BalafonViewCompiler::CompileSource($src, $opt);
-        // $buffer = BalafonViewCompiler::EvaluateCompiledSource($data->source, $ctrl, $args, $data->readOptions->detectVariables);
-        $data->buffer = "";//$buffer;
-        // igk_wln_e("src:", $src, "data source: ", $data->source, "buffer:", $buffer);
-        // $sb = new StringBuilder;
-        // $sb->appendLine("<?php");
-        // $sb->append("? >".$args->t->render());
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
         return $data->source;
-    }
-//     public function _test_read_if_block()
-//     {
-//         $src = <<<'PHPM'
-// <?php
-//   if ( true ) $t->Content = '1'; elseif (true) $data=88; else $t['class'] = "{22";
-// PHPM;
-//         $tokens = \token_get_all($src);
-//         $read_block_info = null;
-//         $buffers = "";
-//         $depth = 0;
-//         $block_list = [];
-//         while (count($tokens) > 0) {
-//             $tk = array_shift($tokens);
-//             $id = null;
-//             $value = $tk;
-//             if (is_array($tk)) {
-//                 $id = $tk[0];
-//                 $value = $tk[1];
-//             }
-
-//             igk_wl("\nTOKEN: " . ($id ? token_name($id) : "") . " \tValue:" . $value);
-
-//             if ($read_block_info) {
-//                 $read_block_info->value .= $value;
-//                 if ($read_block_info->conditionRead) {
-//                     $read_block_info->condition .= $value;
-//                 } else if (!$read_block_info->block) {
-//                     $read_block_info->instruct .= $value;
-//                 }
-//                 switch ($value) {
-//                     case "{":
-//                         $read_block_info->block = true;
-//                         $depth++;
-//                         break;
-//                     case "}":
-//                         $depth--;
-//                         if ($read_block_info->depth == $depth) {
-//                             $read_block_info = null;
-//                         }
-//                         break;
-//                     case ";":
-//                         if (!$read_block_info->block) {
-//                             // single instruction                             
-//                             $read_block_info = null;
-//                         }
-//                         break;
-//                     case "(":
-//                         if ($read_block_info->conditionRead) {
-//                             $read_block_info->conditionDepth++;
-//                         }
-//                         break;
-//                     case ")";
-//                         if ($read_block_info->conditionRead) {
-//                             $read_block_info->conditionDepth--;
-//                             if ($read_block_info->conditionDepth == -1) {
-//                                 $read_block_info->conditionRead = false;
-//                             }
-//                         }
-//                         break;
-//                 }
-//                 continue;
-//             }
-
-//             switch ($id) {
-//                 case T_IF:
-//                 case T_ELSE:
-//                 case T_ELSEIF:
-//                 case T_WHILE:
-//                 case T_DO:
-//                 case T_FOREACH:
-//                 case T_SWITCH:
-//                     $read_block_info = (object)[
-//                         "type" => $value,
-//                         "value" => $value,
-//                         "depth" => $depth,
-//                         "block" => false,
-//                         "instruct" => "",
-//                         "conditionRead" => in_array($value, explode("|", "if|elseif|while|switch")),
-//                         "condition" => "",
-//                         "conditionDepth" => -1,
-//                         "childs" => null
-//                     ];
-//                     $block_list[] = $read_block_info;
-//                     $buffers = &$read_block_info->value;
-//                     if (($id == T_ELSE) || ($id == T_ELSEIF)) {
-//                         array_pop($block_list);
-//                         $c = count($block_list);
-//                         if ($c == 0) {
-//                             igk_die("not allowed index");
-//                         }
-//                         if (!$block_list[$c - 1]->childs)
-//                             $block_list[$c - 1]->childs = [];
-//                         if ($block_list[$c - 1]->type != "if") {
-//                             igk_die("not a valid childs");
-//                         }
-//                         $block_list[$c - 1]->childs[] = $read_block_info;
-//                     }
-//                     break;
-//                 default:
-//                     switch ($value) {
-//                         case "{":
-//                             $depth++;
-//                             break;
-//                         case "}":
-//                             $depth--;
-//                             break;
-//                     }
-//                     break;
-//             }
-//         }
-
-//         $t = $block_list[0];
-//         if ($t->block) {
-//             $t->instruct = trim(substr($t->value, strpos($t->value, "{") + 1, -1));
-//         } else {
-//             $t->instruct = trim($t->instruct);
-//         }
-//         igk_wln_e("\n\n**************done ", $read_block_info, $block_list[0]);
-//         $this->fail("readblock");
-//     }
+    } 
 }
-
 /**
 * auto generate doc.
 * @package IGK\Tests\System\Compilers
 */
 class CompileTestController extends TestController
 {
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $entryDir;
-
     /**
     * auto generate doc.
     */
@@ -623,7 +616,6 @@ class CompileTestController extends TestController
     {
         return $this->entryDir . "/Articles";
     }
-
     /**
     * auto generate doc.
     * @return string
@@ -632,7 +624,1599 @@ class CompileTestController extends TestController
     {
         return $this->entryDir;
     }
-
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Comp
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $this->assertEquals(
+            "\$m = '8';\n".
+            "?><div><div>ok</div></div><?php\n"
+            ,
+            $result
+        ); 
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_detect_eval_block_modification()
+    {
+        $src = <<<'PHP'
+    $n = igk_create_node("div");
+    $n->Content= "presentation";
+PHP;
+        CompilerNodeModifyDetector::Init();
+        $t = new CompilerNodeModifyDetector();
+        ob_start();
+        eval("?><?php" . $src);
+        $buffer = ob_get_contents();
+        ob_end_clean();
+        $this->assertTrue(
+            CompilerNodeModifyDetector::SysModify(),
+            "block not raise the modification"
+        );
+        CompilerNodeModifyDetector::UnInit();
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_check_block_modification()
+    {
+        $src = <<<'PHP'
+    $n = igk_create_node("div");
+    $n->Content= "presentation";
+PHP; 
+        $this->assertTrue(
+            BalafonViewCompilerUtility::CheckBlockModify($src),
+            "block not raise the modification"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_add_condition_block()
+    {
+        $c = new ConditionBlockNode;
+        $c->type = "if";
+        $c->condition = "(true)";
+        $c->add("li")->Content = "Ok";
+        $n = igk_create_node("div");
+        $n->add($c);  
+        $this->assertEquals(<<<'PHP'
+<div><?php if (true): ?><li>Ok</li><?php endif; ?></div>
+PHP,
+            $n->render(),
+            "failed"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function _test_read_node()
+    {
+        $src = <<<'PHP'
+<?php
+$t->div()->Content = 'Hello';
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src);
+        $this->assertEquals(<<<'PHP'
+<div><div>Hello</div></div>
+PHP,
+            $compiler_result,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node()
+    {
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $t->div()->Content = 'Hello';
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [10]);
+         $g = igk_create_node("div");
+         $g->text($compiler_result);
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $this->assertEquals(
+            "\$m = '8';\n".
+            "?><div><div>ok</div></div><?php\n"
+            ,
+            $result
+        ); 
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_detect_eval_block_modification()
+    {
+        $src = <<<'PHP'
+    $n = igk_create_node("div");
+    $n->Content= "presentation";
+PHP;
+        CompilerNodeModifyDetector::Init();
+        $t = new CompilerNodeModifyDetector();
+        ob_start();
+        eval("?><?php" . $src);
+        $buffer = ob_get_contents();
+        ob_end_clean();
+        $this->assertTrue(
+            CompilerNodeModifyDetector::SysModify(),
+            "block not raise the modification"
+        );
+        CompilerNodeModifyDetector::UnInit();
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_check_block_modification()
+    {
+        $src = <<<'PHP'
+    $n = igk_create_node("div");
+    $n->Content= "presentation";
+PHP; 
+        $this->assertTrue(
+            BalafonViewCompilerUtility::CheckBlockModify($src),
+            "block not raise the modification"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_add_condition_block()
+    {
+        $c = new ConditionBlockNode;
+        $c->type = "if";
+        $c->condition = "(true)";
+        $c->add("li")->Content = "Ok";
+        $n = igk_create_node("div");
+        $n->add($c);  
+        $this->assertEquals(<<<'PHP'
+<div><?php if (true): ?><li>Ok</li><?php endif; ?></div>
+PHP,
+            $n->render(),
+            "failed"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function _test_read_node()
+    {
+        $src = <<<'PHP'
+<?php
+$t->div()->Content = 'Hello';
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src);
+        $this->assertEquals(<<<'PHP'
+<div><div>Hello</div></div>
+PHP,
+            $compiler_result,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node()
+    {
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $t->div()->Content = 'Hello';
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [10]);
+         $g = igk_create_node("div");
+         $g->text($compiler_result);
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+?><div>Hello</div><?php
+endif; ?></div>
+PHP,
+            $g->render(),
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    */
+    public function test_read_condition_add_node_2()
+    { 
+        $src = <<<'PHP'
+<?php
+if (8 == $params[0]){
+    $x = 110;
+    $t->div()->Content = 'Hello :'.$x;
+}
+PHP;    
+        $compiler_result = $this->_get_compiler_result($src, [9]);
+        $g = igk_create_node("div");
+        $g->text($compiler_result);
+        $rep = $g->render();
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
+    /**
+    * auto generate doc.
+    * @param null|string $m
+    * @return string
+    */
+    public function getAppUri(?string $m = null): string
+    {
+        return "testuri://" . $m;
+    }
+}
+        $this->assertEquals(<<<'PHP'
+<div><?php
+if (8 == $params[0]): 
+$x = 110;
+?><div>Hello :<?= $x ?></div><?php
+endif; ?></div>
+PHP,
+            $rep,
+            "failed to compile"
+        );
+    }
+    /**
+    * auto generate doc.
+    * @param mixed $src
+    * @param null|mixed $params
+    * @return string
+    */
+    private function _get_compiler_result($src, $params=null):string{
+        $ctrl = new CompileTestController();
+        $ctrl->entryDir = self::$sm_tempdir;
+        $args = new ViewEnvironmentArgs;
+        $args->ctrl = $ctrl;
+        $args->params = $params;
+        $args->t = new HtmlNode("div"); 
+        $args->doc = new HtmlDocumentNode();
+        $opt = new BalafonViewCompilerOptions;
+        $opt->layout = new PageLayout;
+        $opt->layout->viewDir = self::$sm_tempdir;
+        $opt->controller = $ctrl;
+        $opt->view_args = $args;
+        $buffer = "";
+        $data = BalafonViewCompiler::CompileSource($src, $opt); 
+        $data->buffer = "";
+        return $data->source;
+    } 
+}
+/**
+* auto generate doc.
+* @package IGK\Tests\System\Compilers
+*/
+class CompileTestController extends TestController
+{
+    /**
+    * auto generate doc.
+    * @var mixed
+    */
+    var $entryDir;
+    /**
+    * auto generate doc.
+    */
+    public function getArticlesDir()
+    {
+        return $this->entryDir . "/Articles";
+    }
+    /**
+    * auto generate doc.
+    * @return string
+    */
+    public function getDeclaredDir(): string
+    {
+        return $this->entryDir;
+    }
     /**
     * auto generate doc.
     * @param null|string $m

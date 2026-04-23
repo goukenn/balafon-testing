@@ -2,6 +2,7 @@
 // @command: balafon --run .test/system/text/regexcontainer/code_detection.php
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
+
 $src = <<<MARKDOWN
 hello `friend` of mine
 MARKDOWN;

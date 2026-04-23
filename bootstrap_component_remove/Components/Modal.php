@@ -4,26 +4,22 @@
 // @date: 20230312 06:43:43
 namespace igk\bootstrap\Components;
 use IGKValueListener;
-///<summary></summary>
 
 /**
 * auto generate doc.
 * @package igk\bootstrap\Components
 */
 class Modal extends BootstrapComponentBase{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $dialog;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $labelledby;
-
     /**
     * auto generate doc.
     */

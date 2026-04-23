@@ -7,6 +7,7 @@ use IGK\Models\Groupauthorizations;
 use IGK\Models\Groups;
 use IGK\Models\Usergroups;
 use IGK\System\Console\Logger;
+
 $ctrl = ForemJobDashboardController::ctrl(true);
 Authorizations::registerMacro('for', function(BaseController $ctrl){
     return $this->select_all([
@@ -20,7 +21,6 @@ foreach($auths as $row){
     $c[] = $row->clId;
 }
 if ($c){
-    // clear authorization
     $query = sprintf('delete From `%s` WHERE clAuth_Id IN(%s);', Groupauthorizations::table(), implode(',',$c));
     Logger::info('delete : '. $ad->sendQuery($query));
 }
@@ -31,7 +31,6 @@ foreach(Groups::select_all($cond = [
     $c[] = $row->clId;
 }
 if ($c){
-    // clear user group for a controller 
     $query = sprintf('delete From `%s` WHERE clGroup_Id IN(%s);', Usergroups::table(), implode(',',$c));
     Logger::info('delete : '. $ad->sendQuery($query));
 } 

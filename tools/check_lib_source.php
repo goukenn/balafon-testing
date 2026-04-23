@@ -1,6 +1,7 @@
 <?php
 use IGK\System\Console\Logger;
 use Symfony\Component\ErrorHandler\Error\FatalError;
+
 $dir = realpath(__DIR__.'/../../src/application/Lib/igk');
 $list = [$dir];
 $files = [];
@@ -21,12 +22,11 @@ while(count($list)>0)
         closedir($hdir);
     }
 }
-// sort($files);
 foreach($files as $f){
     echo $f . "\n";
     ob_start();
     try{
-    $c = `php $f`;// include($f);
+    $c = shell_exec("php $f");
     }catch(Error $ex){
     } catch(Exception $ex){
     } catch(FatalError $ex){

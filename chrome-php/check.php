@@ -7,9 +7,9 @@
 use HeadlessChromium\BrowserFactory;
 use HeadlessChromium\Page;
 use IGK\System\Console\Logger;
+
 $browserFactory = new BrowserFactory;
 $browser = $browserFactory->createBrowser([
-     // for self signing security check 
     'ignoreCertificateErrors'=>true
 ]);
 if ($page = $browser->createPage()){

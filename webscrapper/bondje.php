@@ -4,6 +4,7 @@ use IGK\Helper\IO;
 use IGK\System\Http\CurlHttpClient;
 use IGK\System\IO\Path;
 use igk\tools\webscrapper\WebScrapperDocument;
+
 $url = "https://local.com:7300/bondje";
 $client = new CurlHttpClient;
 $client->accept = 'text/html';
@@ -16,11 +17,9 @@ if ($content =<<<'HTML'
 <ul>
     <li><a href="/bondje/cv">CV</a></li>     
 </ul>
-HTML    //$client->request($url)
-) {
+HTML) {
     $parser = new WebScrapperDocument;
     $parser->base = "https://local.com:7300";
-    //$parser->entry = '/bondje';
     if ($parser->parseContent($content)) {
         $parser->exportTo($outdir);
         igk_wln_e('done', $parser->render());

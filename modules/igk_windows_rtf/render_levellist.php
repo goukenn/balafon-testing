@@ -1,7 +1,5 @@
 <?php
-
 // @command: balafon --run .test/modules/igk_windows_rtf/render_levellist.php
-
 use IGK\System\IO\StringBuilder;
 use igk\Windows\Rtf\RtfLevelList as cList;
 
@@ -9,13 +7,11 @@ use igk\Windows\Rtf\RtfLevelList as cList;
 * auto generate doc.
 */
 class TxtEngineRenderer{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $tabstop = ' ';
-
     /**
     * auto generate doc.
     * @param mixed $item
@@ -24,7 +20,6 @@ class TxtEngineRenderer{
         $sb = new StringBuilder;
         $tab = [$item];
         $tabstop = $this->tabstop ?? "\t";
-
         while (count($tab)>0){
             $q = array_shift($tab);
             $s = '';
@@ -44,14 +39,11 @@ class TxtEngineRenderer{
         return $sb.'';
     }
 }
-
 /**
 * auto generate doc.
 */
 class RtfLevelList extends cList{
-   
 }
-
 $n = new RtfLevelList;
 $n->setRoot('\\\'00');
 $a = new RtfLevelList;
@@ -60,10 +52,6 @@ $cm = new RtfLevelList;
 $cm->setRoot('M');
 $n->append($a);
 $n->append($b);
-
-
 $b->getParent()->append($cm);
-
 echo (new TxtEngineRenderer())->render($n);
-
 igk_wln_e('.');

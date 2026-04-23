@@ -7,7 +7,6 @@ namespace igk\bootstrap\Components;
 */
 class ChildVisibleComponent extends ComponentBase
 {
-
     /**
     * auto generate doc.
     */

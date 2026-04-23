@@ -29,7 +29,6 @@ function db_rename_table_column(ModelBase $model, string $column, string $new_na
         ]);
     }
 $query = null;
-    // debug 
    $ad->sendQuery(igk_str_format('ALTER TABLE `{0}` DROP COLUMN `{1}`', $table, $new_name));
     if ($ad->exist_column($table, $column)) {
         $ad->sendQuery('Drop table IF EXISTS `memo`;');
@@ -53,29 +52,10 @@ $query = null;
                 $tprim->clName =>$row->{$tprim->clName}
             ]);
         }
-        // $query = igk_str_format('UPDATE `{0}` JOIN `memo` ON `memo`.`{1}` = `{0}`.`{4}` SET `{0}`.`{3}`=`memo`.`{3}`;', 
-        //     $table, $tprim->clName, $column, $new_name, $prim);   
-        //     Logger::info($query)     ;
-        // $ad->sendQuery($query);
        $ad->sendQuery('Drop table `memo`;');
     } 
 }
-// db_rename_table_column(Users::model(), 'clcreate_at', 'clcreate_atation');
 igk_environment()->querydebug = 1;
 igk_get_user_bylogin('cbondje@igkdev.com')->activate();
-// Users::model()->getDataAdapter()->createTable('base_i', [
-//     new DbColumnInfo([
-//         'clName'=>'id',
-//         'clType'=>'int',
-//         'clAutoIncerment'=>true
-//     ]),
-//     new DbColumnInfo([
-//         'clName'=>'clDate',
-//         'clInsertFunction'=>'Now()',
-//         'clType'=>'datetime',
-//         'clDefault'=>'CURRENT_TIMESTAMP'
-//     ]),
-// ]);
-// Users::model()->getDataAdapter()->sendQuery('Drop table base_i');
 Logger::success('done');
 igk_exit();

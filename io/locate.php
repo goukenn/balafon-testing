@@ -1,7 +1,8 @@
 <?php
-// @command: balafon --run .test/io/locate.php /Volumes/Data/Dev
+// @command: balafon --run .test/io/locate.php dir*
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 $dir = igk_getv($params, 0);
 $pattern = igk_getv($params, 1);
 $match = function($p, &$g, $type) use($pattern){

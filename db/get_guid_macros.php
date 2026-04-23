@@ -2,6 +2,7 @@
 use com\igkdev\bantubeat\Models\Users;
 use com\igkdev\bantubeat\Profiles;
 use IGK\Helper\Authorization;
+
 $ctrl = bantubeatController::ctrl();
 $ctrl::register_autoload();
 echo Users::select_all(null, ['Limit',1])[0]->guid();

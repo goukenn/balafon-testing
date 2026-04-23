@@ -8,27 +8,23 @@ use IGK\Helper\JSon;
 use IGK\System\Annotations\PhpDocBlocReader;
 use IGK\System\Helpers\AnnotationHelper;
 use IGK\System\IO\JSon\Annotations\JSonBindAsAnnotation; 
+
 include __DIR__ . '/TempOracle.php'; 
 if (!class_exists('A', false)) {
-
 /**
 * auto generate doc.
 */
-
 /**
 * auto generate doc.
 */
-
     /**
     * auto generate doc.
     * @package
     */
-
     /**
     * auto generate doc.
     * @package
     */
-
     /**
     * auto generate doc.
     * @package test
@@ -36,43 +32,36 @@ if (!class_exists('A', false)) {
     */
     class A
     {
-
         /**
         * auto generate doc.
         * @var mixed
         */
         var $name;
-
         /**
         * auto generate doc.
         * @var mixed
         */
         var $title;
-
         /**
         * auto generate doc.
         * @var mixed
         */
         var $version;
-
         /**
         * auto generate doc.
         * @var mixed
         */
         var $cars;
-
         /**
         * auto generate doc.
         * @var mixed
         */
         var $local;
-
         /**
         * auto generate doc.
         * @var mixed
         */
         var $siri;
-
         /**
         * auto generate doc.
         */
@@ -98,7 +87,5 @@ $src = <<<'JSON'
 JSON;
 $c = new A();
 $data = json_decode($src);
-// $c= (object)['version'=>null];
 JSon::BindData($c, $data);
-// JSonBindAsAnnotation::GetRequiredProperty(A::class);
 igk_wln_e($c, $c->join());

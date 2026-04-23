@@ -1,4 +1,5 @@
 <?php
+
 $enum = [
     "comment",
     "comment.block",

@@ -9,13 +9,15 @@ namespace IGK\System\Console\Commands\Utility;
 * @package IGK
 * @author C.A.D. BONDJE DOUE
 */
-
 /**
 * auto generate doc.
 * @package IGK\System\Console\Commands\Utility
 */
 class FrameworkMetadataGenerator{
-
+    /**
+     * line feed prefix
+     */
+    const DOC_LF_PREFIX = "\n";
     /**
     * auto generate doc.
     * @var mixed
@@ -27,13 +29,11 @@ class FrameworkMetadataGenerator{
     * @var mixed
     */
     const PROP_BUFFER = '::buffer';
-
     /**
     * auto generate doc.
     * @var mixed
     */
     const PROP_INDEF = '::indef';
-
     /**
     * auto generate doc.
     * @var mixed
@@ -41,14 +41,14 @@ class FrameworkMetadataGenerator{
     const PROP_NAMESPACES = '::namespaces';
     /**
      * initialize buffer object 
-     * @param mixed &$buffer 
+     * @param mixed|string &$buffer 
      * @return object 
      */
     public static function InitBufferObject(& $buffer){
         return (object)[
-            'pos' => 0,            // <- position in source code  
-            'buffer' => &$buffer,  // <- temp buffer definition 
-            'replaces'=>[],        // <- store list of php doc replacement object             
+            'pos' => 0,            
+            'buffer' => &$buffer,  
+            'replaces'=>[],        
         ];
     }
 }

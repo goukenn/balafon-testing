@@ -1,4 +1,5 @@
 <?php
+
 if (!function_exists('igk_str_escape')) {
     /**
      * use to escape char

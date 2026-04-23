@@ -35,13 +35,8 @@ test_format_read_css($src);
 igk_exit();
 $src = "hey!! abacab avec la data mm sample ";
 preg_match("/(ab(a(c))ab).*(mm)/", $src, $cap, PREG_OFFSET_CAPTURE, 0);
-// print_r($cap);
-// echo json_encode($chainlist, JSON_PRETTY_PRINT);
 $options = null;
 $l = RegexMatcherContainer::TreatCaptures([
-    // 2 => function ($v) {
-    //     return " --- " . $v . " --- ";
-    // },
     4 => function ($v) {
         return "@@@".strtoupper($v)."@";
     },

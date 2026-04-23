@@ -1,7 +1,11 @@
 <?php
+// @command: balafon --run .test/utils/cancaseditor/gen-autoload.php cancalib_lication outfile
 use IGK\System\IO\StringBuilder;
+
 $sb = new StringBuilder;
-$dir = '/Volumes/Data/Dev/Vite/cancaseditor/src/lib/cancalib';
+$lib = igk_getv($params, 0) ?? igk_die('missing');
+$store = igk_getv($params, 1) ?? igk_die('missing');
+$dir = $lib; 
 $files = igk_io_getfiles($dir, function($f){
     $lb = basename(dirname($f));
     if( preg_match("/\b(node_modules|.git)\b/", dirname($f))){
@@ -16,4 +20,6 @@ foreach ($files as $value) {
     $d = '@/lib/cancalib/'.substr($value, $offset+1);
     $sb->appendLine("import '{$d}';");
 }
-igk_io_w2file('/Volumes/Data/Dev/Vite/cancaseditor/src/lib/cancalib/.autoload.js', $sb.'');
+igk_io_w2file(
+    $store, 
+    $sb.'');

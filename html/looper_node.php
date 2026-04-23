@@ -1,11 +1,7 @@
 <?php
 use IGK\Controllers\SysDbController;
+
 $n = igk_create_node();
-// $n->article(SysDbController::ctrl(), __DIR__ . '/looper_article.html', [
-//          ['firstName' => 'Charles', 'name'=>'BONDJE'],
-//          ['firstName' => 'Romeo'], 
-// ]);
-// $n->loop(3)->li()->loop('$raw')->span()->Content = 'item ... {{$raw}}';
 $n->loop([
     ['first'=>'One'],
     ['first'=>'Second'],

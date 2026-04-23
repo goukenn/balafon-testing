@@ -1,14 +1,14 @@
 <?php
 use igk\language\python\System\IO\PythonScriptBuilder;
+
 $py = new PythonScriptBuilder;
-$src = ""; // "def a():\n\ta=\"\"\"\"print(a)\na = 12\n\"\"\"\n\tif True:\n\t\tpass";
-$q = //$py->build(...['def a():', 'a = """print(a)',"a = 12", 'OK """', "x=8",
+$src = ""; 
+$q = 
 $py->build(...["if False:",
         $py->build(...['if True:', 'x = 8', 
         'basic =""" info', 'done"""', 
         'pass'])
 ])
-    //])
     ; 
 igk_wln_e($src, $q);
 $src = <<<'PYTHON'
@@ -47,7 +47,6 @@ $detector = (object)[
     "offset" => 0,
     "counter" => 0
 ];
-
 /**
 * auto generate doc.
 * @param mixed $detector
@@ -60,12 +59,10 @@ function python_detect_match($detector, $a, &$v_open = 0)
     while (python_detect_symbol($detector, $a, $list)) {
         $pos = $list[0][1];
         if ($detector->join) {
-            // if escaped 
             if ($a[$pos - 1] == "\\") {
                 $detector->offset = 1 + $pos;
                 continue;
             } else {
-                // glue litteral on first list 
                 $detector->buffer .= substr($a, $detector->offset, $pos + 3 - $detector->offset);
             }
         } else {
@@ -76,7 +73,6 @@ function python_detect_match($detector, $a, &$v_open = 0)
         $detector->join = true;
     }
 }
-
 /**
 * auto generate doc.
 * @param mixed $detector
@@ -91,16 +87,12 @@ array_map(function ($a) use ($detector, &$rt) {
     $detector->offset = 0;
     if ($detector->join) {
         $detector->buffer .= "\n";
-        // try detect end 
         $end = false;
         while (python_detect_symbol($detector, $a, $list)) {
-            // end meatch
             $pos = $list[0][1];
             if (($pos > 0) && ($a[$pos - 1] == "\\")) {
-                // is e
                 $detector->offset = $pos++;
             } else {
-                // close the buffer 
                 $detector->buffer .= substr($a, 0, $pos + 3);
                 $a = substr($a, $pos + 3);
                 $detector->join = false;

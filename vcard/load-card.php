@@ -8,16 +8,7 @@ use IGK\System\IO\VCF\VCard;
 // + | create entry in select row - 
 // + | $c = new PhoneConverter;
 // + | $r = $c->treat('07544555');
-// echo $r;
-// $cards = PhoneBookUtility::ExportVCards(igk_get_user_bylogin('cbondje@igkdev.com')); 
-// $ls = igk_getv(array_values($cards), 9)->getPreferred('email');
-// exit;
-// usort($cards, function($a, $b){
-//     return $a->FN <=> $b->FN;
-// });
-// VCard::Save('/tmp/card.vcf', $cards);
-// igk_wln_e(JSon::Encode($cards, JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-// exit;
+
 /*
 saving - phone books entry 
 PhoneBookUtility::LoadEntryData([

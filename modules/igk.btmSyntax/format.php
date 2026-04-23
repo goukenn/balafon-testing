@@ -15,12 +15,10 @@ use igk\btmSyntax\IFormatterListener;
 * auto generate doc.
 */
 class ConsoleLogListener implements IFormatterListener{
-
     /**
     * auto generate doc.
     */
     public function getTransform() { }
-
     /**
     * auto generate doc.
     * @return ?string
@@ -28,7 +26,6 @@ class ConsoleLogListener implements IFormatterListener{
     public function getLineFeed(): ?string {
         return '';
      }
-
     /**
     * auto generate doc.
     * @param string $treated_data

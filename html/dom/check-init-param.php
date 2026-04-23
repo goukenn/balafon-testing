@@ -6,6 +6,7 @@
 // @command: balafon --run .test/html/dom/check-init-param.php
 use IGK\System\Console\Logger;
 use IGK\System\Html\Dom\HtmlItemBase;
+
 igk_wln('check run file:');
 foreach($tb = ['content', [
     'title'=>'sample',
@@ -15,7 +16,6 @@ foreach($tb = ['content', [
     $n->dummy($r);
     Logger::print($n->render());
 }
-// enregistrement de package
 igk_reg_component_package('goukenn', function($n){
     igk_wln('create component: '.$n);
 }, 'dummy gouken package');
@@ -32,9 +32,7 @@ igk_reg_html_component('gouken_card', function($l=null, $alt=null){
 Logger::info('initialize ...');
 foreach($tb as $k){
     $n = igk_create_node('div');
-    // $n->add('goukenn:gouken_card', $k);
     $n->add('gouken_card',null, [$k, 'alt'=>'spacial']);
-    //$n->gouken_card($k);
     Logger::print($n->render());
 }
 Logger::success('done');

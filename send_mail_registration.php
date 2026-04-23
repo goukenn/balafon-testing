@@ -1,6 +1,7 @@
 <?php
 use com\igkdev\bantubeat\Helper\MailService;
 use IGK\System\DataArgs;
+
 $ctrl = bantubeatController::ctrl();
 $ctrl->register_autoload();
 $user = [

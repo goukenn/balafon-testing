@@ -1,5 +1,6 @@
 <?php
 use igk\js\Vue3\Compiler\VueSFCCompiler;
+
 $d = igk_create_notagnode();
 $d->div()->slot();
 $s = VueSFCCompiler::ConvertToVueRenderMethod($d);

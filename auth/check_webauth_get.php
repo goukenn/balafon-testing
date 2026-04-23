@@ -1,11 +1,19 @@
 <?php
-// check get phase to validate 
 // @command: balafon --run .test/auth/check_webauth_get.php
 use IGK\System\IO\Path;
 use lbuchs\WebAuthn\Binary\ByteBuffer;
-$sfile = '/Volumes/Data/wwwroot/core/Projects/app_test/Views/auth/webauth.data.json';
-$pfile = '/Volumes/Data/wwwroot/core/Projects/app_test/Views/auth/webauth.server2.json';
-$data = unserialize(file_get_contents(Path::CombineAndFlattenPath(__DIR__,"./out.server.txt" )));
+
+$ctrl = AppTestProject::ctrl(true);
+$_view_dir = $ctrl->getViewDir();
+$sfile = $_view_dir .'/auth/webauth.data.json';
+$pfile = $_view_dir .'/auth/webauth.server2.json';
+$v_fdata = Path::CombineAndFlattenPath(__DIR__,"./out.server.txt" );
+$data = [];
+if (file_exists($v_fdata))
+    $data = unserialize(file_get_contents($v_fdata));
+else {
+    igk_die('missing data ./out.server.txt');
+}
 $publicKeys = igk_getv($data, 'credentialPublicKey');
 require_once __DIR__.'/init-auth.php';
 $args = $webauth->getGetArgs([$data->credentialId],30);

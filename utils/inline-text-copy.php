@@ -7,7 +7,7 @@
 function getCliboard(){
     $_os = strtolower(PHP_OS);
     if ($_os =='darwin')
-        return substr(`pbpaste`, 0, -1);
+        return substr(shell_exec("pbpaste"), 0, -1);
 } 
 $data = getCliboard();
 if ($data)

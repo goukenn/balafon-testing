@@ -1,6 +1,6 @@
 <?php
-// balafon --run .test/db/clear_cart.php
 use com\igkdev\bantubeat\Models\Carts;
+
 bantubeatController::ctrl()->register_autoload();
 bantubeatController::ctrl();
 igk_require_module(igk\ecommerce::class);

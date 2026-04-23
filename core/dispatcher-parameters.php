@@ -9,7 +9,6 @@ use IGK\System\Http\Request;
 */
 class DoSome
 {
-
     /**
     * auto generate doc.
     * @param Request $request
@@ -19,14 +18,11 @@ class DoSome
     public function R(Request $request, string $i, ?Users $user) {
     }
 }
-// Logger::info('-----------------------|-------------------------------------------');
 $cl = igk_sys_reflect_class(DoSome::class);
 $parameters = $cl->getMethod('R')->getParameters();
-// igk_environment()->set('debug/dispatcher', true);
 $arguments = Dispatcher::GetInjectArgsByParameters($parameters, [ 7, 1]);
 var_dump($arguments);
 exit;
-
 /**
 * auto generate doc.
 * @param array $parameters
@@ -37,7 +33,6 @@ function igk_params_list(array $parameters, array  $args)
     $out = [];
     $i = 0;
     $next = false;
-
     /**
     * auto generate doc.
     * @var ReflectionProperty $p
@@ -72,5 +67,5 @@ function igk_params_list(array $parameters, array  $args)
 }
 igk_environment()->set('debug/dispatcher', true);
 $arguments = Dispatcher::GetInjectArgsByParameters($parameters, [ 7, 1]);
-$list = []; // igk_params_list($parameters, [$user, 1]);
+$list = []; 
 igk_wln_e($arguments, $list);

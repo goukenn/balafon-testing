@@ -1,23 +1,12 @@
 <?php
 // @command: balafon --run .test/markdownw/order.php
 use IGK\System\Console\Logger;
-// $a = " sdfa ";
-// $b = & $a;
-// $b = & (0);
-// // unset($b); // release pointer 
-// $b = "233";
-// echo $a;
-// exit;
+
 $n = igk_create_notagnode();
 $n->markdown(implode("\n", [
-        // "- printing demonstration",
-        //     "- left",
         "# h1",
         "> info",
         "---"
-//  "** b ** info",
-//             "du jour ",
-//             "- b ",
 ]));
 $s = $n->render();
 echo $s;

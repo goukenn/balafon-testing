@@ -9,7 +9,7 @@ use IGK\System\Console\Logger;
 use IGK\System\Text\RegexDetectHandler;
 
 $input = igk_getv($params, 0) ?? igk_die('missing parameter');
-$contains = property_exists($command->options, '--contains'); // check for contains only 
+$contains = property_exists($command->options, '--contains'); 
 IO::GetFiles(
     $input,
     function ($f) use ($contains) {

@@ -9,6 +9,7 @@
 // + |
 use igk\svg\SvgDocument;
 use igk\svg\System\Html\Dom\SvgfeGaussianBlur;
+
 igk_require_module('igk\svg');
 $doc = new SvgDocument;
 $W = $H = 300;

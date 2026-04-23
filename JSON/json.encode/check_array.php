@@ -1,6 +1,7 @@
 <?php
 use IGK\Helper\JSon;
 use IGK\Helper\JSonEncodeOption;
+
 $c = new JSonEncodeOption;
 $c->ignore_empty = true;
 $c->ignore_null = true;

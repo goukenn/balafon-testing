@@ -6,6 +6,7 @@
 // @command: balafon --run .test/text/regex/address_parser.php address
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
+
 $src = igk_getv($params, 0);
 $regex = new RegexMatcherContainer;
 $fpcode = $regex->match('\\d{3,5}', 'postalcode')->last();
@@ -29,7 +30,6 @@ $addr->patterns = [
 ];
 $address = (object)[];
 $pos=0;
-// define 
 $handler = [
     'country'=>function($e, $a){ $a->country = ucfirst(trim($e->value));}
 ];

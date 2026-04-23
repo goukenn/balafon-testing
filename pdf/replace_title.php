@@ -1,16 +1,15 @@
 <?php
-
 /**
 * auto generate doc.
 * @param mixed $str
 */
+
 function escape_pdf_string($str){
     $str = preg_replace_callback("/(?<!\\\\)[\(\)]/",function($a){
         return "\\".$a[0];
     }, $str);
     return $str; 
 }
-
 /**
 * auto generate doc.
 * @param mixed $timespan
@@ -21,8 +20,7 @@ function pdf_date_string($timespan){
 $file = igk_getv($params, 0);
 $title = igk_getv($params, 1) ?? IGK_AUTHOR;
 $c = file_get_contents($file);
-// preg_match($regex = "/\/Title\s+\((?:(?<!\\\\).)*?\)/", $c, $tab); // not correct 
-preg_match($regex = "/\/(Title|Author|Creator|Producer|Subject|Keyword|ModDate|CreationDate)\s+\((?:.*?(?<!\\\\))\)/", $c, $tab); // Ok
+preg_match($regex = "/\/(Title|Author|Creator|Producer|Subject|Keyword|ModDate|CreationDate)\s+\((?:.*?(?<!\\\\))\)/", $c, $tab); 
 $info = igk_createobj();
 $info->Title = $title;
 $info->Author = IGK_AUTHOR;

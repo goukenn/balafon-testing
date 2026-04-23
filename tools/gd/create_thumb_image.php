@@ -2,8 +2,8 @@
 // @command: balafon --run .test/tools/gd/create_thumb_image.php
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 $file = igk_getv($params, 0) ?? igk_die('required file');
-// retrieve gd info 
 !function_exists('gd_info') && igk_die('missing gd library');
 $data = file_get_contents($file);
 $image = imagecreatefromstring($data);
@@ -19,7 +19,6 @@ $type = $ext == 'png' ? 1 : 0;
 $W = igk_getv($command->options, '--width') ?? 500;
 $H = igk_getv($command->options, '--height') ?? 500;
 $_scale = igk_getv($command->options, '--scale', 'proportional');
-
 /**
 * auto generate doc.
 * @param mixed $src
@@ -37,8 +36,8 @@ function fit_cover($src, $w, $h, $type = 1, $compression = 0, bool $antialias = 
         $ex = $w / $W;
         $ey = $h / $H;
         $ex = $ey = max($ex, $ey);
-        $x = 0; // intval(ceil(((-$W * $ex) + $w) / 2.0));
-        $y = 0; // intval(ceil(((-$H * $ey) + $h) / 2.0)); 
+        $x = 0; 
+        $y = 0; 
         $img = imagecreatetruecolor($w, $h);
         $black = imagecolorallocate($img, 0, 0, 0);
         imagecolortransparent($img, $black);

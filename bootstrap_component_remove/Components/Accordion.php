@@ -9,7 +9,6 @@ namespace igk\bootstrap\Components;
 * @package igk\bootstrap\Components
 */
 class Accordion extends ComponentBase{
-
     /**
     * auto generate doc.
     */
@@ -17,7 +16,6 @@ class Accordion extends ComponentBase{
     {
         $this["class"] = "accordion";
     }
-
     /**
     * auto generate doc.
     */

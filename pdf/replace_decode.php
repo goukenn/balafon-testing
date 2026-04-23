@@ -4,12 +4,9 @@ use igk\pdflib\System\IO\PDFFile;
 use IGK\System\Console\Colorize;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
+
 $pdflib = igk_require_module('igk/pdflib');
 $file = igk_getv($params, 0);
-// fix read flat decode en dictionary 
-// $g = PDFUtils::ReadDictionary("<< /FlateDecode >>");
-// igk_wln_e($g);
-// read al text in decompressed data 
 $ctn = new RegexMatcherContainer;
 $i = $ctn->begin("\(", "\)")->last();
 $i->patterns = [
@@ -17,7 +14,7 @@ $i->patterns = [
         'match'=>'\\\\.'
     ]
 ];
-$src = "information (du jour ) ... "; // file_get_contents('/tmp/sample.txt');
+$src = "information (du jour ) ... "; 
 $offset = 0;
 $s =''; 
 while($g = $ctn->detect($src, $offset)){

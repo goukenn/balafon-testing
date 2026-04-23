@@ -1,6 +1,6 @@
 <?php
-// balafon --run .test/db/get_unique_keys.php --controller:LlvGStockController
 use IGK\System\Caches\DBCaches;
+
 DBCaches::Clear();
 $info = $ctrl->getDataTableDefinition();
 if (!$info){
@@ -31,8 +31,7 @@ foreach($columns as $t=>$v){
     $q = array_map(function($m)use($t){
         return sprintf("ALTER TABLE ".$t." DROP KEY %s;", implode(", ", $m));
     }, $v);
-    // print_r($q);
 }
 print_r($columns); 
 exit;
-igk_wln_e($columns);//array_keys((array)$info->tables));
+igk_wln_e($columns);

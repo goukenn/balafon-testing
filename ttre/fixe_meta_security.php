@@ -1,5 +1,5 @@
 <?php
-// fixe meta script 
+
 $query = "select meta_id, meta_value from wp_2023_postmeta WHERE meta_value LIKE '%http://fixtech.themetechmount.com%';";
 $ad = igk_get_data_adapter(IGK_MYSQL_DATAADAPTER);
 if (!$ad->connect()){

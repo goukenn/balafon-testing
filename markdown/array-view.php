@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/markdown/array-view.php
+
 $d = <<<'Markdown'
 | Paramètre | Type | Description |
 |-----------|------|-------------|

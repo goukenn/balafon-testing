@@ -10,6 +10,7 @@
 use IGK\Controllers\SysDbController;
 // + | print_r(array_keys(get_defined_vars()));
 // + | exit;
+
 $action = igk_getv($params, 0);
 $shift = 1;
 if (!isset($ctrl)){
@@ -30,10 +31,6 @@ if ($ctrl === SysDbController::ctrl()){
         throw new Exception("missing readline for core setting");
     }
 }
-// direct test
-// $action ='table';
-// $ctrl = ForemJobDashboardController::ctrl();
-// $shift = 1;
 $allowed = 'table|rows';
 if (!in_array($action, explode('|', $allowed))) {
     throw new Exception("not allowed action");

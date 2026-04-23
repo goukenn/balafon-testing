@@ -4,6 +4,7 @@ use com\igkdev\bantubeat\Helper\Utility;
 use com\igkdev\bantubeat\Models\Users;
 use IGK\Helper\JSon;
 use IGK\Helper\SysUtils;
+
 $ctrl = bantubeatController::ctrl();
 $ctrl->register_autoload();
 $pattern = 'goukenn-7897';

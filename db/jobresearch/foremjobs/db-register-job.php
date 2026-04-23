@@ -1,12 +1,11 @@
 <?php
-// 
 // @title: register forem job with reference 
 // @command : balafon --run .test/db/jobresearch/db-register-job.php [ref] [for_id]
 // @description: register forem job with reference 
-// 
 use com\igkdev\projects\ForemJobDashboard\Models\JobForemJobs;
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
+
 $ctrl = ForemJobDashboardController::ctrl(true);
 if (($main = $ctrl->modelUtility("MainTask")) instanceof MainTaskModelUtility){
     $job = Jobs::select_row(igk_getv($params, 1, 0)) ?? igk_die("missing users");

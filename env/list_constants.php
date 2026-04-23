@@ -1,8 +1,8 @@
 <?php
 // @command: balafon --run .test/env/list_constants.php
-// load all constant that start with IGK_
 // @desc: list all constant 
 use IGK\Helper\IO;
+
 echo "get files ....\n";
 $files = IO::GetFiles(__DIR__.'/../../src/application', '/\.(php|phtml)$/', true);
 echo "sort files ....\n";

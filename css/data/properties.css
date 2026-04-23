@@ -1,0 +1,4 @@
+body{
+    --igk-bg-color: red;
+    color:var(--igk-bg-color);
+}

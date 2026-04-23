@@ -3,6 +3,7 @@ use IGK\Helper\IO;
 use IGK\Helper\StringUtility;
 use IGK\System\Console\Logger;
 use IGK\System\IO\File\PHPScriptBuilder;
+
 $clean = property_exists($command->options, '--clean');
 $dir = igk_getv($params, 0) ?? getcwd()."/AppBundle";
 $name = basename($dir);
@@ -19,7 +20,6 @@ $properties = [
     'author'=>IGK_AUTHOR,
 ];
 $properties['kebab_name']= strtolower(StringUtility::GetSnakeKebab($properties['name']));
-// create directory 
 foreach(
     [
         $dir."/public",

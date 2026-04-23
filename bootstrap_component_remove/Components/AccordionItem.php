@@ -9,25 +9,21 @@ namespace igk\bootstrap\Components;
 * @package igk\bootstrap\Components
 */
 class AccordionItem extends ComponentBase{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     private $m_header;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     private $m_body;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     private $m_footer;
-
     /**
     * auto generate doc.
     */
@@ -41,17 +37,14 @@ class AccordionItem extends ComponentBase{
         parent::_Add($this->m_body);
         parent::_Add($this->m_footer);
     }
-
     /**
     * auto generate doc.
     */
     public function getHeader(){return $this->m_header; }
-
     /**
     * auto generate doc.
     */
     public function getBody(){return $this->m_body; }
-
     /**
     * auto generate doc.
     */

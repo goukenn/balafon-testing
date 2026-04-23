@@ -5,8 +5,9 @@
 // @desc: vite maximum node modules
 // @command: balafon --run .test/tools/node/find-latest-package.php dir [package]
 use IGK\Helper\IO;
+
 $dir = igk_getv($params, 0) ?? igk_die('missing params');
-$pack = igk_getv($params, 1, 'vite'); // igk_die('missing params');
+$pack = igk_getv($params, 1, 'vite'); 
 $cversion = (object)[];
 IO::GetFiles($dir, function($f)use(& $cversion, $pack){
     if ( preg_match("/node_modules\/".$pack."\/package\.json$/", $f)){

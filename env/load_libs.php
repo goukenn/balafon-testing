@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/env/load_libs.php
+
 error_reporting(-1);
 ini_set('display_errors', 1);
 $dir = '/Volumes/Data/wwwroot/core/Projects';

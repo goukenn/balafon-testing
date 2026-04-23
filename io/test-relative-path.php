@@ -1,6 +1,7 @@
 <?php
 // @command: balafon --run .test/io/test-relative-path.php
 use IGK\System\Console\Logger;
+
 $ls = json_decode(<<<JSON
 [{
     

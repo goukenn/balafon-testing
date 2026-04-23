@@ -16,7 +16,6 @@ use IGK\System\Services\Traits\ServicePropertyTrait;
 */
 interface IUserDisplay extends IInjectable , IAppService
 {
-
     /**
     * auto generate doc.
     * @param Users $user
@@ -24,7 +23,6 @@ interface IUserDisplay extends IInjectable , IAppService
     */
     function render(Users $user):string;
 }
-
 /**
 * auto generate doc.
 */
@@ -32,19 +30,16 @@ class UserDisplay  implements IUserDisplay{
     use ServicePropertyTrait {
         getConfigurableProperties as getConfigurablePropertiesTrait;
     }
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $x;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $t;
-
     /**
     * auto generate doc.
     * @var mixed
@@ -55,7 +50,6 @@ class UserDisplay  implements IUserDisplay{
      * @var Users
      */
     var $user;
-
     /**
     * .ctr
     * @param int $i
@@ -64,7 +58,6 @@ class UserDisplay  implements IUserDisplay{
     * @param IFooService $faa
     */
     public function __construct(protected int $i, 
-    //Users
     IFooService $foo,
     Request $request,
     IFooService $faa
@@ -72,7 +65,6 @@ class UserDisplay  implements IUserDisplay{
     { 
         igk_wln($foo, $faa, $request, $foo === $faa);
     }
-
     /**
     * auto generate doc.
     * @param Users $user
@@ -81,7 +73,6 @@ class UserDisplay  implements IUserDisplay{
     function render(Users $user):string{
      return   $this->i.' : vs '. $this->x.'='. $user->clGuid.':'.$user->clLogin;
     }
-
     /**
     * auto generate doc.
     * @return array
@@ -92,7 +83,6 @@ class UserDisplay  implements IUserDisplay{
         $p['user']->required = true;
         return $p;
     }
-
     /**
     * auto generate doc.
     * @param null|Users $user
@@ -100,7 +90,6 @@ class UserDisplay  implements IUserDisplay{
     public function setT(?Users $user){
         $this->t = $user;
     }
-
     /**
     * auto generate doc.
     * @param Users $user
@@ -109,18 +98,15 @@ class UserDisplay  implements IUserDisplay{
         $this->user = $user; 
     }
 }
-
 /**
 * auto generate doc.
 */
 interface IFooService extends IInjectable{
 }
-
 /**
 * auto generate doc.
 */
 class FooService implements IFooService{
-
     /**
     * .ctr
     * @param string $x
@@ -130,12 +116,10 @@ class FooService implements IFooService{
         Logger::info('create foo service '.$x);
     }
 }
-
 /**
 * auto generate doc.
 */
 class FaaService implements IFooService{
-
     /**
     * .ctr
     * @param mixed $x
@@ -145,26 +129,14 @@ class FaaService implements IFooService{
         Logger::info('create faa service '.$x);
     }
 }
-// system register class service to all definition 
-// inject manually an IUserDisplay contract with a concrete class  
 IGKServices::Register(IUserDisplay::class, UserDisplay::class
 , [
    '@args'=>[
         3,
-        //'cbondje@igkdev.com',
        FooService::class,
-       //FaaService::class
    ],
-    // 't'=>'hello my friend',
-    // 'x'=>4879,
-    //'user'=>'cbondje@igkdev.com',
     'user'=>'{75B203A4-3555-8261-31F2-69055A1A8D3F}',
-    //'user'=>'cbondje@igkdev.com',
 ]);
-// $l = IGKServices::Register(IUserDisplay::class, UserDisplay::class, [
-//     540,
-//     'x'=>12
-// ]);
 Users::registerMacro('display', function(IUserDisplay $display){
     return $display->render($this);
 }); 

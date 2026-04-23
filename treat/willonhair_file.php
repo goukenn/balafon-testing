@@ -2,6 +2,7 @@
 // @command: balafon --run .test/treat/willonhair_file.php 
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 $regex = '/(String|int|bool|Media|Wallet|double|DateTime|PaymentMethod|User)\\s/';
 ($dir  = igk_getv($params, 0) ) ?? igk_die('missing directory');
 $files = IO::GetFiles($dir, "/\.dart$/", true);
@@ -29,7 +30,7 @@ $h =  [
     'unused_field',
     'unnecessary_null_comparison',
     'avoid_function_literals_in_foreach_calls',
-    'empty_catches', // allow empty caches
+    'empty_catches', 
     'prefer_function_declarations_over_variables',
     'use_build_context_synchronously',
     'no_leading_underscores_for_library_prefixes'
@@ -39,7 +40,6 @@ $ignore = implode(',',$h);
 foreach($files as $f){
     $src = file_get_contents($f);
     Logger::info('treat = '.$f);
-    // $src = preg_replace($regex, "\\1? ", $src);
     if (!preg_match("//",$src)){
         $src = implode("\n", ["// ignore_for_file:".$ignore, $src]);
     }else {

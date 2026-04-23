@@ -3,29 +3,38 @@
 // @filename: generate_framework_metadata.php
 // @date: 20260211 16:45:47 
 // @command: balafon --run .test/reflection/command-generate_framework_metadata.php
-// usage : --dir:directory to check --regex:regex_to_handle_file --url:download_uri --title:frameworktitle [--update-doc]
-
+// @usage : --dir:directory_to_check --regex:regex_to_handle_file --url:download_uri --title:framework_title [--update-doc]
 // + | -------------------------------------------------------------------------
 // + | detect reflection function/classes/traits/interface/conditional. build balafon metadata  sdk.json
 // + |
-
 use IGK\Helper\IO;
 use IGK\Helper\StringUtility;
 use IGK\System\Annotations\PhpDocBlocReader;
+use IGK\System\Console\App;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
 use IGK\System\Console\Commands\Utility\FrameworkMetadataGenerator;
 use IGK\System\Console\Commands\Utility\FrameworkMetadataRegexMatcherPattern;
 use IGK\System\Console\Commands\Utility\FrameworkRegLevelManager;
+use IGK\System\Console\Helper\ConsoleUtility;
 
 require_once __DIR__ . '/FrameworkMetadataGenerator.php';
 require_once __DIR__ . '/FrameworkMetadataRegexMatcherPattern.php';
 require_once __DIR__ . '/FrameworkRegLevelManager.php';
-
-
-
-
+if (ConsoleUtility::SupportHelp($command)) {
+    igk_wln(implode("\n", ['', "generate framework metadata", "", ""]));
+    igk_wln(App::Gets(App::GREEN, 'options:'), '');
+    ConsoleUtility::ShowOptionsCommand(
+        [
+            '--dir:[]' => 'directory to analyse',
+            '--regex:regex_to_handle_file' => 'regex for file matching',
+            '--title:title' => 'framework title',
+            '--update-doc' => 'flag: update documents'
+        ]
+    );
+    igk_exit();
+}
 /**
  * auto generate doc.
  * @param mixed $level
@@ -43,7 +52,6 @@ function meta_reg_level($g, &$t, $level)
         $t[$g] = $c;
     return $c;
 }
-
 /**
  * auto generate doc.
  * @param mixed $c
@@ -63,7 +71,6 @@ function meta_getPhpDocInfo($c, $type, ?string $namespace, $extra = null): array
             }
             if (is_array($extra)) {
                 foreach ($extra as $k => $v) {
-
                     if ((!$v) || ($k == 'package')) continue;
                     if (!is_string($v)) {
                         $v = implode(' ', (array)$v);
@@ -76,7 +83,6 @@ function meta_getPhpDocInfo($c, $type, ?string $namespace, $extra = null): array
         if (igk_getv($c, 'property')) {
             $p[] = '@var ' . (igk_getv($c, 'type') ?? 'mixed');
         }
-        // for function 
         if (isset($c->params)) {
             foreach ($c->params as $k => $rp) {
                 if (is_string($rp)) {
@@ -107,7 +113,6 @@ function meta_getPhpDocInfo($c, $type, ?string $namespace, $extra = null): array
     }
     return $p;
 }
-
 /**
  * auto generate doc.
  * @param string $tn type name
@@ -135,14 +140,21 @@ function meta_getPhpDocDefaultSummary(string $tn)
         '__set_state' => 'Called when exporting with var_export().',
     ], $tn) ?? "auto generate doc.";
 }
-
 /**
  * auto generate doc.
  * @param mixed $namespace
  * @return void
  */
-function meta_updateBuffer($e, $c, $funcs, string $src, string $type = 'function', ?string $namespace = null, $tabSeparator = "    ")
-{
+function meta_updateBuffer(
+    $e,
+    $c,
+    $funcs,
+    string $src,
+    string $type = 'function',
+    ?string $namespace = null,
+    $tabSeparator = "    ",
+    $docLineFeedPrefix = FrameworkMetadataGenerator::DOC_LF_PREFIX
+) {
     $k_buffer = FrameworkMetadataGenerator::PROP_BUFFER;
     $extra = igk_getv($funcs, FrameworkMetadataGenerator::PROP_TYPE_EXTRA_DEF);
     $bf = igk_getv($funcs, $k_buffer);
@@ -151,7 +163,6 @@ function meta_updateBuffer($e, $c, $funcs, string $src, string $type = 'function
     $doc = '';
     if (!$v_have_subs && !(!isset($c->doc) && isset($funcs[$k_buffer])))
         return;
-
     if (!isset($c->doc)) {
         $p = meta_getPhpDocInfo($c, $type, $namespace, $extra);
         $default_summary = meta_getPhpDocDefaultSummary($e->beginCaptures['n'][0]);
@@ -166,89 +177,44 @@ function meta_updateBuffer($e, $c, $funcs, string $src, string $type = 'function
         $doc = '';
     }
     $doc = $c->doc;
-    $doc = FrameworkRegLevelManager::FormatDoc($doc, $e, $tabSeparator);
-    if ($type == 'subfunc') {
-        $bf->replaces[] = (object)['from' => $e->from, 'to' => $e->from, 's' => "\n\n" . $doc];
-    } else {
-        $bf->replaces[] = (object)['from' => $e->from, 'to' => $e->from, 's' => "\n\n" . $doc];
-        // missing doc
-        // $rv = $e->value;
-        // $buffer = $bf;
-        // if (isset($buffer->subs)) {
-        //     $nbuffer = '';
-        //     $coffset = 0;
-        //     while (count($buffer->subs) > 0) {
-        //         $q = array_shift($buffer->subs);
-        //         if ($q->from > $e->to) igk_die('invalid position');
-        //         $from = $q->from - $e->from;
-        //         $nb = rtrim(substr($rv, $coffset, $from - $coffset)) . $q->s;
-
-        //         $coffset = $q->to - $e->from;
-        //         $nbuffer .= $nb;
-        //     }
-        //     $nbuffer .= substr($rv, $coffset);
-        //     $rv = $nbuffer;
-        // }
-        // $bf->replaces[] = (object)['from' => $e->from, 'to' => $e->to, 's' => "\n\n" . $doc];
-        // $doc = empty($doc) ? "\n" : "\n\n" . $doc;
-        // $buffer->buffer .= rtrim(substr($src, $buffer->pos, $e->from - $buffer->pos)) . $doc . $rv;
-        // $buffer->pos = $e->to;
-    }
-    // }
-    // if ($v_replaces) {
-    //     meta_didTreatBuffer($e, $v_replaces);
-    // }
+    $doc = $docLineFeedPrefix . FrameworkRegLevelManager::FormatDoc($doc, $e, $tabSeparator);
+    $bf->replaces[] = (object)['from' => $e->from, 'to' => $e->from, 's' => $doc];
 }
-
-
-
 /**
  * auto generate doc.
  */
-function meta_getGlobalFuncs($src, &$funcs)
+function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetadataGenerator::DOC_LF_PREFIX)
 {
     $level = new FrameworkRegLevelManager;
     $level->location =  $funcs['::location_index'];
     $regex = new RegexMatcherContainer;
     $regex->patternCreatorClass = FrameworkMetadataRegexMatcherPattern::class;
     $pos = 0;
-    // define
     $here_doc = [];
     $regex->autoStore = false;
     RegexMatcherUtility::AppendPhpHereDoc($regex, $here_doc);
     $regex->autoStore = true;
     foreach ($here_doc as $k)
         $regex->append($k);
-
     $tp = $regex->createPattern(['patterns' => $here_doc]);
-
-    // $start_php = $regex->createPattern(['begin'=>'<\?php\\b', 'end'=> '\? >', 'tokenID'=>'php-block']);
-
-
     $c_string = $regex->appendStringDetection('string', true)->last();
     $php_docblock = $regex->begin('\/\*\*', '\*\/', 'php-docblock')->last();
     $l = $regex->begin('\{', '\}', 'block')->last();
     $l->isBlock = true;
-
     $c_xg = $regex->begin('\?>', '<\?', 'outside-core')->last();
     $c_l = $regex->appendSingleLineComment()->last();
     $c_m = $regex->appendMultilineComment()->last();
-    // $regex->match('\\bnamespace\\b\\s*(?P<n>[_a-zA-Z][_a-zA-Z0-9\\\\]*)\\b(?:\\s*;\\s*)?', 'namespace');
     $ns_block = $regex->begin('\\bnamespace\\b\\s*', '(?<=;|\})', 'namespace-bock')->last();
     $ns_curl_block = $regex->createPattern(['begin' => '\{', 'end' => '\}', 'tokenID' => 'ns-curl-block']);
     $ns_curl_block->isBlock = true;
     $ns_block->patterns = [
         $c_l,
-        $c_m, // <- comment 
+        $c_m, 
         $regex->createPattern(['match' => '(?P<n>[_a-zA-Z][_a-zA-Z0-9\\\\]*)', 'tokenID' => 'namespace']),
-        $ns_curl_block // <- curl block
+        $ns_curl_block 
     ];
-
-
     $indef = $regex->begin('((?P<modifier>(abstract|final))\\b\\s*)?\\b(?P<type>interface|trait|class)\\b\\s*(?P<n>[_a-zA-Z][_a-zA-Z0-9]*)\b', '(?<=\})', 'in-def')->last();
-
     $indef_2 = $regex->begin('\\bnew\\b\\s*\\b(?P<type>class)\\b\\s*', '(?<=\})', 'in-def-2')->last();
-
     $regex->match('use\\s+function(\\s*&\\s*|\\s+)(?P<n>[_a-zA-Z][_a-zA-Z0-9]*)\b', 'use_func_list');
     $func_list = $regex->match('\\bfunction(\\s*&\\s*|\\s+)(?P<n>[_a-zA-Z][_a-zA-Z0-9]*)\b', 'func_list')->last();
     $cond_func_list = $regex->createPattern([
@@ -277,8 +243,6 @@ function meta_getGlobalFuncs($src, &$funcs)
         'tokenID' => 'inner_props'
     ]);
     $static_props = $regex->createPattern([
-        //'begin' => '\\b((?P<modifier>public|private|protected|var)\\b\\s*)\\b(?P<n>\\$[_a-zA-Z][_a-zA-Z0-9]*)\\b',
-        //'(?:\\b(?P<modifier>public|private|protected|var)\\b\\s+)?(?:\\b(?P<static>static)\\b\\s+)?\\b\$(?P<n>[_a-zA-Z][_a-zA-Z0-9]*)\b',
         'begin' => '(?:\\b(?P<modifier>public|private|protected)\\b\\s+)?((?P<static>static)\\b\\s*)(?P<n>\\$[_a-zA-Z][_a-zA-Z0-9]*)\\b',
         'end' => ';',
         'tokenID' => 'inner_props'
@@ -289,7 +253,6 @@ function meta_getGlobalFuncs($src, &$funcs)
         'comment' => 'detect constants',
         'tokenID' => 'inner_props'
     ]);
-
     $subblock = $regex->createPattern([
         'begin' => '\{',
         'end' => '\}',
@@ -302,6 +265,7 @@ function meta_getGlobalFuncs($src, &$funcs)
         'tokenID' => 'sub-subblock',
         'isBlock' => true
     ]);
+    $v_empty_line = $regex->appendEmptyLineDetection()->last();
     $ns_curl_block->patterns =  $l->patterns = [
         $php_docblock,
         $c_string,
@@ -325,12 +289,9 @@ function meta_getGlobalFuncs($src, &$funcs)
         $inner_funcs,
         $inner_funcs_2,
         $inner_funcs_3,
+        $v_empty_line,
         $sub_subblock,
-        // $sub_def_subblock
     ];
-    // $sub_def_subblock->patterns = [
-    //   
-    // ];
     $sub_subblock->patterns = [
         $php_docblock,
         $c_string,
@@ -339,6 +300,7 @@ function meta_getGlobalFuncs($src, &$funcs)
         $c_m,
         $indef_2,
         $cond_func_list,
+        $v_empty_line,
         $sub_subblock
     ];
     $indef_2->patterns = $indef->patterns = [
@@ -356,20 +318,27 @@ function meta_getGlobalFuncs($src, &$funcs)
         $c_m,
         $block_lip,
     ];
-
-
     $namespace = '';
     $type = '';
     $name = '';
     $tbNamespaces = &$funcs['::namespaces'];
     $doc_block = null;
     $level->doc = &$doc_block;
-
     $sub_func_list = [];
     $props_list = [];
     $nsflag = 0;
     $callbacks = [
-        'php-docblock' => function ($e) use (&$doc_block, &$php_docmarker, &$funcs, $level) {
+        'empty-line' => function ($e) use (&$funcs) {
+            if (isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
+                $bfr = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces;
+                $bfr[] = (object)[
+                    'from' => $e->from,
+                    'to' => $e->to,
+                    's' => ''
+                ];
+            }
+        },
+        'php-docblock' => function ($e) use (&$doc_block, &$php_docmarker, &$funcs, $level, $docLineFeedPrefix) {
             $php_docmarker = $e->value;
             if (isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
                 $reader = new PhpDocBlocReader();
@@ -377,13 +346,12 @@ function meta_getGlobalFuncs($src, &$funcs)
                 if (empty(trim($c->summary))) {
                     $c->summary = meta_getPhpDocDefaultSummary('');
                     $php_docmarker = $c->render();
-
                     $doc  = FrameworkRegLevelManager::FormatDoc($php_docmarker, $e, $level->separator);
                     $bfr = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces;
                     if (!is_null($level->docReplaceWith)) {
                         array_pop($bfr);
                     }
-                    $bfr[] = (object)['from' => $e->from, 'to' => $e->to, 's' => "\n\n" . $doc];
+                    $bfr[] = (object)['from' => $e->from, 'to' => $e->to, 's' => $docLineFeedPrefix . $doc];
                     $level->docReplaceWith = $php_docmarker;
                     // + | set null to raise replacement 
                     $php_docmarker = null;
@@ -407,11 +375,10 @@ function meta_getGlobalFuncs($src, &$funcs)
             }
         },
         'func_list' => function ($e, &$funcs) use ($l, &$namespace, $level, $src, &$pos) {
-            $g = igk_conf_get($e->captures, 'n/0'); //igk_getv($e->captures, 'n');
+            $g = igk_conf_get($e->captures, 'n/0'); 
             $g = ($namespace ? $namespace . "\\" : "") . $g;
             $return = null;
             $params = FrameworkRegLevelManager::ReadFuncParams($src, $pos, $return);
-
             $c = meta_reg_level($g, $funcs, $level);
             if (is_object($c) || $params || $return || isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
                 if (!is_object($c)) {
@@ -425,16 +392,9 @@ function meta_getGlobalFuncs($src, &$funcs)
                 }
                 meta_updateBuffer($e, $c, $funcs, $src, 'func');
             }
-            // if (isset($funcs[$g])){
-            //     if (!is_array($funcs[$g])){
-            //         $funcs[$g] = [$funcs[$g]];
-            //     }
-            //     $funcs[$g][] = $c;
-            // } else
-            //     $funcs[$g] = $c;
         },
-        'func_conditional' => function ($e, &$funcs) use (&$namespace, $src, &$pos, $level) {
-            $g = igk_conf_get($e->captures, 'n/0'); //igk_getv($e->captures, 'n');
+        'func_conditional' => function ($e, &$funcs) use (&$namespace, $src, &$pos, $level, $docLineFeedPrefix) {
+            $g = igk_conf_get($e->captures, 'n/0'); 
             $g = ($namespace ? $namespace . "\\" : "") . $g;
             $return = null;
             $params = FrameworkRegLevelManager::ReadFuncParams($src, $pos, $return);
@@ -450,8 +410,7 @@ function meta_getGlobalFuncs($src, &$funcs)
                     $c->return = $return;
                 }
                 $tt = isset($funcs[FrameworkMetadataGenerator::PROP_INDEF]) ? 'subfunc' : 'func';
-
-                if ($c->doc) {
+                if (isset($c->doc)) {
                     $reader = new PhpDocBlocReader();
                     $c_doc = $reader->readDoc($c->doc, [], []);
                     if (is_null($c_doc->return)) {
@@ -459,19 +418,19 @@ function meta_getGlobalFuncs($src, &$funcs)
                         $c->doc = $c_doc->render();
                         if (isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
                             // + | replace last detected buffer 
-                            if ($rep = & $funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces){
-
-                                $rep->replaces[count($rep->replaces) - 1]->s = "\n\n" . FrameworkRegLevelManager::FormatDoc($c->doc, $e, $level->separator);
+                            if ($rep = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces) {
+                                if (!is_array($rep)) {
+                                    igk_wln_e(__FILE__ . ":" . __LINE__, 'null container ... ');
+                                }
+                                $rep[count($rep) - 1]->s = $docLineFeedPrefix . FrameworkRegLevelManager::FormatDoc($c->doc, $e, $level->separator);
                             }
                         }
                     }
                 }
-
                 meta_updateBuffer($e, $c, $funcs, $src, $tt);
             }
         },
         'in-def' => function (\IGK\System\Text\RegexMatcherCapture $e, &$funcs) use (&$namespace, $level, $src, &$sub_func_list, &$props_list, &$live_doc) {
-
             /**
              * auto generate doc.
              * @var mixed $live_doc
@@ -503,12 +462,10 @@ function meta_getGlobalFuncs($src, &$funcs)
                 $funcs['::' . $t][$tn][] = $c;
             } else
                 $funcs['::' . $t][$tn] = $c;
-
             $sub_func_list = [];
             $props_list = [];
         },
         'inner_funcs' => function ($e, &$funcs) use (&$sub_func_list, $src, &$pos, $level) {
-
             $modifier = igk_conf_get($e->beginCaptures, 'modifier/0');
             $abstract = igk_conf_get($e->beginCaptures, 'abstract/0');
             $tn = igk_conf_get($e->beginCaptures, 'n/0');
@@ -537,7 +494,6 @@ function meta_getGlobalFuncs($src, &$funcs)
                 $v_p['abstract'] = true;
             }
             $c = (object)array_filter($v_p);
-
             meta_updateBuffer($e, $c, $funcs, $src, 'subfunc');
             if (preg_match('/(public|protected)/', $modifier)) {
                 $sub_func_list[$tn] = $c;
@@ -549,7 +505,6 @@ function meta_getGlobalFuncs($src, &$funcs)
             $v_type = igk_conf_get($e->beginCaptures, 'type/0');
             $stn = igk_conf_get($e->beginCaptures, 'static/0');
             $d = $level->getDocInfo();
-
             $i = strlen($tn) + $e->beginCaptures['n'][1] -  $e->from;
             $l = substr($e->value, $i, -1);
             $args = [];
@@ -563,7 +518,6 @@ function meta_getGlobalFuncs($src, &$funcs)
                         $args[] = $k;
                 }
             }
-
             $doc = $d ? igk_getv($d, 'doc') : null;
             if (is_null($doc)) {
                 meta_updateBuffer($e, $ref = (object)['type' => $v_type, 'property' => true], $funcs, $src, 'subfunc');
@@ -578,7 +532,6 @@ function meta_getGlobalFuncs($src, &$funcs)
                 while (count($args) > 0) {
                     $tn = array_shift($args);
                     $vp = [];
-
                     $props_list[$tn] = array_filter([
                         'static' => !empty($stn),
                         'modifier' => $modifier,
@@ -595,7 +548,6 @@ function meta_getGlobalFuncs($src, &$funcs)
     ];
     $funcs['::live-doc'] =  $live_doc;
     while ($g = $regex->detect($src, $pos)) {
-        // Logger::warn('innerfunc:'.$g->match->tokenID);
         if ($php_docmarker) {
             if (in_array($g->match->tokenID, ['in-def', 'func_list', 'inner_funcs', 'inner_props'])) {
                 $live_doc->data[] = $php_docmarker;
@@ -603,15 +555,11 @@ function meta_getGlobalFuncs($src, &$funcs)
                 $php_docmarker = null;
             }
         }
-
-
         if (!$g->start) {
-
             if ($g->match->tokenID == 'block') {
                 if ($nsflag) {
                     // + | start block of ns flag
                     $nsflag = false;
-                    // reset meta data 
                     $funcs[FrameworkMetadataGenerator::PROP_BUFFER] = null;
                 } else
                     $live_doc->depth++;
@@ -623,7 +571,6 @@ function meta_getGlobalFuncs($src, &$funcs)
             }
         }
         if ($e = $regex->end($g, $src, $pos)) {
-
             igk_is_debug() && Logger::info('tokenid:: ' . $e->tokenID);
             if ($e->tokenID == 'block') {
                 $live_doc->depth = max(0, $live_doc->depth--);
@@ -662,7 +609,6 @@ function meta_getGlobalFuncs($src, &$funcs)
     }
     unset($funcs['::live-doc']);
 }
-
 $c = igk_getv($command->options, '--dir') ?? IGK_LIB_DIR;
 $update_doc = property_exists($command->options, '--update-doc');
 if ($regex = igk_getv($command->options, '--regex', null)) {
@@ -675,10 +621,6 @@ if (property_exists($command->options, '--author')) {
 if ($package = igk_getv($command->options, '--package')) {
     $extra['package'] = $package;
 }
-
-
-// $m = [__DIR__.'/demo_class.php']; //'/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Lib/igk/Lib/Tests/System/Text/RegexMatcherContainerTest.php'];
-
 /**
  * auto generate doc.
  * @param mixed $n
@@ -719,7 +661,6 @@ if ($extra) {
 $ln = strlen($c) + 1;
 $treat = function ($tf) use (&$funcs, $ln, $update_doc) {
     if (is_link($tf)) return;
-
     Logger::info('treat ' . $tf);
     $rc = './' . substr($tf, $ln);
     if ($update_doc) {
@@ -731,16 +672,13 @@ $treat = function ($tf) use (&$funcs, $ln, $update_doc) {
     $funcs['::location_index'] = count($funcs['::files']) - 1;
     $c = file_get_contents($tf);
     meta_getGlobalFuncs($c, $funcs);
-
     $update_doc && meta_updateBufferList($funcs[FrameworkMetadataGenerator::PROP_BUFFER], $c);
     if ($update_doc && $buffer) {
         Logger::warn('update file: ' . $tf);
-        // igk_wln_e($buffer);
         igk_io_w2file($tf, $buffer);
     }
     unset($funcs[FrameworkMetadataGenerator::PROP_BUFFER]);
 };
-
 /**
  * auto generate doc.
  * @param mixed $bf
@@ -751,7 +689,6 @@ function meta_updateBufferList($bf, string $src)
     if (!$bf || !($rp = $bf->replaces)) {
         return;
     }
-
     usort($rp, function ($a, $b) {
         return $a->from <=> $b->from;
     });
@@ -766,7 +703,6 @@ function meta_updateBufferList($bf, string $src)
     $bf->buffer = $sb;
     $bf->pos = strlen($sb);
 }
-
 /**
  * auto generate doc.
  * @param string $buffer
@@ -783,9 +719,7 @@ $fc = function ($c) use ($regex, $treat) {
         $treat($c);
     }
 };
-
 $m = IO::GetFiles($c, $fc, true) ?? [];
-
 unset($funcs['::location_index']);
 unset($funcs[FrameworkMetadataGenerator::PROP_TYPE_EXTRA_DEF]);
 $sk = SORT_NATURAL | SORT_REGULAR;
@@ -794,5 +728,4 @@ ksort($traits, $sk);
 ksort($interfaces, $sk);
 ksort($classes, $sk);
 ksort($cond_funcs, $sk);
-
 igk_wln_e(json_encode($funcs, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));

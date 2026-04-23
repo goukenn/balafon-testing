@@ -2,6 +2,7 @@
 use igk\svg\SvgUtil;
 use IGK\System\Console\Logger;
 use function igk_clamp as clamp;
+
 $distance = SvgUtil::Distance(0, 0, 100, 100);
 Logger::print("distance : ". $distance);
 $points = [

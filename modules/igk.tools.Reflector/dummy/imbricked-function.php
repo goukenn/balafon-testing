@@ -6,7 +6,6 @@
 */
 function a()
 {
-
 /**
 * auto generate doc.
 */
@@ -17,5 +16,4 @@ function b(){
 a();
 print_r(get_defined_functions());
 b();
-// a();
 exit;

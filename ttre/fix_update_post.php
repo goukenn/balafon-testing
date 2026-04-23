@@ -1,5 +1,5 @@
 <?php
-// fixe post_ script 
+
 $query = "select ID, post_content from wp_2023_posts WHERE post_content LIKE '%http://%';";
 $ad = igk_get_data_adapter(IGK_MYSQL_DATAADAPTER);
 if (!$ad->connect()){

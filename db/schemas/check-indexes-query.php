@@ -8,6 +8,7 @@ use IGK\Database\DbSchemas;
 use IGK\System\Console\Html\HtmlColorizer;
 use IGK\System\Console\Logger;
 use IGK\System\Html\XML\XmlNode;
+
 $data = <<<XML
 <data-schemas author="C.A.D. BONDJE DOUE" createAt="2025-12-03" version="1.0"> 
 <DataDefinition TableName="%prefix%grades" Prefix="grd_" Description="Save data">

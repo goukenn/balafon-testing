@@ -1,5 +1,4 @@
 <?php
-// balafon --run .test/llvGStock/addBill.php -db_server:0.0.0.0
 use com\igkdev\app\llvGStock\BillStatusConstants;
 use com\igkdev\app\llvGStock\ConfigsParameterConstants;
 use com\igkdev\app\llvGStock\Database\Macros\BillMacros;
@@ -9,6 +8,7 @@ use com\igkdev\app\llvGStock\Models\BillStatusTypes;
 use com\igkdev\app\llvGStock\Models\Products;
 use com\igkdev\app\llvGStock\Models\Resellers;
 use com\igkdev\app\llvGStock\Models\Users; 
+
 $ctrl = LlvGStockController::ctrl();
 $ctrl->register_autoload();
 igk_debug(1);
@@ -57,10 +57,4 @@ $g = BillMacros::AddBill(
     $products,
     $paid
 );
-// $billinfo = Bills::AddBill(
-//     $user->user(),
-//     $reseller,
-//     $products,
-//     $paid
-// );
 igk_wln_e($billinfo);

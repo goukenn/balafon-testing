@@ -6,11 +6,9 @@ use igk\devtools\DocumentParserMockHttpClient;
 use IGK\Helper\IO;
 use IGK\System\Html\XML\XmlNode;
 use IGK\System\Console\Logger;
+
 $mod = igk_require_module(\igk\devtools::class);
 require_once $mod->getTestClassesDir() . "/DocumentParserMockHttpClient.php";
-// preg_match("/(\s*|,|;)import\s*".UriDetector::URL_BRACKET_RX."/", "import 'info\"'", $tab);
-// igk_wln_e("tab", $tab);
-
 /**
 * auto generate doc.
 */
@@ -37,16 +35,12 @@ $content = _getRenderDocument1();
 $parser->setHttpClient($client);
 if ($r = $parser->parse($content)) {
     $title = $parser->getTitle();
-    // $this->assertEquals("home", $title);
 }
-$temp = "/tmp/doc-parser"; // igk_io_tempdir('doc-parser');
+$temp = "/tmp/doc-parser"; 
 IO::CreateDir($temp);
 $parser->exportTo($temp);
 $m = $parser->render();
 Logger::info("output");
 Logger::print($m);
-// save to index file
 igk_io_w2file($temp . "/index.html", $m);
-// $this->assertTrue($r); 
-//$sb = `http-server {$temp}`;
 echo $temp;

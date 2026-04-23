@@ -1,5 +1,6 @@
 <?php
 use IGK\System\Exceptions\ArgumentTypeNotValidException;
+
 /**
  * support traits
  * @param mixed $obj_or_class 

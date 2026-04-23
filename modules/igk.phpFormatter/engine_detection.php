@@ -6,6 +6,7 @@
 // @command: balafon --run .test/modules/igk.phpFormatter/engine_detection.php
 use IGK\System\Console\Logger;
 use IGK\System\Text\Formatters\IFormatterService;
+
 $name = igk_getv($params, 0, sprintf('%s.html', IGKServices::FORMATTER_SERVICE));
 $srv = igk_app()->getService($name);
 if ($srv instanceof IFormatterService) {

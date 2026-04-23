@@ -10,7 +10,6 @@ namespace        Instruction\Definition\Utils;
 */
 function a(){
 }
-
 /**
 * auto generate doc.
 */

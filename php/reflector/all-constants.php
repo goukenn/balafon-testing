@@ -8,6 +8,7 @@ use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
+
 $n = 'sample';
 define($n, "12");
 $regex = new RegexMatcherContainer;
@@ -54,7 +55,6 @@ IO::GetFiles($dir, function($f)use($regex, & $constants){
         return;
     }
     igk_is_debug() && Logger::info('treat : '.$f);
-    // $f = '/Volumes/Data/Dev/PHP/balafon2/src/Lib/igk/Lib/Classes/System/Console/Commands/Projects/CreateUserProfileClassCommand.php';
     $src = file_get_contents($f);
     $pos = 0;
     $regex->resetTreatment();
@@ -71,7 +71,6 @@ IO::GetFiles($dir, function($f)use($regex, & $constants){
                 $start = false;
             }
             if ($e->tokenID=='defined'){
-                //Logger::danger('tokendID::: '.$tid);
                 if ($litteral){ 
                     $cc = igk_str_remove_quote($litteral[0]);
                     if (!preg_match("/^[A-Z_0-9]+$/", $cc)){
@@ -91,7 +90,6 @@ IO::GetFiles($dir, function($f)use($regex, & $constants){
             }
         }
     };
-    //  throw new Exception("d");
 }, true);
 }
 catch(\Exception $ex){

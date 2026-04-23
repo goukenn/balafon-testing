@@ -8,6 +8,7 @@ use IGK\System\Console\Logger;
 use IGK\System\Html\HtmlReader;
 use IGK\System\Html\HtmlRenderer;
 use IGK\System\Text\RegexMatcherContainer;
+
 ($file = igk_getv($params, 0)) ?? igk_die("output file");
 IO::CreateDir(dirname($file));
 $s = <<<EFO
@@ -23,7 +24,6 @@ $container = new RegexMatcherContainer;
 $container->begin("<body", "\<\/body>", "home");
 $TC = count($tab);
 $tc = 1;
-// $hfile = fopen($file, "r+");
 foreach ($tab as $k => $v) {
     Logger::info('load '.$k . " ".$tc." / ".$TC);
     $tc++;

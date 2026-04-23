@@ -1,6 +1,7 @@
 <?php
 use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
+
 $ctrl = bantubeatController::ctrl();
 $ctrl::register_autoload();
 $secret = $ctrl->getConfig("api/spotify/secret");

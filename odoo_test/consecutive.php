@@ -1,5 +1,4 @@
 <?php
-// odoo test test consecutive
 // @command: balafon --run .test/odoo_test/consecutive.php
 
 /**

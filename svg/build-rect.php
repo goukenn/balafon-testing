@@ -1,6 +1,7 @@
 <?php
 use igk\svg\SvgDocument;
 use IGK\System\Console\Logger;
+
 $svg = new SvgDocument;
 list($width, $height) = $params;
 $svg['viewBox'] = sprintf('0 0 %s %s', $width, $height);

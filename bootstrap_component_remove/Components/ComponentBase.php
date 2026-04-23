@@ -7,13 +7,11 @@ use IGK\System\Html\Dom\HtmlNode;
 * @package igk\bootstrap\Components
 */
 abstract class ComponentBase extends HtmlNode{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     protected $tagname = "div";
-
     /**
     * auto generate doc.
     * @param string $id

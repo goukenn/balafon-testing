@@ -2,9 +2,8 @@
 // @command: balafon --run .test/markdown/check-files.php
 use igk\Markdown\Formatters\MarkdownParser;
 use igk\Markdown\Markdown;
-// $file ='/Volumes/Data/Dev/PHP/balafon_site_dev/Works/Balafon/Ai-Documentation/Balafon-Claude-AI/Chapitre_12_Syntaxe_BView_et_Module_Parser.md';
-$file ='/Volumes/Data/Dev/PHP/balafon_site_dev/Works/Balafon/Ai-Documentation/Balafon-Claude-AI/check.md';
-// $file ='/Volumes/Data/Dev/PHP/balafon_site_dev/Works/Balafon/Ai-Documentation/Balafon-Claude-AI/Chapitre_13_Injection_Dependances_Services.md';
+
+$file =getenv('IGK_SITE_DEV_DIR').'/Works/Balafon/Ai-Documentation/Balafon-Claude-AI/check.md';
 $options = [
     'formatCodeBlock'=>true
 ];

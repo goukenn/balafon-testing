@@ -1,5 +1,6 @@
 <?php
 use IGK\System\Database\SchemaMigrationBuilder;
+
 $node = igk_create_xmlnode('data-schemas');
 $builder = SchemaMigrationBuilder::Create($node->add('Migrations'), []);
 $builder->addTable('locations', 'store file migration', ['prefix'=>'loc_'])

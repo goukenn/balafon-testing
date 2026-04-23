@@ -1,31 +1,27 @@
 <?php
-
 /**
 * auto generate doc.
 * @package 1
 * @property stdClass $info info definition
 */
+
 interface IJSArrayRef{
 }
-
 /**
 * auto generate doc.
 */
 trait Basic{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $info;
 }
-
 /**
 * auto generate doc.
 */
 class OP implements IJSArrayRef{
     use Basic;
-
     /**
     * auto generate doc.
     * @var mixed

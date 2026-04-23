@@ -1,6 +1,6 @@
 <?php
-$g = 'prodr_U8AZser__  _Guid';
 
+$g = 'prodr_U8AZser__  _Guid';
 /**
 * auto generate doc.
 * @param mixed $s

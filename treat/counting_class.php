@@ -3,31 +3,21 @@
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
-$dir = '/Volumes/Data/Dev/2025/Fullter/com_igkdev_new_app/lib/app/modules';
-// get dart file 
+
+$dir = igk_getv($params, 0) ?? getenv('FLUTTER_DEV') . '/com_igkdev_new_app/lib/app/modules';
 $c = IO::GetFiles($dir, '/\.dart$/', true);
 $l = [];
 $ren = [];
-// foreach($c as $k){
-//     if (preg_match('/(^WOH|main)/', $n =basename($k))) continue;
-//     $hdir= dirname($k);
-//     $nn = 'WOH'.implode('', array_map('ucfirst', explode('_', $n))); 
-//     $l[$k] = $hdir."/".$nn;    
-//     $ren[igk_io_basenamewithoutext($n)] = igk_io_basenamewithoutext($nn);
-//     // igk_io_w2file($hdir.'/'.$nn, )
-// }
-// $src = '';
-
+Logger::warn('dir or $FLUTTER_DEV/com_igkdev_new_app/lib/app/modules');
 /**
-* auto generate doc.
-* @param mixed & $info
-* @param string $file
-* @param string $src
-*/
+ * auto generate doc.
+ * @param mixed & $info
+ * @param string $file
+ * @param string $src
+ */
 function treat_file(&$info, string $file, string $src)
 {
     $N = igk_io_basenamewithoutext($file);
-    // if ($N=='main')return;
     $regex = new RegexMatcherContainer;
     $regex->appendSingleLineComment();
     $regex->appendCommentDocBlock();
@@ -54,32 +44,32 @@ function treat_file(&$info, string $file, string $src)
     }
     if (($tc = count($class)) > 0) {
         if ($match) {
-            Logger::danger($file . " contain other mutiple class. [" . implode(", ", $class) .']');
+            Logger::danger($file . " contain other mutiple class. [" . implode(", ", $class) . ']');
         } else {
             if ($tc == 1) {
-                if ($N == 'main'){
+                if ($N == 'main') {
                     return;
                 }
-                // 
-                Logger::info('rename '. $file);
-                $src = preg_replace("/\\b".$class[0]."\\b/", $N, $src);
+                Logger::info('rename ' . $file);
+                $src = preg_replace("/\\b" . $class[0] . "\\b/", $N, $src);
                 igk_io_w2file($file, $src, true);
-                $info['replace'][$N]=$class[0];
+                $info['replace'][$N] = $class[0];
             } else {
-                Logger::danger('mutli class not found in '. $file . ' : ['. implode(", ", $class). "]");
+                Logger::danger('mutli class not found in ' . $file . ' : [' . implode(", ", $class) . "]");
             }
         }
     }
 }
-// 
 Logger::info('treat...counting file with ');
 $info = [];
 $info['classes'] = [];
-foreach ($c as $k) {
-    $src = file_get_contents($k);
-    treat_file($info, $k, $src);
+if ($c) {
+    foreach ($c as $k) {
+        $src = file_get_contents($k);
+        treat_file($info, $k, $src);
+    }
 }
-sort($info['classes'] );
-igk_io_w2file(__DIR__.'/rp.json', $src = json_encode($info, JSON_PRETTY_PRINT));
+sort($info['classes']);
+igk_io_w2file(__DIR__ . '/rp.json', $src = json_encode($info, JSON_PRETTY_PRINT));
 igk_wln_e($src);
-igk_wln_e($l); 
+igk_wln_e($l);

@@ -1,0 +1,27 @@
+
+namespace nameCard
+{
+
+
+    namespace Jumping
+    {
+
+        struct CarInfo
+        {
+
+            sealed class local
+            {
+
+            }
+        }
+    }
+    static class Logic
+    {
+        
+    }
+}
+
+interface  ILoadingDefinition
+{
+    
+}

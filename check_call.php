@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/check_call.php
+
 $info = (object)[
     'name'=>'basic'
 ];

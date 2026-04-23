@@ -1,0 +1,18 @@
+body 
+
+
+div{
+    color : red;
+    display: block;
+}
+body {
+    color: indigo;
+}
+/**
+// bcss:
+body{
+    div{
+        color: red;
+    }
+}
+*/

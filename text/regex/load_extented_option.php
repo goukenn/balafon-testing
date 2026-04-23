@@ -4,11 +4,9 @@
 // @date: 20241112 07:30:44
 // @desc: load extended option check
 // @command: balafon --run .test/regex/load_extented_option.php
-//   "begin": "(?x)\n  (?:\n    \\# \\s* (type:)\n    \\s*+ (?# we want `\\s*+` which is possessive quantifier since\n             we do not actually want to backtrack when matching\n             whitespace here)\n    (?! $ | \\#)\n  )\n",
-//         "end": "(?:$|(?=\\#))"
-// $src = file_get_contents('/Users/charlesbondjedoue/Desktop/mark_2.json');
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
+
 $src = <<<'JSON'
 {
     "patterns": [
@@ -20,7 +18,6 @@ $src = <<<'JSON'
 }
 JSON;
 $data = json_decode($src);
-// igk_wln_e("data: ", $data, 'ddddd', json_last_error_msg());
 $ll = json_decode(<<<'JSON'
 {
     "begin": "(?x)\n  (?:\n    \\# \\s* (type:)\n    \\s*+ (?# we want `\\s*+` which is possessive quantifier since\n             we do not actually want to backtrack when matching\n             whitespace here)\n    (?! $ | \\#)\n  )\n"
@@ -35,13 +32,9 @@ $l->patterns = [
 $ctn->treat("ia) info", function($g){
     igk_wln_e("the base handle : ".$g->tokenID, $g->value);
 });
-// $c = "(?x)\n  (?:\n    \\# \\s* (type:)\n    \\s*+ (?# we want `\\s*+` which is possessive quantifier since\n             we do not actually want to backtrack when matching\n             whitespace here)\n    (?! $ | \\#)\n  )\n";
-// // remove comment 
-// $tr = igk_getv(RegexMatcherUtility::TreatByRemoveRootScopePattern($ctn, substr($c, 4)), 0);
 $out = RegexMatcherUtility::TreatExtended($tr);
 igk_wln_e($tr, $out);
 $ctn->treat($c, function ($g) {});
-// igk_wln_e("resolve", $ll, json_last_error_msg());
 $data = json_decode(<<<JSON
 {
     "patterns":[
@@ -53,7 +46,6 @@ $data = json_decode(<<<JSON
 }
 JSON);
 $error = json_last_error_msg();
-// igk_wln_e("data measure : ", $data, $error, $c);
 igk_wln_e("treat extended: ", RegexMatcherUtility::TreatExtended(substr($c, 4)));
 $js = <<<JS
 

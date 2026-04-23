@@ -7,6 +7,7 @@
 // @balafon-command: sendmail 
 use IGK\System\Net\Mail;
 use function igk_html_host as _h;
+
 $option = igk_mail_option();
 $html = _h(igk_create_node('div'), 
     'Ajouter du contenu utile',
@@ -20,7 +21,7 @@ $from = $cnf->get("mail_contact", "info@".$cnf->get("website_domain"));
 list($title, $msg, $to, $fromTitle) = igk_extract([
     'title'=>'Participer aux données',
     'msg'=>$html,
-    'to'=> igk_getv($params, 0) ?? 'cbondje@igkdev.com', // 'bondje.doue@gmail.com',
+    'to'=> igk_getv($params, 0) ?? 'cbondje@igkdev.com', 
     'fromTitle'=>'IGKDEV - BONDJE DOUE',
 ], 'title|msg|to|fromTitle');
 $_mail = new Mail();

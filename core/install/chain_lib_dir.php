@@ -1,5 +1,6 @@
 <?php
 use IGK\System\Console\Logger;
+
 $core = IGK_LIB_FILE;
 $app_folder = '/tmp/dummy_sites';
 if (!is_link($lnk = $app_folder . "/Lib/igk") && !file_exists($lnk)) {

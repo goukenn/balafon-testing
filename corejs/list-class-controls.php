@@ -5,6 +5,7 @@
 // @desc: corejs : list class control 
 // @command: balafon --run .test/corejs/list-class-controls.php
 use IGK\System\Text\RegexMatcherContainer;
+
 $regex = new RegexMatcherContainer;
 $src = file_get_contents(__DIR__.'/core.js');
 $c = $regex->begin('\\binitClassControl\\b', '(?<=\))', 'init-class-control')->last();

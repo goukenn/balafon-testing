@@ -1,5 +1,6 @@
 <?php
 use com\igkdev\projects\Ttre\Models\RecycleProducts;
+
 $ctrl  = TtreController::ctrl();
 $ctrl->register_autoload();
 $g = RecycleProducts::GetStatsInfo();

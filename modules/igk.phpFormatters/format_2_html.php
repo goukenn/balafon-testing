@@ -21,15 +21,6 @@ class CodeToHtmlFormatter extends FormattersCodeToHtmlFormatter
 $regex = new RegexMatcherContainer;
 $regex->patternCreatorClass = FormatterPattern::class; 
 include __DIR__.'/format_2_html.regex.definition.pinc';
-// Logger::info('export - source');
-// $c = $regex->export('source.php');
-// echo JSon::Encode($c, JSonEncodeOption::IgnoreEmpty(), JSON_PRETTY_PRINT);
-// exit;
-// /**
-//  * @var ?IPHPFormatterModule
-//  */
-// $mod = igk_require_module('igk/phpFormatter'); 
-// $regex = $mod->getFormatRegexContainer('source.php');
 $engine = new CodeToHtmlFormatter();
 $engine->autoFormat = true;
 $engine->showLine = true;
@@ -47,13 +38,8 @@ $src = implode("\n", ['function doAction(){ ?><div>hello folks! {{ indication }}
 $src = implode("\n", ['?><div>one<span>two</span></div>']);
 $src = implode("\n", ['<?php $x = 12 + $x; $r; function a(){?><div>one<span>two</span></div> <?php }']);
 $src = implode("\n", ['$r();    $ra();      ', '', '','$i=12^7;']);
-// $src = implode("\n", ['function doAction(){ ? ><div>hello folks!  <span>one</span></div><?php }']);
 $transform = $engine->exec($regex, $src, true); 
-// igk_wln($transform);
-// igk_exit();
 echo "<!DOCTYPE html>";
-// alternative to convert bmstring - 
-// echo mb_convert_encoding(''.
 echo _h(
     'html',
     _h(
@@ -226,10 +212,6 @@ CSS);
     'charset' => 'UTF8',
     'locale' => 'en'
 ])
-    // ,
-    // 'UTF8',
-    // 'UTF8',
-    //  )
 ;
 Logger::success('done');
 igk_exit();

@@ -1,4 +1,5 @@
 <?php
+
 $yyyy = 8985;
 echo eval('return <<<EOF
 presentation du chef; \' avec pour dire

@@ -1,6 +1,7 @@
 <?php
 // @command: balafon --run .test/webscrapper/test-session.php
 use IGK\System\Http\CurlHttpClient;
+
 $client = new CurlHttpClient;
 $client->session = true;
 $buri = 'https://localhost:7300/testapi/handle_session';

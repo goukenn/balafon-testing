@@ -8,9 +8,9 @@
 // + | retrieve marque form tags => to array for cbs project 
 // + | --------------------------------------------------------------------
 use IGK\System\IO\StringBuilder;
+
 $sb = new StringBuilder;
 if (!function_exists('igk_html_get_options_key')){
-
 /**
 * auto generate doc.
 * @param string $v
@@ -59,5 +59,4 @@ foreach($def as $k=>$v){
     } 
 }
 echo igk_map_array_to_str($gout);
-//Logger::success('done');
 exit;

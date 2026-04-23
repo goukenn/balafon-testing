@@ -1,17 +1,14 @@
 <?php
 // @command: balafon --run .test/system/text/regexcontainer/order_captures.php
-// order regex categories by from/to logic
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexCaptureInfo;
 use IGK\System\Text\RegexTreatCapture;
+
 $l = "ab=cordination abbc acbba";
 $regex = '/(a(?P<name>b)(=))(cord(ination|onnée))/';
 $regex = '/(a(?P<name>b)(=(cor)di(na)ti(?P<onlist>on)))/';
 preg_match($regex, $l, $tab, PREG_OFFSET_CAPTURE, 0);
-// $c = RegexCaptureInfo::CreateFrom(['to'=>10,'pos'=>10]);
-// igk_wln_e($c);
 if (!function_exists('igk_regex_order_captures')) {
-
 /**
 * auto generate doc.
 * @param mixed $captures
@@ -22,7 +19,6 @@ function igk_regex_order_captures($captures)
     }
 }
 if (!function_exists('igk_regex_treat_capture')) {
-
     /**
     * auto generate doc.
     * @param callable(string $v
@@ -37,9 +33,6 @@ $tl = array_shift($tab);
 $capture_info = igk_regex_order_captures($tab);  
 $capture = [
     2 => "meta.capture.render",
-    // 5 => function ($cap, $callable=null) {
-    //     $cap->data =  '[' . $cap->value . ']';
-    // },
     'onlist' => function ($cap, $c) {
         $cap->data = '@'.$cap->value;
     },
@@ -61,7 +54,6 @@ $l = RegexTreatCapture::CreateFromRegexResult($tab, [
         return '<p>'.$v.'</p>';
     },
     'type'=>function($cap){
-
     /**
     * auto generate doc.
     * @var \IGK\System\Text\IRegexCaptureInfo $cap
@@ -72,6 +64,6 @@ $l = RegexTreatCapture::CreateFromRegexResult($tab, [
         return $n->render();
     }
 ]);
-$v = $l ? $l->treat() : ''; // treatRegex('/(?P<type>(admin|user)/', 'presentation of : admin');
+$v = $l ? $l->treat() : ''; 
 Logger::info('done : ' . $v);
 igk_exit();

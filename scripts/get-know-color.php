@@ -5,9 +5,10 @@
 // @desc: get balafon system web nkow colors
 // @command: balafon --run .test/scripts/get-know-color.php
 use IGK\System\Console\Logger;
+
 require_once IGK_LIB_DIR .'/Styles/igk_css_colors.phtml';
-$g = IGKGlobalColor::getInstance()->getGlobals(); // GetGlobalColor();
+$g = IGKGlobalColor::getInstance()->getGlobals(); 
 Logger::info("global colors");
 $tab = array_keys($g);
 sort($tab);
-igk_wln_e(implode('|', $tab)); //array_keys($g));
+igk_wln_e(implode('|', $tab)); 

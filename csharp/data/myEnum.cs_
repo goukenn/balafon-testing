@@ -1,0 +1,5 @@
+enum EnumCase
+{
+    doAction,
+    Enumerate
+}

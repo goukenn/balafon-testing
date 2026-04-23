@@ -18,31 +18,26 @@ use IGK\System\Number;
 /**
 * auto generate doc.
 */
-
 /**
 * auto generate doc.
 * @package
 */
 class BillInfo{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $user;
-
     /**
     * auto generate doc.
     * @var ?Resellers
     */
     var $reseller;
-
     /**
     * auto generate doc.
     * @var array<Products>
     */
     var $products = [];
-
     /**
     * auto generate doc.
     * @param Products $product
@@ -70,7 +65,6 @@ class BillInfo{
         }
         $this->products[$product->prodId]->qte += $qte; 
     }
-
     /**
     * auto generate doc.
     */
@@ -122,22 +116,17 @@ class BillInfo{
 }
 $id = BillStatusTypes::GetCache(BillStatusTypes::FD_BLL_STATUS_ID, BillStatusConstants::Unpaid);
 $reseller = $ctrl->getReseller();
-// _inProducts = Products::factory(50, [$reseller])->create();
 if (empty($_inProducts = Products::GetResellerProduct($reseller))){
     $_inProducts = Products::factory(50, [$reseller])->create();
     DataBaseSeeder::SeedProductPrice($_inProducts); 
     DataBaseSeeder::SeedProductStock($_inProducts);
 } else {
-    // $_inProducts = Products::factory(50, [$reseller])->create();
-    // DataBaseSeeder::SeedProductPrice($_inProducts); 
-    // DataBaseSeeder::SeedProductStock($_inProducts);
 }
 $info = new BillInfo;
 $product = $ctrl->getResellerProductsForSale($reseller);
 $count = $product->getRowCount();
 $info->user = $ctrl->getUser()->user() ?? igk_die("can't get users");
 if ($count){
-// add 10 product to bill info
 $tab = $product->to_array();
 $v = array_rand($tab, rand(1,20)) ;
 foreach($v as $k){

@@ -15,7 +15,6 @@ class PHPCodeFormatterService implements IAppService{
     public function init($configs = null): bool { 
         return true;
     }
-
     /**
     * Called when an object is used as a function.
     */
@@ -24,48 +23,40 @@ class PHPCodeFormatterService implements IAppService{
         igk_wln_e("invoke the service .... ");
     }
 }
-
 /**
 * auto generate doc.
 */
 class PHPMyCodeFormatterService implements IAppService{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $singleDefinitionPerFile;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $mergeConstants;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $removeComments;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $removePhpDocBlock;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $onlyDefinition;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $author;
-
     /**
     * auto generate doc.
     * @param null|mixed $configs
@@ -78,7 +69,6 @@ class PHPMyCodeFormatterService implements IAppService{
         }
         return true;
     }
-
     /**
     * Called when an object is used as a function.
     */
@@ -87,10 +77,7 @@ class PHPMyCodeFormatterService implements IAppService{
         igk_wln_e("invoke the service .... mys sample service .... ", $this);
     }
 }
-// IGKServices::Register('php-formatter', PHPCodeFormatterService::class);
-// IGKServices::Register('php-formatter', PHPMyCodeFormatterService::class);
 $app = igk_app();
 $p = $app->getService('php-formatter');
 $l = IGKServices::getInstance()->services();  
-// $p();
 igk_wln_e(json_encode($l, JSON_PRETTY_PRINT));

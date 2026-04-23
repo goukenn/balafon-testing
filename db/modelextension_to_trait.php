@@ -2,6 +2,7 @@
 use IGK\Models\ModelBase;
 use IGK\Models\ModelEntryExtension;
 use IGK\System\ExtensionUtils;
+
 $methods = [];
 ExtensionUtils::LoadMethods($methods, ModelEntryExtension::class, ModelBase::class );
 $sb = "";

@@ -1,8 +1,9 @@
 <?php
-// @command: balafon --run .test/treat/rename_file.php
+// @command: balafon --run .test/treat/rename_file.php dir of dart file 
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
-$dir = '/Volumes/Data/Dev/2025/Fullter/com_igkdev_new_app/lib';
+
+$dir = igk_getv($params, 0);
 $c = IO::GetFiles($dir, '/\.dart$/', true);
 $l = [];
 $ren = [];
@@ -12,10 +13,8 @@ foreach($c as $k){
     $nn = 'WOH'.implode('', array_map('ucfirst', explode('_', $n))); 
     $l[$k] = $hdir."/".$nn;    
     $ren[igk_io_basenamewithoutext($n)] = igk_io_basenamewithoutext($nn);
-    // igk_io_w2file($hdir.'/'.$nn, )
 }
 $src = '';
-// 
 Logger::info('treat...');
 foreach($c as $k){
     $src = file_get_contents($k);

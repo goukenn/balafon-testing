@@ -3,6 +3,7 @@
 use IGK\System\Console\Logger;
 use IGK\System\Html\Dom\HtmlDocTheme;
 use IGK\System\IO\StringBuilder;
+
 $s = <<<MD
 # Hello 
 - sample avec dignite - location xxx
@@ -34,5 +35,4 @@ $sb->appendLine(implode("\n", [
 $output = igk_getv($params, 0) ??  __DIR__.'/output.html';
 igk_io_w2file($output, $sb.'');
 Logger::info($output);
-// `open -a "Microsoft Word" $output`;
 igk_exit();

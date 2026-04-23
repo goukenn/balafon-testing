@@ -1,6 +1,5 @@
 <?php
 // @command: balafon --run .test/db/jobresearch/foremjob-reverse-folder-to-definion.php folder
-// - balafon --run .test/db/jobresearch/foremjob-reverse-folder-to-definion.php /Users/charlesbondjedoue/Desktop/jobs
 use com\igkdev\projects\ForemJobDashboard\Database\Import\JobEntryImportInfo;
 use com\igkdev\projects\ForemJobDashboard\Database\Import\JobImportInfo;
 use IGK\Helper\IO;
@@ -8,8 +7,8 @@ use IGK\Helper\JSon;
 use IGK\Helper\JSonEncodeOption;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
-ForemJobDashboardController::ctrl(true);
 
+ForemJobDashboardController::ctrl(true);
 /**
 * auto generate doc.
 * @param string $dir
@@ -51,7 +50,6 @@ function get_enterpise_info(string $dir, $date, &$enterpriseList)
     foreach (IO::GetDirs($dir, null, false) as $ent) {
         $es = basename($ent);
         if (preg_match('/^forem/i', $es)) {
-            // Logger::danger('forem job found');
             foreach (IO::GetDirs($ent, null, false) as $references) {
                 $res = basename($references);
                 $load_ref("Forem_" . $res, $enterpriseList, $date, $references);

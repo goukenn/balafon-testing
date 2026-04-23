@@ -4,8 +4,8 @@ use com\igkdev\projects\ForemJobDashboard\Models\JobEnterprises;
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
 use IGK\System\Console\Logger;
-$ctrl = ForemJobDashboardController::ctrl(true);
 
+$ctrl = ForemJobDashboardController::ctrl(true);
 /**
 * auto generate doc.
 * @var MainTaskModelUtility

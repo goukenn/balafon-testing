@@ -1,11 +1,11 @@
 <?php
-
 /**
 * auto generate doc.
 * @var \IGK\Controllers\BaseController $ctrl environment controller
 */
 use IGK\System\IO\Path;
 use IGK\System\IO\ResIdentifierConstants;
+
 $r = 'src/'.$ctrl->asset('/js/main.js', false);
 function project_asset_identifier(string $path, ?string & $new_path=null){
     $g = Path::Combine(IGK_RES_FOLDER, ResIdentifierConstants::PROJECT)."/";
@@ -20,5 +20,4 @@ function project_asset_identifier(string $path, ?string & $new_path=null){
     }
 }
 $v_project_asset_identifier = project_asset_identifier($r , $newpath);
-// igk_wln_e($r, $v_project_asset_identifier, $newpath);
 igk_wln_e("resolv Projection asset ", $ctrl->resolvProductionAssetPath());

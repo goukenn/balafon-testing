@@ -6,7 +6,8 @@
 // @command: balafon --run .test/utils/macos/photos/remove_duplicates.php
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
-($dir = igk_getv($params, 0)) ?? igk_die('required folder'); // 
+
+($dir = igk_getv($params, 0)) ?? igk_die('required folder');  
 $outs = [];
 $fs = IO::GetFiles($dir,"/\.(jp(e)?g|mov|mp4|heic|png|gif|cr2|pdf)$/i", true);
 usort($fs, function($a, $b){

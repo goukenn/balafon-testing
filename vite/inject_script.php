@@ -1,5 +1,4 @@
 <?php
-// create injection script 
 use igk\js\babel\System\Console\Commands\BabelCommand;
 use igk\js\common\JSExpression;
 use igk\js\Vue3\Compiler\VueSFCUtility;
@@ -7,49 +6,42 @@ use igk\js\Vue3\Libraries\VueRouter;
 use IGK\System\Exceptions\CssParserException;
 use IGK\System\Exceptions\ArgumentTypeNotValidException;
 use IGK\System\Shell\OsShell;
-igk_require_module(igk\js\Vue3::class);
 
+igk_require_module(igk\js\Vue3::class);
 /**
 * auto generate doc.
 */
 class ViteApplicationHelper{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $ctrl;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $dist;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $entryNamespace = 'viteApp';
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $target = '#app';
-
     /**
     * auto generate doc.
     * @var mixed
     */
-    var $mode = 'development'; // production|development
-
+    var $mode = 'development'; 
     /**
     * auto generate doc.
     * @var mixed
     */
     var $routeName = 'vite-router';
-
     /**
     * auto generate doc.
     * @var mixed
@@ -64,17 +56,16 @@ class ViteApplicationHelper{
      * @throws ArgumentTypeNotValidException 
      * @throws ReflectionException 
      */
-
     public function buildApplicationInjection(){
         $s = igk_create_node('script');
         $s['type'] = self::APP_JS_MIME_TYPE;
         $options = [
             'target'=>$this->target,
             'entryNamespace'=>$this->entryNamespace,
-            'uses'=>(object)[],  // uses to inject // each use represent an usages
-            'components'=>[], // store injected components - builded or not 
-            'menus'=>[], // menu presentation object
-            'configs'=>[] // store extra configuration. to pass to application 
+            'uses'=>(object)[],  
+            'components'=>[], 
+            'menus'=>[], 
+            'configs'=>[] 
         ];
         if ($this->routeName){ 
             $ref_options = null;
@@ -86,8 +77,6 @@ class ViteApplicationHelper{
         }
         $src = sprintf('(function(){/*- define option -*/ igk.system.defineOption("%s", %s);})();', $this->entryNamespace, 
         JSExpression::Stringify((object)$options));
-       // echo $src.PHP_EOL;
-        // TODO: babel for production 
         if ($this->mode == 'production'){
             // + | --------------------------------------------------------------------
             // + | babel and uglifies
@@ -95,10 +84,9 @@ class ViteApplicationHelper{
             if ($bin = OsShell::Where('babel')){
                 $f = igk_io_tempfile('parser');
                 igk_io_w2file($f, $src);
-                $out = `{$bin} --no-comments --minified $f -o {$f}`;
+                $out = shell_exec("{$bin} --no-comments --minified $f -o {$f}");
                 if ($uglify = OsShell::Where('uglifyjs')){   
-                    // `$uglify $f -b quote_style=3 -c -o $f`;
-                    `$uglify $f -c -o $f`;
+                    shell_exec("$uglify $f -c -o $f");
                 }
                 $out = file_get_contents($f);
                 @unlink($f); 

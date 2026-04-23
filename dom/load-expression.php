@@ -1,6 +1,7 @@
 <?php
 // @command: balafon --run .test/dom/load-expression.php
 use IGK\Controllers\SysDbController;
+
 $n = igk_create_node('div');
 $n->load(<<<'HTML'
 <ul>

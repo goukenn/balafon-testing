@@ -1,11 +1,8 @@
 <?php
 // @command: balafon --run .test/bviewParser/read_args.php
 use IGK\System\Console\Logger;
+
 $src = [
-    // 'className=[[:@raw->a]]',
-    // 'className=$a',
-    // 'className=@a',
-    // 'className=[[:@raw]]',
     'className={active: [[:@raw->a ==\'88\' ? 1 : 0 ]], before: [[:@raw->a == 99 ? 1: 0 ]]}'
 ];
 $context = (object)['raw'=>(object)[

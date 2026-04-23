@@ -1,5 +1,4 @@
 <?php
-// balafon --run --controller:bantubeatController ./.test/db/rename_column_migration.php users usr_
 use IGK\System\Html\XML\XmlNode;
 
 /**

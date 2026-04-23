@@ -6,6 +6,7 @@
 // @command: balafon --run .test/balafon/scripts/get-installed-conf-file.php
 use IGK\Constants;
 use IGK\System\Console\Logger;
+
 $p = IGKEnvironment::GetGlobalConfigurationPath(getcwd());
 Logger::warn("configuration.configuration-flie: ");
 Logger::print($p);

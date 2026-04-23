@@ -1,11 +1,11 @@
 <?php
 use IGK\Helper\StringUtility; 
 use IGK\System\Console\Logger;
-use IGK\System\IO\File\PHPScriptBuilder;
-// command use : balafon --run .help/io/class_ufirst_const.php filename
+use IGK\System\IO\File\PHPScriptBuilder; 
+
 $treat = igk_getv($params, 0);
 if (!$treat){
-    igk_die("require miss filename")
+    igk_die("require miss filename");
 }
 if (!is_file($treat)){
     $treat = getcwd()."/".$treat;

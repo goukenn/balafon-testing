@@ -1,5 +1,4 @@
 <?php
-///<summary></summary>
 use IGK\Models\ModelBase;
 
 /**
@@ -9,7 +8,6 @@ use IGK\Models\ModelBase;
 */
 abstract class IRReportsMacros extends ModelBase{
 }
-
 /**
 * auto generate doc.
 */

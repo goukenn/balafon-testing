@@ -5,6 +5,7 @@
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 require_once __DIR__."/.global.php";
 $data = json_decode(file_get_contents(NBOOK_SITE_FILE));
 $header = [];

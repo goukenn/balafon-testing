@@ -1,6 +1,5 @@
 <?php
 // @command: balafon --run .test/bet/napoleon_extract_firefox_cookies.php
-// firefox folder   
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 
@@ -9,97 +8,81 @@ use IGK\System\Console\Logger;
 */
 class MozCacheRow
 {
-
     /**
     * auto generate doc.
     * @var number
     */
     var $creationTime;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $expiry;
-
     /**
     * auto generate doc.
     * @var string
     */
     var $host;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $id;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $inBrowserElement;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $isHttpOnly;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $isPartitionedAttributeSet;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $isSecure;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $lastAccessed;
-
     /**
     * auto generate doc.
     * @var string
     */
     var $name;
-
     /**
     * auto generate doc.
     * @var string
     */
     var $originAttributes;
-
     /**
     * auto generate doc.
     * @var string
     */
     var $path;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $rawSameSite;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $sameSite;
-
     /**
     * auto generate doc.
     * @var number
     */
     var $schemeMap;
-
     /**
     * auto generate doc.
     * @var number
@@ -110,21 +93,11 @@ $cf = __DIR__ . '/sampl.sqlite';
 if (file_exists($cf)) {
     unlink($cf);
 }
-// open firefox : 
-// hit : about:profiles 
-// select the current active profile
-// found find : cookies.profilie
 $cf = '/Users/charlesbondjedoue/Library/Application Support/Firefox/Profiles/yx5rd8i9.default-release-1702400894716/cookies.sqlite';
 $ad = igk_get_data_adapter('sqlite3');
 $rows = null;
 $site = 'napoleonsports';
 if ($ad->connect($cf)) {
-    // $b = $ad->createTable('users', [
-    //     'id'=>(object)['clType'=>'int'],
-    //     'login'=>(object)['clType'=>"varchar(40)"],
-    // ]);
-    // $ad->insert('users',['id'=>1, 'login'=>'cbondje@igkdev.com']);
-    // $ad->insert('users',['id'=>2, 'login'=>'bondje.doue@igkdev.com']);
     $rows = $ad->select_all('moz_cookies', ['host like \'%'.$site.'%\'']);
     $tab = $rows ? array_merge(...array_map(function($i){
         $i = (object)$i;
@@ -137,8 +110,6 @@ if ($ad->connect($cf)) {
     $r = igk_sys_cookies_build($tab);
     echo implode("\n", [$r,  ' ----- ',
     json_encode($tab)]), PHP_EOL;
-    // $tables = $ad->listTables()->fetch_all();
-    // igk_wln(json_encode($tables));
     $ad->close();
 }
 igk_wln_e('end...');

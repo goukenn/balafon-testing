@@ -7,6 +7,7 @@
 namespace igk\tools\Reflector;
 use IGK\System\Console\Logger;
 use igk\tools\Reflector\Helpers\Harmonize;
+
 $input = igk_getv($params, 0) ?? igk_die('missing parameter');
 $output = igk_getv($params, 1) ?? __DIR__ . '/output';
 use function igk\tools\Reflector\treat_files;

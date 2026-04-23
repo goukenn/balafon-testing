@@ -1,7 +1,7 @@
 <?php
+
 $a = 8;
 $b = 9;
-
 /**
 * auto generate doc.
 * @param mixed $x
@@ -14,9 +14,6 @@ function eval_args($x){
     ]);
     echo "source : ".$src . "\n";
     $tokens = token_get_all($src);
-    // echo "tokens : \n";
-    // print_r($tokens);
-    // exit;
     while(count($tokens)>0){
         $e = array_shift($tokens);
         $id = 0;
@@ -35,7 +32,6 @@ function eval_args($x){
     }
     return $x;
 }
-
 /**
 * auto generate doc.
 * @param mixed $x

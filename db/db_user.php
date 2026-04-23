@@ -1,5 +1,6 @@
 <?php
 use IGK\Models\Users;
+
 $user = Users::select_row(['clLogin'=>'cbondje@igkdev.com']);
 $user->changePassword('admin@123');
 $user->clStatus = 1;

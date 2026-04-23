@@ -6,8 +6,9 @@
 // @command: balafon --run .test/core/installer/compose.create-project.php
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 $cli = IGK_LIB_DIR.'/bin/balafon';
-$BS = '/Volumes/Data/Dev/balafon-install';
+$BS =  IGK_DEV_DIR.'/balafon-install';
 $dir = igk_getv($params, 0) ?? $BS;
 if ($dir != $BS){
     $clib = realpath(IGK_LIB_DIR.'/../../../');
@@ -15,7 +16,7 @@ if ($dir != $BS){
         IO::RmDir($dir, true);
     }
     IO::CreateDir($dir);
-    `ln -s {$clib}/* $dir/`;
+    shell_exec("ln -s {$clib}/* $dir/");
     @unlink($dir.'/src');
     IO::CreateDir($dir.'/src/Lib');
     @symlink(IGK_LIB_DIR, $dir.'/src/Lib/igk');
@@ -24,8 +25,6 @@ if ($dir != $BS){
 chdir($dir);
 IO::RmDir('vendor');
 @unlink('tmp.txt');
-// echo `cd {$dir} && ./composer.phar install 1>&1`;
-// echo `{$dir}/src/Lib/igk/bin/balafon --init --env-only 1>&2`;
-echo `cd {$dir} && ./composer.phar create-project 1>&2`;
+echo shell_exec("cd {$dir} && ./composer.phar create-project 1>&2");
 Logger::success('install complete.');
 igk_exit();

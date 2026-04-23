@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/balafon-wiki/claude/glue-document.php
+
 $f = '/tmp/list.txt';
 $c = explode("\n", file_get_contents($f));
 $cfile = [];

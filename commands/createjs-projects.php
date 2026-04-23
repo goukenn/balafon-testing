@@ -8,6 +8,7 @@ use IGK\System\Cron\CommandHelper;
 use IGK\System\IO\Path;
 use IGK\System\Npm\JsonPackage;
 use IGK\System\Shell\OsShell;
+
 ($dir = igk_getv($params, 0 ) ) ?? igk_die('required directory');
 $p_dir = Path::CombineAndFlattenPath(igk_io_packagesdir(), 'node_modules', $dir);
 IO::CreateDir($p_dir);
@@ -67,7 +68,7 @@ Logger::success("yarn ");
 Logger::success("yarn dev");
 if ($code && function_exists('readline')){
     if (readline('open with code ? (y|n) ') == 'y'){
-        `code $(pwd)`;
+        shell_exec("code $(pwd)");
     }
 }
 igk_exit();

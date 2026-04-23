@@ -4,28 +4,9 @@ use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
 use IGK\System\Console\Logger;
 use IGK\System\Database\DbQueryExpression;
+
 $ctrl = ForemJobDashboardController::ctrl(true);
 // + | change time stamp of a file 
-// $r = (new DateTime('2020-01-01'))->getTimestamp();
-// echo $r;
-// if (touch(__DIR__.'/data.txt', $r)){
-//     Logger::success("ok");
-// }else{
-//     Logger::danger('something wrong');
-// }
-// exit;
-// - |
-// $files = explode("\n", file_get_contents(__DIR__.'/jobtitles.txt'));
-// $tab = Jobs::select_all([
-//     '@@'.Jobs::FD_TITLE=>'%@FAKE%'
-// ]);
-// foreach($tab as $row){
-//     $i = rand(0, count($files)-1); 
-//     $row->{Jobs::FD_TITLE} = $files[$i];
-//     $row->summary = '';
-//     $row->description = '';
-//     $row->update();
-// }
 $fuid = null;
 $user = $ctrl::SignInUser('cbondje@igkdev.com');
 if (($main = $ctrl::modelUtility("MainTask")) instanceof MainTaskModelUtility) {
@@ -91,16 +72,5 @@ if ($desc) {
     }
     Logger::info(count($tab));
 }
-// Jobs::update([
-//     Jobs::FD_TITLE=>DbQueryExpression::Create(sprintf("CONCAT('@FAKE:', `%s`)", Jobs::FD_TITLE))
-// ], ['>'.Jobs::FD_ID=>'1234']);
-// $default_response = JobDocTypes::RESPONSE();
-// if ($rp = JobDocs::select_row([JobDocs::FD_JOB_ID=>$id, JobDocs::FD_JOB_DOC_TYPE_ID=> $default_response])){
-//     if ($ts = json_decode($rp->value)){
-//         if ($ts->type == 'template'){
-//             $response = $ts->content;
-//         }
-//     } 
-//  } 
 Logger::success('done');
 exit;

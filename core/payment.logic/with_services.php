@@ -11,27 +11,23 @@ use IGK\Models\Users;
 * auto generate doc.
 */
 interface IPaymentService extends IAppService{
-
     /**
     * auto generate doc.
     * @param mixed $options
     */
     function initPayment($options);
 }
-
 /**
 * auto generate doc.
 */
 class PayPalPayment implements IPaymentService
 {
     use ServicePropertyTrait;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $apiKey;
-
     /**
     * .ctr
     * @param null|Users $user
@@ -39,7 +35,6 @@ class PayPalPayment implements IPaymentService
     public function __construct(private ?Users $user)
     {
     }
-
     /**
     * auto generate doc.
     * @param mixed $options
@@ -48,11 +43,9 @@ class PayPalPayment implements IPaymentService
     {
         igk_wln('start payment with paypal');
     }
-
     /**
     * auto generate doc.
     */
-
     public function getConfigurableProperties(): array
     {
         return [
@@ -64,13 +57,11 @@ class PayPalPayment implements IPaymentService
         ];
     }   
 }
-
 /**
 * auto generate doc.
 */
 class VisaPayment implements IPaymentService{
      use ServicePropertyTrait;
-
     /**
     * auto generate doc.
     * @param mixed $options
@@ -80,7 +71,6 @@ class VisaPayment implements IPaymentService{
         igk_wln_e('init payment with VISA');
     }
 }
-
 /**
 * auto generate doc.
 */
@@ -89,7 +79,6 @@ class PaymentServiceContainer implements IAppServiceContainer
     use ServiceContainerTrait {
         register as traitRegister;
     }
-
     /**
     * auto generate doc.
     * @return array
@@ -98,7 +87,6 @@ class PaymentServiceContainer implements IAppServiceContainer
     {
         return [];
     }
-
     /**
     * auto generate doc.
     * @param null|mixed $configs
@@ -108,7 +96,6 @@ class PaymentServiceContainer implements IAppServiceContainer
     {
         return true;
     }
-
     /**
     * auto generate doc.
     * @param string $name
@@ -123,8 +110,6 @@ class PaymentServiceContainer implements IAppServiceContainer
         return false;
     }
 }
-//$l = DotEnvConfiguration::Get('PAYPAL_API_KEY');
-//igk_wln_e(__FILE__.":".__LINE__ , $l);
 # 1. system register first a service container for payment
 IGKServices::Register('payment', PaymentServiceContainer::class);
 IGKServices::Register('payment.paypal', PayPalPayment::class);
@@ -135,15 +120,9 @@ IGKServices::Register('payment.visa', VisaPayment::class);
     $all[] = IGKServices::Get($container->getName().'.'.$m);
  }
 $r = IGKServices::Get('payment.paypal');
-// //$r = IGKServices::Get('payment.visa');
 igk_wln($container, $r);
 $r->initPayment([]);
 /**
  * container number of initiated service payment 
  */
 igk_wln_e('list of initialized payment setting', $container->count(), $container->listServicesKeys(), $all);
-// return [
-//     'payment.paypal'=>[
-//         PayPalPayment::class
-//     ]
-// ];

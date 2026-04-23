@@ -2,9 +2,7 @@
 // @command: balafon --run .test/markdown/check-markdown-converter.php
 use IGK\System\Console\Logger;
 use IGK\System\IO\Markdown\MarkdownConverter;
-// TODO : PB avec : 
-// [BLF] - parent not updated. matcher misconfiguration #f-html-attribs-value 
-// At: /Volumes/Data/Dev/PHP/balafon2/src/Lib/igk/igk_core.php:199
+
 $f = IGKServices::getInstance()->services();
 $tf = igk_app()->getService('formatters.html');
 $ptf = igk_app()->getService('formatters.php');
@@ -14,7 +12,6 @@ $o = $heighlight->format(implode("\n", ['$g=12;', '// represent ', '$a = $g + 15
 igk_wln_e('o = '.$o);
 $src = '<div class="mark"><!-- sample '."\n".'<span>code</span>--></div>';
 // + | PB 
-// $src = '<div class="mark" ><!-- sample '."\n".'<span>code</span>--></div>';
 $g = $tf->format($src);
 Logger::print('height --------------------');
 Logger::print($g);
@@ -22,11 +19,9 @@ Logger::print(':::');
 $o = $heighlight->format($g, 'html');
 igk_wln($o);
 igk_exit();
-// igk_wln_e("the formatter ", json_encode(compact('g', 'o'), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)); //  $tf->format('info'));
 // + | --------------------------------------------------------------------
 // + | check tranform code to html 
 // + | --------------------------------------------------------------------
-
 /**
 * auto generate doc.
 * @param mixed $src

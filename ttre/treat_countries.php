@@ -1,6 +1,5 @@
 <?php
-// treat countries.csv
-// balafon --run .test/ttre/treat_countries.php > .test/ttre/countries.json
+
 $lines = explode("\n", file_get_contents(__DIR__."/countries.csv"));
 $tab = [];
 foreach($lines as $m){

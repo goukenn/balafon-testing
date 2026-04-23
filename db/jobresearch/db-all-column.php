@@ -2,8 +2,8 @@
 // @command: balafon --run .test/db/jobresearch/db-all-column.php --querydebug
 use com\igkdev\projects\ForemJobDashboard\Models\JobForemJobs;
 use com\igkdev\projects\ForemJobDashboard\Models\Jobs;
+
 $ctrl = ForemJobDashboardController::ctrl(true);
-// counting user - number_of_foremjobs
 $T2 = JobForemJobs::class;
 $T1 = Jobs::class;
 $l = $T1::prepare()

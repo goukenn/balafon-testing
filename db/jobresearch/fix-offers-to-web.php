@@ -5,9 +5,9 @@ use com\igkdev\projects\ForemJobDashboard\Models\JobSourceTypes;
 use com\igkdev\projects\ForemJobDashboard\ModelUtilities\MainTaskModelUtility;
 use com\igkdev\projects\ForemJobDashboard\SourceTypes;
 use IGK\System\Console\Logger;
+
 $ctrl = ForemJobDashboardController::ctrl(true);
 $callback = function($user, $ctrl)use($params){
-
     /**
     * auto generate doc.
     * @var MainTaskModelUtility
@@ -18,7 +18,6 @@ $callback = function($user, $ctrl)use($params){
     $id = JobSourceTypes::GetCache( JobSourceTypes::FD_NAME, SourceTypes::WEB)->id;
     $nid = JobSourceTypes::GetCache( JobSourceTypes::FD_NAME, SourceTypes::LINKEDIN)->id;
     foreach($list as $row){
-
         /**
         * auto generate doc.
         * @var $row Jobs

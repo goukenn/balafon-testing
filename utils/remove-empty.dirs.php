@@ -6,6 +6,7 @@
 // @command: balafon --run .test/utils/remove-empty.dirs.php /path/to/dir
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 defined('IGK_FRAMEWORK') || igk_die('missing balafon framework');
 ($dir = igk_getv($params, 0) ) ?? igk_die('missing directory ');
 $dirs = [];

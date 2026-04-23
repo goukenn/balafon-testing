@@ -1,11 +1,11 @@
 <?php
+
 $x = "goudron";
 ?>
 <<?= $x ?>>---<?= $x ?>8<?= $x ?></<?= $x ?>>
 <?php
 echo $x;
 exit;
-
 /**
 * auto generate doc.
 * @param mixed & $str
@@ -29,7 +29,6 @@ function str_insert(& $str, $data, $offset){
 $s = "Hello friend ... ";
 $a = & $s ;
 $a .= str_insert($s , "Jump", 10);
-//can't create reference from string offset
 $g = "Partir ";
 $m = & $g[2];
 $m.= "sample";

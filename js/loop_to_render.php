@@ -1,9 +1,9 @@
 <?php
+
 $cond = <<<'JS'
    {i, j} in items
 JS;
 $g = preg_match('/^\s*(?P<cond>.+)\s+(?P<op>in|of)\s+(?P<exp>.+)\s*$/', $cond, $tab);
-//$tab['cond'] = trim($tab['cond']);
 $cond = $tab['cond'];
 $op = $tab['op'];
 $mode = preg_match('/^\{.+\}$/', $tab['cond']) ? 1 : 

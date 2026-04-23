@@ -1,8 +1,8 @@
 <?php
+
 for ($i = 0; $i < 26; $i++) {
     $td[chr(ord('a') + $i)] = ($i % 9) + 1;
 }
-
 /**
 * auto generate doc.
 * @param mixed $ch
@@ -25,7 +25,6 @@ foreach (str_split(strtolower($n)) as $s) {
         $not_pnumber += $c;
     }
 }
-
 /**
 * auto generate doc.
 * @param int $number

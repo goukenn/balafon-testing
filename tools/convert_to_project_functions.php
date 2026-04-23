@@ -1,9 +1,8 @@
 <?php
-// convert php file with function to protected function list 
-// need to use token to detected global function. 
 use IGK\System\Console\Logger;
 use IGK\System\IO\File\PHPScriptBuilder;
 use IGK\System\IO\StringBuilder;
+
 !isset($command) && igk_die("command required");
 $file = igk_getv($params, 0) ?? igk_die("need a files");
 $src = file_get_contents($file);
@@ -84,7 +83,7 @@ while (count($tokens) > 0) {
             }
             break;
         case 397:
-            $mode_skip = 1; // "::"
+            $mode_skip = 1; 
             break;
         case T_CLASS:
             if (!$mode_skip){
@@ -165,7 +164,6 @@ while (count($tokens) > 0) {
         default:
             switch ($v) {
                 case '(':
-                    // to avoid anonymous
                     $anonymouse_level++;
                     break;
                 case ')':
@@ -240,7 +238,6 @@ if ($export_file = igk_getv($command->options, "--export")){
             if ($doc = $functions[$u]->here_docs){
                 foreach($doc as $k=>$v){
                     if (preg_match("/\s*".$here_key.$k.'@/', $content, $tab_r)){
-                        // preg replace consider backspace 
                         $content = str_replace($tab_r[0],  "\n".$v, $content);
                     }
                 } 

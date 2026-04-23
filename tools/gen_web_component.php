@@ -2,6 +2,7 @@
 // @command: balafon --run .test/tools/gen_web_component.php
 use IGK\System\Html\Dom\HtmlNode;
 use IGK\System\IO\StringBuilder;
+
 $nodes = explode('|', HtmlNode::NODE_LIST);
 $components = [];
 $sb = new StringBuilder;

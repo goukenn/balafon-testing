@@ -2,6 +2,7 @@
 // @command: balafon --run .test/gd/scale_to.php
 use IGK\Helper\IO;
 use IGK\System\IO\Path;
+
 $file = igk_getv($params, 0) ?? igk_die('missing file');
 $size = igk_getv($params, 1) ?? '1320x2868';
 $compression = intval(igk_getv($params, 2) ?? 8);

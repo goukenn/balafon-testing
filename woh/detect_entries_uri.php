@@ -2,6 +2,7 @@
 // @command: balafon --run .test/woh/detect_entries_uri.php [dir]
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 ($dir = igk_getv($params, 0)) ?? igk_die('missing directory');
 $files = IO::GetFiles($dir, '/\.dart$/', true);
 $tab = [];
@@ -11,7 +12,6 @@ foreach($files as $c ){
         continue;
     $src = file_get_contents($c);
     if ($tc = preg_match_all('/\.apiEndPoint(?:\})?([^\\s\\b\?\$\)\'"]+)/', $src, $matches)){
-        // Logger::print('found : '. $c);
         $i = 0;
         while($tc>0){
             $tc--;
@@ -23,9 +23,4 @@ foreach($files as $c ){
 }
 ksort($tab);
 igk_wln(json_encode($tab, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-// $b = igk_getv(igk_getv($_SERVER, 'argv'), 0);
-// foreach(array_keys($tab) as $uri){
-//    echo `{$b} --request:view WOHApiController v2/{$uri} && echo ' - complete';`;
-//    echo "-\n";
-// }
 Logger::success('done');

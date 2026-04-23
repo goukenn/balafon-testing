@@ -1,8 +1,9 @@
 <?php
 // @command: php .test/utils/do-request.php
 // @sample:  php .test/utils/do-request.php src/public/index.php /sample bt62rduiu9jpch4q89o09ctnvb 
-// argument : --env to set environment (nocache)
-// argument : --request data to pass as request
+// @argument : --env to set environment (nocache)
+// @argument : --request data to pass as request
+
 ($filename = $argv[1]) ?? igk_die("missing access file");
 $uri = isset($argv[2]) ? $argv[2] : null;
 $sess_id = isset($argv[3]) ? $argv[3] : null;
@@ -36,8 +37,7 @@ $sess_id = isset($argv[3]) ? $argv[3] : null;
         while (count($r) > 0) {
             $q = array_shift($r);
             switch ($q) {
-                case 'nocache':
-                    // $_ENV['IGK_ENV_NO_AUTOCACHEVIEW'] = 1;
+                case 'nocache': 
                     putenv(sprintf('%s=1', 'IGK_ENV_NO_AUTOCACHEVIEW'));
                     break;
             }
@@ -75,25 +75,24 @@ $sess_id = isset($argv[3]) ? $argv[3] : null;
     }
     $uri = $uri ?? '/';
     $_SERVER['REQUEST_METHOD'] = $method;
-    $_SERVER['REQUEST_URI'] =  $uri; // '/assets/Styles/balafon.css';
-    $_SERVER['REQUEST_PATH'] = $uri; //  
+    $_SERVER['REQUEST_URI'] =  $uri;  
+    $_SERVER['REQUEST_PATH'] = $uri;  
     $p = explode("?", $uri, 2);
     $path = array_shift($p);
     $query = '';
     if ($p)
         $query = array_shift($p);
-    $_SERVER['PATH_INFO'] = $path; // 'path to resolve !important
+    $_SERVER['PATH_INFO'] = $path;  
     $_SERVER['QUERY_STRING'] = $query;
-    // mandatory fields
+    // + | mandatory fields
     $_SERVER['SERVER_NAME']  = 'localhost';
-    $_SERVER['SERVER_PORT']  = '7300'; // set secure port
+    $_SERVER['SERVER_PORT']  = '7300';  
     $_SERVER['HTTP_USER_AGENT'] = 'balafon-local-request-server';
     $l = realpath($filename);
     $_SERVER['PHP_SELF'] = '/' . basename($l);
     $_SERVER['SCRIPT_NAME'] = basename($l);
     chdir(dirname($l));
     if (!function_exists('igk_boot_request_environment')) {
-
         /**
         * auto generate doc.
         * @return void

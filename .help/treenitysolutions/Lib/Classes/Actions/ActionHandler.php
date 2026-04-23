@@ -7,14 +7,11 @@ use IGK\Actions\ActionBase;
 * @package treenitySolutions\Actions
 */
 class ActionHandler extends ActionBase {
-
     /**
     * auto generate doc.
     * @var mixed
     */
     private static $sm_instance;
-	///.get instance
-
     /**
     * auto generate doc.
     * @param null|mixed $ctrl
@@ -26,14 +23,11 @@ class ActionHandler extends ActionBase {
 		}
 		return self::$sm_instance ;
 	}
-	///.ctr
-
     /**
     * .ctr
     */
     private function __construct(){
 	}
-
     /**
     * auto generate doc.
     */

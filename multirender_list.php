@@ -1,5 +1,4 @@
 <?php
-// get report list 
 use IGK\Helper\IO;
 use IGK\Helper\StringUtility;
 use igk\js\common\JSExpression;
@@ -20,11 +19,9 @@ function transformVueFile(string $filename){
     $options->type = 'ssr-script'; 
     return $file->transform($options);
 }
-$path = 
-'/Volumes/Data/Dev/Javascript/current-script-uri/demo-gen-rendertostring/src';
-$list = igk_io_getfiles($path, '/\.(vue|phtml)$/', true);// ViteHelperUtility::GetProjectVueFiles($path);
+$path = IGK_DEV_DIR.'/Javascript/current-script-uri/demo-gen-rendertostring/src';
+$list = igk_io_getfiles($path, '/\.(vue|phtml)$/', true);
 igk_wln("list ",  $list);
-// for all list of items for vue / transform each template to  render methods 
 //
 $entry_app = 'App.vue';
 $gp = [];
@@ -54,7 +51,6 @@ foreach($list as $f){
     $gp[$key] = JSExpression::Litteral(
         $src
     );
-    // igk_wln("name : ". StringUtility::CamelClassName($name));
 }
 if ($found){
     $dir = Path::Combine($path,$entry_app);
@@ -84,7 +80,7 @@ igk_io_w2file("package.json", json_encode([
     'author'=>'C.A.D BONDJE DOUE'
 ]));
 $args = '';
-`yarn add vue@3 && yarn add vite`;
-$r = `node main.js {$args}`; 
+shell_exec("yarn add vue@3 && yarn add vite");
+$r = shell_exec("node main.js {$args}"); 
 IO::RmDir($temp);
 exit;

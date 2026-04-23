@@ -4,11 +4,9 @@
 // @date: 20250630 16:38:34
 // @desc:  vite project that depend on package 
 // @command: balafon --run .test/tools/node/find-depend-on.php
-// NOTE: 
-// to update package .... 
-// > balafon --run .test/tools/node/find-depend-on.php /Volumes/Data/Dev/Vite vue --update-with:/Volumes/Data/Dev/Vite/learn/uri_with_axios/node_modules/vue
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
 $dir = igk_getv($params, 0) ?? igk_die('missing [in] param');
 $pack = igk_getv($params, 1, 'vite');
 $update = igk_getv($command->options, '--update-with');
@@ -26,7 +24,6 @@ if ($update){
             IO::CopyFiles($cpversion->dir, $target, true);
             $package->dependencies->{$pack} = '^'.$cpversion->version;
             igk_io_w2file($f, json_encode($package, JSON_PRETTY_PRINT| JSON_UNESCAPED_SLASHES));
-            // copy require module 
             foreach($cpversion->dependencies as $p){
                 $v_hdir = dirname($cpversion->dir)."/".$p;
                 if (is_dir($v_hdir)){
@@ -40,7 +37,6 @@ if ($update){
         isset($package->dependencies)?array_keys((array)$package->dependencies): []];
     }
 }
-// /Volumes/Data/Dev/Vite/learn/uri_with_axios/node_modules/vue
 $T = 0;
 $treated = [];
 IO::GetFiles($dir, function($f)use(& $T, $pack, $fc_update_check,$cpversion, & $treated ){

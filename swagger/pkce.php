@@ -1,14 +1,11 @@
 <?php
 // @command: balafon --run .test/swagger/pkce.php
-// 1. register client 
 use igk\docs\swagger\Database\SwaggerPKCEExtraData;
 use igk\docs\swagger\SwaggerAccess;
 use IGK\Helper\JSon;
 use IGK\Helper\JSonEncodeOption;
 use IGK\Models\Users;
-// $u = Users::currentUser();
-// $s = Users::checkLogin('cbondje@igkdev.com', 'adminBonaje123'); //
-// $x = hash_equals('sample','Sample');
+
 $date1 = "2025-01-02";
 $date3 = "2026-01-01";
 echo $date3 > $date1, PHP_EOL;
@@ -36,10 +33,4 @@ if ($def = SwaggerAccess::Check($user->clGuid)){
         igk_wln_e(JSon::Encode($v_l->pkce, JSonEncodeOption::IgnoreEmpty()));
     }
 }
-//$def->data = [];
-//$def->save();
-//$def->update();
-// SwaggerOAuth::PKCEAuthentication([]);
 igk_wln_e($def->to_json());
-// 2. drop client
-//$def->delete();

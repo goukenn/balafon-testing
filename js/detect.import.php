@@ -1,6 +1,7 @@
 <?php
 // @command: balafon --run .test/js/detect.import.php
 // @description: detect import outside
+
 $pattern = '/^\s*import\s+(([\w{}*\n\r\t, ]+)\s+from\s+)?([\'"])(?P<path>[^\'"]+)\\3\s*(;|\n)/m';
 $src = <<<'JS'
 import

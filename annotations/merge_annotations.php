@@ -5,6 +5,7 @@ use IGK\System\Annotations\AnnotationBase;
 use IGK\System\Annotations\AnnotationInfoAnnotation;
 use IGK\System\Console\Logger;
 use IGK\System\Helpers\AnnotationHelper;
+
 $_globals_security_schemes = [];
 /**
  * summary definition schemes 
@@ -15,39 +16,33 @@ $_globals_security_schemes = [];
  */
 class Sample
 {
-
     /**
     * auto generate doc.
     * @return void
     */
     function actions() {}
 }
-
 /**
 * auto generate doc.
 */
 class BAnnotation extends AnnotationBase
 {
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $title;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $version;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $description;
 }
-
 /**
 * auto generate doc.
 * @param array &$tab

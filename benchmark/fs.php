@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/benchmark/fs.php
+
 $fs = ['sample.txt'=>'sample.txt'];
 while(count($fs)<1000){
     $fs[] = rand(0,1000);

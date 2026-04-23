@@ -2,6 +2,7 @@
 // @desc : remove global export from source file demonstration 
 use IGK\System\Console\App;
 use IGK\System\Html\Dom\HtmlScriptLoader;
+
 $src =<<<JS
 (function(){
     return {
@@ -18,7 +19,6 @@ export {
     info : 9
 }
 JS; 
-$src = file_get_contents('/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Lib/igk/Scripts/system/text/RegexContainer.d.js');
-// remove global sciprt loading 
+$src = file_get_contents(getenv('IGK_SITE_DEV_DIR').'/src/application/Lib/igk/Scripts/system/text/RegexContainer.d.js');
 $g = HtmlScriptLoader::RemoveGlobalExportFromContent($src);
 igk_wln_e( App::Gets(App::AQUA, "out : "), $g);

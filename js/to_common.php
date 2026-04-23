@@ -2,12 +2,12 @@
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherPattern;
+
 $container = new RegexMatcherContainer;
 $empty_line = new RegexMatcherPattern($container);
 $empty_line->match = "^\\s*$";
 $empty_line->tokenID = 'empty-line';
 // + | ----------------------------
-// if tick variable data definition 
 // + 
 $c = new RegexMatcherPattern($container);
 $c->begin = "(`)";

@@ -10,7 +10,6 @@ function igk_html_node_demo_inject()
     $n = igk_create_node('div');
     // + | unique method for rendering object 
     $id = __FUNCTION__.':/script';
-    // * how to auto inject only on redering on document.
     $n->setCallback(CallableConstants::CALLABLE_ACCEPT_RENDER, function ($node, $options)use($id) { 
         $visible = $node->AcceptRender($options);
         if (!$visible){
@@ -37,7 +36,6 @@ $doc = IGKHtmlDoc::CreateDocument('sample', [
     'noCoreCss'=>true,
     'viewport'=>'width=>device-width, inital-scale=1, maximum-scale=1.0, use-scalable=no'
 ]);
-// $doc->getMetas()->set
 $c = igk_html_node_demo_inject();
 $c->setIsVisible(false);
 $body = $doc->getBody();

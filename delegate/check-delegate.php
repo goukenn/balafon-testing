@@ -1,6 +1,5 @@
 <?php
 // @command: balafon --run .test/delegate/check-delegate.php
-// # phpdelegate = 
 use Google\Service\Spanner\Delete;
 use IGK\System\Delegate;
 
@@ -8,7 +7,6 @@ use IGK\System\Delegate;
 * auto generate doc.
 */
 class ActionListener extends Delegate{
-
     /**
     * auto generate doc.
     * @param null|int $y inline y

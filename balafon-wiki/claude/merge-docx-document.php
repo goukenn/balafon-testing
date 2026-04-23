@@ -13,20 +13,15 @@ use IGK\Helper\IO;
 function mergeDocxManual(array $files, string $output) {
     $zip = new ZipArchive();
     $mainContent = '';
-    // Extract content from each file
     foreach ($files as $index => $file) {
         $docx = new ZipArchive();
         if ($docx->open($file) === true) {
-            // Read the main document content
             $content = $docx->getFromName('word/document.xml');
             if ($index === 0) {
-                // Keep the first document's structure
                 $mainContent = $content;
             } else {
-                // Extract body content from subsequent documents
                 preg_match('/<w:body>(.*)<\/w:body>/s', $content, $matches);
                 if (isset($matches[1])) {
-                    // Insert before the closing body tag
                     $mainContent = str_replace(
                         '</w:body>',
                         $matches[1] . '</w:body>',
@@ -37,7 +32,6 @@ function mergeDocxManual(array $files, string $output) {
             $docx->close();
         }
     }
-    // Create output file by copying first file and updating content
     @unlink($output);
     copy($files[0], $output);
     $outputZip = new ZipArchive();

@@ -4,6 +4,7 @@ use IGK\Database\DbSchemas;
 use IGK\System\Console\Logger;
 use IGK\System\Html\HtmlReader;
 use IGK\System\IO\Path;
+
 $src = <<<'HTML'
 <div sample
     = "44"
@@ -14,7 +15,6 @@ HTML;
 $d = igk_create_node('p');
 $d->load($src);
 $file = Path::CombineAndFlattenPath(__DIR__,'./load_content.db.chema.xml');
-// $xcode = HtmlReader::LoadFile($file);
 $xcode = HtmlReader::Load($src);
 igk_wln_e($xcode->render(), $d->render());
 Logger::print($d->renderAJX());

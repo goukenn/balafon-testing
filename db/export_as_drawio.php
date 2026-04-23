@@ -1,6 +1,7 @@
 <?php
 use IGK\Database\SchemaBuilder\DiagramEntityAssociation;
 use igk\drawio\SchemaBuilder\DiagramDrawIoSchemaVisitor;
+
 igk_require_module(\igk\drawio::class);
 $ctrl = TtreController::ctrl();
 $ctrl->register_autoload();

@@ -5,7 +5,7 @@
 // @desc: check the for abtn loading 
 // @command: balafon --run .test/html/dom/abtn.check.php
 use function igk_html_host as _h;
-// $c = _h('abtn.register', ['/sign/register'], 'Register loading data');
+
 $c = _h(
             'div.sign-or-register.dispflex.flex-row.flex-item-start',
             _h('abtn.sign', ['/signin/identifier'], 'SignIn'),

@@ -1,9 +1,9 @@
 <?php
-// convert to structured file 
 // @command: balafon --run .test/io/convert_to_structured_file.php
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 ($dir = igk_getv($params, 0)) ?? igk_die('missing directory');
 $recursive = property_exists($command->options, '--recursive');
 $copy_flag = property_exists($command->options, '--copy');

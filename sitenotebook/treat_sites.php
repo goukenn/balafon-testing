@@ -1,10 +1,10 @@
 <?php
-// update site definition with favicons png picture
 // @command : balafon --run .test/sitenotebook/treat_sites.php
 use IGK\Helper\JSon;
 use IGK\Helper\JSonEncodeOption;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 include_once(__DIR__.'/.global.php');
 $finfo  = new finfo(FILEINFO_MIME);
 $file= NBOOK_SITE_FILE;

@@ -1,5 +1,6 @@
 <?php
 // @command: balafon --run .test/pictures/jpeg/extract_exif_data.php [file]
+
 ($file = igk_getv($params, 0)) ?? igk_die('missing required file');
 if (file_exists($file)) {
     if ($data = @exif_read_data($file)) {

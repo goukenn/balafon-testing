@@ -1,6 +1,7 @@
 <?php
 use IGK\System\Console\App;
 use IGK\System\Text\RegexMatcherContainer;
+
 $tab = ['/^hello/',
 '/(^)?hello/',
 '/hello/',
@@ -10,8 +11,6 @@ $tab = ['/^hello/',
 '/sam[^m]le/', 
 '/(?=;|^\w+)/'
 ];
-// regex start with ^ start line check
-
 /**
 * auto generate doc.
 * @param mixed $tab
@@ -39,7 +38,6 @@ $lpos = 0;
 $container->treat($c, function($e, & $next_pos, $data)use(& $output, $tokens, & $lpos){
     $color = igk_getv($tokens, $e->tokenID) ?? App::SHA_INDIGO;
     $output.= substr($data, $lpos, $e->from - $lpos).sprintf('%s%s%s',$color, $e->value, App::END);
-    //$next_pos = 0;
     $lpos = $next_pos;
 });
 echo $output."\n";

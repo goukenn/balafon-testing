@@ -2,6 +2,7 @@
 // @command: balafon --run .test/bcss/export_bcss_theme_definition.php
 use IGK\System\Console\App;
 use IGK\System\Html\Css\CssMinifier;
+
 $th = igk_app()->getDoc()->getSysTheme();
 igk_start_time($_ck = '_global_def_time');
 $th->initGlobalDefinition();

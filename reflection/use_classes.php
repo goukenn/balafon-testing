@@ -1,6 +1,6 @@
 <?php
-// balafon --run .test/reflection/use_classes.php
 use IGK\System\IO\StringBuilder;
+
 $ctrl = igk_getv($params, 0) ?? igk_die('missing controller params');
 $class  = igk_getv($params, 1) ?? igk_die('missing class name');
 $ctrl = igk_getctrl($ctrl);
@@ -13,7 +13,6 @@ if ($class=='='){
 if (!$class || !class_exists($class, false)){
     igk_die('missing class ', $class);
 }
-
 /**
 * auto generate doc.
 * @param string $file
@@ -35,7 +34,6 @@ function test_reflection_use_classes_readFileHeader(string $file, & $info = null
     $rns = 0;
     while(count($tokens)){
         $v = $q = array_shift($tokens);
-        // allow top namespace read on use read outside class-trait-interface or function declration 
         if (is_array($q)){
             $v= $q[1];
             $q = $q[0];
@@ -47,7 +45,7 @@ function test_reflection_use_classes_readFileHeader(string $file, & $info = null
             case T_NAMESPACE:
                 $rns = 1;
                 break;
-            case T_NAME_QUALIFIED: // 265 
+            case T_NAME_QUALIFIED: 
                 if ($rns){
                     $info['namespace'] = $v;
                     $rns = 0;

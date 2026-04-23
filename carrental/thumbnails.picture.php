@@ -2,6 +2,7 @@
 use com\igkdev\projects\CarRental\Models\CarProposedPictures;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
 $ctrl = CarRentalController::ctrl();
 $ctrl->register_autoload();
 CarProposedPictures::update([CarProposedPictures::FD_CRCAR_PPICTURE_THUMBNAIL => null]);

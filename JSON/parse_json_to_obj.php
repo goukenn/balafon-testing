@@ -18,12 +18,10 @@ class PHPDevPackageObj extends ArrayList implements JsonSerializable
 {
     use JSONArraySerializableAllTrait;
 }
-
 /**
 * auto generate doc.
 */
 class PHPDevPackageObjTypeConverter extends JSONTypeConverterBase{
-
     /**
     * auto generate doc.
     * @param mixed $value
@@ -39,12 +37,10 @@ class PHPDevPackageObjTypeConverter extends JSONTypeConverterBase{
         return $ref;
      }
 }
-
 /**
 * auto generate doc.
 */
 class LColorTypeConverter extends JSONTypeConverterBase{
-
     /**
     * auto generate doc.
     * @param mixed $value
@@ -54,7 +50,6 @@ class LColorTypeConverter extends JSONTypeConverterBase{
         if (is_object($value)){
             $cf = explode("|", "red|green|blue|alpha");
             list($red, $green, $blue, $alpha) = igk_extract($value, $cf);
-            //extract(igk_extract($value, $cf));
             $tab  = compact(...$cf); 
             $g = array_fill_keys(array_keys(get_class_vars(get_class($cl))), 1);
             foreach( $tab as $k=>$v){ 
@@ -68,24 +63,20 @@ class LColorTypeConverter extends JSONTypeConverterBase{
         return $cl;
     }
 }
-
 /**
 * auto generate doc.
 */
 class LColor{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $red;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $green;
-
     /**
     * auto generate doc.
     * @var mixed
@@ -95,7 +86,6 @@ class LColor{
 /**
  * 
  */
-
 /**
 * auto generate doc.
 * @package test
@@ -103,13 +93,11 @@ class LColor{
 */
 class PHPObj implements JsonSerializable
 {
-
     /**
     * auto generate doc.
     * @var PHPDevPackageObj
     */
     var $devPackages;
-
     /**
     * auto generate doc.
     */
@@ -118,34 +106,26 @@ class PHPObj implements JsonSerializable
      * 
      * @var string
      */
-    //var $name;
-
     /**
     * auto generate doc.
     * @var igk\jsonParser\JSONVersion
     */
-    //var $version;
     /**
      * require definition 
      * @var string[]
      * @DecodeAs(string[])
      */
-    //var $required;
-
     /**
     * auto generate doc.
     * @var mixed
     */
-   // var $users;
    use JSONInstanceVarSerializableSkipNullTrait;
 }
-
 /**
 * auto generate doc.
 */
 class JUserTypeConverter extends JSONTypeConverterBase
 {
-
     /**
     * auto generate doc.
     * @param mixed $value
@@ -159,26 +139,22 @@ class JUserTypeConverter extends JSONTypeConverterBase
         return $u;
     }
 }
-
 /**
 * auto generate doc.
 * @package 1
 */
 class JUser implements JsonSerializable
 {
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $name;
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $firstname;
-
     /**
     * auto generate doc.
     * @var mixed
@@ -188,49 +164,19 @@ class JUser implements JsonSerializable
 }
 $src = json_encode([
     "colors"=> null,
-    // [
-    //     ["red"=>20,
-    //     "green"=>255,
-    //     'blue'=>55]
-    // ],
-    // "devPackages" =>
-    // (object)[
-    //     "sample/data" => "local.com"
-    // ],
-    // "name" => "charles",
-    // "version" => 3.2,
-    // "users" => [
-    //     (object)["name" => "c.", "firstname" => "Basic"],
-    //     (object)["name" => "d."]
-    // ]
 ]);
 $obj = JSONParser::Parse($src, PHPObj::class, [
     "strict" => true
 ]);
 if ($obj instanceof PHPObj){
-    // $obj->devPackages['halo'] = '5';
     if ($obj->colors){
     $obj->colors[0]->green +=60;
-    // $obj->colors[0]->blue = 52;
     }
 }
 igk_wln($obj, json_encode($obj));
-// $doc = new ReflectionProperty(PHPObj::class, 'version');
-// $comment = $doc->getDocComment();
-// $p = null;
-// if ($comment) { 
-// $b = JSDecodeAnnotationHelper::Convert($obj, 'version');
-//igk_wln_e("convert .... ", $b, $obj );
-// }
-//$p = AnnotationHelper::GetAnnotations($doc);
-// igk_wln('comment:', $comment);
-// igk_wln('p:', $p);
 $type = "...string";
 $is_array = JSDecodeAnnotationHelper::IsRequestArray($type);
 igk_wln("--- is array ? ---", $is_array);
-// $obj = new JSONVersion(3, 2); 
-// igk_wln_e(igk_extract($obj, ['major', 'minor', 'basic']), $obj.'');
-// igk_wln_e('------------', $obj);
 $tm = (object)["z"=>0, "x"=>5, "y"=>9];
 $ttm = (object)[];
 $m = igk_extract_assoc($tm, explode('|', 'z|y|t'));
@@ -238,10 +184,8 @@ foreach($m as $k=>$v){
     $ttm->{$k} = $v;
 }
 $l = json_encode($ttm, JSON_PRETTY_PRINT);
-// echo "\e[0;32m";
 $l = preg_replace("/(\").*\\1/","\e[0;32m\\0\e[0m", $l,1, $count);
 echo $l;
-// echo "\e[0m";
 $lib_src = <<<'JSON'
 {
     "scopeName":"source.testing",

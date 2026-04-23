@@ -1,5 +1,6 @@
 <?php
 use IGK\System\IO\StringBlockReader;
+
 $s = '( { "brandname"=>{"type":"string()", "description"=>"brand name"} })';
 $reader = new StringBlockReader;
 $reader->start = '{';

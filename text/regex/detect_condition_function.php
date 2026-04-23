@@ -2,6 +2,7 @@
 // @command: balafon --run .test/text/regex/detect_condition_function.php
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
+
 $src = <<<EOF
 
 if (!function_exists('ddd')){

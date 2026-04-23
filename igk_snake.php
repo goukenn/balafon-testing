@@ -5,7 +5,6 @@ use IGK\Tests\BaseTestCase;
 * auto generate doc.
 */
 class igk_snake extends BaseTestCase{
-
     /**
     * auto generate doc.
     */

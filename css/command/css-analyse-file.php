@@ -7,11 +7,9 @@
 use IGK\Css\Analyzer\CssAnalyzer;
 use IGK\Css\Analyzer\CssSpeudoSplitter;
 use IGK\System\Console\Logger;
+
 $file = igk_getv($params, 0) ?? igk_die('required file');
 $trimmer = new CssSpeudoSplitter;
-// $c = $trimmer->split('hell"o, "friend');
-// $c = $trimmer->split('hello, "friend');
-// igk_wln_e($c);
 $analyser = new CssAnalyzer;
 $analyser->setSplitListerner($trimmer);
 $analyser->analyse($file);

@@ -1,6 +1,7 @@
 <?php
 // @command: balafon --run .test/benchmark/include_vs_filecontents.php
 use IGK\System\Console\Logger;
+
 igk_start_time(__FILE__);
 ob_start();
 for($i = 0; $i < 100000; $i++){

@@ -1,4 +1,5 @@
 <?php
+
 igk_require_module(igk\js\Vue3::class);
 use igk\js\Vue3\Compiler;
 use igk\js\Vue3\Compiler\VueSFCCompiler;
@@ -29,5 +30,4 @@ if ($scripts = $vue->getElementsByTagName("script")){
         }
     }
 }
-// $vue->renderAJX();
 exit;

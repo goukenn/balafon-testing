@@ -10,26 +10,22 @@ use IGK\System\Helpers\AnnotationHelper;
 * auto generate doc.
 */
 trait AProp{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $a;
 }
-
 /**
 * auto generate doc.
 */
 trait BProp{
-
     /**
     * auto generate doc.
     * @var mixed
     */
     var $b;
 }
-
 /**
 * auto generate doc.
 */
@@ -38,7 +34,6 @@ class AClass{
     use BProp;    
     use PatternUsageTrait;
 }
-
 /**
 * auto generate doc.
 */
@@ -47,25 +42,5 @@ class BClass{
 }
 $bas = AnnotationHelper::GetUses(AClass::class);
 igk_wln_e("info , ", $bas);
-// $cl = new ReflectionClass(AClass::class);
-// $source = $cl->getFileName();
-// $utraist = $cl->getTraitNames() ;
-// $iface = $cl->getInterfaceNames();
-// $utraist = array_merge($utraist,  $iface);
-// $p = new ReflectionProperty(AClass::class, 'b');
-// $p = new ReflectionProperty(BClass::class, 'b');
-// $mm = $cl->getProperty("patterns");
-// $loader = [];
-// // load traits
-// array_map(function($a) use (& $loader, $source){
-//     $v_p = igk_sys_reflect_class($a); // new ReflectionClass($a);
-//     $v_tf= $v_p->getFileName();
-//     if ($v_tf && ($v_tf!= $source)){
-//         // get User 
-//         $usages = AnnotationHelper::GetUses($a);
-//         if ($usages)
-//             $loader = array_merge($loader, $usages); 
-//     }
-// },$utraist); 
 $loader = array_unique($loader);
 igk_wln_e($p, $utraist, "loader:", $loader);

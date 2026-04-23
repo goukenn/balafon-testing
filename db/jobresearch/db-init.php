@@ -4,13 +4,12 @@
 // + |
 // @command: balafon --run .test/db/jobresearch/db-init.php
 // @desc: get date search definition random
+
 $dates = [];
 $max_count = 200;
 $mounth = 1;
 $day = 1;
 $year = 2023;
-// starting date
-// start date
 $year = 2023;
 $mounth = 1;
 $day = 1;
@@ -88,15 +87,11 @@ do {
     }
     if ($is_exlude) 
         continue;
-    // if (($date > '2024-06-01') && ($date < '2024-06-23')) {
-    //     continue;
-    // }
     $dates[] = $date;
     $week++;
     $index = rand(0, count($rand_list));
     $TLIST = $cp = igk_getv($rand_list, $index);
     $counter += $cp;
-    // days in week 
     $days = range(0, 4);
     $b = [];
     while ($cp > 0) {
@@ -116,7 +111,6 @@ do {
         }  
         $tb = [ "day"=>$days[$day] , "search"=>$search];
         $b[] = $tb;
-       // igk_wln("searching ", json_encode($tb, JSON_PRETTY_PRINT));
         unset($days[$day]);
         $days = array_values($days);
         $cp -= $search;
@@ -128,6 +122,5 @@ do {
         $tbb[$date][] = ["total"=>$TLIST , "tsearch"=>$b];
     }
 }
-// while((($date = date('Y-m-d', strtotime($date . ' next week'))) < $now));
 while((($date = date('Y-m-d', strtotime($date . ' next week'))) < $enddate));
 return $tbb;

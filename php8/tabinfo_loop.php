@@ -1,11 +1,10 @@
 <?php
 use IGK\System\Configuration\Controllers\ControllerAndArticlesController;
 use IGK\System\Html\Dom\HtmlComponents;
+
 ini_set('display_error', 1);
 error_reporting(-1);
 $ctrl = ControllerAndArticlesController::ctrl();
-// if (!($c = $this->SelectedController))
-//             return;
 $t = igk_create_node('div');
 $v_dv = $t->div();
         $txb = $v_dv->addCol("igk-col-3-3")->addColViewBox()->addComponent(

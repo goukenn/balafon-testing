@@ -8,13 +8,12 @@ $l = SyncProjectCommand::GetScriptInstall(
             [  
                 IGK_LIB_CLASSES_DIR . "/Traits/BacktickHelperCommandTrait.php",
                 'installer-core-function.pinc',
-                'installer-helper.pinc', // entry helper
-                'installer.helper.pinc', // intaller helper class 
+                'installer-helper.pinc', 
+                'installer.helper.pinc', 
                 'install.project.script.pinc'
             ],
             $token,
             $name
         );
-
 echo $l;
 igk_exit();

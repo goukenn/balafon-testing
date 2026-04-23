@@ -1,5 +1,6 @@
 <?php
 use IGK\Controllers\SysDbController;
+
 $ad = SysDbController::ctrl()->getDataAdapter();
 if ($ad->connect()){
     $info = $ad->getGrammar()->retrieveStoredColumnInfo('tbigk_users', 'clId');
