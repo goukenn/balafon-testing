@@ -22,7 +22,7 @@ function transformVueFile(string $filename){
 $path = IGK_DEV_DIR.'/Javascript/current-script-uri/demo-gen-rendertostring/src';
 $list = igk_io_getfiles($path, '/\.(vue|phtml)$/', true);
 igk_wln("list ",  $list);
-//
+
 $entry_app = 'App.vue';
 $gp = [];
 $found =  false;

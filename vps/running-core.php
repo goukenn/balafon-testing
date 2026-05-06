@@ -1,6 +1,6 @@
 <?php
 
-//
+
 define('NODE_BIN', realpath('../../../../../core/Lib/node/bin/node'));  
 echo "node running....."; 
 $cmd  = NODE_BIN;

@@ -49,10 +49,8 @@ function minMovesToTarget(array $tools, string $target, int $startIndex) {
       return 0;
     }
     $end = false;
-    
     $i = $startIndex;
     while(true){
-    
       if ($tools[$i] == $target) {
         break;
       }
@@ -69,8 +67,6 @@ function minMovesToTarget(array $tools, string $target, int $startIndex) {
     if ($leftMoves==$n){
       return 0;
     }
-    
-    
     $end = false;
     $i = $startIndex;
     while(true){
@@ -90,39 +86,27 @@ function minMovesToTarget(array $tools, string $target, int $startIndex) {
     if ($rightMoves==$n){
       return 0;
     }
-    
     return min($leftMoves, $rightMoves);
   }
-
-
 function findPairs(array $stockProfit, int $target) {
-    
     $pairCount = 0;
-    
     sort($stockProfit);
-    
     $start = 0;
     $end = count($stockProfit) - 1;
-    
     while ($start < $end) {
-        
         $sum = $stockProfit[$start] + $stockProfit[$end];
-        
         if ($sum == $target) {
             $pairCount++;
             $start++;
             $end--;
         }
-        
         elseif ($sum < $target) {
             $start++;
         }
-        
         else {
             $end--;
         }
     }
-    
     return $pairCount;
 }
 $stockProfit = [5, 7, 9, 13, 11, 6, 6, 3, 3];
@@ -130,7 +114,3 @@ $target = 12;
 $pairCount = findPairs($stockProfit, $target);
 echo "The number of pairs is: $pairCount";
 igk_exit();
-
-
-
-

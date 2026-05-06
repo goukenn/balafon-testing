@@ -7,10 +7,8 @@
 use IGK\Helper\JSon; 
 use IGK\System\IO\JSon\Annotations\JSonBindAsAnnotation as JSonBindAs;
 
-
 include __DIR__ . '/TempOracle.php'; 
 if (!class_exists('A', false)) {
-  
     /**
     * auto generate doc.
     * @package test
@@ -48,7 +46,6 @@ if (!class_exists('A', false)) {
         * @var mixed
         */
         var $siri;
-
         /**
          * 
          * @var mixed

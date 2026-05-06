@@ -4,15 +4,24 @@
 // @date: 20250903 13:23:57
 // @desc: rename media and structure it
 // @command: balafon --run [--copy] [--pattern:] .test/io/command-rename_media.php [from] [to]
+// @update: add title support
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
+
+/**
+ * @var array $params
+ * @var \IGK\System\Console\ICommandInfo $command
+ */
 
 $from = igk_getv($params, 0);
 $to = igk_getv($params, 1);
 $copy = property_exists($command->options, '--copy');
 $pattern = igk_getv($command->options, '--pattern');
+
+
 if (!function_exists('igk_io_rename_media')) {
+    igk_load_library('io');
     /**
     * auto generate doc.
     * @param string $dir
@@ -24,11 +33,11 @@ if (!function_exists('igk_io_rename_media')) {
         }else{
             $pattern =  "/\.(jp(e)?g|mov|mp(4|3)|heic|png|gif|cr2|pdf|tiff|wmv|avi)$/i";
         }
-        $rename = is_callable($copy)? $copy : ($copy ? function($from, $to){
+        $rename = is_callable($copy)? $copy : ($copy ? function($from, $to): bool{
             return copy(
                 escapeshellarg($from), escapeshellarg($to)
             );
-        } : function($from, $to){
+        } : function($from, $to): bool{
             return rename($from, $to );
         });
         $outs = [];
@@ -36,7 +45,7 @@ if (!function_exists('igk_io_rename_media')) {
         if (!$fs){
             return false;
         }
-        usort($fs, function ($a, $b) {
+        usort($fs, function (string $a, string $b) {
             return strtolower($a) <=> strtolower($b);
         });
         if ($is_temp = is_null($to)){
@@ -74,7 +83,13 @@ if (!function_exists('igk_io_rename_media')) {
                     }
                 }
             }
-            $n = str_pad(count($outs[$counter_ext]), 5, '0', STR_PAD_LEFT);
+            $title = '';
+            if ($c = igk_io_split_litteral(igk_io_basenamewithoutext($file))){
+                $title = '-'.$c->title;
+            }
+
+
+            $n = str_pad(count($outs[$counter_ext]), 5, '0', STR_PAD_LEFT).$title;
             $outfile = Path::Combine($path, $n . '.' . $ext);
             if (file_exists($outfile)) {
                 Logger::info('outfile exists: ' . $outfile);

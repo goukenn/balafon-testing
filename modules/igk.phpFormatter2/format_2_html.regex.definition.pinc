@@ -1,16 +1,12 @@
 <?php
-
 // @author: C.A.D. BONDJE DOUE
 // @filename: format_2_html.regex.definition.pinc
 // @date: 20250731 11:20:05
 // @desc: 
-
 use IGK\System\Text\RegexMatcherUtility;
-
- 
-
 // define
 // 
+
 (function ($regex) {
     // init php definition froamt regex
     // $c = $regex->match('hello',  'hello-word')->last();
@@ -21,13 +17,11 @@ use IGK\System\Text\RegexMatcherUtility;
     //     ])
     // ]; 
     // return;
-
     $global_patterns = [];
     $comments = [];
     $global_patterns[] = $fgremove = $regex->match('(?<=\{)\\s+(?=\/\/)', 'f-gremove')->last();
     $fgremove->replaceWith = "";
     $fgremove->description = 'remove space between {and//';
-
     // conditition with single litteral value 
     $_single = $regex->begin('\\b(if|elseif|while|for|foreach)(?:\\s+|\\b)', '(?<=;)|(?=\{)', 'f-single-detector')->last();
     $_single->isBlock = true;
@@ -52,34 +46,21 @@ use IGK\System\Text\RegexMatcherUtility;
             ]
         ];
     }
-
-
     $global_patterns[] = $comments[] = $fmark_comment = $regex->match('(?<=;|{|}|\))\\h*\/\/.+', 'f-h-comment-separator comment')->last();
-
     $directive = $regex->match("^\\h*\/\/\\h+(?P<directive>@[a-z_A_Z][a-z_A_Z]*\\b(?:\\h*:| ))(?P<data>.+)", 'directive-comment')->last();
     $global_patterns[] = $comments[] = $fdoc_comments = $regex->appendCommentDocBlock()->last();
     $global_patterns[] = $comments[] = $fmuti_comments = $regex->appendMultilineComment()->last();
-
     $global_patterns[] = $comments[] = $fsingle_comments = $regex->appendSingleLineComment()->last();
     $global_patterns[] = $fclose_php = $regex->begin('\?>', '(?=<\?(php|=))', 'f-html-outline-tag html')->last(); // $fsingle_comments = $regex->appendSingleLineComment()->last();
-
     $fsingle_comments->match =  '\\h*\/\/.+';
-
-
-
     $fclose_php->beginCaptures = [
         '0' => [
             'name' => 'close-tag',
             'tokenID' => 'html-close-tag'
         ]
     ];
-
-
     $global_patterns[] = $fremove = $regex->match('(?<=\))\\s+(?=;|\{|\(|\[)', 'f-remove')->last();
     $fremove->replaceWith = '';
-
-
-
     $directive->captures = [
         '1' => [
             'name' => 'name',
@@ -91,10 +72,8 @@ use IGK\System\Text\RegexMatcherUtility;
             'class' => 'preserve'
         ]
     ];
-
     // $regex->match('\\bbadabok\\b', 'sam');
     // $fsingle_comments->lineFeed = true;
-
     $arg_interpollation = $regex->createPattern([
         'begin' => '\\${',
         'end' => '}',
@@ -103,7 +82,6 @@ use IGK\System\Text\RegexMatcherUtility;
         'beginCaptures' => [],
         'endCaptures' => [],
     ]);
-
     $fbrank = $regex->begin('\[', '\]', 'f-brank')->last();
     $fcurl = $regex->begin('\{', '\}', 'f-curl')->last();
     $fcurl->beginCaptures = [
@@ -119,25 +97,17 @@ use IGK\System\Text\RegexMatcherUtility;
         ]
     ];
     $fcurl->isBlock = true;
-
-
     $single_instruct_condition = $regex->begin('(?<=\))', '(?<=;)|(?={)', 'f-single-instruct-detection')->last();
     $single_instruct_condition->offScreen = true;
     $single_instruct_condition->isBlock = true;
-
-
     $fnospace = $regex->createPattern(['match' => '\\h+', 'tokenID' => 'f-no-space', 'replaceWith' => '']);
-
     $global_patterns[] = $frm_line = $regex->match('\\h*\\n', 'f-no-line')->last();
     $global_patterns[] = $fnumber = $regex->match('(\\d+(?:\.\\d+)?|\.\\d+)', 'f-number')->last();
     $global_patterns[] = $fmethod_name = $regex->match("\\b([a-z_A_Z][a-z_A_Z]*)\\b\\s*(?=\()", 'f-func-call')->last();
     $global_patterns[] = $flink = $regex->match("((?:http(s)?|ftp):)?\/\/([^ ]+)", 'f-link')->last();
-
-
     $foperands = $regex->match('\\b(use|var|static|as|final|protected|private|self|\$this)\\b', 'f-reserved-operand')->last();
     $ftype = $regex->match('\\b(function|trait|interface|class)\\b', 'f-reserved-type')->last();
     $global_patterns[] = $freserved_words = $regex->match('\\b(as|break|case|continue|default|do|else|elseif|exit|endif|endwhile|endforeach|false|final|for|foreach|function|global|if|instanceof|int|interface|namespace|null|parent|private|protected|return|require|require_once|include|include_once|__FILE__|__DIR__|self|static|static|string|switch|trait|true|use|var|while|yield)\\b', 'f-reserved-words')->last();
-
     $global_patterns[] = $fstring = $regex->appendStringDetection('string', true)->last();
     $global_patterns[] = $ftilt_string = $regex->begin("`", "`", 'f-tilt-string')->last();
     $global_patterns[] = $fend_instruct = $regex->match(";", 'f-endinstruct')->last();
@@ -145,7 +115,6 @@ use IGK\System\Text\RegexMatcherUtility;
     $global_patterns[] = $foperator = $regex->match('\\s*(\?->|\|\||&&|=(==|=)?|\.=|<=>|<=|>=|<|>|\+|\/|-|\*|%)\\s*', 'f-operator')->last();
     $global_patterns[] = $fphpvar = $regex->match('\$[a-zA-Z_][a-zA-Z_0-9]*', 'f-phpvar')->last();
     $global_patterns[] = $fwspace = $regex->match('\\s{2,}', 'f-wspace')->last();
-
     $f_unary_operator->replaceWith = '\\1';
     $fstring->preserveContent =
         $ftilt_string->preserveContent =
@@ -156,20 +125,13 @@ use IGK\System\Text\RegexMatcherUtility;
      */
     $global_patterns[] = $fsplit_after_block_comment = $regex->match('(?<=\*\/)\\h*(?=[^\\n])', 'f-split-line-comment')->last();
     $fsplit_after_block_comment->splitLine = true;
-
-
-
-
     $ftilt_string->patterns = [
         $arg_interpollation
     ];
-
     $fwspace->replaceWith = ' ';
-
     $frm_line->splitLine = true;
     $frm_line->tokenID = 'f-no-line end_line';
     $frm_line->replaceWith = ' -😒- '; // special empty space line break
-
     $fcond = $regex->begin('\(', '\)', 'f-cond')->last();
     // $fcond->skipNextLine = true;
     $fcond->patterns = [
@@ -187,8 +149,6 @@ use IGK\System\Text\RegexMatcherUtility;
         'name' => 'bracked-definition',
         'tokenID' => 'bracket'
     ]];
-
-
     $fcurl->patterns = [
         $regex->createPattern([
             'match' => '(?<=\{)\\s+(?=\/(?:\/|\*))',
@@ -206,23 +166,18 @@ use IGK\System\Text\RegexMatcherUtility;
         $fcurl
     ];
     // $fcurl->skipPrevLine = true;
-
     $fmethod_name->replaceWith = '\\1';
-
     // namespace litteral 
     $global_patterns[] = $fns_litteral = $regex->match(
         "(\\)?[a-zA-Z_][a-zA-Z_0-9]*(\\\\[a-zA-Z_][a-zA-Z_0-9]*)*)",
         'f-ns-litteral'
     )->last();
-
     $fbrank->patterns = [
         ...$comments,
         $foperator,
         $fns_litteral,
         $fstring,
     ];
-
-
     $jstype_declaration = $regex->createPattern([
         'match' => '(@(?:var|param))\\b\\h+(\{.+?\}).+',
         'tokenID' => 'js_doc_comment_type',
@@ -251,7 +206,6 @@ use IGK\System\Text\RegexMatcherUtility;
         ],
         'patterns' => []
     ]);
-
     $fdoc_comments->patterns = [
         $frm_line,
         $regex->createPattern([
@@ -263,7 +217,6 @@ use IGK\System\Text\RegexMatcherUtility;
             ]
         ]),
         $regex->createPattern(['match' => '^\\h*\\*.+', 'tokenID' => 'theb']),
-
         $regex->createPattern([
             'match' => '(?<=\/\\*\\*)\\h*(?=[^\\n])',
             'tokenID' => 'thref-data preserve',
@@ -279,7 +232,6 @@ use IGK\System\Text\RegexMatcherUtility;
             // }
         ]),
     ];
-
     $fmethod_args = $regex->createPattern([
         'begin' => '\(',
         'end' => '\)',
@@ -290,7 +242,6 @@ use IGK\System\Text\RegexMatcherUtility;
         'end' => '\]',
         'tokenID' => 'f-array-definition',
     ]);
-
     $fmethod_args->patterns = [
         $fstring,
         $fnumber,
@@ -321,8 +272,6 @@ use IGK\System\Text\RegexMatcherUtility;
         $fns_litteral,
         $fcurl,
     ];
-
-
     $single_instruct_condition->patterns = [
         ...$comments,
         $frm_line,
@@ -344,17 +293,13 @@ use IGK\System\Text\RegexMatcherUtility;
         $fmethod_name,
         $fmethod_args,
     ];
-
-
     // + | --------------------------------------------------------------------
     // + | PHP-HTML - inline definitions 
     // + |
-
     $f_html_attrib = $regex->createPattern([
         'tokenID' => 'f-html-attrib attrib',
         'match' => '([a-zA-Z][a-zA-Z\-_0-9]*)',
     ]);
-
     $f_html_tag_symbols_patterns = [
         $regex->createPattern(['match' => '<', 'replaceWith' => '&lt;']),
         $regex->createPattern(['match' => '>', 'replaceWith' => '&gt;']),
@@ -450,20 +395,16 @@ use IGK\System\Text\RegexMatcherUtility;
         $f_html_tags,
         $frm_line,
     ];
-
     // $f_html_inner_content->patterns = [
     //     //$f_html_tags,
     //     $f_html_comment,
     // ];
-
     $_single->patterns = [
         $fcurl,
         $single_instruct_condition,
         ...$comments,
         $fcond,
     ];
-
-
     $fmuti_comments->tokenID .= ' comment';
     $fmuti_comments->preserveContent = true;
     $fmuti_comments->patterns = array_merge(

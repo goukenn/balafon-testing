@@ -74,7 +74,7 @@ while (count($tokens) > 0) {
         case 393:
         case T_START_HEREDOC:
             if ($read_content){
-                //
+                
                 $read_here_docs = true;
                 $functions[$name]->here_docs[] = ''; 
                 $idx = count($functions[$name]->here_docs)-1;

@@ -8,6 +8,7 @@
 use IGK\Helper\IO;
 use IGK\System\Console\Helper\ConsoleUtility;
 use IGK\System\Console\Logger;
+use IGK\System\Php\Helper\PhpScriptUtility;
 use IGK\System\Text\RegexMatcherContainer;
 
 if (ConsoleUtility::SupportHelp($command)) {
@@ -56,6 +57,7 @@ function glue_on_header_code($code)
     $header = false;
     $ln = '';
     $mark = false;
+    $pos = PhpScriptUtility::SkipShebang($src, $pos);
     while ($g = $regex->detect($src, $pos)) {
         if ($e = $regex->end($g, $src, $pos)) {
             if (($e->tokenID == 'break') || ($header && ($e->tokenID=='comment-multiline'))) {

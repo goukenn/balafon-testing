@@ -15,7 +15,6 @@ $src = implode("\n", [
     // "         ",
     // "}",
     //"function sample(){           ",
-
     // "// @author:    C.A.D. BONDJE DOUE", 
     // "// @desc:      mark code ",
     // "// @copyright: @igkdev ".date('Y'), 
@@ -73,8 +72,6 @@ $src = implode("\n", [
     // '{ information sur information ',
     // ' // symbols',
     // '}'
-
-
     // + | single instruct detection
     // "if (true)  // comment presentation",
     // "\$y = 88;",
@@ -105,7 +102,6 @@ $src = implode("\n", [
     // 'include "home.php";',
     // 'require_once "home.php";',
     // // '$h = 80;',
-
     // 'if /* conditional data  */(true)  // location  $cx = 88; ', //, '      // basic ', 
     // '$x= 23;',
     // '$z=25;',

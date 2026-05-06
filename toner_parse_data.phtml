@@ -1,5 +1,4 @@
 <?php
-
 use IGK\System\Console\Logger;
 use IGK\System\Html\Css\CssParser;
 use IGK\System\IO\StringBuilder;
@@ -12,13 +11,11 @@ class Data{
     var $cat;
     var $code;
     var $colorType;
-    
     var $compatible;
     var $qtePage;
     var $ref;
     var $trademark;
 }
-
 $data = file_get_contents('/Users/charlesbondjedoue/Desktop/data.csv'); 
 $header = null;
 $table = $preview->table();

@@ -7,19 +7,22 @@
 use IGK\Helper\IO;
 use IGK\System\Console\App;
 use IGK\System\Console\Logger;
+use IGK\System\Php\Helper\PhpScriptUtility;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
 
 function detect_comments(&$list, string $file)
 {
-    $src = file_get_contents($file);
+    $src = file_get_contents($file); 
     $regex = new RegexMatcherContainer;
-    $pos = 0;
     $regex->appendStringDetection('string', true);
     $heredoc = [];
     RegexMatcherUtility::AppendPhpHereDoc($regex, $heredoc);
     $regex->match("\/\/ (\+|@).+", 'php-ignore');
+    $regex->match("\/\/\/ [a-zA-Z]+:", 'php-markup');
+    $regex->match("\/\/#\{\{(.+)+", 'php-balafon-var-operation');
     $regex->appendSingleLineComment();
+    $regex->appendMultilineComment();
     $regex->begin('\?>', '<\?(php\\b|=)', 'php-outside');
     $list['::file'] = $file;
     $fc_handle = [
@@ -38,10 +41,15 @@ function detect_comments(&$list, string $file)
             $list[$file]->litterals[] = sprintf('[%s] at %s', $e->value, $e->from);
         }
     ];
+    $pos = 0;
+    $pos = PhpScriptUtility::SkipShebang($src, $pos);
+    $is_debug = igk_is_debug();
+    $is_debug && Logger::info('detect-comment-on-file: '.$file);
     while ($g = $regex->detect($src, $pos)) {
         if ($e = $regex->end($g, $src, $pos)) {
             $id = $e->tokenID;
-            if ($fc = igk_getv($fc_handle, $id)) {
+            
+            if ($id && ($fc = igk_getv($fc_handle, $id))) {
                 $fc($e, $pos, $list);
             }
         }
@@ -85,13 +93,13 @@ list($dir,) = igk_extract($params, '0|1');
 list($isCleanAll) = igk_prop_exists($command->options, '--clean-all');
 $regex = sprintf('/%s/', igk_getv($command->options, '--regex') ?? '\.php$');
 $list = [];
-$exclude = ['.git'];
+$exclude = ['.git', 'vendor', '.vscode', 'node_modules'];
 igk_wln('directory: ', realpath($dir), '');
 IO::GetFiles($dir, function ($file) use (&$list, $regex) {
     if (preg_match($regex, $file)) {
         detect_comments($list, $file);
     }
-}, true);
+}, true, $exclude);
 if (count($list) > 0) {
     Logger::print('Items : ' . count($list));
     showAndRemoveCommentList($list, $isCleanAll);

@@ -1,5 +1,6 @@
 #!/usr/bin/env php
 <?php
+
 if (!isset($_ENV["BALAFON_URI"])){  
     $_ENV["BALAFON_URI"] = "https://igkdev.com/balafon";
 }

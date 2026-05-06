@@ -3,9 +3,13 @@
 // @filename: treat_files.php
 // @date: 20250903 13:21:12
 // @desc: utility script-remove file in directory if a copy of the same file exists
-// @command: balafon --run .test/utils/macos/photos/remove_duplicates.php
+// @command: balafon --run .test/utils/macos/photos/remove_duplicates.php *dir
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
+
+/**
+ * @var array $params
+ */
 
 ($dir = igk_getv($params, 0)) ?? igk_die('required folder');  
 $outs = [];

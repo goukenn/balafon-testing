@@ -15,18 +15,9 @@ igk_view_handle_actions($fname, [
     igk_navto_referer($this::uri('test_dette_capital'));
 }
 ], $params);
-
-
-
-
-
-
 igk_google_addfont($doc, 'Roboto');
 $t['class'] = '+google-Roboto';
 function form_sold_quot($a
-
-
-
 )
 {
     L81Controller::register_autoload();
@@ -42,12 +33,10 @@ function form_sold_quot($a
         "mois"=>['type'=>'select', 'data'=>FormHelper::YearMounthSelection(date('Y'))],
         "memberid"=>['type'=>'select', 'data'=>$sl_users],
         "avalistid"=>['type'=>'select','data'=>$sl_users],
-        
         "amount"=>['type'=>'number', 
         'id'=>'amount',
         'maxlength'=>10,        
         'attribs'=>[
-            
             ':value'=>'in_amount',
             '@input'=>'update_amount',
         ]],
@@ -151,8 +140,6 @@ JS])
 \form_sold_quot::class
 ); 
 $t->div()->setClass("pad-4")->Content = "0.00 €";
-
-
 {
     data(){
         return {

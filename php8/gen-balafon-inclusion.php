@@ -5,7 +5,7 @@
 // @desc:  generate inclusion 
 // @command: balafon --run .test/php8/anonymous_class.php
 
-//
+
 $c = get_included_files();
 array_pop($c);
 echo "\n";

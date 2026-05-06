@@ -1,7 +1,7 @@
 <?php
 // @command: balafon --run .test/benchmark/inclusion.php
 
-//
+
 $i = 10000;
 $sb = '<?php'.PHP_EOL;
 while($i){

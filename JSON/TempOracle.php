@@ -20,7 +20,6 @@ class TempOracle{
     * @var mixed
     */
     var $childs;
-
     /**
      * 
      * @var mixed

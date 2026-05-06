@@ -1,8 +1,0 @@
-Object: Candidature au poste de Développeur Web PHP (H/F)
-
-Merci d'avoir posé votre candidature au poste de Développeur Web PHP (H/F)
-Nous avons bien reçu votre candidature.
-Nous vous tiendrons au courant de la suite de la procédure.
-
-Cordialement,
-L'équipe de HR

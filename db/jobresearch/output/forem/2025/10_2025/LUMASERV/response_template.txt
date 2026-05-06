@@ -1,8 +1,0 @@
-Object: Candidature au poste de PHP Backend Engineer [gn]
-
-Merci d'avoir posé votre candidature au poste de PHP Backend Engineer [gn]
-Nous avons bien reçu votre candidature.
-Nous vous tiendrons au courant de la suite de la procédure.
-
-Cordialement,
-L'équipe de HR

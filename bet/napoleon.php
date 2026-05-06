@@ -102,7 +102,7 @@ if (!$cookies_entries) {
         $_headers[] =
             'Cookie: ' . $bss . ";" . $required_cookie_name . "=" . igk_getv($params, 0);
 }
-//
+
 $_options = [
     'COOKIEJAR' => $cookie_file,
     'COOKIEFILE' => $cookie_file,

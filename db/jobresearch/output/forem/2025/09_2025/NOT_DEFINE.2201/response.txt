@@ -1,6 +1,0 @@
-Object: response à votre candidature
-Madame, Monsieur,
-Votre cadidature a été prise en compte au poste de Junior Fullstack Developer 2.0 (PHP + React + Cursor/Windsurf). 
-Nous reviendrons vers vous dans les plus bref délais.
-Cordialement,
-
