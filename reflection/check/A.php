@@ -4,6 +4,5 @@
 * @param mixed & $x
 * @param string & ...$y
 */
-
 function a(& $x, string &...$y){
 }

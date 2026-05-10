@@ -7,6 +7,8 @@
 // + | -------------------------------------------------------------------------
 // + | detect reflection function/classes/traits/interface/conditional. build balafon metadata  sdk.json
 // + |
+
+use IGK\Helper\Activator;
 use IGK\Helper\IO;
 use IGK\Helper\StringUtility;
 use IGK\System\Annotations\PhpDocBlocReader;
@@ -22,6 +24,12 @@ use IGK\System\Console\Helper\ConsoleUtility;
 require_once __DIR__ . '/FrameworkMetadataGenerator.php';
 require_once __DIR__ . '/FrameworkMetadataRegexMatcherPattern.php';
 require_once __DIR__ . '/FrameworkRegLevelManager.php';
+require_once __DIR__ . '/IFrameworkRegLevelDocLocation.php';
+
+/**
+ * @var mixed $command
+ */
+
 if (ConsoleUtility::SupportHelp($command)) {
     igk_wln(implode("\n", ['', "generate framework metadata", "", ""]));
     igk_wln(App::Gets(App::GREEN, 'options:'), '');
@@ -37,6 +45,8 @@ if (ConsoleUtility::SupportHelp($command)) {
 }
 /**
  * auto generate doc.
+ * @param mixed $g
+ * @param mixed & $t
  * @param mixed $level
  * @return mixed
  */
@@ -107,7 +117,7 @@ function meta_getPhpDocInfo($c, $type, ?string $namespace, $extra = null): array
             $p[] = sprintf('@return %s', $c->return);
         } else {
             if (in_array($type, ['function', 'subfunc'])) {
-                $p[] = sprintf('@return');
+                $p[] = sprintf('@return void');
             }
         }
     }
@@ -136,14 +146,90 @@ function meta_getPhpDocDefaultSummary(string $tn)
         '__unserialize' => 'Custom unserialization logic.',
         '__debugInfo' => 'Used by var_dump() to customize debug output.',
         '__invoke' => 'Called when an object is used as a function.',
-        '__debugInfo' => 'Used by var_dump() to customize debug output.',
         '__set_state' => 'Called when exporting with var_export().',
     ], $tn) ?? "auto generate doc.";
 }
 /**
- * auto generate doc.
- * @param mixed $namespace
- * @return void
+ * update doc definition parameters
+ * @param mixed $meta_definition 
+ * @param mixed $location
+ * @return true|false 
+ */
+function meta_updateParams($meta_definition, $location, string $type = 'func')
+{
+    list($v_doc, $v_params) = igk_extract($meta_definition, 'doc|params');
+    $v_params = $v_params ?? [];
+    if (isset($v_doc)) {
+
+        $reader = new PhpDocBlocReader();
+        $ct = $reader->readDoc($v_doc, []);
+        $update = false;
+        $def = $v_params ? [] : null;
+        if (!is_null($params = $ct->param ?? $def)) {
+            if (is_string($params)) {
+                $params = [$params];
+            }
+            $auto_count = 0;
+            $_var = array_merge(...array_map(function ($a)use(& $auto_count) {
+                $var = [];
+                preg_match('/(&\\s*)?\$[a-zA-Z_][a-zA-Z_0-9]*/', $a, $var);
+                if ($var)
+                    return [$var[0] => $var[0]];
+                else {
+                    $n = 'var_'.$auto_count;
+                    $auto_count++;
+                    return [$n=>$n];
+                }
+            }, $params));
+
+            $dt = $v_params;
+            $otd = [];
+            $ix = 0;
+            while (count($dt)) {
+                $q = array_shift($dt);
+                $vtype = 'mixed';
+                if ($q && !is_string($q)){
+                    $vtype = igk_getv($q, 'type', $vtype);
+                    $q= igk_getv($q, 'name') ?? igk_die('missing name');
+                    
+                }
+
+                if (isset($_var[$q])) {
+                    $otd[] = array_shift($params);
+                } else {
+                    $otd[] = sprintf('%s %s', $vtype, $q);
+                    $update = true;
+                }
+            }
+            $ct->param = null;
+            $ct->param = $otd;
+        }
+        if (!$ct->return && (preg_match('/@return\\b/', $v_doc) || ($type=='func'))) {
+            $ct->return = 'void';
+            $update = true;
+        }
+        if ($update) {
+
+            $meta_definition->doc = $ct->render();
+            $from = min($location->from, $meta_definition->location->from);
+            $location->to = min($meta_definition->location->to, $location->from);
+            $location->from = $from;
+            return true;
+        }
+    }
+    return false;
+}
+/**
+ * 
+ * @param mixed $e 
+ * @param mixed $c 
+ * @param mixed $funcs 
+ * @param string $src 
+ * @param string $type 
+ * @param null|string $namespace 
+ * @param string $tabSeparator 
+ * @param '\n' $docLineFeedPrefix 
+ * @return void 
  */
 function meta_updateBuffer(
     $e,
@@ -159,9 +245,11 @@ function meta_updateBuffer(
     $extra = igk_getv($funcs, FrameworkMetadataGenerator::PROP_TYPE_EXTRA_DEF);
     $bf = igk_getv($funcs, $k_buffer);
     if (!$bf) return;
+    $v_replaceDefinition = igk_createobj(['from' => $e->from, 'to' => $e->to]);
     $v_have_subs = $bf && isset($bf->subs);
     $doc = '';
-    if (!$v_have_subs && !(!isset($c->doc) && isset($funcs[$k_buffer])))
+
+    if (!$v_have_subs && !meta_updateParams($c, $v_replaceDefinition, $type) && !(!isset($c->doc) && isset($funcs[$k_buffer])))
         return;
     if (!isset($c->doc)) {
         $p = meta_getPhpDocInfo($c, $type, $namespace, $extra);
@@ -173,15 +261,20 @@ function meta_updateBuffer(
             "*/",
         ])) . "\n";
         $c->doc = $doc;
+        $v_replaceDefinition->from = $e->to;
     } else {
-        $doc = '';
+        //$doc = '';
     }
     $doc = $c->doc;
     $doc = $docLineFeedPrefix . FrameworkRegLevelManager::FormatDoc($doc, $e, $tabSeparator);
-    $bf->replaces[] = (object)['from' => $e->from, 'to' => $e->from, 's' => $doc];
+    $bf->replaces[] = (object)['from' => $v_replaceDefinition->from, 'to' => $v_replaceDefinition->to, 's' => $doc];
 }
 /**
- * auto generate doc.
+ * 
+ * @param mixed $src 
+ * @param mixed &$funcs 
+ * @param '\n' $docLineFeedPrefix 
+ * @return void 
  */
 function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetadataGenerator::DOC_LF_PREFIX)
 {
@@ -209,9 +302,9 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
     $ns_curl_block->isBlock = true;
     $ns_block->patterns = [
         $c_l,
-        $c_m, 
+        $c_m,
         $regex->createPattern(['match' => '(?P<n>[_a-zA-Z][_a-zA-Z0-9\\\\]*)', 'tokenID' => 'namespace']),
-        $ns_curl_block 
+        $ns_curl_block
     ];
     $indef = $regex->begin('((?P<modifier>(abstract|final))\\b\\s*)?\\b(?P<type>interface|trait|class)\\b\\s*(?P<n>[_a-zA-Z][_a-zA-Z0-9]*)\b', '(?<=\})', 'in-def')->last();
     $indef_2 = $regex->begin('\\bnew\\b\\s*\\b(?P<type>class)\\b\\s*', '(?<=\})', 'in-def-2')->last();
@@ -340,6 +433,8 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
         },
         'php-docblock' => function ($e) use (&$doc_block, &$php_docmarker, &$funcs, $level, $docLineFeedPrefix) {
             $php_docmarker = $e->value;
+            $level->docLocationInfo = Activator::CreateNewInstance(IFrameworkRegLevelDocLocation::class, $e);
+
             if (isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
                 $reader = new PhpDocBlocReader();
                 $c = $reader->readDoc($php_docmarker, [], []);
@@ -375,7 +470,7 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
             }
         },
         'func_list' => function ($e, &$funcs) use ($l, &$namespace, $level, $src, &$pos) {
-            $g = igk_conf_get($e->captures, 'n/0'); 
+            $g = igk_conf_get($e->captures, 'n/0');
             $g = ($namespace ? $namespace . "\\" : "") . $g;
             $return = null;
             $params = FrameworkRegLevelManager::ReadFuncParams($src, $pos, $return);
@@ -394,7 +489,7 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
             }
         },
         'func_conditional' => function ($e, &$funcs) use (&$namespace, $src, &$pos, $level, $docLineFeedPrefix) {
-            $g = igk_conf_get($e->captures, 'n/0'); 
+            $g = igk_conf_get($e->captures, 'n/0');
             $g = ($namespace ? $namespace . "\\" : "") . $g;
             $return = null;
             $params = FrameworkRegLevelManager::ReadFuncParams($src, $pos, $return);
@@ -455,13 +550,14 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
                 }
                 meta_updateBuffer($e, $c, $funcs, $src, 'type', $namespace);
             }
-            if (isset($funcs['::' . $t][$tn])) {
-                if (!is_array($funcs['::' . $t][$tn])) {
-                    $funcs['::' . $t][$tn] = [$funcs['::' . $t][$tn]];
+            $tkey = '::'.$t;
+            if (isset($funcs[$tkey][$tn])) {
+                if (!is_array($funcs[$tkey][$tn])) {
+                    $funcs[$tkey][$tn] = [$funcs[$tkey][$tn]];
                 }
-                $funcs['::' . $t][$tn][] = $c;
+                $funcs[$tkey][$tn][] = $c;
             } else
-                $funcs['::' . $t][$tn] = $c;
+                $funcs[$tkey][$tn] = $c;
             $sub_func_list = [];
             $props_list = [];
         },
@@ -492,6 +588,11 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
             }
             if ($abstract) {
                 $v_p['abstract'] = true;
+            }
+            if (is_object($d)) {
+                $v_p['location'] = $d->location;
+            } else {
+                igk_die(__FILE__.":".__LINE__ .':: not an object');
             }
             $c = (object)array_filter($v_p);
             meta_updateBuffer($e, $c, $funcs, $src, 'subfunc');
@@ -607,6 +708,12 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
             }
         }
     }
+
+    if ($php_docmarker){
+        $v_replaces = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces;
+        $v_replaces[] = (object)['from'=>$level->docLocationInfo->from, 'to'=>$level->docLocationInfo->to, 's'=>''];    
+        //igk_wln_e("end doc block....", $level);
+    }
     unset($funcs['::live-doc']);
 }
 $c = igk_getv($command->options, '--dir') ?? IGK_LIB_DIR;
@@ -663,9 +770,9 @@ $treat = function ($tf) use (&$funcs, $ln, $update_doc) {
     if (is_link($tf)) return;
     Logger::info('treat ' . $tf);
     $rc = './' . substr($tf, $ln);
+    $buffer = '';
     if ($update_doc) {
         // + | init buffer 
-        $buffer = '';
         $funcs[FrameworkMetadataGenerator::PROP_BUFFER] = FrameworkMetadataGenerator::InitBufferObject($buffer);
     }
     $funcs['::files'][] = $rc;

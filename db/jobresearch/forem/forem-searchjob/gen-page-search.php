@@ -2,7 +2,7 @@
 // @author: C.A.D. BONDJE DOUE
 // @filename: gen-page-search.php
 // @date: 20251015 09:01:13
-// @desc: 
+// @desc: generate forem job demon page  
 // @command: balafon --run .test/forem-searchjob/gen-page-search.php
 // @balafon-command: forem-gen-page
 use function igk_resources_gets as __;

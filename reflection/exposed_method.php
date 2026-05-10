@@ -1,7 +1,11 @@
 <?php
 // @command: balafon --run .test/reflection/exposed_method.php
 
+/**
+ *  @var array $params
+ */
 $cl = igk_getv($params, 0) ?? igk_die('no defined');
+$list = [];
 $tmethods = (new ReflectionClass ($cl))->getMethods() ?? $tmethods;
 foreach($tmethods as $m){
  if ($m->isPrivate() || $m->isProtected()){

@@ -1,5 +1,13 @@
 <?php
+// @author: C.A.D. BONDJE DOUE
+// @filename: use_classes.php
+// @date: 20260510 16:34:15
+// @desc: get uses classes
+
 use IGK\System\IO\StringBuilder;
+/**
+ * @var array $params
+ */
 
 $ctrl = igk_getv($params, 0) ?? igk_die('missing controller params');
 $class  = igk_getv($params, 1) ?? igk_die('missing class name');
@@ -16,7 +24,7 @@ if (!$class || !class_exists($class, false)){
 /**
 * auto generate doc.
 * @param string $file
-* @param null|mixed & $info
+* @param mixed & $info
 */
 function test_reflection_use_classes_readFileHeader(string $file, & $info = null){
     $tokens = token_get_all(file_get_contents($file), 0);

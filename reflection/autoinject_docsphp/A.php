@@ -1,9 +1,13 @@
 <?php
-
+    /**
+    * auto generate doc.
+    * @return
+    */
 if (true) {
     /**
-     * auto generate doc.
-     */
+    * auto generate doc.
+    * @return
+    */
     function conditional()
     {
         echo 'init conditional';
@@ -12,15 +16,17 @@ if (true) {
 } else {
     echo $j + 1;
     /**
-     * auto generate doc.
-     */
+    * auto generate doc.
+    * @return
+    */
     function jump()
     {
         return 23;
     }
     /**
-     * auto generate doc.
-     */
+    * auto generate doc.
+    * @return void
+    */
     function conditional()
     {
         return 23;

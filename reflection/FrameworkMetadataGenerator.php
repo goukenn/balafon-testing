@@ -3,15 +3,10 @@
 // @file: FrameworkMetadataGenerator.php
 // @date: 20260227 09:58:21
 namespace IGK\System\Console\Commands\Utility;
-
 /**
 * auto generate doc.
 * @package IGK
 * @author C.A.D. BONDJE DOUE
-*/
-/**
-* auto generate doc.
-* @package IGK\System\Console\Commands\Utility
 */
 class FrameworkMetadataGenerator{
     /**
@@ -21,7 +16,6 @@ class FrameworkMetadataGenerator{
     /**
     * auto generate doc.
     * @var mixed
-    * @return
     */
     const PROP_TYPE_EXTRA_DEF = '::type_extra';
     /**
@@ -40,10 +34,10 @@ class FrameworkMetadataGenerator{
     */
     const PROP_NAMESPACES = '::namespaces';
     /**
-     * initialize buffer object 
-     * @param mixed|string &$buffer 
-     * @return object 
-     */
+    * initialize buffer object
+    * @param mixed & $buffer
+    * @return object
+    */
     public static function InitBufferObject(& $buffer){
         return (object)[
             'pos' => 0,            

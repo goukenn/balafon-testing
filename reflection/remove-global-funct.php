@@ -5,7 +5,6 @@ use IGK\System\Console\Logger;
 use IGK\System\Php\Helper\PhpRemoveGlobaFunc;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
-
 $file = __DIR__.'/remove-global-func/data/check.php';
 $file = '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Packages/Modules/igk/redis/.module.pinc';
 $file = '/Volumes/Data/Dev/PHP/balafon_site_dev/src/application/Packages/Modules/ionicons/.module.pinc';

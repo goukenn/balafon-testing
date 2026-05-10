@@ -5,7 +5,6 @@
 namespace IGK\System\Console\Commands\Utility;
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
-
 /**
 * auto generate doc.
 * @package IGK
@@ -19,18 +18,23 @@ class FrameworkRegLevelManager
      */
     var $separator = '    ';
     /**
-     * auto generate doc.
-     * @var mixed
+     * document
+     * @var ?string
      */
     var $doc;
+    /**
+     * location information
+     * @var ?mixed|IFrameworkRegLevelManager location information 
+     */
+    var $docLocationInfo;
     /**
      * doc replaced with 
      * @var mixed
      */
     var $docReplaceWith;
     /**
-     * auto generate doc.
-     * @var mixed
+     * location
+     * @var ?int 
      */
     var $location;
     /**
@@ -134,8 +138,10 @@ class FrameworkRegLevelManager
         return $r;
     }
     /**
-    * read only function parameters 
-    * @param int &$pos
+    * read only function parameters
+    * @param mixed $src
+    * @param mixed & $pos
+    * @param mixed & $return
     * @return array
     */
     public static function ReadFuncParams(string $src, int &$pos, &$return): array
@@ -203,6 +209,7 @@ class FrameworkRegLevelManager
             $d['type'] = $type;
         }
         if ($d) {
+            $d['location']=(object)$this->docLocationInfo->to_array();
             $d['$r'] = $this->location;
             return (object)$d;
         }
@@ -224,5 +231,13 @@ class FrameworkRegLevelManager
             $g = $g->parent;
         }
         return $i;
+    }
+    public function __construct
+    /**
+    * .ctr
+    * @return void
+    */
+    ()
+    {
     }
 }
