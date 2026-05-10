@@ -1,6 +1,5 @@
 <?php
 // @command: balafon --run .test/reflection/exposed_method.php
-
 /**
  *  @var array $params
  */

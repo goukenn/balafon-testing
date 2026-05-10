@@ -6,5 +6,4 @@
 * @property int $to
 */
 interface IFrameworkRegLevelDocLocation{
-
 }

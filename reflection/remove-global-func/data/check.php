@@ -1,23 +1,11 @@
 <?php
 if ($d){
     $x = 409;
-    function a
-    /**
-    * auto generate doc.
-    */
-    (){
+    function a(){
     }
-    function & b
-    /**
-    * auto generate doc.
-    */
-    (){
+    function & b(){
     }
 }
-function sample
-/**
-* auto generate doc.
-*/
-(){
+function sample(){
 }
 $x = 4;

@@ -17,7 +17,7 @@ if (true) {
     echo $j + 1;
     /**
     * auto generate doc.
-    * @return
+    * @return void
     */
     function jump()
     {

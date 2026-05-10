@@ -187,6 +187,7 @@ class FrameworkRegLevelManager
     }
     /**
     * auto generate doc.
+    * @param ?string $type
     * @return array{doc: mixed}|int
     */
     public function getDocInfo(?string $type = null)
@@ -232,12 +233,11 @@ class FrameworkRegLevelManager
         }
         return $i;
     }
-    public function __construct
     /**
-    * .ctr
+    * auto generate doc.
     * @return void
     */
-    ()
+    public function __construct()
     {
     }
 }
