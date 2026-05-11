@@ -14,6 +14,7 @@ ForemJobDashboardController::ctrl(true);
 * @param string $dir
 * @param mixed $date
 * @param mixed & $enterpriseList
+* @return mixed
 */
 function get_enterpise_info(string $dir, $date, &$enterpriseList)
 {

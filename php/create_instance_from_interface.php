@@ -38,12 +38,13 @@ class JO implements ILocalization{
     var $t = [];
 }
 /**
- * create instance from interface 
- * @param string $interface 
- * @return object 
- * @throws Exception 
- * @throws IGKException 
- */
+* create instance from interface
+* @param mixed $class_name
+* @param mixed $resolver
+* @throws Exception
+* @throws IGKException
+* @return object
+*/
 function create_instance_from_interface($class_name, $resolver=null){
     return Activator::CreateFromInterface($class_name, $resolver);
 }

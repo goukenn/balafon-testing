@@ -5,6 +5,7 @@ $b = 9;
 /**
 * auto generate doc.
 * @param mixed $x
+* @return mixed
 */
 function eval_args($x){
     global $a, $b;
@@ -35,6 +36,7 @@ function eval_args($x){
 /**
 * auto generate doc.
 * @param mixed $x
+* @return mixed
 */
 function pass($x){
     echo "in pass ", $x , "\n";

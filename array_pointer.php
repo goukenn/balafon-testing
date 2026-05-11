@@ -29,6 +29,7 @@ $obj = new GraphQlPointerObject($root);
 /**
 * auto generate doc.
 * @param mixed & $obj
+* @return mixed
 */
 function update(& $obj){
     $obj[] = 1;

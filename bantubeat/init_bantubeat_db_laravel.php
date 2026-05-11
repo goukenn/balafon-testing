@@ -21,6 +21,7 @@ $builder
 $def = new StringBuilder();
 /**
 * auto generate doc.
+* @param mixed $def
 * @param DbColumnInfo $cinfo
 * @return void
 */

@@ -14,6 +14,7 @@ $tab = ['/^hello/',
 /**
 * auto generate doc.
 * @param mixed $tab
+* @return mixed
 */
 function checkRegex($tab){
     $regex = '/(?<!\\\\|\w|\[)\^/';

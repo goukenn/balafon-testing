@@ -6,7 +6,12 @@
 // @command: balafon --run .test/phpunit/splitted_regex_matcher_demonstration.php
 use IGK\System\Console\Logger; 
 use IGK\System\Text\RegexMatcherContainer;
-
+/**
+* auto generate doc.
+* @param mixed $f
+* @param RegexMatcherContainer $regex
+* @return mixed
+*/
 function treat_($f, RegexMatcherContainer $regex)
 {
     if (!is_array($f)) {

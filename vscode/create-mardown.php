@@ -26,6 +26,7 @@ foreach($sections as $t){
 $content = $sb.'';
 /**
 * auto generate doc.
+* @return mixed
 */
 function igk_html_doctype(){
     return '<!DOCTYPE html>';

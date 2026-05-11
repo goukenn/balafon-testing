@@ -8,10 +8,10 @@ use igk\js\vueSFC\VueSFCTransformOptions;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
 use IGK\System\IO\StringBuilder;
-
 /**
 * auto generate doc.
 * @param string $filename
+* @return mixed
 */
 function transformVueFile(string $filename){
     $file = VueSFCFile::FromFile($filename);

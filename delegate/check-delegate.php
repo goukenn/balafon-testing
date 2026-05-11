@@ -9,6 +9,7 @@ use IGK\System\Delegate;
 class ActionListener extends Delegate{
     /**
     * auto generate doc.
+    * @param ?int $x
     * @param null|int $y inline y
     * @return void
     */

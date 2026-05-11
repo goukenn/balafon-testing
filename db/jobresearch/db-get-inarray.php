@@ -43,6 +43,7 @@ $lb = Jobs::joinOnJobId(JobForemJobs::targetOnJobId());
 * @param ModelBase $model
 * @param null|mixed $prefix
 * @param null|mixed $filter
+* @return mixed
 */
 function igk_db_column_list(ModelBase $model, $prefix=null, $filter=null){
     $keys = array_keys($model->getTableColumnInfo());
@@ -73,6 +74,7 @@ function igk_db_column_list(ModelBase $model, $prefix=null, $filter=null){
 /**
 * auto generate doc.
 * @param mixed $column
+* @return mixed
 */
 function igk_db_only_column_regex($column){
     if (is_array($column)){

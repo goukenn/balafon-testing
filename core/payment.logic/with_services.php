@@ -122,7 +122,4 @@ IGKServices::Register('payment.visa', VisaPayment::class);
 $r = IGKServices::Get('payment.paypal');
 igk_wln($container, $r);
 $r->initPayment([]);
-/**
- * container number of initiated service payment 
- */
 igk_wln_e('list of initialized payment setting', $container->count(), $container->listServicesKeys(), $all);

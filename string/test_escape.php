@@ -2,11 +2,11 @@
 
 if (!function_exists('igk_str_escape')) {
     /**
-     * use to escape char
-     * @param string $str 
-     * @param string $list char list as string
-     * @return string 
-     */
+    * use to escape char
+    * @param string $str
+    * @param string $char_list
+    * @return string
+    */
     function igk_str_escape(string $str, string $char_list = "'")
     {
         $tab = str_split($char_list, 1);

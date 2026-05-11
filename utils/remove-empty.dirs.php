@@ -17,6 +17,12 @@ $excludes = igk_getv($command->options, '--exclude') ?? ['.git', '.vscode', 'nod
 if (!is_array($excludes)){
     $excludes = explode(',',$excludes); 
 }
+/**
+* auto generate doc.
+* @param array $excludes
+* @param string $path
+* @return mixed
+*/
 function isExclude(array $excludes , string $path){
     $q = $path;
     return in_array($q, $excludes) || in_array(basename($q), $excludes);

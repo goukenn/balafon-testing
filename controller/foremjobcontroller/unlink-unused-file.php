@@ -10,10 +10,10 @@ use IGK\Database\DbFieldOperator;
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
-
 /**
- * @var ForemJobDashboardController
- */
+* auto generate doc.
+* @var ForemJobDashboardController
+*/
 $ctrl = ForemJobDashboardController::ctrl(true);
 ($user && $ctrl::login($user)) || igk_die('missing current user');
 JobUtility::UnlinkUnusedFileFromLocalStorage($ctrl);

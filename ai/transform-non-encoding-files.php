@@ -113,6 +113,7 @@ $output = igk_getv($params, 1) ?? $file;
 * auto generate doc.
 * @param mixed $transform
 * @param string $file
+* @return mixed
 */
 function saveToFile($transform, string $file='/tmp/data.php'){
 ksort($transform);

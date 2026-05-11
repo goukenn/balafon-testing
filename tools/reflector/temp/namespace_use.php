@@ -10,6 +10,7 @@ function g(){
 }
 /**
 * auto generate doc.
+* @return mixed
 */
 function a(){}
 /**
@@ -22,6 +23,7 @@ function c($a){
 }
 /**
 * auto generate doc.
+* @return mixed
 */
 function igk_svg_init(){
 }

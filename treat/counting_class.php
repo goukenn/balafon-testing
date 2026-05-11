@@ -10,11 +10,12 @@ $l = [];
 $ren = [];
 Logger::warn('dir or $FLUTTER_DEV/com_igkdev_new_app/lib/app/modules');
 /**
- * auto generate doc.
- * @param mixed & $info
- * @param string $file
- * @param string $src
- */
+* auto generate doc.
+* @param mixed & $info
+* @param string $file
+* @param string $src
+* @return mixed
+*/
 function treat_file(&$info, string $file, string $src)
 {
     $N = igk_io_basenamewithoutext($file);

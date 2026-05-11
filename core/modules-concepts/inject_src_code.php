@@ -7,6 +7,10 @@ if (!realpath($file)){
     $file = __DIR__.'/'.$file;
 }
 file_exists($file) || igk_die('missing file');
+/**
+* auto generate doc.
+* @package
+*/
 class Invoker{
 }
 $invoc = new Invoker;

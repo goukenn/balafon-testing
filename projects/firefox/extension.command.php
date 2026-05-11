@@ -7,6 +7,7 @@ require_once(__DIR__.'/lib/FExManinest.php');
 * auto generate doc.
 * @param mixed $outdir
 * @param mixed $command
+* @return mixed
 */
 function create_extension($outdir, $command){
     $ref_option = (object)[

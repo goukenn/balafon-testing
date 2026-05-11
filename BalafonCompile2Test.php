@@ -65,6 +65,7 @@ class AttribHandler {
 * auto generate doc.
 * @param mixed $ctrl
 * @param mixed $src
+* @return mixed
 */
 function igk_express_bind($ctrl, $src){
     $tempfile = tempnam (sys_get_temp_dir(), ".export");

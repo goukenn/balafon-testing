@@ -19,6 +19,12 @@ $connexion = implode(' ', array_filter(array_map(function($b, $a){
     if (empty($b)) return null;
     return implode('=',[$a,$b]);
 }, $ob, array_keys($ob))));
+/**
+* auto generate doc.
+* @param mixed $conn
+* @return array
+* @return mixed
+*/
 function getPostgresTables($conn): array
 {
     $result = pg_query($conn, "

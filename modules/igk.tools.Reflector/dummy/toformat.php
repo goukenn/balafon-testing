@@ -19,12 +19,14 @@ interface IActions{
 }
 /**
 * auto generate doc.
+* @return mixed
 */
 function a(){
     echo 'rover';
 }
 /**
 * auto generate doc.
+* @return mixed
 */
 function b(){
     echo @'mercedes';

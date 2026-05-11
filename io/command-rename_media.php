@@ -8,11 +8,11 @@
 use IGK\Helper\IO;
 use IGK\System\Console\Logger;
 use IGK\System\IO\Path;
-
 /**
- * @var array $params
- * @var \IGK\System\Console\ICommandInfo $command
- */
+* auto generate doc.
+* @var array $params
+* @var \IGK\System\Console\ICommandInfo $command
+*/
 
 $from = igk_getv($params, 0);
 $to = igk_getv($params, 1);

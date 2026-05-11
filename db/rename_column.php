@@ -3,12 +3,12 @@ use IGK\Database\DbColumnInfo;
 use IGK\Models\ModelBase;
 use IGK\Models\Users;
 use IGK\System\Console\Logger;
-
 /**
 * auto generate doc.
 * @param ModelBase $model
 * @param string $column
 * @param string $new_name
+* @return mixed
 */
 function db_rename_table_column(ModelBase $model, string $column, string $new_name ){
     $ad = $model->getDataAdapter();

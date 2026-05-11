@@ -1,7 +1,4 @@
 <?php
-/**
-* auto generate doc.
-*/
 
 $login =  $params[0];
 $ctrl = $params[1];

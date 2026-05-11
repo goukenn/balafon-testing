@@ -1,10 +1,10 @@
 <?php
 // @command: balafon --run .test/utils/treat_array.php definition 
 use IGK\System\Console\Logger;
-
 /**
 * auto generate doc.
 * @param string $src
+* @return mixed
 */
 function treat_array(string $src){
     $tab = explode('|', $src);

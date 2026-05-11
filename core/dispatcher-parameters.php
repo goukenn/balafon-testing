@@ -27,6 +27,7 @@ igk_exit();
 * auto generate doc.
 * @param array $parameters
 * @param array $args
+* @return mixed
 */
 function igk_params_list(array $parameters, array  $args)
 {

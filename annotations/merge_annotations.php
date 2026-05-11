@@ -45,6 +45,7 @@ class BAnnotation extends AnnotationBase
 }
 /**
 * auto generate doc.
+* @param string $class_or_name
 * @param array &$tab
 * @return void
 */

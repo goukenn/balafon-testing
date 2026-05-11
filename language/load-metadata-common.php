@@ -11,20 +11,67 @@ use IGK\System\IToJSon;
 use IGK\System\Polyfill\ArrayAccessSelfTrait;
 use IGK\System\Polyfill\ArrayGetRefAccessSelfTrait;
 use IGK\System\Polyfill\JsonSerializableTrait;
-
+/**
+* auto generate doc.
+* @package
+*/
 class MetaDataDefinition implements JsonSerializable
 {
     use JsonSerializableTrait;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $type;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $modifier;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $docs;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $comment;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $file;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $items;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     private $m_index;
+    /**
+    * auto generate doc.
+    * @param int $index
+    * @return void
+    */
     public function setFileIndex(int $index){
         $this->m_index = $index;
     }
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public function _json_serialize(){
         $d = ['$file'=>$this->m_index>=0 ? $this->m_index :null];
         $v =  \IGK\System\Reflection\Helper\ReflectionHelper::GetObjectVars($this);
@@ -33,10 +80,24 @@ class MetaDataDefinition implements JsonSerializable
         return $c;        
     }
 }
+/**
+* auto generate doc.
+* @package
+*/
 class MetadataEntityDefinition implements ArrayAccess,  IToJSon
 {
     use ArrayGetRefAccessSelfTrait;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     private $m_properties;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     private $m_output;
     /**
      * entities resolution 
@@ -47,6 +108,10 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
             '::struct','::class','::interface', '::enum', '::meta'
         ];
     }
+    /**
+    * .ctr
+    * @return void
+    */
     public function __construct()
     {
         $this->m_output = [
@@ -57,6 +122,11 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
             '::current-file' => null,
         ];
     }
+    /**
+    * auto generate doc.
+    * @param mixed $key
+    * @return void
+    */
     protected function & _access_refoffset_get($key)
     {
         $n = null;
@@ -73,6 +143,11 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
         }
         return $n;
     }
+    /**
+    * auto generate doc.
+    * @param string $type
+    * @return void
+    */
     private function &_refOutput(string $type)
     {
         $n = null;
@@ -81,18 +156,34 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
         }
         return $n;
     }
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public function &getRefEnum()
     {
         return $this->_refOutput('enum');
     }
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public function &getRefClass()
     {
         return $this->_refOutput('class');
     }
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public function & getRefInterface()
     {
         return $this->_refOutput('interface');
     }
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public function & getRefStruct()
     {
         return $this->_refOutput('struct');
@@ -119,21 +210,36 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
         return key_exists($n, $this->m_properties);
     }
     /**
-     * 
-     * @return array{::files: array} 
-     */
+    * auto generate doc.
+    * @return array{::files: array}
+    */
     public function &getOutput()
     {
         return $this->m_output;
     }
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public function getCurrentFile()
     {
         return igk_getv($this->m_properties, '::current-file');
     }
+    /**
+    * auto generate doc.
+    * @param string $file
+    * @return void
+    */
     public function setCurrentFile(string $file)
     {
         $this->m_properties['::current-file'] = $file;
     }
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    * @param mixed & $v
+    * @return void
+    */
     protected function _access_offsetSet($n, &$v)
     {
         if (in_array($n, $this->getEntities())){
@@ -142,6 +248,11 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
         }
         $this->m_properties[$n] = $v;
     }
+    /**
+    * auto generate doc.
+    * @param mixed $key
+    * @return void
+    */
     protected function _access_offsetGet($key)
     {
         $n = null;
@@ -150,14 +261,28 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
         }
         return $n;
     }
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    * @return void
+    */
     protected function _access_offsetExists($n)
     {
         return key_exists($n, $this->m_properties);
     }
+    /**
+    * auto generate doc.
+    * @param mixed $n
+    * @return void
+    */
     public function _access_offset_unset($n)
     {
         unset($this->m_properties[$n]);
     }
+    /**
+    * auto generate doc.
+    * @return void
+    */
     public function & getRefFiles(){
         return $this->m_output['::files'];
     }
@@ -171,6 +296,11 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
     {
         return JSon::Encode($this->m_output, $options, $flag);
     }
+    /**
+    * .destructor
+    * @param string $key
+    * @return void
+    */
     public function &__get(string $key)
     {
         $n = null;
@@ -181,6 +311,13 @@ class MetadataEntityDefinition implements ArrayAccess,  IToJSon
         return $n;
     }
 }
+/**
+* auto generate doc.
+* @param mixed & $output
+* @param string $type
+* @param string $name
+* @return mixed
+*/
 function igk_metadata_store_files_def(&$output, string $type, string $name)
 {
     $rk = '::files';
@@ -193,14 +330,14 @@ function igk_metadata_store_files_def(&$output, string $type, string $name)
     $ref[$cf][$type][] = $name;
 }
 /**
- * 
- * @param mixed $callback 
- * @param string $dir 
- * @param array $exclude 
- * @param array &$output 
- * @param string $pattern 
- * @return void 
- */
+* auto generate doc.
+* @param mixed $callback
+* @param string $dir
+* @param array $exclude
+* @param array &$output
+* @param string $pattern
+* @return void
+*/
 function igk_metadata_treat_definition($callback, string $dir, array $exclude, &$output, string $pattern)
 {
     $dir = realpath($dir);

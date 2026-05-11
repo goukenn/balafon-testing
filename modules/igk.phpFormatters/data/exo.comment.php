@@ -1,9 +1,9 @@
 /**
 * auto generate doc.
 */
-
 /**
 * auto generate doc.
+* @return mixed
 */
 function x(){  
    if (true){ 

@@ -84,6 +84,11 @@ IO::GetFiles($dir, function ($f) use ($inf) {
         $inf->uses = [];
     }
 }, true, $v_exclude);
+/**
+* auto generate doc.
+* @param mixed $inf
+* @return mixed
+*/
 function treat($inf)
 {
     $src = file_get_contents($inf->file); # indication

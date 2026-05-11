@@ -4,7 +4,6 @@
 // @date: 20260506 08:11:54
 // @desc: split litteral
 // @command: balafon --run .test/pdf/split_litteral.php
- 
 
 $params || igk_die('missing data');
 

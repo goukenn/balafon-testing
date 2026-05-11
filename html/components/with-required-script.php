@@ -1,9 +1,9 @@
 <?php
 // @command: balafon --run .test/html/components/with-required-script.php
 use IGK\System\Html\CallableConstants;
-
 /**
 * auto generate doc.
+* @return mixed
 */
 function igk_html_node_demo_inject()
 {

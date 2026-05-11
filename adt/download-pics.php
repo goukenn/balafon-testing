@@ -30,6 +30,7 @@ if (false === strpos($url, '%s')){
 /**
 * auto generate doc.
 * @param mixed $v
+* @return mixed
 */
 function _hex($v){
     return str_pad(dechex($v), 2, '0', STR_PAD_LEFT);

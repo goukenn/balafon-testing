@@ -33,6 +33,8 @@ $book_title = igk_getv($params, 1) ?? 'BALAFON';
 interface IRtfBulletReference {}
 /**
 * auto generate doc.
+* @param string $s
+* @param mixed $separator
 * @return IRtfBulletReference
 */
 function getBulletRefererence(string $s, $separator = RtfConstants::BulletSeparator)

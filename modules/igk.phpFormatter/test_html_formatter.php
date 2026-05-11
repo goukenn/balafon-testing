@@ -19,6 +19,7 @@ $filter = igk_getv($params, 0);
 /**
 * auto generate doc.
 * @param string $src
+* @return mixed
 */
 function igk_php_formatter_format(string $src){
     $regex = new RegexMatcherContainer;        

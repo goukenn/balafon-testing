@@ -11,6 +11,7 @@ $mod = igk_require_module(\igk\devtools::class);
 require_once $mod->getTestClassesDir() . "/DocumentParserMockHttpClient.php";
 /**
 * auto generate doc.
+* @return mixed
 */
 function _getRenderDocument1()
 {

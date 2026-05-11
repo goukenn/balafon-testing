@@ -9,10 +9,11 @@ $regex = '/(a(?P<name>b)(=))(cord(ination|onnée))/';
 $regex = '/(a(?P<name>b)(=(cor)di(na)ti(?P<onlist>on)))/';
 preg_match($regex, $l, $tab, PREG_OFFSET_CAPTURE, 0);
 if (!function_exists('igk_regex_order_captures')) {
-/**
-* auto generate doc.
-* @param mixed $captures
-*/
+    /**
+    * auto generate doc.
+    * @param mixed $captures
+    * @return mixed
+    */
 function igk_regex_order_captures($captures)
     {
         return RegexTreatCapture::OrderCaptures($captures);
@@ -21,7 +22,11 @@ function igk_regex_order_captures($captures)
 if (!function_exists('igk_regex_treat_capture')) {
     /**
     * auto generate doc.
-    * @param callable(string $v
+    * @param string $source_value
+    * @param int $offset
+    * @param mixed $capture_info
+    * @param mixed $capture
+    * @param mixed $callable
     * @return void
     */
     function igk_regex_treat_capture(string $source_value, int $offset, $capture_info, $capture, $callable) {

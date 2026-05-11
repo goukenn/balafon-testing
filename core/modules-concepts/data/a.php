@@ -1,10 +1,21 @@
 <?php
-
+/**
+* auto generate doc.
+* @return mixed
+*/
 function a()
 {
     throw new TypeError("basic");
     igk_wln('invoke call : method a', $this->pList);
 }
+/**
+* auto generate doc.
+* @param mixed $x
+* @param mixed $b
+* @param int & $c
+* @param mixed $tab
+* @return mixed
+*/
 function b($x, $b= static::PAS_DUR, int & $c = 1, $tab=[12,   8,   6])
 {
     list($_this) = igk_extract(get_defined_vars(), '_this');

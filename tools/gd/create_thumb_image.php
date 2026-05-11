@@ -27,6 +27,7 @@ $_scale = igk_getv($command->options, '--scale', 'proportional');
 * @param mixed $type
 * @param mixed $compression
 * @param bool $antialias
+* @return mixed
 */
 function fit_cover($src, $w, $h, $type = 1, $compression = 0, bool $antialias = false)
     {

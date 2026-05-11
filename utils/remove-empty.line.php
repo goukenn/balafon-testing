@@ -43,6 +43,11 @@ function glue_js_code(string $code)
     }
     return $o;
 }
+/**
+* auto generate doc.
+* @param mixed $code
+* @return mixed
+*/
 function glue_on_header_code($code)
 {
     $regex = new RegexMatcherContainer;
@@ -72,9 +77,10 @@ function glue_on_header_code($code)
     return $pos;
 }
 /**
- * auto generate doc.
- * @param string $code
- */
+* auto generate doc.
+* @param string $code
+* @return mixed
+*/
 function glue_php_code(string $code)
 {
     $o = '';
@@ -99,9 +105,10 @@ function glue_php_code(string $code)
     return $o;
 }
 /**
- * auto generate doc.
- * @param mixed $content
- */
+* auto generate doc.
+* @param mixed $content
+* @return mixed
+*/
 function glue_rm_empty($content)
 {
     return  implode("\n", array_filter(explode("\n", $content), function ($s) {
@@ -109,9 +116,10 @@ function glue_rm_empty($content)
     }));
 }
 /**
- * auto generate doc.
- * @param mixed $file
- */
+* auto generate doc.
+* @param mixed $file
+* @return mixed
+*/
 function transform($file)
 {
     $content = file_get_contents($file);

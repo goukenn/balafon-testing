@@ -15,6 +15,12 @@ use IGK\System\Text\RegexMatcherUtility;
 
 $dir = igk_getv($params, 0) ?? igk_die('missing arg');
 is_dir($dir) || is_dir($dir = __DIR__."/".$dir) || igk_die('missing directory'.$dir);
+/**
+* auto generate doc.
+* @param string $file
+* @param null|mixed & $storage
+* @return mixed
+*/
 function igk_fix_php_treatBacktickExec(string $file, & $storage=null){
     $sb = new StringBuilder;
     $src = file_get_contents($file);

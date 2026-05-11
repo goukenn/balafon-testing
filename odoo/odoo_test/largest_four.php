@@ -2,6 +2,7 @@
 /**
 * auto generate doc.
 * @param mixed $tab
+* @return mixed
 */
 
 function LargestFour($tab){ $c = count($tab); $sum = 0; if ($c>0){ rsort($tab); $tab = array_slice($tab,0, 4); 

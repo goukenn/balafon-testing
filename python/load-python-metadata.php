@@ -21,29 +21,112 @@ require_once __DIR__ . '/../language/load-metadata-common.php';
  */
 class PythonEntityElement 
 {
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $name;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $type;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $docs;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $modifier;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $returnType;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $method_params;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $items;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $fullname;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $decorator;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $offset;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $src;
 }
 /**
- * 
- * @package 
- */
+* auto generate doc.
+*/
+/**
+* auto generate doc.
+* @package
+*/
 class PythonDoc
 {
     var $short;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $description;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $Attributes;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $Args;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $Raises;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $Example;
     /**
      * render documentation
@@ -111,7 +194,12 @@ if ($dir && !is_dir($dir)) {
 } else {
     igk_die('required directory');
 }
-
+/**
+* auto generate doc.
+* @param mixed $e
+* @param mixed $inf
+* @return mixed
+*/
 function python_meta_init_block_depth($e, $inf)
 {
     $inf->depth_start_def = $e->value;

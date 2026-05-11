@@ -10,7 +10,12 @@ use IGK\System\Console\Logger;
 use IGK\System\Php\Helper\PhpScriptUtility;
 use IGK\System\Text\RegexMatcherContainer;
 use IGK\System\Text\RegexMatcherUtility;
-
+/**
+* auto generate doc.
+* @param array & $list
+* @param string $file
+* @return mixed
+*/
 function detect_init(array & $list, string $file)
 {
     if (!isset($list[$file])) {
@@ -22,6 +27,12 @@ function detect_init(array & $list, string $file)
         ]);
     }
 }
+/**
+* auto generate doc.
+* @param array & $list
+* @param string $file
+* @return mixed
+*/
 function detect_comments(array &$list, string $file)
 {
     $src = file_get_contents($file);
@@ -68,6 +79,12 @@ function detect_comments(array &$list, string $file)
     }
     unset($list['::file']);
 }
+/**
+* auto generate doc.
+* @param string $src
+* @param array $rp
+* @return mixed
+*/
 function removeTargetInformation(string $src, array $rp)
 {
     $out = '';
@@ -80,6 +97,12 @@ function removeTargetInformation(string $src, array $rp)
     $out .= substr($src, $offset);
     return $out;
 }
+/**
+* auto generate doc.
+* @param array $list
+* @param bool $cleanAll
+* @return mixed
+*/
 function showAndRemoveCommentList(array $list, bool $cleanAll = false)
 {
     $v_canread_line = function_exists('readline');
@@ -102,11 +125,11 @@ function showAndRemoveCommentList(array $list, bool $cleanAll = false)
     }
 }
 /**
- * 
- * @param mixed $params 
- * @param mixed $command 
- * @return void 
- */
+* auto generate doc.
+* @param mixed $params
+* @param mixed $command
+* @return void
+*/
 function run_script($params, $command)
 {
 
@@ -134,11 +157,11 @@ function run_script($params, $command)
         Logger::info('no comment found.');
     }
 }
-
 /**
- * @var array $params
- * @var mixed $command
- */
+* auto generate doc.
+* @var array $params
+* @var mixed $command
+*/
 
 run_script($params, $command);
 igk_exit();

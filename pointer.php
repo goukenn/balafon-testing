@@ -11,6 +11,7 @@ igk_exit();
 * @param mixed & $str
 * @param mixed $data
 * @param mixed $offset
+* @return mixed
 */
 function str_insert(& $str, $data, $offset){
     $ln = strlen($str);

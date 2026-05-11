@@ -9,9 +9,10 @@ use IGK\Services\IAppService;
 */
 class PHPCodeFormatterService implements IAppService{
     /**
-     * initialize the service 
-     * @return bool 
-     */
+    * initialize the service
+    * @param mixed $configs
+    * @return bool
+    */
     public function init($configs = null): bool { 
         return true;
     }

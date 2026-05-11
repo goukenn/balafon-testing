@@ -13,8 +13,18 @@ use IGK\System\IO\File\PHPScriptBuilder;
 use IGK\System\Text\RegexMatcherContainer;
 
 require_once __DIR__ . '/../language/load-metadata-common.php';
+/**
+* auto generate doc.
+* @package
+*/
 class CSharpEntityFactory
 {
+    /**
+    * auto generate doc.
+    * @param string $type
+    * @param mixed $read_params
+    * @return void
+    */
     public static function CreateDefinition(string $type, $read_params)
     {
         $cl = PHPScriptBuilder::GetFullType('CSharpEntity' . ucfirst($type), __NAMESPACE__);
@@ -24,22 +34,81 @@ class CSharpEntityFactory
         }
     }
 }
+/**
+* auto generate doc.
+* @package
+*/
 class CSharpEntityMember
 {
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $name;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $docs;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $type;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $modifier;
 }
+/**
+* auto generate doc.
+* @package
+*/
 class CSharpEntityEvent extends CSharpEntityMember {}
+/**
+* auto generate doc.
+* @package
+*/
 class CSharpEntityDelegate extends CSharpEntityMember {}
+/**
+* auto generate doc.
+* @package
+*/
 class CSharpEntityMethod extends CSharpEntityMember {}
+/**
+* auto generate doc.
+* @package
+*/
 class CSharpEntityOperator extends CSharpEntityMethod {}
+/**
+* auto generate doc.
+* @package
+*/
 class CSharpEntityProperty extends CSharpEntityMember
 {
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $get = false;
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     var $set = false;
 }
+/**
+* auto generate doc.
+* @param mixed $i
+* @return mixed
+*/
 function igk_detect_csharp_reset_prop($i)
 {
     $i->type = null;
@@ -49,6 +118,11 @@ function igk_detect_csharp_reset_prop($i)
     $i->returnType = null;
     $i->propertyMarker = (object)[];
 }
+/**
+* auto generate doc.
+* @param mixed $i
+* @return mixed
+*/
 function igk_detect_update_name($i)
 {
     $v_fn = '';
@@ -59,10 +133,20 @@ function igk_detect_update_name($i)
     }
     $i->fullname = $v_fn;
 }
+/**
+* auto generate doc.
+* @param mixed $i
+* @return mixed
+*/
 function igk_detect_save_state($i)
 {
     array_push($i->states, $i->current);
 }
+/**
+* auto generate doc.
+* @param mixed $i
+* @return mixed
+*/
 function igk_detect_restore_state($i)
 {
     $tab = array_pop($i->states);
@@ -75,6 +159,13 @@ function igk_detect_restore_state($i)
         $i->items = null;
     }
 }
+/**
+* auto generate doc.
+* @param mixed $i
+* @param mixed $type
+* @param mixed $e
+* @return mixed
+*/
 function igk_detect_init_read($i, $type, $e)
 {
     if (!$i->read) {
@@ -104,6 +195,13 @@ function igk_detect_init_read($i, $type, $e)
         $i->read->token = $v;
     }
 }
+/**
+* auto generate doc.
+* @param string $src
+* @param mixed & $output
+* @param null|array $handler
+* @return mixed
+*/
 function igk_detect_csharp_metadata(string $src, &$output,  ?array $handler = null)
 {
     $regex = new RegexMatcherContainer;

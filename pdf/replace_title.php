@@ -2,6 +2,7 @@
 /**
 * auto generate doc.
 * @param mixed $str
+* @return mixed
 */
 
 function escape_pdf_string($str){
@@ -13,6 +14,7 @@ function escape_pdf_string($str){
 /**
 * auto generate doc.
 * @param mixed $timespan
+* @return mixed
 */
 function pdf_date_string($timespan){
     return sprintf('D:'.date('YmdHis', $timespan).'Z00\'00\'');

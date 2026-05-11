@@ -16,6 +16,7 @@ $cookie_file = __DIR__ . '/cookie.txt';
 /**
 * auto generate doc.
 * @param string $cookie_file
+* @return mixed
 */
 function load_cookie_file(string $cookie_file)
 {
@@ -60,6 +61,7 @@ $bss = '';
 * auto generate doc.
 * @param string $site
 * @param null|mixed $cf
+* @return mixed
 */
 function get_firefox_cookie(string $site, $cf = null)
 {

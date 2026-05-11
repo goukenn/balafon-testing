@@ -57,6 +57,7 @@ function igk_io_get_relativepath_2(string $source, string $target, string $separ
 * @param mixed $source
 * @param mixed $target
 * @param mixed $expected
+* @return mixed
 */
 function test($source, $target, $expected){
     $r = igk_io_get_relativepath_2($source, $target);

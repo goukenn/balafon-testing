@@ -1,12 +1,10 @@
 <?php
 
-# not supported 
+# not supported
 /**
- * 
- * @return void 
- * @overload public function is_data_info(int $x): int
- * @overload public function is_data_info(int $x, string $y): string
- */
+* auto generate doc.
+* @return void
+*/
 function is_data_info(){
 
 }

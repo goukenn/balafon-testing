@@ -52,6 +52,7 @@ $detector = (object)[
 * @param mixed $detector
 * @param mixed $a
 * @param mixed & $v_open
+* @return mixed
 */
 function python_detect_match($detector, $a, &$v_open = 0)
 {
@@ -78,6 +79,7 @@ function python_detect_match($detector, $a, &$v_open = 0)
 * @param mixed $detector
 * @param mixed $a
 * @param mixed & $list
+* @return mixed
 */
 function python_detect_symbol($detector, $a, &$list)
 {

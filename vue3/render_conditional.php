@@ -14,6 +14,7 @@ $d->div()->vIf('b')->Content = 'b';
 $d->clearChilds();
 /**
 * auto generate doc.
+* @return mixed
 */
 function igk_html_node_base_param()
 {

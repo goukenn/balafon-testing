@@ -33,10 +33,7 @@ foreach(Groups::select_all($cond = [
 if ($c){
     $query = sprintf('delete From `%s` WHERE clGroup_Id IN(%s);', Usergroups::table(), implode(',',$c));
     Logger::info('delete : '. $ad->sendQuery($query));
-} 
-/**
- * drop groups
- */
+}
 Groups::delete($cond);
 DbInitManagement::InitControllerProfile($ctrl,false);
 Logger::success('done');

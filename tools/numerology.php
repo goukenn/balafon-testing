@@ -6,6 +6,7 @@ for ($i = 0; $i < 26; $i++) {
 /**
 * auto generate doc.
 * @param mixed $ch
+* @return mixed
 */
 function isVowel($ch)
 {

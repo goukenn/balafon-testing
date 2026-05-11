@@ -95,6 +95,7 @@ $sess_id = isset($argv[3]) ? $argv[3] : null;
     if (!function_exists('igk_boot_request_environment')) {
         /**
         * auto generate doc.
+        * @param mixed $app
         * @return void
         */
         function igk_boot_request_environment($app) {

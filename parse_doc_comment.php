@@ -31,10 +31,6 @@ class A{
     public function doSome(){
     }
 }
-/**
- * parse document 
- * @package 
- */
 $ref = new ReflectionMethod('A', 'doSome');
 $cm = $ref->getDocComment();
 igk_wln_e($cm, PHPDocCommentParser::ParsePhpDocComment($cm));

@@ -1,7 +1,10 @@
 <?php
 /**
 * auto generate doc.
+* @param string $path
+* @param ?string & $new_path
 * @var \IGK\Controllers\BaseController $ctrl environment controller
+* @return mixed
 */
 use IGK\System\IO\Path;
 use IGK\System\IO\ResIdentifierConstants;

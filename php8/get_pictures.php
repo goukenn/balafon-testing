@@ -12,6 +12,7 @@ HTML);
 /**
 * auto generate doc.
 * @param mixed $n
+* @return mixed
 */
 function get_source($n){
     $t = $n->tagName();
@@ -26,6 +27,7 @@ function get_source($n){
 /**
 * auto generate doc.
 * @param mixed $n
+* @return mixed
 */
 function get_picture($n){
     return array_map(function($a){
@@ -72,6 +74,7 @@ class imageVisitor{
 }
 /**
 * auto generate doc.
+* @return mixed
 */
 function get_visitor(){ 
     static $visitor;

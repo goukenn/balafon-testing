@@ -19,6 +19,7 @@ $color = "";
 /**
 * auto generate doc.
 * @param mixed $src
+* @return mixed
 */
 function inline($src){
     return implode('', array_map('trim', explode("\n", $src)));

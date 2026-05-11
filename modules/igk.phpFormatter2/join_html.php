@@ -2,11 +2,11 @@
 // @command: balafon --run .test/module/igk.phpFormatter/join_html.php
 use IGK\System\Html\HtmlRenderer;
 use function igk_html_host as _h;
-
 /**
 * auto generate doc.
 * @param mixed $s
 * @param mixed $g
+* @return mixed
 */
 function render_ecap($s,$g){
     $t = $s->getTagName();

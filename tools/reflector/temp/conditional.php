@@ -2,8 +2,9 @@
 
 if (true) {
     /**
-     * auto generate doc.
-     */
+    * auto generate doc.
+    * @return mixed
+    */
     function conditional()
     {
         echo 'init conditional';
@@ -12,15 +13,17 @@ if (true) {
 } else {
     echo $j + 1;
     /**
-     * auto generate doc.
-     */
+    * auto generate doc.
+    * @return mixed
+    */
     function jump()
     {
         return 23;
     }
     /**
-     * auto generate doc.
-     */
+    * auto generate doc.
+    * @return mixed
+    */
     function conditional()
     {
         return 23;

@@ -229,6 +229,7 @@ function meta_updateParams($meta_definition, $location, string $type = 'func')
 }
 /**
 * auto generate doc.
+* @param string $n
 * @return string
 */
 function meta_param_name(string $n){
@@ -300,10 +301,10 @@ function meta_appendReplace($bf, $data){
     $bf->replaces[] = $data;
 }
 /**
- * 
- * @param mixed $bf 
- * @return mixed|null 
- */
+* auto generate doc.
+* @param mixed $bf
+* @return mixed|null
+*/
 function meta_popReplace($bf){
     return array_pop($bf->replaces);
 }
@@ -311,7 +312,7 @@ function meta_popReplace($bf){
 * auto generate doc.
 * @param mixed $src
 * @param mixed &$funcs
-* @param '\n' $docLineFeedPrefix
+* @param string|'\n' $docLineFeedPrefix
 * @return void
 */
 function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetadataGenerator::DOC_LF_PREFIX)
@@ -874,7 +875,7 @@ function meta_updateBufferList($bf, string $src)
 * auto generate doc.
 * @param string $buffer
 * @param mixed $rp
-* @return void
+* @return string
 */
 function meta_replace_value(string $buffer, $rp)
 {

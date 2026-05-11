@@ -1,9 +1,9 @@
 <?php
 use IGK\Helper\StringUtility;
-
 /**
 * auto generate doc.
 * @param mixed $str
+* @return mixed
 */
 function igk_str_snake2($str){
     $g = $str;

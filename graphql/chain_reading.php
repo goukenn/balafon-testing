@@ -20,6 +20,7 @@ class NGraphQlReader extends GraphQlParser
 /**
 * auto generate doc.
 * @param mixed $p
+* @return mixed
 */
 function to_null_prop($p)
 {

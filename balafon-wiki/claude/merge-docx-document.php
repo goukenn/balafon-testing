@@ -4,9 +4,9 @@
 // + |
 // @command: balafon --run .test/balafon-wiki/claude/merge-docx-document.php
 use IGK\Helper\IO;
-
 /**
 * auto generate doc.
+* @param array $files
 * @param string $output
 * @return void
 */

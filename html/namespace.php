@@ -2,9 +2,9 @@
 // @command: balafon --run .test/html/namespace.php
 use IGK\System\Html\Dom\HtmlNode;
 use function igk_html_host as _h;
-
 /**
 * auto generate doc.
+* @return mixed
 */
 function igk_html_node_details()
 {
@@ -14,6 +14,7 @@ function igk_html_node_details()
 }
 /**
 * auto generate doc.
+* @return mixed
 */
 function svg_details()
 {

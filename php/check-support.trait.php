@@ -27,6 +27,7 @@ class BaseB extends BaseA{
 * auto generate doc.
 * @param string $class_name
 * @param string $trait_class
+* @return mixed
 */
 function is_support_trait(string $class_name , string $trait_class){
     return igk_sys_reflect_is_support_trait($class_name, $trait_class);

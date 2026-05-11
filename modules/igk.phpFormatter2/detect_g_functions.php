@@ -84,6 +84,9 @@ $f_c_func->patterns = [
 ];
 /**
 * auto generate doc.
+* @param RegexMatcherContainer $regex
+* @param string $src
+* @param mixed & $list
 * @param string $file
 * @return void
 */

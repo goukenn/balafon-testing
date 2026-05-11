@@ -21,9 +21,8 @@ class TempOracle{
     */
     var $childs;
     /**
-     * 
-     * @var mixed
-     * @JSonBindAs(Int)
-     */
+    * auto generate doc.
+    * @var mixed
+    */
     var $age;
 }

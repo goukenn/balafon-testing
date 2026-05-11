@@ -2,12 +2,31 @@
 // + | --------------------------------------------------------------------
 // + | access to protected method not allowed 
 // + |
-
+/**
+* auto generate doc.
+* @package
+*/
 class TheDataClass{
+    /**
+    * auto generate doc.
+    * @var mixed
+    * @return void
+    */
     protected $sample;
+    /**
+    * auto generate doc.
+    * @param mixed $value
+    * @return void
+    */
     public function setSample($value){
         $this->sample = $value;
     }
+    /**
+    * auto generate doc.
+    * @param mixed $obj
+    * @param null|callable $callback
+    * @return void
+    */
     static function DoAction($obj, ?callable $callback=null){
         $fc =function() use($obj){
             echo 'show sample : '.$this->sample, PHP_EOL;

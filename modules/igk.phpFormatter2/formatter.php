@@ -21,6 +21,7 @@ require_once __DIR__ . '/PHPFormatterTmSyntaxTrait.php';
 * auto generate doc.
 * @param int $number
 * @param int $expected
+* @return mixed
 */
 function igk_assert_func_num_arg(int $number, int $expected)
 {
@@ -95,6 +96,10 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
     }
     /**
     * auto generate doc.
+    * @param StringBuilder $builder
+    * @param IFormatterInfo $info
+    * @param string $before
+    * @param string $data
     * @param int $at
     * @return void
     */
@@ -515,7 +520,11 @@ class PHPFormatter implements IFormatterBuild, IFormatterInfo
     }
     /**
     * auto generate doc.
-    * @param bool $glue
+    * @param string $value
+    * @param array $mark
+    * @param int $start
+    * @param mixed $builder
+    * @param bool $subchain
     * @return string
     */
     public static function UpdateMarkedValue(string $value, array $mark, int $start, $builder, bool $subchain)

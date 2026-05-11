@@ -1,15 +1,17 @@
 <?php
 
 if (true){
-/**
-* auto generate doc.
-*/
+    /**
+    * auto generate doc.
+    * @return mixed
+    */
 function a(){
     }
     if (phpversion()){
-/**
-* auto generate doc.
-*/
+        /**
+        * auto generate doc.
+        * @return mixed
+        */
 function b(){
         }
 /**
@@ -33,6 +35,10 @@ function b(){
         * auto generate doc.
         * @package test
         * @author C.A.D. BONDJE DOUE
+        */
+        /**
+        * auto generate doc.
+        * @package
         */
         class AA{
             /**

@@ -11,6 +11,7 @@ $out = igk_getv($params, 1) ?? __DIR__.'/out-mame/roms';
 * auto generate doc.
 * @param mixed $file
 * @param mixed $out
+* @return mixed
 */
 function convertToMame($file, $out){
     $n = igk_io_basenamewithoutext($file); 

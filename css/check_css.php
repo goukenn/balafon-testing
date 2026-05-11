@@ -4,9 +4,9 @@ use igk\bcssParser\System\IO\BcssParser;
 use IGK\System\Html\Css\CssMinifier;
 use IGK\System\Html\Css\CssParser;
 use IGK\System\Html\Dom\HtmlDocTheme;
-
 /**
 * auto generate doc.
+* @return mixed
 */
 function css_check()
 {
@@ -16,6 +16,7 @@ function css_check()
 }
 /**
 * auto generate doc.
+* @return mixed
 */
 function calc_check()
 {
@@ -31,6 +32,7 @@ function calc_check()
 /**
 * auto generate doc.
 * @param mixed $src
+* @return mixed
 */
 function check($src){ 
     $g = BcssParser::ParseFromContent($src);
@@ -44,6 +46,7 @@ function check($src){
 /**
 * auto generate doc.
 * @param string $str
+* @return mixed
 */
 function minify(string $str){
     $th = new HtmlDocTheme(null, 'test');

@@ -47,6 +47,7 @@ $tab = [
 /**
 * auto generate doc.
 * @param mixed $tab
+* @return mixed
 */
 function render($tab){
     $o = "";

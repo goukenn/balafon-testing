@@ -15,6 +15,7 @@ $l->loadFromArray($data);
 * auto generate doc.
 * @param null|mixed $clLogin
 * @param null|mixed $clPwd
+* @return mixed
 */
 function phone_def($clLogin=null, $clPwd=null){
     $l = Users::createEmptyRow(true, true)->loadFromArray(get_defined_vars());

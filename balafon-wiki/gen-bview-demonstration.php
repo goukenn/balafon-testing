@@ -29,6 +29,7 @@ igk_wln_e($n);
 * @param null|mixed $c
 * @param null|mixed $b
 * @param null|mixed $options
+* @return mixed
 */
 function igk_html_node_bview_demo($title=null, $c=null, $b=null, $options=null){
     $n = _h('div.bview-demo',);

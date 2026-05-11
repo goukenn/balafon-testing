@@ -75,6 +75,7 @@ function igk_get_class_traits($cl){
 /**
 * auto generate doc.
 * @param array $tab
+* @return mixed
 */
 function detect_cycle(array $tab){
     $slow = 0;

@@ -1,6 +1,7 @@
 <?php
 /**
 * auto generate doc.
+* @return mixed
 */
 
 function first(){

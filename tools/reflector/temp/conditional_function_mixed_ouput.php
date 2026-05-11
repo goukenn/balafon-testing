@@ -3,16 +3,18 @@
 
 if (!function_exists('jumping')){
     $a = 'sample';
-/**
-* auto generate doc.
-*/
+    /**
+    * auto generate doc.
+    * @return mixed
+    */
 function jumping(){
         echo 'jumping';
     }
     if (!function_exists('cad')){
-/**
-* auto generate doc.
-*/
+        /**
+        * auto generate doc.
+        * @return mixed
+        */
 function cad(){
             echo 'aaaa';
         }

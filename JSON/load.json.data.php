@@ -14,6 +14,10 @@ if (!class_exists('A', false)) {
     * @package test
     * @author C.A.D. BONDJE DOUE
     */
+    /**
+    * auto generate doc.
+    * @package
+    */
     class A
     {
         /**
@@ -47,10 +51,9 @@ if (!class_exists('A', false)) {
         */
         var $siri;
         /**
-         * 
-         * @var mixed
-         * @JSonBindAs(int)
-         */
+        * auto generate doc.
+        * @var mixed
+        */
         var $age;
         /**
         * auto generate doc.

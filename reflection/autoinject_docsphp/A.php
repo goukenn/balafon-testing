@@ -6,7 +6,7 @@
 if (true) {
     /**
     * auto generate doc.
-    * @return
+    * @return mixed
     */
     function conditional()
     {

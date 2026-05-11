@@ -8,9 +8,10 @@ $x = 4;
 if ($x) {
     echo 'the x';
     echo 'jumping ';
-/**
-* auto generate doc.
-*/
+    /**
+    * auto generate doc.
+    * @return mixed
+    */
 function xWrite()
     {
         echo "xwrite";
@@ -19,9 +20,10 @@ function xWrite()
 else {
     $i = 12;
     if ($cure) {
-/**
-* auto generate doc.
-*/
+        /**
+        * auto generate doc.
+        * @return mixed
+        */
 function xLocal()
         {
             echo 'xLocal';
