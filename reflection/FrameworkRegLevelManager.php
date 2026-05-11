@@ -3,6 +3,7 @@
 // @file: FrameworkRegLevelManager
 // @date: 20260228 08:56:23
 namespace IGK\System\Console\Commands\Utility;
+
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
 /**
@@ -210,7 +211,8 @@ class FrameworkRegLevelManager
             $d['type'] = $type;
         }
         if ($d) {
-            $d['location']=(object)$this->docLocationInfo->to_array();
+            if ($this->docLocationInfo)
+                $d['location']=(object)$this->docLocationInfo->to_array();
             $d['$r'] = $this->location;
             return (object)$d;
         }

@@ -19,7 +19,9 @@ use IGK\System\Text\RegexMatcherUtility;
 use IGK\System\Console\Commands\Utility\FrameworkMetadataGenerator;
 use IGK\System\Console\Commands\Utility\FrameworkMetadataRegexMatcherPattern;
 use IGK\System\Console\Commands\Utility\FrameworkRegLevelManager;
+use IGK\System\Console\Commands\Utility\IFrameworkRegLevelDocLocation;
 use IGK\System\Console\Helper\ConsoleUtility;
+use IGK\System\IO\Path;
 
 require_once __DIR__ . '/FrameworkMetadataGenerator.php';
 require_once __DIR__ . '/FrameworkMetadataRegexMatcherPattern.php';
@@ -38,7 +40,8 @@ if (ConsoleUtility::SupportHelp($command)) {
             '--dir:[]' => 'directory to analyse',
             '--regex:regex_to_handle_file' => 'regex for file matching',
             '--title:title' => 'framework title',
-            '--update-doc' => 'flag: update documents'
+            '--update-doc' => 'flag: update documents',
+            '--update-doc-outdir:[outdir]' => 'out dir',
         ]
     );
     igk_exit();
@@ -210,7 +213,7 @@ function meta_updateParams($meta_definition, $location, string $type = 'func')
             $ct->param = $otd;
         }
         if (!$ct->return && (preg_match('/@return\\b/', $v_doc) || ($type=='func'))) {
-            $ct->return = 'void';
+            $ct->return = 'mixed';
             $update = true;
         }
         if ($update) {
@@ -295,6 +298,14 @@ function meta_updateBuffer(
 */
 function meta_appendReplace($bf, $data){
     $bf->replaces[] = $data;
+}
+/**
+ * 
+ * @param mixed $bf 
+ * @return mixed|null 
+ */
+function meta_popReplace($bf){
+    return array_pop($bf->replaces);
 }
 /**
 * auto generate doc.
@@ -458,6 +469,9 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
                 ]);
             }
         },
+        'single-comment'=>function($e)use($funcs){
+            
+        },
         'php-docblock' => function ($e) use (&$doc_block, &$php_docmarker, &$funcs, $level, $docLineFeedPrefix) {
             $php_docmarker = $e->value;
             $level->docLocationInfo = Activator::CreateNewInstance(IFrameworkRegLevelDocLocation::class, $e);
@@ -471,7 +485,7 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
                     $doc  = FrameworkRegLevelManager::FormatDoc($php_docmarker, $e, $level->separator);
                     $bfr = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces;
                     if (!is_null($level->docReplaceWith)) {
-                        array_pop($bfr);
+                        meta_popReplace($funcs[FrameworkMetadataGenerator::PROP_BUFFER]);
                     }
                     meta_appendReplace($funcs[FrameworkMetadataGenerator::PROP_BUFFER], 
                     // $bfr[] = 
@@ -535,23 +549,23 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
                     $c->return = $return;
                 }
                 $tt = isset($funcs[FrameworkMetadataGenerator::PROP_INDEF]) ? 'subfunc' : 'func';
-                if (isset($c->doc)) {
-                    $reader = new PhpDocBlocReader();
-                    $c_doc = $reader->readDoc($c->doc, [], []);
-                    if (is_null($c_doc->return)) {
-                        $c_doc->return = '';
-                        $c->doc = $c_doc->render();
-                        if (isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
-                            // + | replace last detected buffer 
-                            if ($rep = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces) {
-                                if (!is_array($rep)) {
-                                    igk_wln_e(__FILE__ . ":" . __LINE__, 'null container ... ');
-                                }
-                                $rep[count($rep) - 1]->s = $docLineFeedPrefix . FrameworkRegLevelManager::FormatDoc($c->doc, $e, $level->separator);
-                            }
-                        }
-                    }
-                }
+                // if (isset($c->doc)) {
+                //     $reader = new PhpDocBlocReader();
+                //     $c_doc = $reader->readDoc($c->doc, [], []);
+                //     if (is_null($c_doc->return)) {
+                //         $c_doc->return = '';
+                //         $c->doc = $c_doc->render();
+                //         if (isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
+                //             // + | replace last detected buffer 
+                //             if ($rep = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces) {
+                //                 if (!is_array($rep)) {
+                //                     igk_wln_e(__FILE__ . ":" . __LINE__, 'null container ... ');
+                //                 }
+                //                 $rep[count($rep) - 1]->s = $docLineFeedPrefix . FrameworkRegLevelManager::FormatDoc($c->doc, $e, $level->separator);
+                //             }
+                //         }
+                //     }
+                // }
                 meta_updateBuffer($e, $c, $funcs, $src, $tt);
             }
         },
@@ -622,8 +636,8 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
             if (is_object($d)) {
                 $v_p['location'] = $d->location;
             } else {
-                $v_p['location'] = $level->docLocationInfo;
-                igk_die(__FILE__.":".__LINE__ .':: not an object');
+                //$v_p['location'] = $level->docLocationInfo;
+                //igk_die(__FILE__.":".__LINE__ .':: not an object');
             }
             $c = (object)array_filter($v_p);
             meta_updateBuffer($e, $c, $funcs, $src, 'subfunc');
@@ -748,9 +762,14 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
     unset($funcs['::live-doc']);
 }
 $c = igk_getv($command->options, '--dir') ?? IGK_LIB_DIR;
+$update_out_dir = igk_getv($command->options, '--update-doc-outdir');
 $update_doc = property_exists($command->options, '--update-doc');
 if ($regex = igk_getv($command->options, '--regex', null)) {
     $regex = "/" . $regex . "/";
+}
+
+if ($update_out_dir){
+    IO::CreateDir($update_out_dir);
 }
 $extra = null;
 if (property_exists($command->options, '--author')) {
@@ -796,11 +815,13 @@ $funcs = [
 if ($extra) {
     $funcs[FrameworkMetadataGenerator::PROP_TYPE_EXTRA_DEF] = $extra;
 }
+$c = realpath($c);
 $ln = strlen($c) + 1;
-$treat = function ($tf) use (&$funcs, $ln, $update_doc) {
+$treat = function ($tf) use (&$funcs, $ln, $update_doc, $update_out_dir) {
     if (is_link($tf)) return;
     Logger::info('treat ' . $tf);
-    $rc = './' . substr($tf, $ln);
+    $path = substr($tf, $ln);
+    $rc = './' . $path;
     $buffer = '';
     if ($update_doc) {
         // + | init buffer 
@@ -813,6 +834,9 @@ $treat = function ($tf) use (&$funcs, $ln, $update_doc) {
     $update_doc && meta_updateBufferList($funcs[FrameworkMetadataGenerator::PROP_BUFFER], $c);
     if ($update_doc && $buffer) {
         Logger::warn('update file: ' . $tf);
+        if ($update_out_dir){
+            $tf = Path::Combine($update_out_dir, $path);
+        }
         igk_io_w2file($tf, $buffer);
     }
     unset($funcs[FrameworkMetadataGenerator::PROP_BUFFER]);

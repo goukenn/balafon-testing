@@ -1,4 +1,7 @@
 <?php
+
+namespace IGK\System\Console\Commands\Utility;
+
 /**
 * auto generate doc.
 * @package
