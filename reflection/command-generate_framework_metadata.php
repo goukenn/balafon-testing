@@ -4,7 +4,7 @@
 // @date: 20260211 16:45:47 
 // @command: balafon --run .test/reflection/command-generate_framework_metadata.php
 // @usage : --dir:directory_to_check --regex:regex_to_handle_file --url:download_uri --title:framework_title [--update-doc]
-// + | -------------------------------------------------------------------------
+// + | -------------------------------------------------------------------------------------------------------------------
 // + | detect reflection function/classes/traits/interface/conditional. build balafon metadata  sdk.json
 // + |
 
@@ -192,7 +192,7 @@ function meta_updateParams($meta_definition, $location, string $type = 'func')
 
             $dt = $v_params;
             $otd = [];
-           // $ix = 0;
+           
             while (count($dt)) {
                 $q = array_shift($dt);
                 $vtype = 'mixed';
@@ -283,7 +283,7 @@ function meta_updateBuffer(
         $v_replaceDefinition->from = $e->from;
         $v_replaceDefinition->to = $e->from;
     } else {
-        //$doc = '';
+        
     }
     $doc = $c->doc;
     $doc = $docLineFeedPrefix . FrameworkRegLevelManager::FormatDoc($doc, $e, $tabSeparator);
@@ -488,7 +488,7 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
                         meta_popReplace($funcs[FrameworkMetadataGenerator::PROP_BUFFER]);
                     }
                     meta_appendReplace($funcs[FrameworkMetadataGenerator::PROP_BUFFER], 
-                    // $bfr[] = 
+                    
                     (object)['from' => $e->from, 'to' => $e->to, 's' => $docLineFeedPrefix . $doc]);
 
                     $level->docReplaceWith = $php_docmarker;
@@ -549,23 +549,23 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
                     $c->return = $return;
                 }
                 $tt = isset($funcs[FrameworkMetadataGenerator::PROP_INDEF]) ? 'subfunc' : 'func';
-                // if (isset($c->doc)) {
-                //     $reader = new PhpDocBlocReader();
-                //     $c_doc = $reader->readDoc($c->doc, [], []);
-                //     if (is_null($c_doc->return)) {
-                //         $c_doc->return = '';
-                //         $c->doc = $c_doc->render();
-                //         if (isset($funcs[FrameworkMetadataGenerator::PROP_BUFFER])) {
-                //             // + | replace last detected buffer 
-                //             if ($rep = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces) {
-                //                 if (!is_array($rep)) {
-                //                     igk_wln_e(__FILE__ . ":" . __LINE__, 'null container ... ');
-                //                 }
-                //                 $rep[count($rep) - 1]->s = $docLineFeedPrefix . FrameworkRegLevelManager::FormatDoc($c->doc, $e, $level->separator);
-                //             }
-                //         }
-                //     }
-                // }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 meta_updateBuffer($e, $c, $funcs, $src, $tt);
             }
         },
@@ -636,8 +636,8 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
             if (is_object($d)) {
                 $v_p['location'] = $d->location;
             } else {
-                //$v_p['location'] = $level->docLocationInfo;
-                //igk_die(__FILE__.":".__LINE__ .':: not an object');
+                
+                
             }
             $c = (object)array_filter($v_p);
             meta_updateBuffer($e, $c, $funcs, $src, 'subfunc');
@@ -757,7 +757,7 @@ function meta_getGlobalFuncs($src, &$funcs, $docLineFeedPrefix = FrameworkMetada
     if ($php_docmarker){
         $v_replaces = &$funcs[FrameworkMetadataGenerator::PROP_BUFFER]->replaces;
         $v_replaces[] = (object)['from'=>$level->docLocationInfo->from, 'to'=>$level->docLocationInfo->to, 's'=>''];    
-        //igk_wln_e("end doc block....", $level);
+        
     }
     unset($funcs['::live-doc']);
 }

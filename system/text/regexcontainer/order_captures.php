@@ -28,23 +28,7 @@ if (!function_exists('igk_regex_treat_capture')) {
         return RegexTreatCapture::TreatCapture($source_value, $offset, $capture_info, $capture, $callable);
     }
 }
-/*
-$tl = array_shift($tab);
-$capture_info = igk_regex_order_captures($tab);  
-$capture = [
-    2 => "meta.capture.render",
-    'onlist' => function ($cap, $c) {
-        $cap->data = '@'.$cap->value;
-    },
-    6 => function ($cap, $c) {
-        $cap->data = '@@@'.$cap->value;
-    }
-];  
-$l = igk_regex_treat_capture($tl[0], $tl[1], $capture_info, $capture, function ($cap, $info) {
-    list($id, $patterns) = $info ? igk_extract($info, 'name|patterns') : [0, 0];
-    $cap->data = '[*presentation*]';
-}); 
-*/
+
 preg_match('/.+(?P<type>\\b(?:admin|user)\\b).+/', implode("\n", 
 ['presentation of : user plus info',
 'mardi',

@@ -9,18 +9,7 @@ use IGK\System\IO\VCF\VCard;
 // + | $c = new PhoneConverter;
 // + | $r = $c->treat('07544555');
 
-/*
-saving - phone books entry 
-PhoneBookUtility::LoadEntryData([
-    "firstname"=>'Charles A.D.',
-    "lastname"=>'BONDJE DOUE',
-    "title"=>'IT INGENIER',
-    'birthday'=>'1983-08-04',
-    'rrn'=>'',
-    'email'=>['cbondje@igkdev.com', 'bondje.doue@gmail.com']
-], $user);
-*
-*/
+
 $user = null;
 $for = igk_getv($command->options, '--u');
 if ($for){

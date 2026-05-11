@@ -7,7 +7,7 @@ $files = [
     '/Volumes/Data/Documents/FormationOdoo2026/CoderBytes/php/exam-codelangusernamevalidation.php',
 ];
 $n = sys_get_temp_dir().'/'.basename($files[0]);
-// rename($n, $n = $n.'.php');
+
 $tempfile = $n;
 $src = file_get_contents(array_shift($files));
 

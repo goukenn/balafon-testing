@@ -6,6 +6,7 @@ namespace IGK\System\Console\Commands\Utility;
 
 use IGK\System\Console\Logger;
 use IGK\System\Text\RegexMatcherContainer;
+use IGK\System\Console\Commands\Utility\IFrameworkRegLevelManager;
 /**
 * auto generate doc.
 * @package IGK
@@ -45,7 +46,7 @@ class FrameworkRegLevelManager
     * @param mixed $tabSeparator
     */
     public static function FormatDoc(string $doc, $e, $tabSeparator)
-    {
+    { 
         $d = FrameworkRegLevelManager::GetDepth($e);
         $tab = str_repeat($tabSeparator, $d); 
         $doc = $tab . implode("\n" . $tab, array_map('trim', explode("\n", $doc)));

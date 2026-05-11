@@ -13,10 +13,7 @@ use igk\Windows\Rtf\RftViewKinds;
 use igk\Windows\Rtf\RtfBulletNFCTypes;
 use igk\Windows\Rtf\RtfTable;
 
-/*
-## Table des matiÃ¨res
-1. [ Introduction aux formulaires](#91---introduction-aux-formulaires)
-*/
+
 $src = <<<'MD'
 # Chapitre 1: Introduction 
 ## I. Architecture gÃ©nÃ©rale

@@ -167,8 +167,8 @@ class MarkdownToPdfListener implements IMarkdownConverterListener
         $doc = new PDFDocument();
         $renderer = new MarkdownToPdfItemRenderer;
         $renderer->doc = $doc;
-        // $doc->fillRect("gold", "0", "20pt", "20mm", "277mm");
-        // $doc->p()->setStyle("color:black;font-size:32pt; top:28pt; left:3mm")->Content ="IGKDEV FPDF Helper";
+        
+        
 
         foreach ($this->m_items as $item) {
             $renderer->render($item);
@@ -296,15 +296,15 @@ class MarkdownToPdfItemLi extends MarkdownToPdfItemBase
 
 
 $src = implode("\n", [
-    // '# level 1',
-    // '## level 2',
-    // '### level 3',
-    // '#### level 4',
-    // '##### level 5',
-    // '###### level 6',
-    // 'comme tout le monde est sur la place tout baigne.',
-    // '\\page-break',
-    // 'disons demain',
+    
+    
+    
+    
+    
+    
+    
+    
+    
     '- mangoes',
     '- potatoes',
     '- pb-data',
